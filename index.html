@@ -429,6 +429,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -614,13 +615,6 @@ async function ghSave(){
   }
 }
 
-async function init(){
-  localLoad();
-  if(CFG.ghToken)await ghLoad();
-  else if(CFG.supaUrl)await syncCloud();
-  fetchLiveRates().then(ok=>{if(ok)renderAll();});
-  renderAll();
-}
 /* ── Layer state ── */
 let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
@@ -720,14 +714,6 @@ function setupSwipeBack(el){
   },{passive:true,once:true});
 }
 
-function renderTimerBanner(){
-  const b=document.getElementById('timerBanner');
-  if(!timerObj){if(b)b.style.display='none';return;}
-  if(b)b.style.display='flex';
-  const m=D.matters.find(x=>x.id===timerObj.matterId);
-  const tl=document.getElementById('tLbl');
-  if(tl)tl.textContent=m?m.name:'타이머';
-}
 
 /* ════════════════════════════════════════════
    LAYER 1: DASHBOARD (no scroll, fits screen)
@@ -2034,6 +2020,9 @@ function saveSettings(){
 window.addEventListener('resize',()=>renderAll());
 init();
 
+
+window.addEventListener("resize",()=>renderAll());
+init();
 
 window.addEventListener("resize",()=>renderAll());
 init();
