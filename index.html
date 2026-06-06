@@ -501,6 +501,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -1228,6 +1229,7 @@ let _selClientId=null, _selContactId=null;
 
 /* ── 고객사 목록 ── */
 function renderClientsPage(){
+  if(curLayer==='contact_detail') return renderContactDetail(null);
   if(curLayer==='client_detail') return renderClientDetail();
   if(curLayer==='client_edit') return renderClientEdit();
   const clients=(D.clients||[]).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
@@ -1624,7 +1626,8 @@ function handleBack(){
   } else if(curLayer==='entry_detail'){
     curLayer=null; // _queryMode='time' 유지 → 시간 목록으로
   } else if(curLayer==='contact_detail'){
-    if(_queryMode==='clients'&&_selClientId){curLayer='client_detail';}
+    // contact_detail에서: 고객사에서 왔으면 client_detail로, 명함탭에서 왔으면 목록으로
+    if(_selClientId){curLayer='client_detail';}
     else{curLayer=null;}
   } else if(curLayer==='client_detail'){
     curLayer=null; // _queryMode='clients' 유지 → 고객사 목록으로
@@ -2212,6 +2215,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
