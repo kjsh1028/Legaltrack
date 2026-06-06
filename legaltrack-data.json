@@ -22,6 +22,15 @@
       "starred": false
     }
   ],
-  "entries": [],
+  "entries": [
+    {
+      "id": "mq1w6co5ffbjs",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-05",
+      "minutes": 60,
+      "description": "일정관리표와 관련 문서 초안 작성",
+      "billable": true
+    }
+  ],
   "payments": []
 }
