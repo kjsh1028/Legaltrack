@@ -502,6 +502,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -692,6 +693,7 @@ let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
 let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all';
 let _timePresetQ='month', _timeFrom='', _timeTo='';
+let _prevLayer=null, _prevTab=0; // 이전 레이어 추적
 let _selectedMatterId=null, _selectedEntryId=null;
 
 /* ════════════════════════════════════════════
@@ -848,7 +850,7 @@ function renderMattersList(statusKey){
     const rb=getRetainerBase(m);
     const retK=retainerKRW(m);
     const mt=MTYPE[m.type||'time-b'];
-    return`<div class="list-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+    return`<div class="list-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div class="li-body">
         <div class="li-name">${m.starred?'⭐ ':''}${m.name}</div>
         <div class="li-meta">${mt.ico} ${mt.label}${m.client?' · '+m.client:''}</div>
@@ -950,7 +952,7 @@ function mListItem(m){
   const prog=payProgress(m);
   const mins=D.entries.filter(e=>e.matterId===m.id).reduce((a,e)=>a+e.minutes,0);
   const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':mt.tagCls==='red'||mt.tagCls==='r'?'r':mt.tagCls==='gold'||mt.tagCls==='o'?'o':'gray';
-  return`<div class="list-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+  return`<div class="list-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
   <div class="li-body">
     <div class="li-name">${m.starred?'⭐ ':''}${m.name}</div>
     <div class="li-meta">${mt.ico} ${mt.label}${m.client?' · '+m.client:''}</div>
@@ -981,7 +983,7 @@ function renderMattersPage(){
     <div class="group-hdr" style="color:${statusColors[key]}">${statusLabels[key]} <span style="color:var(--text3);font-weight:400;font-size:12px">${items.length}건</span></div>
     ${items.map(m=>{
       const rb=getRetainerBase(m);const mt=MTYPE[m.type||'time-b'];
-      return`<div class="list-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+      return`<div class="list-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
         <div class="li-body">
           <div class="li-name">${m.starred?'⭐ ':''}${m.name}</div>
           <div class="li-meta">${mt.ico} ${mt.label}${m.client?' · '+m.client:''}</div>
@@ -1048,7 +1050,7 @@ function renderMattersQuery(){
     const mt=MTYPE[m.type||'time-b'];
     const rb=getRetainerBase(m);
     const mst=MSTATUS[m.status||'active'];
-    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div style="flex:1;min-width:0">
         <div class="qri-name">${m.name}</div>
         <div style="font-size:11px;color:var(--text3)">${mst.label}${m.client?' · '+m.client:''}</div>
@@ -1211,7 +1213,7 @@ function renderMoneyResults(){
       if(_moneyType==='retainer'){const rb=getRetainerBase(m);amtDisplay=rb.amount?fmtM(rb.amount,rb.currency):'—';}
       else if(_moneyType==='payment'){const pays=(D.payments||[]).filter(p=>p.matterId===m.id);const byCur={};pays.forEach(p=>{byCur[p.currency||'KRW']=(byCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});amtDisplay=Object.entries(byCur).map(([c,a])=>fmtM(a,c)).join('+');}
       else{amtDisplay=fmtM(m.contingency_amount,m.retainer_cur||'KRW');}
-      return`<div class="qr-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+      return`<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
         <span class="qri-name">${m.name}</span>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
           <span class="qri-time" style="color:${mt.color}">${amtDisplay}</span>
@@ -1308,7 +1310,7 @@ function renderClientDetail(){
   </div>`).join('')}</div>`}
   <!-- 관련 Matter -->
   ${matters.length>0?`<div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 6px">관련 사건 ${matters.length}건</div>
-  <div class="entry-list" style="margin-bottom:10px">${matters.map(m=>{const rb=getRetainerBase(m);const mt=MTYPE[m.type||'time-b'];return`<div class="entry-row" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+  <div class="entry-list" style="margin-bottom:10px">${matters.map(m=>{const rb=getRetainerBase(m);const mt=MTYPE[m.type||'time-b'];return`<div class="entry-row" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
     <span style="font-size:12px;color:${mt.color};flex-shrink:0;width:70px">${m.code}</span>
     <span style="flex:1;font-size:13px">${m.name}</span>
     ${rb.amount?`<span style="font-size:12px;font-weight:700;color:${mt.color}">${fmtM(rb.amount,rb.currency)}</span>`:''}
@@ -1616,27 +1618,30 @@ function closeModal(){
 }
 
 function handleBack(){
-  // 3단계 → 2단계
   if(curLayer==='matter_detail'){
-    // matter_detail에서 뒤로: curLayer만 null, _queryMode 유지 → 2단계 목록으로
-    curLayer=null;
-    // clients/contacts에서 왔으면 해당 목록으로
-    if(_queryMode==='clients'){curLayer='client_detail'; /* actually go to list */ curLayer=null;}
-    // _queryMode 유지: 시간/수임/사건 목록으로 돌아감
+    // matter_detail에서: _prevLayer로 어디서 왔는지 확인
+    if(_prevLayer==='matters_list'||_prevLayer==='active_list'){
+      // 홈의 진행중/완료 목록에서 왔음
+      curLayer=_prevLayer;_prevLayer=null;
+    } else {
+      // 조회(사건/수임액 등)에서 왔음 → 해당 조회 결과로
+      curLayer=null;
+      // _queryMode 유지됨
+    }
   } else if(curLayer==='entry_detail'){
-    curLayer=null; // _queryMode='time' 유지 → 시간 목록으로
+    curLayer=null;
   } else if(curLayer==='contact_detail'){
-    // contact_detail에서: 고객사에서 왔으면 client_detail로, 명함탭에서 왔으면 목록으로
     if(_selClientId){curLayer='client_detail';}
     else{curLayer=null;}
   } else if(curLayer==='client_detail'){
-    curLayer=null; // _queryMode='clients' 유지 → 고객사 목록으로
-  } else if(curLayer==='matters_list'||curLayer==='active_list'){
-    // 홈에서 진입한 경우
     curLayer=null;
-  } else {
+  } else if(curLayer==='matters_list'||curLayer==='active_list'){
+    curLayer=null;
+  } else if(_queryMode){
     // 조회 결과 → 조회 선택 화면
     _queryMode=null;curLayer=null;
+  } else {
+    curLayer=null;
   }
   renderContent();
 }
@@ -1657,7 +1662,7 @@ function renderAchievement(){
     const mt=MTYPE[m.type||'time-b'];
     const rb=getRetainerBase(m);
     const payK=paymentKRW(m);
-    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div style="flex:1;min-width:0">
         <div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
         ${m.client?`<div style="font-size:11px;color:var(--text3)">${m.client}</div>`:''}
@@ -2215,6 +2220,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
