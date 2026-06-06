@@ -136,7 +136,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .mc{border-radius:13px;padding:13px;margin-bottom:9px;box-shadow:var(--shadow);background:var(--white);cursor:pointer;position:relative}
 .mc.time-b{border-left:4px solid var(--green)}.mc.fixed-f{border-left:4px solid var(--purple)}
 .mc.biz-b{border-left:4px solid var(--gold)}.mc.office-i{border-left:4px solid var(--gray)}
-.mc.failed{border-left:4px solid var(--red);opacity:.8}.mc.closed{border-left:4px solid var(--teal);opacity:.9}.mc.retainer{border-left:4px solid var(--blue)}
+.mc.failed{border-left:4px solid var(--red);opacity:.8}.mc.closed{border-left:4px solid var(--teal);opacity:.9}.mc.retainer{border-left:4px solid var(--blue)}.mc.litigation{border-left:4px solid var(--red)}
 .mc-top{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;flex-wrap:wrap}.mc-name{font-size:13px;font-weight:600;flex:1}
 .mc-tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:1px}
 .tag{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:600;white-space:nowrap}
@@ -213,7 +213,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .tt{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px}
 .tt-b{padding:9px;border-radius:10px;border:2px solid var(--border);background:var(--white);cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
 .tt-b.on.g{background:var(--green-l);border-color:var(--green);color:var(--green)}.tt-b.on.p{background:var(--purple-l);border-color:var(--purple);color:var(--purple)}
-.tt-b.on.gold{background:var(--gold-l);border-color:var(--gold);color:var(--gold)}.tt-b.on.gray{background:var(--gray-l);border-color:var(--gray);color:var(--gray)}.tt-b.on.b{background:var(--blue-l);border-color:var(--blue);color:var(--blue)}.tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}.tt-b.on.orange{background:var(--orange-l);border-color:var(--orange);color:var(--orange)}
+.tt-b.on.gold{background:var(--gold-l);border-color:var(--gold);color:var(--gold)}.tt-b.on.gray{background:var(--gray-l);border-color:var(--gray);color:var(--gray)}.tt-b.on.b{background:var(--blue-l);border-color:var(--blue);color:var(--blue)}.tt-b.on.red{background:var(--red-l);border-color:var(--red);color:var(--red)}.tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}.tt-b.on.orange{background:var(--orange-l);border-color:var(--orange);color:var(--orange)}
 .tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}
 .tt-ico{font-size:19px;display:block;margin-bottom:2px}.tt-lbl{font-size:12px;font-weight:700}.tt-sub{font-size:10px;color:var(--text3);margin-top:1px}
 .cur-row{display:flex;gap:5px;align-items:flex-end}.cur-row .field{flex:1}.cur-row .field.cs{flex:0 0 85px}
@@ -318,14 +318,36 @@ function numInput(el){el.value=addCommas(el.value);}
 function getRaw(id){return parseFloat((document.getElementById(id)?.value||'0').replace(/,/g,''))||0;}
 function statsNow(){const now=new Date(),ws=new Date(now);ws.setDate(now.getDate()-now.getDay());ws.setHours(0,0,0,0);const ms=new Date(now.getFullYear(),now.getMonth(),1);return{today:D.entries.filter(e=>e.date===today()).reduce((s,e)=>s+e.minutes,0),week:D.entries.filter(e=>new Date(e.date+'T00:00:00')>=ws).reduce((s,e)=>s+e.minutes,0),month:D.entries.filter(e=>new Date(e.date+'T00:00:00')>=ms).reduce((s,e)=>s+e.minutes,0),total:D.entries.reduce((s,e)=>s+e.minutes,0)};}
 async function fetchLiveRates(){try{const r=await fetch('https://open.er-api.com/v6/latest/KRW');const d=await r.json();if(d.rates?.USD){CFG.usdKrw=Math.round(1/d.rates.USD);CFG.cnyKrw=Math.round(1/d.rates.CNY);saveCFG();return true;}}catch(e){}try{const r=await fetch('https://api.exchangerate-api.com/v4/latest/KRW');const d=await r.json();if(d.rates?.USD){CFG.usdKrw=Math.round(1/d.rates.USD);CFG.cnyKrw=Math.round(1/d.rates.CNY);saveCFG();return true;}}catch(e){}return false;}
-const MTYPE={'time-b':{label:'Time Billing',ico:'⏱',cls:'time-b',tagCls:'g',color:'var(--green)'},'fixed-f':{label:'Fixed Fee',ico:'💰',cls:'fixed-f',tagCls:'p',color:'var(--purple)'},'retainer':{label:'연간 자문',ico:'📅',cls:'retainer',tagCls:'b',color:'var(--blue)'},'biz-b':{label:'Biz Building',ico:'🤝',cls:'biz-b',tagCls:'gold',color:'var(--gold)'},'office-i':{label:'Office 내부',ico:'🏢',cls:'office-i',tagCls:'gray',color:'var(--gray)'}};
+const MTYPE={
+  'time-b':{label:'Time Billing',ico:'⏱',cls:'time-b',tagCls:'g',color:'var(--green)'},
+  'fixed-f':{label:'Fixed Fee',ico:'💰',cls:'fixed-f',tagCls:'p',color:'var(--purple)'},
+  'litigation':{label:'소송',ico:'⚖️',cls:'litigation',tagCls:'red',color:'var(--red)'},
+  'retainer':{label:'연간 자문',ico:'📅',cls:'retainer',tagCls:'b',color:'var(--blue)'},
+  'biz-b':{label:'Biz Building',ico:'🤝',cls:'biz-b',tagCls:'gold',color:'var(--gold)'},
+  'office-i':{label:'Office 내부',ico:'🏢',cls:'office-i',tagCls:'gray',color:'var(--gray)'}
+};
 const MSTATUS={'prospect':{label:'수임 진행중',tagCls:'orange'},'active':{label:'수임 완료',tagCls:'g'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
 const ATYPE={'solo':{label:'단독 수임',desc:'100%'},'china-collab':{label:'중국 관련 협업',desc:'전체 100%'},'korea-collab':{label:'순수 한국 건 협업',desc:'내 비율'},'team-originate':{label:'타팀 발굴 공동',desc:'내 비율'},'team-referral':{label:'타팀 수임→우리 실행',desc:'실제 빌링'},'kjm-jya':{label:'김정민/주영애 수임',desc:'100%'},'biz':{label:'Biz Building',desc:'해당없음'},'office':{label:'Office 내부',desc:'해당없음'}};
 const FAIL_REASONS=['보수 조건 불일치','다른 로펌 선택','예산 부족','프로젝트 취소','의뢰인 내부 결정','경쟁입찰 패배','연락 두절','기타'];
 function getRetainerBase(m){
   if(m.type==='time-b')return{amount:m.cap_amount||m.estimated_amount||0,currency:m.cap_cur||'KRW'};
   if(m.type==='retainer')return{amount:m.ret_total||0,currency:m.ret_cur||m.retainer_cur||'KRW'};
+  // litigation: base = 착수금 + 잔금 (성공보수 제외)
+  if(m.type==='litigation'){
+    const base=(parseFloat(m.lit_retainer||0)+parseFloat(m.lit_balance||0));
+    return{amount:base||0,currency:m.retainer_cur||'KRW'};
+  }
   return{amount:m.retainer_amount||0,currency:m.retainer_cur||'KRW'};
+}
+// 성공보수 예정액 (업적에서 제외, 별도 표시)
+function getContingency(m){
+  if(!m.contingency_amount)return null;
+  return{amount:parseFloat(m.contingency_amount||0),currency:m.retainer_cur||'KRW',condition:m.contingency_condition||''};
+}
+// 전체 성공보수 합계 (모든 Matter)
+function totalContingencyKRW(){
+  return D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
+    .reduce((a,m)=>a+toKRW(m.contingency_amount,m.retainer_cur),0);
 }
 function retainerKRW(m){if(['biz-b','office-i'].includes(m.type||'')||m.status==='failed')return 0;const b=getRetainerBase(m);return applyRatio(toKRW(b.amount,b.currency),m);}
 function paymentKRW(m){if(['biz-b','office-i'].includes(m.type||'')||m.status==='failed')return 0;const paid=(D.payments||[]).filter(p=>p.matterId===m.id).reduce((s,p)=>s+(p.krw_amount||0),0);return applyRatio(paid,m);}
@@ -473,6 +495,7 @@ function renderDash(){
     <div class="ach-box-val">${fmtK(retActiveKRW)}</div>
     ${renderCurPills(retByCur,true)}
     ${retProspectKRW>0?`<div class="ach-box-sub" style="color:var(--orange);margin-top:3px">진행중 예상 +${fmtK(retProspectKRW)}</div>`:''}
+    ${totalContingencyKRW()>0?`<div class="ach-box-sub" style="color:var(--gold);margin-top:3px;font-weight:700">🎯 성공보수 예정 +${fmtK(totalContingencyKRW())} (별도)</div>`:''}
   </div>
   <div class="ach-box payment">
     <div class="ach-box-ttl">💰 입금액 업적 (입금일 환율)</div>
@@ -615,6 +638,18 @@ function openMatterDetail(mid){
     월 포함 시간: <b>${m.monthly_hours?m.monthly_hours+'h':'미설정'}</b> | 초과 시간당: <b>${m.overage_rate?fmtM(m.overage_rate,m.ret_cur||m.retainer_cur||'KRW')+'/h':'미설정'}</b><br>
     계약 기간: <b>${m.ret_start?fmtDF(m.ret_start)+' ~ '+fmtDF(m.ret_end):'미설정'}</b>
   </div>`:''}
+  ${m.type==='litigation'?`<div style="background:var(--red-l);border-radius:10px;padding:10px 12px;margin-bottom:9px;font-size:12px;color:var(--red)">
+    <b>⚖️ 소송 사건</b> · ${m.lit_mode==='time'?'시간+Cap 방식':m.lit_mode==='mixed'?'혼합 방식':'고정 보수 방식'}<br>
+    착수금: <b>${m.lit_retainer?fmtM(m.lit_retainer,m.retainer_cur||'KRW'):'미설정'}</b>
+    &nbsp;|&nbsp; 잔금: <b>${m.lit_balance?fmtM(m.lit_balance,m.retainer_cur||'KRW'):'미설정'}</b><br>
+    수임액 합계: <b>${fmtM((parseFloat(m.lit_retainer||0)+parseFloat(m.lit_balance||0)),m.retainer_cur||'KRW')}</b>
+  </div>`:''}
+  ${m.contingency_amount?`<div style="background:linear-gradient(135deg,#FFF8E1,#FFF3CD);border:2px solid var(--gold);border-radius:10px;padding:11px 13px;margin-bottom:9px;font-size:12px">
+    <div style="font-weight:700;color:var(--gold);margin-bottom:5px">🎯 성공보수 예정 (업적 제외)</div>
+    <div style="font-size:15px;font-weight:800;color:var(--gold)">${fmtM(m.contingency_amount,m.retainer_cur||'KRW')}</div>
+    ${m.contingency_condition?`<div style="color:var(--text2);margin-top:5px;line-height:1.5">조건: ${m.contingency_condition}</div>`:''}
+    <div style="font-size:11px;color:var(--text3);margin-top:5px">✓ 달성 시 💰 입금으로 등록하면 업적에 자동 반영됩니다</div>
+  </div>`:''}
   <div style="font-size:11px;color:var(--blue);margin-bottom:9px">업적유형: ${at.label} — ${at.desc}</div>
   ${isFailed?`<div class="rbox"><b>수임 실패</b>${m.failed_date?` · ${fmtDF(m.failed_date)}`:''}<br>${m.fail_category||''} ${m.fail_reason||''}</div>`:''}
   ${m.status==='closed'?`<div class="ibox" style="background:var(--teal-l);border-color:var(--teal);color:var(--teal)">🔒 딜 클로징${m.closed_date?` · ${fmtDF(m.closed_date)}`:''}</div>`:''}
@@ -677,6 +712,8 @@ function mCard(m){
   <div class="mc-tags"><span class="tag ${mt.tagCls}">${mt.ico} ${mt.label}</span><span class="tag ${mst.tagCls}">${mst.label}</span></div>
   ${m.client?`<div class="mc-info" style="margin-top:5px">의뢰인: ${m.client}</div>`:''}
   ${m.type==='retainer'&&m.monthly_hours?`<div class="mc-info" style="color:var(--blue)">📅 월 ${m.monthly_hours}h 포함 | 초과 ${m.overage_rate?fmtM(m.overage_rate,m.ret_cur||m.retainer_cur||'KRW')+'/h':'미설정'}${m.ret_start?' | '+fmtDF(m.ret_start)+'~'+fmtDF(m.ret_end):''}</div>`:''}
+  ${m.type==='litigation'?`<div class="mc-info" style="color:var(--red)">⚖️ ${m.lit_mode==='time'?'시간+Cap':m.lit_mode==='mixed'?'혼합':'고정'}${m.lit_retainer?' | 착수금 '+fmtM(m.lit_retainer,m.retainer_cur||'KRW'):''}${m.lit_balance?' | 잔금 '+fmtM(m.lit_balance,m.retainer_cur||'KRW'):''}</div>`:''}
+  ${m.contingency_amount?`<div style="display:inline-flex;align-items:center;gap:4px;background:var(--gold-l);border:1.5px solid var(--gold);border-radius:10px;padding:3px 9px;font-size:11px;color:var(--gold);font-weight:700;margin-top:3px">🎯 성공보수 ${fmtM(m.contingency_amount,m.retainer_cur||'KRW')}</div>`:''}
   <div class="mc-stats" style="margin-top:6px">
     <div class="mc-stat">시간<b>${hhmm(mins)}</b></div>
     ${rb.amount?`<div class="mc-stat">수임<b style="color:var(--gold)">${fmtM(rb.amount,rb.currency)}</b></div>`:''}
@@ -1015,7 +1052,7 @@ function openMatterModal(editId){
 <div class="mbg" onclick="if(event.target===this)closeModal()">
 <div class="msh"><div class="mhdl"></div><div class="mttl">${em?'Matter 수정':'새 Matter 추가'}</div>
 <div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">Matter 유형 *</div>
-  <div class="tt">${[['time-b','⏱','Time Billing','시간 단위 청구','g'],['fixed-f','💰','Fixed Fee','고정 보수','p'],['retainer','📅','연간 자문','월 시간+시간당 보수','b'],['biz-b','🤝','Biz Building','비빌링/시간관리','gold'],['office-i','🏢','Office 내부','비빌링/시간관리','gray']].map(([k,ico,lbl,sub,cls])=>`<button class="tt-b ${(em?.type||'time-b')===k?'on '+cls:''}" id="mty_${k}" onclick="setMType('${k}','${cls}')"><span class="tt-ico">${ico}</span><div class="tt-lbl">${lbl}</div><div class="tt-sub">${sub}</div></button>`).join('')}</div>
+  <div class="tt">${[['time-b','⏱','Time Billing','시간 단위 청구','g'],['fixed-f','💰','Fixed Fee','고정 보수','p'],['litigation','⚖️','소송','착수금+성공보수','red'],['retainer','📅','연간 자문','월 시간+시간당 보수','b'],['biz-b','🤝','Biz Building','비빌링/시간관리','gold'],['office-i','🏢','Office 내부','비빌링/시간관리','gray']].map(([k,ico,lbl,sub,cls])=>`<button class="tt-b ${(em?.type||'time-b')===k?'on '+cls:''}" id="mty_${k}" onclick="setMType('${k}','${cls}')"><span class="tt-ico">${ico}</span><div class="tt-lbl">${lbl}</div><div class="tt-sub">${sub}</div></button>`).join('')}</div>
   <input type="hidden" id="mtype" value="${em?.type||'time-b'}">
 </div>
 <div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">수임 상태 *</div>
@@ -1049,6 +1086,40 @@ function openMatterModal(editId){
   </div>
   <div class="hint" style="margin-bottom:8px">연간 자문: 월 포함시간 초과 시 시간당 보수 별도 청구</div>
 </div>
+
+<!-- 소송 전용 필드 -->
+<div id="litigationF" style="${(em?.type||'time-b')==='litigation'?'':'display:none'}">
+  <div class="ibox" style="background:var(--red-l);color:var(--red)">⚖️ 소송 사건 — 착수금/잔금은 수임액으로, 성공보수는 예정액(업적 제외)으로 관리됩니다.</div>
+  <div class="cttl" style="margin-bottom:7px">업무 방식</div>
+  <div style="display:flex;gap:7px;margin-bottom:11px">
+    ${[['fixed','💰 고정 보수'],['time','⏱ 시간+Cap'],['mixed','🔀 혼합']].map(([k,lbl])=>`<button onclick="document.getElementById('m_lit_mode').value='${k}';this.parentNode.querySelectorAll('button').forEach(b=>b.style.cssText='');this.style.cssText='background:var(--red-l);border-color:var(--red);color:var(--red);font-weight:700'" style="${(em?.lit_mode||'fixed')===k?'background:var(--red-l);border-color:var(--red);color:var(--red);font-weight:700':''}" class="mbtn">${lbl}</button>`).join('')}
+  </div>
+  <input type="hidden" id="m_lit_mode" value="${em?.lit_mode||'fixed'}">
+  <div class="cttl" style="margin-bottom:7px">착수금 / 잔금</div>
+  <div class="cur-row">
+    <div class="field"><label>착수금</label><input id="m_lit_retainer" value="${em?.lit_retainer?Number(em.lit_retainer).toLocaleString():''}" placeholder="예: 5,000,000" oninput="numInput(this)" inputmode="numeric"></div>
+    <div class="field"><label>잔금</label><input id="m_lit_balance" value="${em?.lit_balance?Number(em.lit_balance).toLocaleString():''}" placeholder="예: 5,000,000" oninput="numInput(this)" inputmode="numeric"></div>
+    <div class="field cs"><label>통화</label><select id="m_lit_cur"><option value="KRW" ${(em?.retainer_cur||'KRW')==='KRW'?'selected':''}>₩ KRW</option><option value="USD" ${em?.retainer_cur==='USD'?'selected':''}>$ USD</option><option value="CNY" ${em?.retainer_cur==='CNY'?'selected':''}>¥ CNY</option></select></div>
+  </div>
+  <div class="hint" style="margin-bottom:10px">착수금 + 잔금 = 수임액 (업적에 포함)</div>
+  <div class="cttl" style="margin-bottom:7px">성공보수 (예정)</div>
+  <div class="cur-row">
+    <div class="field"><label>성공보수 예정액</label><input id="m_contingency" value="${em?.contingency_amount?Number(em.contingency_amount).toLocaleString():''}" placeholder="예: 10,000,000" oninput="numInput(this)" inputmode="numeric"></div>
+  </div>
+  <div class="field"><label>성공보수 조건</label><input id="m_contingency_cond" value="${em?.contingency_condition||''}" placeholder="예: 승소 시 인용액의 10%, 또는 합의금 수령 시"></div>
+  <div class="hint" style="margin-bottom:10px">성공보수는 업적에서 제외 — 달성 시 입금으로 등록하면 자동 반영</div>
+</div>
+
+<!-- 성공보수 (Time Billing / Fixed Fee 공통) -->
+<div id="contingencyF" style="${['time-b','fixed-f'].includes(em?.type||'time-b')?'':'display:none'}">
+  <div class="divider"></div>
+  <div class="cttl" style="margin-bottom:7px">🎯 성공보수 (선택)</div>
+  <div class="cur-row">
+    <div class="field"><label>성공보수 예정액</label><input id="m_contingency2" value="${em?.contingency_amount?Number(em.contingency_amount).toLocaleString():''}" placeholder="예: 10,000,000" oninput="numInput(this)" inputmode="numeric"></div>
+  </div>
+  <div class="field"><label>성공보수 조건</label><input id="m_contingency_cond2" value="${em?.contingency_condition||''}" placeholder="예: 딜 클로징 시 총 보수의 20%"></div>
+  <div class="hint" style="margin-bottom:8px">성공보수는 업적에서 제외 — 달성 시 💰 입금으로 등록</div>
+</div>
 <div id="achF" style="${['biz-b','office-i'].includes(em?.type||'')?'display:none':''}">
   <div class="field"><label>업적 유형</label><select id="matype" onchange="onAT(this)">${Object.entries(ATYPE).map(([k,v])=>`<option value="${k}" ${(em?.achievement_type||'solo')===k?'selected':''}>${v.label} — ${v.desc}</option>`).join('')}</select></div>
   <div class="field-row"><div class="field"><label>협력팀</label><input id="mteam" value="${em?.collab_team||''}" placeholder="금융팀, 박OO파트너"></div><div class="field" style="flex:0 0 85px"><label>내 비율(%)</label><input id="mratio" value="${em?.my_ratio||100}" type="number" min="1" max="100" inputmode="numeric"></div></div>
@@ -1061,13 +1132,15 @@ function openMatterModal(editId){
 </div></div>`;}
 function setMType(k,cls){
   document.getElementById('mtype').value=k;
-  ['time-b','fixed-f','retainer','biz-b','office-i'].forEach((t,i)=>{
+  ['time-b','fixed-f','litigation','retainer','biz-b','office-i'].forEach((t,i)=>{
     const btn=document.getElementById('mty_'+t);
-    if(btn)btn.className='tt-b'+(t===k?' on '+['g','p','b','gold','gray'][i]:'');
+    if(btn)btn.className='tt-b'+(t===k?' on '+['g','p','red','b','gold','gray'][i]:'');
   });
   const ff=document.getElementById('fixedRetF');if(ff)ff.style.display=k==='fixed-f'?'':'none';
   const tf=document.getElementById('timeF');if(tf)tf.style.display=k==='time-b'?'':'none';
   const rf=document.getElementById('retainerF');if(rf)rf.style.display=k==='retainer'?'':'none';
+  const lf=document.getElementById('litigationF');if(lf)lf.style.display=k==='litigation'?'':'none';
+  const cf=document.getElementById('contingencyF');if(cf)cf.style.display=['time-b','fixed-f'].includes(k)?'':'none';
   const af=document.getElementById('achF');if(af)af.style.display=['biz-b','office-i'].includes(k)?'none':'';
 }
 function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
