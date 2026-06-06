@@ -21,6 +21,27 @@
       "billed_cur": "KRW",
       "starred": false,
       "closed_date": null
+    },
+    {
+      "id": "mq205p2ptqpyp",
+      "code": "미정-BROOKS/GEN/지분변경",
+      "name": "지분변경등기/노동계약서/실사자문",
+      "client": "Brooks Sports",
+      "type": "fixed-f",
+      "status": "prospect",
+      "retainer_amount": 12000000,
+      "retainer_cur": "USD",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false
     }
   ],
   "entries": [
