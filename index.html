@@ -503,6 +503,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -2163,7 +2164,7 @@ function saveSettings(){
   else{renderAll();}
 }
 
-/* ── Global event delegation ── */
+/* ── Global event delegation ── v7 ── */
 document.addEventListener('click', function(e) {
   let el = e.target;
   // Walk up DOM tree to find data-* handler
@@ -2195,7 +2196,7 @@ document.addEventListener('change', function(e) {
   else if(el.dataset.mqtype){_mqType=el.value;renderContent();}
 }, false);
 
-/* ── Global event delegation ── */
+/* ── Global event delegation ── v7 ── */
 document.addEventListener('click', function(e) {
   let el = e.target;
   for(let i=0; i<8 && el && el!==document.body; i++, el=el.parentElement){
@@ -2220,6 +2221,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
