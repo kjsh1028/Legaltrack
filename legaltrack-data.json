@@ -1,31 +1,10 @@
 {
   "matters": [
     {
-      "id": "mq1vk6icifve7",
-      "code": "DACHENG/GEN/ë²ì¸ì¤ë¦½",
-      "name": "íêµ­ ìíì¬ ì¤ë¦½",
-      "client": "ëì±/åäº¬åæè§è®¯ä¼ åª",
-      "type": "fixed-f",
-      "status": "active",
-      "retainer_amount": 7000000,
-      "retainer_cur": "KRW",
-      "rate": null,
-      "rate_cur": "KRW",
-      "cap_amount": null,
-      "estimated_amount": null,
-      "cap_cur": "KRW",
-      "achievement_type": "solo",
-      "collab_team": "",
-      "my_ratio": 100,
-      "billed_amount": null,
-      "billed_cur": "KRW",
-      "starred": false
-    },
-    {
       "id": "mq1vqm8a0tkj4",
-      "code": "연습이다",
-      "name": "그냥 연습",
-      "client": "연습",
+      "code": "ì°ìµì´ë¤",
+      "name": "ê·¸ë¥ ì°ìµ",
+      "client": "ì°ìµ",
       "type": "time-b",
       "status": "active",
       "retainer_amount": null,
@@ -36,22 +15,13 @@
       "estimated_amount": 20000000,
       "cap_cur": "KRW",
       "achievement_type": "team-originate",
-      "collab_team": "금융팀 장보성",
+      "collab_team": "ê¸ìµí ì¥ë³´ì±",
       "my_ratio": 50,
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false
     }
   ],
-  "entries": [
-    {
-      "id": "mq1vlip2i2fdt",
-      "matterId": "mq1vk6icifve7",
-      "date": "2026-06-05",
-      "minutes": 60,
-      "description": "ì¼ì ê´ë¦¬í ì´ì ìì±",
-      "billable": true
-    }
-  ],
+  "entries": [],
   "payments": []
 }
