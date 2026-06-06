@@ -196,7 +196,7 @@
     {
       "id": "mq20qil2xsxww",
       "code": "포티투닷/GEN/GEN",
-      "name": "일상자문/6개월",
+      "name": "42dot-일상자문/6개월",
       "client": "포티투닷 42dot",
       "type": "retainer",
       "status": "active",
@@ -212,7 +212,18 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "ret_total": null,
+      "ret_cur": "KRW",
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null
     },
     {
       "id": "mq20urwkdcwfj",
