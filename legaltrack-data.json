@@ -147,6 +147,27 @@
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false
+    },
+    {
+      "id": "mq20urwkdcwfj",
+      "code": "파트라/CHINA/청도법인주주변경",
+      "name": "법원조정조서 승인집행",
+      "client": "파트라",
+      "type": "fixed-f",
+      "status": "active",
+      "retainer_amount": null,
+      "retainer_cur": "CNY",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false
     }
   ],
   "entries": [
