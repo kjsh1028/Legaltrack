@@ -20,6 +20,27 @@
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false
+    },
+    {
+      "id": "mq1vqm8a0tkj4",
+      "code": "연습이다",
+      "name": "그냥 연습",
+      "client": "연습",
+      "type": "time-b",
+      "status": "active",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": 500000,
+      "rate_cur": "KRW",
+      "cap_amount": 20000000,
+      "estimated_amount": 20000000,
+      "cap_cur": "KRW",
+      "achievement_type": "team-originate",
+      "collab_team": "금융팀 장보성",
+      "my_ratio": 50,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false
     }
   ],
   "entries": [
