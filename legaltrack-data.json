@@ -104,7 +104,18 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": 130000,
+      "contingency_condition": "법인매각 성공, 매각대금의 2.5% 의 1/3"
     },
     {
       "id": "mq20lebejr8qp",
