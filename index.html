@@ -11,7 +11,33 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
 :root{--green:#1A7A52;--green-l:#E6F5EE;--blue:#2E6BE6;--blue-l:#EBF0FD;--purple:#7C4DCC;--purple-l:#F0EAFA;--orange:#D4711A;--orange-l:#FDF0E6;--red:#D94040;--red-l:#FDEAEA;--gold:#B8960A;--gold-l:#FDF8E1;--teal:#0E8A8A;--teal-l:#E0F5F5;--gray:#666;--gray-l:#F0F0EE;--bg:#F4F3EF;--white:#fff;--text:#1C1C1E;--text2:#555;--text3:#999;--border:#E4E4E0;--shadow:0 1px 5px rgba(0,0,0,.08);--sb:252px}
-html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-system,sans-serif;color:var(--text)}
+html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-system,sans-serif;color:var(--text);font-size:16px}
+@media(max-width:767px){
+  body{font-size:15px}
+  .edesc{font-size:14px!important}
+  .mc-name{font-size:15px!important}
+  .tag{font-size:11px!important;padding:3px 8px!important}
+  .ecode{font-size:11px!important;padding:3px 8px!important}
+  .mc-stat{font-size:12px!important}
+  .emeta{font-size:12px!important}
+  .sc-v{font-size:20px!important}
+  .sc-l{font-size:12px!important}
+  .sc-u{font-size:11px!important}
+  .mst-v{font-size:13px!important}
+  .mst-l{font-size:10px!important}
+  .sbn{font-size:14px!important}
+  .action-desc{font-size:14px!important}
+  .field input,.field select,.field textarea{font-size:16px!important}
+  .mttl{font-size:17px!important}
+  .step-title{font-size:15px!important}
+  .row-desc{font-size:14px!important}
+  .dash-sec-title{font-size:14px!important}
+  .cttl{font-size:12px!important}
+  .card{padding:16px!important}
+  .ach-box-val{font-size:18px!important}
+  .ach-box-ttl{font-size:11px!important}
+  .ach-box-sub{font-size:11px!important}
+}
 .layout{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
 @media(min-width:768px){.layout{flex-direction:row;height:100vh}}
 .sidebar{display:none;width:var(--sb);background:var(--white);border-right:1px solid var(--border);flex-direction:column;flex-shrink:0}
@@ -221,14 +247,14 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
     <button class="tb" id="tb1" onclick="goTab(1)"><span class="tb-i">📁</span><span class="tb-l">Matters</span></button>
     <button class="fab-wrap" onclick="openEntryModal()"><div class="fab">＋</div><span class="fab-l">입력</span></button>
     <button class="tb" id="tb2" onclick="goTab(3)"><span class="tb-i">🏆</span><span class="tb-l">업적</span></button>
-    <button class="tb" id="tb3" onclick="goTab(5)"><span class="tb-i">📈</span><span class="tb-l">리포트</span></button>
+    <button class="tb" id="tb3" onclick="openMobMenu()"><span class="tb-i">⋯</span><span class="tb-l">더보기</span></button>
   </div>
 </div>
 </div>
 <div id="modalArea"></div>
 <script>
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190};
+let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[]};
 let curTab=0,timerObj=null,timerIv=null;
 let dashExpand={prospect:false,active:false,closed:false};
@@ -299,8 +325,66 @@ async function syncCloud(){
     localLoad();
     showSync('err','연결 실패: '+e.message.slice(0,50));
   }}
-async function cloudSave(type,obj,action='upsert'){localSave();if(!CFG.supaUrl)return;showSync('sy','저장 중...');try{const t={matter:'lt_matters',entry:'lt_entries',payment:'lt_payments'}[type];if(action==='del')await sbFetch(t+'?id=eq.'+obj.id,{method:'DELETE',prefer:'return=minimal'});else await sbFetch(t,{method:'POST',body:JSON.stringify(obj),prefer:'resolution=merge-duplicates,return=representation'});showSync('ok','✓ 저장됨');}catch(e){showSync('err','저장 실패');}}
-async function init(){localLoad();if(CFG.supaUrl)await syncCloud();fetchLiveRates().then(ok=>{if(ok)renderAll();});renderAll();}
+async function cloudSave(type,obj,action='upsert'){
+  localSave();
+  if(CFG.ghToken){setTimeout(()=>ghSave(),500);return;}
+  if(!CFG.supaUrl)return;showSync('sy','저장 중...');try{const t={matter:'lt_matters',entry:'lt_entries',payment:'lt_payments'}[type];if(action==='del')await sbFetch(t+'?id=eq.'+obj.id,{method:'DELETE',prefer:'return=minimal'});else await sbFetch(t,{method:'POST',body:JSON.stringify(obj),prefer:'resolution=merge-duplicates,return=representation'});showSync('ok','✓ 저장됨');}catch(e){showSync('err','저장 실패');}}
+
+/* ── GitHub Sync ── */
+async function ghFetch(path, opts={}){
+  if(!CFG.ghToken)return null;
+  const res=await fetch('https://api.github.com/repos/'+CFG.ghRepo+path,{
+    ...opts,
+    headers:{'Authorization':'token '+CFG.ghToken,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json',...(opts.headers||{})}
+  });
+  if(!res.ok){const t=await res.text();throw new Error(t);}
+  return res.json();
+}
+async function ghLoad(){
+  if(!CFG.ghToken)return false;
+  showSync('sy','GitHub 불러오는 중...');
+  try{
+    const r=await ghFetch('/contents/legaltrack-data.json');
+    const decoded=JSON.parse(atob(r.content.split('\n').join('')));
+    D={matters:[],entries:[],payments:[],...decoded};
+    D._ghSha=r.sha;
+    localSave();showSync('ok','✓ GitHub 동기화 완료');
+    return true;
+  }catch(e){
+    if(e.message.includes('404')){
+      // File doesn't exist yet - that's OK
+      showSync('ok','✓ GitHub 연결됨 (새 저장소)');
+      return true;
+    }
+    console.error('ghLoad error:',e.message);
+    showSync('err','GitHub 연결 실패');
+    return false;
+  }
+}
+async function ghSave(){
+  if(!CFG.ghToken)return;
+  showSync('sy','GitHub 저장 중...');
+  try{
+    const saveData={matters:D.matters,entries:D.entries,payments:D.payments};
+    const content_b64=btoa(unescape(encodeURIComponent(JSON.stringify(saveData,null,2))));
+    const body={message:'LegalTrack data update '+new Date().toISOString(),content:content_b64,branch:CFG.ghBranch};
+    if(D._ghSha)body.sha=D._ghSha;
+    const r=await ghFetch('/contents/legaltrack-data.json',{method:'PUT',body:JSON.stringify(body)});
+    D._ghSha=r.content.sha;
+    showSync('ok','✓ 저장 완료');
+  }catch(e){
+    console.error('ghSave error:',e.message);
+    showSync('err','GitHub 저장 실패: '+e.message.slice(0,40));
+  }
+}
+
+async function init(){
+  localLoad();
+  if(CFG.ghToken)await ghLoad();
+  else if(CFG.supaUrl)await syncCloud();
+  fetchLiveRates().then(ok=>{if(ok)renderAll();});
+  renderAll();
+}
 function renderAll(){const now=new Date(),ds=now.getFullYear()+'년 '+(now.getMonth()+1)+'월 '+now.getDate()+'일';const s=statsNow();const md=document.getElementById('mobDate');if(md)md.textContent=ds;const ms=document.getElementById('mobStats');const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));const retT=activeM.reduce((a,m)=>a+retainerKRW(m),0);const payT=activeM.reduce((a,m)=>a+paymentKRW(m),0);if(ms)ms.innerHTML=[['이번달',hhmm(s.month)],['수임액',fmtK(retT).replace('₩','')],['입금',fmtK(payT).replace('₩','')],['진행중',D.matters.filter(m=>m.status==='prospect').length+'건']].map(([l,v])=>`<div class="mst"><span class="mst-v">${v}</span><span class="mst-l">${l}</span></div>`).join('');const sd=document.getElementById('sbDate');if(sd)sd.textContent=ds;const ss=document.getElementById('sbStats');if(ss)ss.innerHTML=[['주간',hhmm(s.week),''],['이번달',hhmm(s.month),'var(--blue)'],['수임액(KRW)',fmtK(retT),'var(--gold)'],['입금액(KRW)',fmtK(payT),'var(--teal)']].map(([l,v,c])=>`<div class="sb-srow"><span class="sb-srow-lbl">${l}</span><span class="sb-srow-val" style="${c?'color:'+c:''}">${v}</span></div>`).join('');for(let i=0;i<7;i++){const e=document.getElementById('sbt'+i);if(e)e.classList.toggle('on',i===curTab);}const mobMap=[0,1,-1,3,-1,5];for(let i=0;i<4;i++){const e=document.getElementById('tb'+i);if(e)e.classList.toggle('on',mobMap[i]===curTab);}const titles=['대시보드','Matters','조회 / 수정','업적 관리','수임 실패 분석','리포트'];const pt=document.getElementById('phdrTitle');if(pt)pt.textContent=titles[curTab]||'';renderTimerBanner();renderTab(curTab);}
 function renderTimerBanner(){const b=document.getElementById('timerBanner');if(!timerObj){b.style.display='none';return;}b.style.display='flex';const m=D.matters.find(x=>x.id===timerObj.matterId);document.getElementById('tLbl').textContent=m?`[${m.code}] ${m.name}`:'타이머';}
 function goTab(t){curTab=t;renderAll();}
@@ -840,6 +924,16 @@ mRows.slice(0,8).map(({m,mins})=>{const pct=total>0?Math.round(mins/total*100):0
 /* ── Timer ── */
 function startTimer(mid){if(timerObj)return;timerObj={matterId:mid,start:Date.now()};clearInterval(timerIv);timerIv=setInterval(()=>{if(!timerObj)return;const s=Math.floor((Date.now()-timerObj.start)/1000);const h=Math.floor(s/3600),mm=Math.floor((s%3600)/60),ss=s%60;const el=document.getElementById('tTime');if(el)el.textContent=`${String(h).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;},1000);renderTimerBanner();renderTab(curTab);}
 function stopTimer(){if(!timerObj)return;clearInterval(timerIv);timerIv=null;const mins=Math.max(1,Math.round((Date.now()-timerObj.start)/60000));const mid=timerObj.matterId;timerObj=null;renderTimerBanner();openEntryModal(mid,mins);}
+function openMobMenu(){
+  document.getElementById('modalArea').innerHTML='<div class="mbg" onclick="if(event.target===this)closeModal()"><div class="msh" style="max-width:360px"><div class="mhdl"></div><div class="mttl">메뉴</div>'
+    +'<button onclick="closeModal();goTab(2)" style="width:100%;padding:14px;margin-bottom:8px;border:none;border-radius:12px;background:var(--bg);font-size:15px;font-family:inherit;cursor:pointer;text-align:left">🔍 조회 / 수정</button>'
+    +'<button onclick="closeModal();goTab(4)" style="width:100%;padding:14px;margin-bottom:8px;border:none;border-radius:12px;background:var(--bg);font-size:15px;font-family:inherit;cursor:pointer;text-align:left">❌ 수임 실패 분석</button>'
+    +'<button onclick="closeModal();openExportModal()" style="width:100%;padding:14px;margin-bottom:8px;border:none;border-radius:12px;background:var(--bg);font-size:15px;font-family:inherit;cursor:pointer;text-align:left">📥 내보내기</button>'
+    +'<button onclick="closeModal();openBackupModal()" style="width:100%;padding:14px;margin-bottom:8px;border:none;border-radius:12px;background:var(--green-l);color:var(--green);font-size:15px;font-family:inherit;cursor:pointer;text-align:left;font-weight:600">💾 백업 / 복원</button>'
+    +'<button onclick="closeModal();openSettings()" style="width:100%;padding:14px;margin-bottom:8px;border:none;border-radius:12px;background:var(--bg);font-size:15px;font-family:inherit;cursor:pointer;text-align:left">⚙️ 설정 (환율 / 동기화)</button>'
+    +'<button class="cancelbtn" onclick="closeModal()">닫기</button>'
+    +'</div></div>';
+}
 function closeModal(){document.getElementById('modalArea').innerHTML='';}
 function delEntry(id){if(!confirm('삭제하시겠습니까?'))return;D.entries=D.entries.filter(e=>e.id!==id);cloudSave('entry',{id},'del');renderAll();if(curTab===2)setTimeout(applyF,100);}
 function editEntry(id){const e=D.entries.find(x=>x.id===id);if(e)openEntryModal(e.matterId,null,e);}
@@ -1021,7 +1115,11 @@ function openSettings(){
     +'<div class="ibox" style="margin-bottom:8px">입금액 기준 업적으로 인센티브를 계산합니다. 구간별 요율(%)을 입력하세요.</div>'
     +'<div id="tierInputs">'+renderTierInputs()+'</div>'
     +'<div style="display:flex;gap:7px;margin-bottom:12px"><button onclick="addTier()" style="flex:1;padding:7px;border:1.5px dashed var(--border);border-radius:9px;background:none;cursor:pointer;font-size:12px;color:var(--text3)">+ 구간 추가</button></div>'
-    +'<div class="cttl" style="margin-bottom:7px">Supabase 동기화 (iPhone·iPad·PC)</div>'
+    +'<div class="cttl" style="margin-bottom:7px">🐙 GitHub 동기화 (중국에서 사용 가능)</div>'
+    +'<div class="ibox" style="background:var(--green-l);color:var(--green)">✅ 중국에서도 작동합니다! GitHub Token을 입력하면 모든 기기에서 동기화됩니다.</div>'
+    +'<div class="field"><label>GitHub Token</label><input id="ghToken" value="'+(CFG.ghToken||'')+'" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>'
+    +'<div class="hint" style="margin-bottom:12px">github.com → Settings → Developer settings → Personal access tokens → Tokens (classic)</div>'
+    +'<div class="cttl" style="margin-bottom:7px">Supabase 동기화 (한국/해외)</div>'
     +'<div class="ibox">연결하면 모든 기기에서 자동 동기화</div>'
     +'<div class="field"><label>Project URL</label><input id="sbUrl" value="'+(CFG.supaUrl||'')+'" placeholder="https://xxxx.supabase.co"></div>'
     +'<div class="field"><label>Anon Key</label><input id="sbKey" value="'+(CFG.supaKey||'')+'" placeholder="eyJhbGci..."></div>'
@@ -1057,7 +1155,13 @@ function updateTier(i,field,val){
 }
 function addTier(){incentiveTiers.push({threshold:0,rate:0,label:'새 구간'});const el=document.getElementById('tierInputs');if(el)el.innerHTML=renderTierInputs();}
 function removeTier(i){incentiveTiers.splice(i+1,1);const el=document.getElementById('tierInputs');if(el)el.innerHTML=renderTierInputs();}
-function saveSettings(){incentiveTiers.sort((a,b)=>a.threshold-b.threshold);CFG.usdKrw=parseFloat(document.getElementById('cfgUsd').value)||1380;CFG.cnyKrw=parseFloat(document.getElementById('cfgCny').value)||190;CFG.supaUrl=(document.getElementById('sbUrl').value||'').trim().replace(/\/$/,'');CFG.supaKey=(document.getElementById('sbKey').value||'').trim();saveCFG();closeModal();if(CFG.supaUrl)syncCloud().then(renderAll);else renderAll();}
+function saveSettings(){
+  incentiveTiers.sort((a,b)=>a.threshold-b.threshold);
+  CFG.usdKrw=parseFloat(document.getElementById('cfgUsd').value)||1380;
+  CFG.cnyKrw=parseFloat(document.getElementById('cfgCny').value)||190;
+  CFG.ghToken=(document.getElementById('ghToken')?.value||'').trim();
+  CFG.supaUrl=(document.getElementById('sbUrl').value||'').trim().replace(/\/$/,'');
+  CFG.supaKey=(document.getElementById('sbKey').value||'').trim();saveCFG();closeModal();if(CFG.supaUrl)syncCloud().then(renderAll);else renderAll();}
 
 window.addEventListener('resize',()=>renderAll());
 init();
