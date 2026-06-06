@@ -89,7 +89,7 @@
     {
       "id": "mq20ej2g25wzu",
       "code": "미정-구매대금소송",
-      "name": "구매대금 소송",
+      "name": "심천 대성- 구매대금소성",
       "client": "대성 심천 사무소",
       "type": "litigation",
       "status": "prospect",
@@ -105,7 +105,18 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": "fixed",
+      "contingency_amount": null,
+      "contingency_condition": ""
     },
     {
       "id": "mq20hw066a9x0",
