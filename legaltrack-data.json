@@ -104,7 +104,7 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false,
+      "starred": true,
       "ret_total": null,
       "ret_cur": null,
       "monthly_hours": null,
@@ -250,5 +250,7 @@
       "billable": true
     }
   ],
-  "payments": []
+  "payments": [],
+  "clients": [],
+  "contacts": []
 }
