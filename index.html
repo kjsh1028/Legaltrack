@@ -13,30 +13,53 @@
 :root{--green:#1A7A52;--green-l:#E6F5EE;--blue:#2E6BE6;--blue-l:#EBF0FD;--purple:#7C4DCC;--purple-l:#F0EAFA;--orange:#D4711A;--orange-l:#FDF0E6;--red:#D94040;--red-l:#FDEAEA;--gold:#B8960A;--gold-l:#FDF8E1;--teal:#0E8A8A;--teal-l:#E0F5F5;--gray:#666;--gray-l:#F0F0EE;--bg:#F4F3EF;--white:#fff;--text:#1C1C1E;--text2:#555;--text3:#999;--border:#E4E4E0;--shadow:0 1px 5px rgba(0,0,0,.08);--sb:252px}
 html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-system,sans-serif;color:var(--text);font-size:16px}
 @media(max-width:767px){
-  body{font-size:15px}
-  .edesc{font-size:14px!important}
-  .mc-name{font-size:15px!important}
-  .tag{font-size:11px!important;padding:3px 8px!important}
-  .ecode{font-size:11px!important;padding:3px 8px!important}
-  .mc-stat{font-size:12px!important}
-  .emeta{font-size:12px!important}
-  .sc-v{font-size:20px!important}
-  .sc-l{font-size:12px!important}
-  .sc-u{font-size:11px!important}
-  .mst-v{font-size:13px!important}
-  .mst-l{font-size:10px!important}
-  .sbn{font-size:14px!important}
-  .action-desc{font-size:14px!important}
-  .field input,.field select,.field textarea{font-size:16px!important}
-  .mttl{font-size:17px!important}
-  .step-title{font-size:15px!important}
-  .row-desc{font-size:14px!important}
-  .dash-sec-title{font-size:14px!important}
-  .cttl{font-size:12px!important}
-  .card{padding:16px!important}
-  .ach-box-val{font-size:18px!important}
-  .ach-box-ttl{font-size:11px!important}
-  .ach-box-sub{font-size:11px!important}
+  html{font-size:17px!important}
+  body{font-size:17px!important}
+  *{-webkit-text-size-adjust:100%}
+  .content,#content{font-size:17px!important}
+  .edesc{font-size:16px!important;line-height:1.6!important}
+  .mc-name{font-size:17px!important;font-weight:700!important}
+  .tag{font-size:13px!important;padding:4px 10px!important;border-radius:12px!important}
+  .ecode{font-size:13px!important;padding:4px 10px!important}
+  .mc-stat{font-size:14px!important}
+  .mc-stat b{font-size:15px!important}
+  .mc-info{font-size:14px!important}
+  .emeta{font-size:14px!important}
+  .etm{font-size:14px!important;font-weight:700!important}
+  .sc-v{font-size:24px!important;font-weight:800!important}
+  .sc-l{font-size:14px!important}
+  .sc-u{font-size:13px!important}
+  .mst-v{font-size:15px!important;font-weight:700!important}
+  .mst-l{font-size:12px!important}
+  .sbn{font-size:16px!important;padding:10px 16px!important}
+  .field input,.field select,.field textarea{font-size:17px!important}
+  .field label{font-size:13px!important}
+  .mttl{font-size:20px!important}
+  .dash-sec-title{font-size:16px!important}
+  .sec-cnt{font-size:14px!important}
+  .cttl{font-size:14px!important}
+  .card{padding:18px!important;border-radius:16px!important}
+  .mc{padding:15px!important}
+  .ach-box-val{font-size:22px!important;font-weight:800!important}
+  .ach-box-ttl{font-size:13px!important}
+  .ach-box-sub{font-size:13px!important}
+  .mbtn{font-size:13px!important;padding:7px 14px!important}
+  .tb-l{font-size:12px!important;font-weight:600!important}
+  .tb-i{font-size:22px!important}
+  .mob-hdr-title{font-size:20px!important}
+  .hint{font-size:13px!important}
+  .blbl{font-size:14px!important}
+  .phdr-title{font-size:22px!important}
+  .sb-srow{font-size:14px!important}
+  .entry .edesc{font-size:15px!important}
+  .entry .emeta{font-size:13px!important}
+  .cur-pill{font-size:13px!important;padding:4px 11px!important}
+  .more-btn{font-size:13px!important;padding:5px 13px!important}
+  .savebtn{font-size:17px!important;padding:15px!important}
+  .cancelbtn{font-size:16px!important}
+  .tt-lbl{font-size:14px!important}
+  .tt-sub{font-size:12px!important}
+  .tt-ico{font-size:22px!important}
 }
 .layout{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
 @media(min-width:768px){.layout{flex-direction:row;height:100vh}}
@@ -190,7 +213,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .tt{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px}
 .tt-b{padding:9px;border-radius:10px;border:2px solid var(--border);background:var(--white);cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
 .tt-b.on.g{background:var(--green-l);border-color:var(--green);color:var(--green)}.tt-b.on.p{background:var(--purple-l);border-color:var(--purple);color:var(--purple)}
-.tt-b.on.gold{background:var(--gold-l);border-color:var(--gold);color:var(--gold)}.tt-b.on.gray{background:var(--gray-l);border-color:var(--gray);color:var(--gray)}
+.tt-b.on.gold{background:var(--gold-l);border-color:var(--gold);color:var(--gold)}.tt-b.on.gray{background:var(--gray-l);border-color:var(--gray);color:var(--gray)}.tt-b.on.b{background:var(--blue-l);border-color:var(--blue);color:var(--blue)}.tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}.tt-b.on.orange{background:var(--orange-l);border-color:var(--orange);color:var(--orange)}
 .tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}
 .tt-ico{font-size:19px;display:block;margin-bottom:2px}.tt-lbl{font-size:12px;font-weight:700}.tt-sub{font-size:10px;color:var(--text3);margin-top:1px}
 .cur-row{display:flex;gap:5px;align-items:flex-end}.cur-row .field{flex:1}.cur-row .field.cs{flex:0 0 85px}
@@ -349,7 +372,9 @@ async function ghLoad(){
   showSync('sy','GitHub 불러오는 중...');
   try{
     const r=await ghFetch('/contents/legaltrack-data.json');
-    const decoded=JSON.parse(atob(r.content.split('\n').join('')));
+    const raw=atob(r.content.split('\n').join(''));
+    const bytes=new Uint8Array(raw.length).map((_,i)=>raw.charCodeAt(i));
+    const decoded=JSON.parse(new TextDecoder().decode(bytes));
     D={matters:[],entries:[],payments:[],...decoded};
     D._ghSha=r.sha;
     localSave();showSync('ok','✓ GitHub 동기화 완료');
@@ -370,7 +395,10 @@ async function ghSave(){
   showSync('sy','GitHub 저장 중...');
   try{
     const saveData={matters:D.matters,entries:D.entries,payments:D.payments};
-    const content_b64=btoa(unescape(encodeURIComponent(JSON.stringify(saveData,null,2))));
+    const jsonStr=JSON.stringify(saveData,null,2);
+    const bytes=new TextEncoder().encode(jsonStr);
+    const binStr=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
+    const content_b64=btoa(binStr);
     const body={message:'LegalTrack data update '+new Date().toISOString(),content:content_b64,branch:CFG.ghBranch};
     if(D._ghSha)body.sha=D._ghSha;
     const r=await ghFetch('/contents/legaltrack-data.json',{method:'PUT',body:JSON.stringify(body)});
