@@ -63,6 +63,27 @@
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false
+    },
+    {
+      "id": "mq20cokbokti9",
+      "code": "OFFICE",
+      "name": "율촌 내부 관련",
+      "client": "율촌",
+      "type": "office-i",
+      "status": "active",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false
     }
   ],
   "entries": [
