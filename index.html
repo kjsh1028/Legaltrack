@@ -79,22 +79,23 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 /* ═══════════════════════════════
    DASHBOARD - fits one screen
 ═══════════════════════════════ */
-.dash-wrap{padding:12px 14px;height:100%;display:flex;flex-direction:column}
-@media(min-width:768px){.dash-wrap{padding:16px 22px}}
-.dash-kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
-@media(min-width:600px){.dash-kpi{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.dash-kpi{grid-template-columns:repeat(4,1fr)}}
-.kpi-item{background:var(--white);border-radius:14px;padding:14px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
-.kpi-item.tap{cursor:pointer;transition:transform .1s}
-.kpi-item.tap:active{transform:scale(.97)}
-.kpi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.kpi-lbl{font-size:11px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.kpi-arr{font-size:14px;color:var(--text3);opacity:.5}
-.kpi-val{font-size:24px;font-weight:800;line-height:1;margin-bottom:4px}
-@media(max-width:400px){.kpi-val{font-size:20px}}
-.kpi-unit{font-size:14px;font-weight:500}
-.kpi-sub{font-size:11px;color:var(--text3);margin-top:auto}
-.kpi-gold{color:var(--o)}.kpi-teal{color:var(--t)}.kpi-blue{color:var(--b)}.kpi-green{color:var(--g)}.kpi-orange{color:var(--o)}
+.dash-wrap{padding:10px 12px;height:100%;display:flex;flex-direction:column;overflow:hidden}
+@media(min-width:768px){.dash-wrap{padding:14px 20px}}
+.dash-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;grid-template-rows:repeat(4,1fr)}
+@media(min-width:600px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}}
+@media(min-width:900px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}}
+.kpi-item{background:var(--white);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.kpi-item.tap{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.kpi-item.tap:active{transform:scale(.96);box-shadow:none}
+.kpi-lbl{font-size:12px;color:var(--text3);font-weight:600;margin-bottom:6px;line-height:1.2}
+.kpi-val{font-size:28px;font-weight:800;line-height:1;letter-spacing:-.02em}
+@media(max-width:380px){.kpi-val{font-size:22px}}
+@media(min-width:600px){.kpi-val{font-size:32px}}
+.kpi-unit{font-size:15px;font-weight:600;margin-left:2px}
+.kpi-sub{font-size:11px;color:var(--text3);margin-top:5px}
+.kpi-g{color:var(--g)}.kpi-gold{color:var(--o)}.kpi-teal{color:var(--t)}
+.kpi-b,.kpi-blue{color:var(--b)}.kpi-o,.kpi-orange{color:var(--o)}
+.kpi-r{color:var(--r)}.kpi-p{color:var(--p)}.kpi-gray{color:var(--gray)}
 
 /* ═══════════════════════════════
    LIST VIEW (layer 2)
@@ -345,6 +346,11 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
           <button class="act-btn act-primary" style="padding:8px 16px;font-size:13px;border-radius:8px" onclick="openEntryModal()">＋ 시간기록</button>
         </div>
       </div>
+      <!-- Mobile sub-page header (visible when navigated into a layer) -->
+      <div id="mobSubHdr" style="display:none;background:var(--white);border-bottom:1px solid var(--border);padding:10px 14px;flex-shrink:0;align-items:center;gap:10px">
+        <button onclick="handleBack()" style="background:none;border:none;cursor:pointer;font-size:16px;color:var(--b);padding:4px 8px 4px 0;font-family:inherit;font-weight:600">‹ 뒤로</button>
+        <span id="mobSubTitle" style="font-size:15px;font-weight:700;flex:1"></span>
+      </div>
       <!-- Timer -->
       <div id="timerBanner" style="display:none" class="tbanner">
         <div class="tdot"></div><span class="tlbl" id="tLbl">타이머</span>
@@ -359,9 +365,9 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
   <!-- Bottom tabs (mobile) -->
   <div class="tabbar">
     <button class="tb on" id="tb0" onclick="goTab(0)"><span class="tb-i">📊</span><span class="tb-l">홈</span></button>
-    <button class="tb" id="tb1" onclick="goTab(1)"><span class="tb-i">📁</span><span class="tb-l">Matters</span></button>
-    <button class="fab-wrap" onclick="openEntryModal()"><div class="fab">＋</div><span class="fab-l">기록</span></button>
-    <button class="tb" id="tb2" onclick="_queryMode=null;goTab(2)"><span class="tb-i">🔍</span><span class="tb-l">조회</span></button>
+    <button class="fab-wrap" onclick="openEntryModal()"><div class="fab">＋</div><span class="fab-l">입력</span></button>
+    <button class="tb" id="tb2" onclick="_queryMode=null;curLayer=null;goTab(2)"><span class="tb-i">🔍</span><span class="tb-l">조회</span></button>
+    <button class="tb" id="tb5" onclick="goTab(5)"><span class="tb-i">📈</span><span class="tb-l">리포트</span></button>
     <button class="tb" id="tb3" onclick="openMobMenu()"><span class="tb-i">⋯</span><span class="tb-l">더보기</span></button>
   </div>
 </div>
@@ -586,7 +592,7 @@ function renderAll(){
     {l:'수임액',v:fmt(retKRW),u:'올해 기준',fn:`goTab(2);setTimeout(()=>setQueryTab('achievement'),100)`},
     {l:'입금액',v:fmt(payKRW),u:'올해 기준',fn:`goTab(2);setTimeout(()=>setQueryTab('payment'),100)`},
     {l:'이번달',v:hhmm(s.month),u:'시간',fn:`goTab(2);setTimeout(()=>setQueryTab('time'),100)`},
-    {l:'이번주',v:hhmm(s.week),u:'시간',fn:''},
+    {l:'이번주',v:hhmm(s.week),u:'시간',fn:`goTab(2);_queryMode='time';_timePresetQ='week';renderContent()`},
     {l:'수임 진행',v:prospectM.length+'건',u:'진행중',fn:'goTab(1)'},
     ...(contKRW>0?[{l:'성공보수',v:fmt(contKRW),u:'예정액',fn:`goTab(2);setTimeout(()=>setQueryTab('contingency'),100)`}]:[]),
   ].map(({l,v,u,fn})=>`<div class="kpi-card" onclick="${fn}"${fn?' style="cursor:pointer"':''}>
@@ -594,12 +600,29 @@ function renderAll(){
   </div>`).join('');
   // Nav active states
   for(let i=0;i<7;i++){const e=document.getElementById('sbt'+i);if(e)e.classList.toggle('on',i===curTab);}
-  const mobMap=[0,1,-1,2,-1,-1];
-  for(let i=0;i<4;i++){const e=document.getElementById('tb'+i);if(e)e.classList.toggle('on',mobMap[i]===curTab);}
+  // Mobile tab active states
+  [{id:'tb0',tab:0},{id:'tb2',tab:2},{id:'tb5',tab:5},{id:'tb3',tab:-1}].forEach(({id,tab})=>{
+    const e=document.getElementById(id);if(e)e.classList.toggle('on',tab===curTab&&tab>=0);
+  });
   const titles=['대시보드','Matters','조회','업적 관리','실패 분석','리포트'];
   const pt=document.getElementById('phdrTitle');if(pt)pt.textContent=titles[curTab]||'';
   renderTimerBanner();renderTab(curTab);
 }
+function startTimer(matterId){
+  if(timerObj){if(!confirm('현재 타이머를 종료하고 새로 시작하시겠습니까?'))return;stopTimer();}
+  timerObj={matterId,startMs:Date.now()};
+  renderTimerBanner();
+}
+
+function stopTimer(){
+  if(!timerObj)return;
+  const mins=Math.round((Date.now()-timerObj.startMs)/60000);
+  clearInterval(timerIv);timerIv=null;
+  if(mins>0)openEntryModal(timerObj.matterId,mins);
+  timerObj=null;
+  renderTimerBanner();
+}
+
 function renderTimerBanner(){const b=document.getElementById('timerBanner');if(!timerObj){b.style.display='none';return;}b.style.display='flex';const m=D.matters.find(x=>x.id===timerObj.matterId);document.getElementById('tLbl').textContent=m?`[${m.code}] ${m.name}`:'타이머';}
 function goTab(t){curTab=t;renderAll();}
 function renderTab(t){const c=document.getElementById('content');if(t===0)c.innerHTML=renderDash();else if(t===1)c.innerHTML=renderMatters();else if(t===2)c.innerHTML=renderSearch();else if(t===3)c.innerHTML=renderAchievement();else if(t===4)c.innerHTML=renderFailed();else c.innerHTML=renderReport();}
@@ -665,25 +688,30 @@ function renderTab(t){
 
 function renderContent(){
   const c=document.getElementById('content');if(!c)return;
-  // Update back button
+  // Desktop back button
   const bk=document.getElementById('backBtn');
   if(bk)bk.style.display=(curLayer||_queryMode)?'flex':'none';
+  // Mobile sub-header
+  const msh=document.getElementById('mobSubHdr');
+  const mst=document.getElementById('mobSubTitle');
+  const showSub=!!(curLayer||_queryMode);
+  if(msh)msh.style.display=showSub?'flex':'none';
   // Page title
   const titles={0:'대시보드',1:'Matters',2:'조회'};
   const pt=document.getElementById('pageTitle');
-  if(pt){
-    if(curLayer==='matters_list')pt.textContent='진행중 Matters';
-    else if(curLayer==='active_list')pt.textContent='수임 완료';
-    else if(curLayer==='matter_detail')pt.textContent='Matter 상세';
-    else if(curLayer==='entry_detail')pt.textContent='기록 상세';
-    else if(curLayer==='client_detail')pt.textContent='고객사 상세';
-    else if(curLayer==='contact_detail')pt.textContent='명함 상세';
-    else if(_queryMode==='time')pt.textContent='시간 조회';
-    else if(_queryMode==='money')pt.textContent='금액 조회';
-    else if(_queryMode==='clients')pt.textContent='고객사 관리';
-    else if(_queryMode==='contacts')pt.textContent='명함 관리';
-    else pt.textContent=titles[curTab]||'LegalTrack';
-  }
+  const titleStr=curLayer==='matters_list'?'진행중 Matters':
+    curLayer==='active_list'?'수임 완료':
+    curLayer==='matter_detail'?'Matter 상세':
+    curLayer==='entry_detail'?'기록 상세':
+    curLayer==='client_detail'?'고객사 상세':
+    curLayer==='contact_detail'?'명함 상세':
+    _queryMode==='time'?'시간 조회':
+    _queryMode==='money'?'금액 조회':
+    _queryMode==='clients'?'고객사 관리':
+    _queryMode==='contacts'?'명함 관리':
+    titles[curTab]||'LegalTrack';
+  if(pt)pt.textContent=titleStr;
+  if(mst)mst.textContent=titleStr;
   if(curTab===0)c.innerHTML=renderDash();
   else if(curTab===1)c.innerHTML=renderMattersPage();
   else if(curTab===2)c.innerHTML=renderQueryPage();
@@ -709,67 +737,32 @@ function renderDash(){
   const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
   const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
     .reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
-  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?(Math.round(v/10000)).toLocaleString()+'만':fmtK(v);
+  const clientCount=(D.clients||[]).filter(c=>c.status!=='inactive').length;
+  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
 
   if(curLayer==='matters_list') return renderMattersList('prospect');
   if(curLayer==='active_list') return renderMattersList('active');
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
 
+  // 8 KPI cards
+  const kpis=[
+    {l:'수임 진행중', v:prospectM.length, u:'건', c:'o', fn:`curLayer='matters_list';renderContent()`},
+    {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length, u:'건', c:'g', fn:`curLayer='active_list';renderContent()`},
+    {l:'수임액', v:fmt(retKRW), u:'올해', c:'gold', fn:`goTab(2);_queryMode='money';_moneyType='retainer';renderContent()`},
+    {l:'입금액', v:fmt(payKRW), u:'올해', c:'teal', fn:`goTab(2);_queryMode='money';_moneyType='payment';renderContent()`},
+    {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'없음', u:'업적 별도', c:'r', fn:contKRW>0?`goTab(2);_queryMode='money';_moneyType='contingency';renderContent()`:''},
+    {l:'고객 관리', v:clientCount, u:'등록 고객사', c:'b', fn:`goTab(2);_queryMode='clients';renderContent()`},
+    {l:'이번주', v:hhmm(s.week), u:'시간', c:'p', fn:`goTab(2);_queryMode='time';_timePresetQ='week';renderContent()`},
+    {l:'이번달', v:hhmm(s.month), u:'시간', c:'b', fn:`goTab(2);_queryMode='time';_timePresetQ='month';renderContent()`},
+  ];
   return`<div class="dash-wrap">
-  <!-- 상단 2행: 핵심 수치 -->
-  <div class="dash-kpi">
-    <div class="kpi-item tap" onclick="goLayer('matters_list')">
-      <div class="kpi-top">
-        <span class="kpi-lbl">수임 진행중</span>
-        <span class="kpi-arr">›</span>
-      </div>
-      <div class="kpi-val">${prospectM.length}<span class="kpi-unit">건</span></div>
-      <div class="kpi-sub">탭하여 목록보기</div>
-    </div>
-    <div class="kpi-item tap" onclick="goLayer('active_list')">
-      <div class="kpi-top">
-        <span class="kpi-lbl">수임 완료</span>
-        <span class="kpi-arr">›</span>
-      </div>
-      <div class="kpi-val">${activeM.filter(m=>m.status==='active').length}<span class="kpi-unit">건</span></div>
-      <div class="kpi-sub">탭하여 목록보기</div>
-    </div>
-    <div class="kpi-item tap" onclick="goTab(2);setTimeout(()=>showMoneyQuery('retainer'),50)">
-      <div class="kpi-top">
-        <span class="kpi-lbl">수임액</span>
-        <span class="kpi-arr">›</span>
-      </div>
-      <div class="kpi-val kpi-gold">${fmt(retKRW)}</div>
-      <div class="kpi-sub">올해 기준</div>
-    </div>
-    <div class="kpi-item tap" onclick="goTab(2);setTimeout(()=>showMoneyQuery('payment'),50)">
-      <div class="kpi-top">
-        <span class="kpi-lbl">입금액</span>
-        <span class="kpi-arr">›</span>
-      </div>
-      <div class="kpi-val kpi-teal">${fmt(payKRW)}</div>
-      <div class="kpi-sub">올해 기준</div>
-    </div>
-    ${contKRW>0?`<div class="kpi-item tap" onclick="goTab(2);setTimeout(()=>showMoneyQuery('contingency'),50)">
-      <div class="kpi-top"><span class="kpi-lbl">성공보수 예정</span><span class="kpi-arr">›</span></div>
-      <div class="kpi-val kpi-orange">${fmt(contKRW)}</div>
-      <div class="kpi-sub">달성 시 업적 반영</div>
-    </div>`:`<div class="kpi-item">
-      <div class="kpi-top"><span class="kpi-lbl">성공보수 예정</span></div>
-      <div class="kpi-val" style="color:var(--text3);font-size:18px">없음</div>
-      <div class="kpi-sub">—</div>
-    </div>`}
-    <div class="kpi-item tap" onclick="goTab(2)">
-      <div class="kpi-top"><span class="kpi-lbl">이번주</span><span class="kpi-arr">›</span></div>
-      <div class="kpi-val kpi-blue">${hhmm(s.week)}</div>
-      <div class="kpi-sub">시간</div>
-    </div>
-    <div class="kpi-item tap" onclick="goTab(2)">
-      <div class="kpi-top"><span class="kpi-lbl">이번달</span><span class="kpi-arr">›</span></div>
-      <div class="kpi-val kpi-blue">${hhmm(s.month)}</div>
-      <div class="kpi-sub">시간</div>
-    </div>
-  </div>
+<div class="dash-kpi">
+${kpis.map(k=>`<div class="kpi-item${k.fn?' tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
+  <div class="kpi-lbl">${k.l}</div>
+  <div class="kpi-val kpi-${k.c}">${k.v}<span class="kpi-unit">${typeof k.v==='number'?k.u:''}</span></div>
+  <div class="kpi-sub">${typeof k.v==='number'?'탭하여 상세':k.u}</div>
+</div>`).join('')}
+</div>
 </div>`;}
 
 /* Layer: Matter 목록 (진행중/완료) */
@@ -1455,15 +1448,45 @@ function exportMoneyQ(){
    SHARED FUNCTIONS
 ════════════════════════════════════════════ */
 function openMobMenu(){
-  document.getElementById('modalArea').innerHTML='<div class="mbg" onclick="if(event.target===this)closeModal()"><div class="msh" style="max-width:360px"><div class="mhdl"></div><div class="mttl">더보기</div>'
-    +'<button onclick="closeModal();goTab(3)" class="mob-menu-btn">🏆 업적 관리</button>'
-    +'<button onclick="closeModal();goTab(4)" class="mob-menu-btn">❌ 수임 실패 분석</button>'
-    +'<button onclick="closeModal();goTab(5)" class="mob-menu-btn">📈 리포트</button>'
-    +'<button onclick="closeModal();openExportModal()" class="mob-menu-btn">📥 내보내기</button>'
-    +'<button onclick="closeModal();openBackupModal()" class="mob-menu-btn" style="color:var(--g);font-weight:700">💾 백업 / 복원</button>'
-    +'<button onclick="closeModal();openSettings()" class="mob-menu-btn">⚙️ 설정</button>'
+  const html='<div class="mbg" onclick="if(event.target===this)closeModal()">'
+    +'<div class="msh" style="max-width:360px"><div class="mhdl"></div>'
+    +'<div class="mttl">더보기</div>'
+    +'<button class="mob-menu-btn" onclick="closeModal();goTab(1)">📁 Matters 목록</button>'
+    +'<button class="mob-menu-btn" onclick="closeModal();goTab(3)">🏆 업적 관리</button>'
+    +'<button class="mob-menu-btn" onclick="closeModal();goTab(4)">❌ 수임 실패 분석</button>'
+    +'<button class="mob-menu-btn" onclick="closeModal();openExportModal()">📥 내보내기</button>'
+    +'<button class="mob-menu-btn" onclick="closeModal();openBackupModal()" style="color:var(--g);font-weight:700">💾 백업 / 복원</button>'
+    +'<button class="mob-menu-btn" onclick="closeModal();openSettings()">⚙️ 설정</button>'
     +'<button class="cancelbtn" onclick="closeModal()">닫기</button>'
     +'</div></div>';
+  document.getElementById('modalArea').innerHTML=html;
+}
+
+
+function editEntry(id){
+  const e=D.entries.find(x=>x.id===id);
+  if(!e)return;
+  openEntryModal(e.matterId,null,e);
+}
+
+function delEntry(id){
+  if(!confirm('이 기록을 삭제하시겠습니까?'))return;
+  D.entries=D.entries.filter(x=>x.id!==id);
+  cloudSave('entry',{id},'del');
+  if(curLayer==='entry_detail'){curLayer=null;}
+  renderContent();
+}
+
+function delPayment(id){
+  if(!confirm('이 입금 기록을 삭제하시겠습니까?'))return;
+  D.payments=(D.payments||[]).filter(x=>x.id!==id);
+  cloudSave('payment',{id},'del');
+  renderContent();
+}
+
+function closeModal(){
+  const ma=document.getElementById('modalArea');
+  if(ma)ma.innerHTML='';
 }
 
 function handleBack(){
@@ -1481,7 +1504,35 @@ function renderAchievement(){
   return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">🏆</div><div>업적 관리</div><div style="font-size:12px;margin-top:8px">더보기 → 업적 관리에서 이용하세요</div></div>`;}
 function renderFailed(){return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">❌</div><div>수임 실패 분석</div></div>`;}
 function renderReport(){return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">📈</div><div>리포트</div></div>`;}
-function renderTimerBanner(){const b=document.getElementById('timerBanner');if(!timerObj){if(b)b.style.display='none';return;}if(b)b.style.display='flex';const m=D.matters.find(x=>x.id===timerObj.matterId);const tl=document.getElementById('tLbl');if(tl)tl.textContent=m?m.name:'타이머';}
+function startTimer(matterId){
+  if(timerObj){if(!confirm('현재 타이머를 종료하고 새로 시작하시겠습니까?'))return;stopTimer();}
+  timerObj={matterId,startMs:Date.now()};
+  renderTimerBanner();
+}
+
+function stopTimer(){
+  if(!timerObj)return;
+  const mins=Math.round((Date.now()-timerObj.startMs)/60000);
+  clearInterval(timerIv);timerIv=null;
+  if(mins>0)openEntryModal(timerObj.matterId,mins);
+  timerObj=null;
+  renderTimerBanner();
+}
+
+function renderTimerBanner(){
+  const b=document.getElementById('timerBanner');
+  if(!timerObj){if(b)b.style.display='none';clearInterval(timerIv);timerIv=null;return;}
+  if(b)b.style.display='flex';
+  const m=D.matters.find(x=>x.id===timerObj.matterId);
+  const tl=document.getElementById('tLbl');
+  if(tl)tl.textContent=m?m.name:'타이머';
+  if(!timerIv){
+    timerIv=setInterval(()=>{
+      const tt=document.getElementById('tTime');
+      if(tt&&timerObj){const s=Math.floor((Date.now()-timerObj.startMs)/1000);tt.textContent=String(Math.floor(s/3600)).padStart(2,'0')+':'+String(Math.floor(s%3600/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+    },1000);
+  }
+}
 function applyF(){renderContent();}
 function setQueryTab(t){_queryMode=t==='time'?'time':'money';if(t==='achievement'||t==='payment'||t==='retainer'||t==='contingency'){_queryMode='money';_moneyType=t==='achievement'?'retainer':t;}renderContent();}
 
