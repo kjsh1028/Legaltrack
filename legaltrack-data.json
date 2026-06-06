@@ -2,9 +2,9 @@
   "matters": [
     {
       "id": "mq1vk6icifve7",
-      "code": "DACHENG/GEN/법인설립",
-      "name": "한국 자회사 설립",
-      "client": "대성/南京唐文视讯传媒",
+      "code": "DACHENG/GEN/ë²ì¸ì¤ë¦½",
+      "name": "íêµ­ ìíì¬ ì¤ë¦½",
+      "client": "ëì±/åäº¬åæè§è®¯ä¼ åª",
       "type": "fixed-f",
       "status": "active",
       "retainer_amount": 7000000,
@@ -28,7 +28,7 @@
       "matterId": "mq1vk6icifve7",
       "date": "2026-06-05",
       "minutes": 60,
-      "description": "일정관리표 초안 작성",
+      "description": "ì¼ì ê´ë¦¬í ì´ì ìì±",
       "billable": true
     }
   ],
