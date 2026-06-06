@@ -1161,7 +1161,11 @@ function saveSettings(){
   CFG.cnyKrw=parseFloat(document.getElementById('cfgCny').value)||190;
   CFG.ghToken=(document.getElementById('ghToken')?.value||'').trim();
   CFG.supaUrl=(document.getElementById('sbUrl').value||'').trim().replace(/\/$/,'');
-  CFG.supaKey=(document.getElementById('sbKey').value||'').trim();saveCFG();closeModal();if(CFG.supaUrl)syncCloud().then(renderAll);else renderAll();}
+  CFG.supaKey=(document.getElementById('sbKey').value||'').trim();saveCFG();closeModal();
+  if(CFG.ghToken){ghLoad().then(()=>renderAll());}
+  else if(CFG.supaUrl){syncCloud().then(renderAll);}
+  else{renderAll();}
+}
 
 window.addEventListener('resize',()=>renderAll());
 init();
