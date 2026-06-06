@@ -434,6 +434,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -938,24 +939,23 @@ function renderQueryPage(){
   if(_queryMode==='matters') return renderMattersQuery();
   if(_queryMode==='clients') return renderClientsPage();
   if(_queryMode==='contacts') return renderContactsPage();
-  // Selector screen - clean grid
-  return '<div class="query-selector">'
-    +'<div class="qs-grid">'
-    +[
-      {ico:'⏱',l:'시간 조회',fn:"_queryMode='time';_timePresetQ='month';renderContent()"},
-      {ico:'📁',l:'사건 조회',fn:"_queryMode='matters';renderContent()"},
-      {ico:'🏆',l:'수임액',fn:"_queryMode='money';_moneyType='retainer';renderContent()"},
-      {ico:'💰',l:'입금액',fn:"_queryMode='money';_moneyType='payment';renderContent()"},
-      {ico:'🎯',l:'성공보수',fn:"_queryMode='money';_moneyType='contingency';renderContent()"},
-      {ico:'🏢',l:'고객사',fn:"_queryMode='clients';renderContent()"},
-      {ico:'👤',l:'명함',fn:"_queryMode='contacts';renderContent()"},
-    ].map(k=>'<button class="qs-btn" onclick="'+k.fn+'">'
-      +'<span class="qs-ico">'+k.ico+'</span>'
-      +'<span class="qs-lbl">'+k.l+'</span>'
-      +'</button>').join('')
-    +'</div>'
-    +'</div>';
+  const items=[
+    {ico:'⏱',l:'시간 조회',m:'time',extra:'month'},
+    {ico:'📁',l:'사건 조회',m:'matters',extra:''},
+    {ico:'🏆',l:'수임액',m:'money',extra:'retainer'},
+    {ico:'💰',l:'입금액',m:'money',extra:'payment'},
+    {ico:'🎯',l:'성공보수',m:'money',extra:'contingency'},
+    {ico:'🏢',l:'고객사',m:'clients',extra:''},
+    {ico:'👤',l:'명함',m:'contacts',extra:''},
+  ];
+  return`<div class="query-selector"><div class="qs-grid">
+${items.map(k=>`<button class="qs-btn" data-qmode="${k.m}" data-qextra="${k.extra}">
+  <span class="qs-ico">${k.ico}</span>
+  <span class="qs-lbl">${k.l}</span>
+</button>`).join('')}
+</div></div>`;
 }
+
 
 function renderMattersQuery(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
@@ -1028,6 +1028,8 @@ function renderTimeResults(){
 
   const presets=[['today','오늘'],['week','이번주'],['month','이번달'],['custom','직접입력']];
 
+  const presetBtns=presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" data-preset="${k}">${l}</button>`).join('');
+
   const matterOpts=D.matters.map(m=>`<option value="${m.id}"${selMatter===m.id?' selected':''}>${m.name}</option>`).join('');
 
   const rowsHTML=rows.length===0
@@ -1044,9 +1046,7 @@ function renderTimeResults(){
     }).join('');
 
   return`<div class="query-results">
-  <div class="preset-tabs">
-    ${presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" onclick="setTimePreset('${k}')">${l}</button>`).join('')}
-  </div>
+  <div class="preset-tabs">${presetBtns}</div>
   ${_timePresetQ==='custom'?`
   <div class="custom-date-row">
     <div class="cdr-fields">
@@ -1054,9 +1054,9 @@ function renderTimeResults(){
       <span class="cdr-sep">~</span>
       <input type="date" id="tqTo" value="${_timeTo||''}" placeholder="종료일" class="cdr-input">
     </div>
-    <button class="cdr-btn" onclick="applyCustomTime()">조회</button>
+    <button class="cdr-btn" data-applytime="1">조회</button>
   </div>`:''}
-  <select onchange="_tqMatter=this.value;_queryMode='time';renderContent()" class="matter-sel">
+  <select class="matter-sel" id="tqMatterSel" data-tqmatter="1">
     <option value="all">전체 Matter</option>
     ${matterOpts}
   </select>
@@ -1108,6 +1108,7 @@ function exportTimeQ(from,to){
 function renderMoneyResults(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
   const tabs=[['retainer','🏆 수임액'],['payment','💰 입금액'],['contingency','🎯 성공보수']];
+  const moneyTabBtns=tabs.map(([k,l])=>`<button class="ptab${_moneyType===k?' on':''}" data-moneytype="${k}">${l}</button>`).join('');
   let items=[], total=0, totalLabel='';
 
   if(_moneyType==='retainer'){
@@ -1122,10 +1123,7 @@ function renderMoneyResults(){
   }
 
   return`<div class="query-results">
-  <!-- Type tabs -->
-  <div class="preset-tabs">
-    ${tabs.map(([k,l])=>`<button class="ptab${_moneyType===k?' on':''}" onclick="_moneyType='${k}';renderContent()">${l}</button>`).join('')}
-  </div>
+  <div class="preset-tabs">${moneyTabBtns}</div>
   <!-- Total -->
   <div class="qr-total">
     <span class="qrt-label">${totalLabel}</span>
@@ -2021,24 +2019,64 @@ function saveSettings(){
   else{renderAll();}
 }
 
-/* ── Global event delegation for dynamic content ── */
+/* ── Global event delegation ── */
 document.addEventListener('click', function(e) {
-  // Handle data-action attributes for dynamic content
   let el = e.target;
-  while (el && el !== document) {
-    if (el.dataset && el.dataset.action) {
-      const action = el.dataset.action;
-      const param = el.dataset.param;
-      try { window[action](param); } catch(err) { console.error(action, err); }
-      e.stopPropagation();
-      return;
+  // Walk up DOM tree to find data-* handler
+  for(let i=0; i<5 && el && el!==document; i++, el=el.parentElement){
+    const d = el.dataset;
+    if(!d) continue;
+    // Query mode selector
+    if(d.qmode!==undefined){
+      _queryMode=d.qmode;
+      if(d.qmode==='time'){_timePresetQ=d.qextra||'month';}
+      else if(d.qmode==='money'){_moneyType=d.qextra||'retainer';}
+      renderContent(); return;
     }
-    el = el.parentElement;
+    // Time preset tabs
+    if(d.preset!==undefined){setTimePreset(d.preset); return;}
+    // Money type tabs  
+    if(d.moneytype!==undefined){_moneyType=d.moneytype;renderContent(); return;}
+    // Apply custom time
+    if(d.applytime!==undefined){applyCustomTime(); return;}
+    // Matter select change - handled by change event below
   }
 }, false);
 
+// Handle select changes via delegation
+document.addEventListener('change', function(e) {
+  const el = e.target;
+  if(el.dataset.tqmatter){_tqMatter=el.value;_queryMode='time';renderContent();}
+  else if(el.dataset.mqstatus){_mqStatus=el.value;renderContent();}
+  else if(el.dataset.mqtype){_mqType=el.value;renderContent();}
+}, false);
+
+/* ── Global event delegation ── */
+document.addEventListener('click', function(e) {
+  let el = e.target;
+  for(let i=0; i<8 && el && el!==document.body; i++, el=el.parentElement){
+    const d = el.dataset;
+    if(!d) continue;
+    if(d.qmode!==undefined){
+      _queryMode=d.qmode;
+      if(d.qmode==='time'){_timePresetQ=d.qextra||'month';}
+      else if(d.qmode==='money'){_moneyType=d.qextra||'retainer';}
+      renderContent(); return;
+    }
+    if(d.preset!==undefined){setTimePreset(d.preset); return;}
+    if(d.moneytype!==undefined){_moneyType=d.moneytype;renderContent(); return;}
+    if(d.applytime!==undefined){applyCustomTime(); return;}
+  }
+}, false);
+document.addEventListener('change', function(e) {
+  const d = e.target.dataset;
+  if(d.tqmatter){_tqMatter=e.target.value;_queryMode='time';renderContent();}
+  else if(d.mqstatus){_mqStatus=e.target.value;renderContent();}
+  else if(d.mqtype){_mqType=e.target.value;renderContent();}
+}, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 </script>
 </body>
 </html>
