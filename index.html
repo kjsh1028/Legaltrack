@@ -504,6 +504,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -1620,29 +1621,28 @@ function closeModal(){
 
 function handleBack(){
   if(curLayer==='matter_detail'){
-    // matter_detail에서: _prevLayer로 어디서 왔는지 확인
     if(_prevLayer==='matters_list'||_prevLayer==='active_list'){
-      // 홈의 진행중/완료 목록에서 왔음
       curLayer=_prevLayer;_prevLayer=null;
+      // curTab=0 유지, _queryMode=null 유지
     } else {
-      // 조회(사건/수임액 등)에서 왔음 → 해당 조회 결과로
+      // 조회에서 진입 → 조회 결과로 (curLayer=null, _queryMode 유지)
       curLayer=null;
-      // _queryMode 유지됨
     }
   } else if(curLayer==='entry_detail'){
-    curLayer=null;
+    curLayer=null; // _queryMode='time' 유지
   } else if(curLayer==='contact_detail'){
-    if(_selClientId){curLayer='client_detail';}
-    else{curLayer=null;}
+    curLayer=_selClientId?'client_detail':null;
   } else if(curLayer==='client_detail'){
-    curLayer=null;
-  } else if(curLayer==='matters_list'||curLayer==='active_list'){
-    curLayer=null;
-  } else if(_queryMode){
-    // 조회 결과 → 조회 선택 화면
-    _queryMode=null;curLayer=null;
+    curLayer=null; // _queryMode='clients' 유지
+  } else if(curLayer==='matters_list'){
+    curLayer=null; // 홈 대시보드로
+  } else if(curLayer==='active_list'){
+    curLayer=null; // 홈 대시보드로
+  } else if(curLayer===null && _queryMode){
+    // 조회 결과에서 → 조회 선택 화면
+    _queryMode=null;
   } else {
-    curLayer=null;
+    curLayer=null;_queryMode=null;
   }
   renderContent();
 }
@@ -2221,6 +2221,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
