@@ -10,220 +10,219 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
-:root{--green:#1A7A52;--green-l:#E6F5EE;--blue:#2E6BE6;--blue-l:#EBF0FD;--purple:#7C4DCC;--purple-l:#F0EAFA;--orange:#D4711A;--orange-l:#FDF0E6;--red:#D94040;--red-l:#FDEAEA;--gold:#B8960A;--gold-l:#FDF8E1;--teal:#0E8A8A;--teal-l:#E0F5F5;--gray:#666;--gray-l:#F0F0EE;--bg:#F4F3EF;--white:#fff;--text:#1C1C1E;--text2:#555;--text3:#999;--border:#E4E4E0;--shadow:0 1px 5px rgba(0,0,0,.08);--sb:252px}
-html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-system,sans-serif;color:var(--text);font-size:16px}
-@media(max-width:767px){
-  html{font-size:17px!important}
-  body{font-size:17px!important}
-  *{-webkit-text-size-adjust:100%}
-  .content,#content{font-size:17px!important}
-  .edesc{font-size:16px!important;line-height:1.6!important}
-  .mc-name{font-size:17px!important;font-weight:700!important}
-  .tag{font-size:13px!important;padding:4px 10px!important;border-radius:12px!important}
-  .ecode{font-size:13px!important;padding:4px 10px!important}
-  .mc-stat{font-size:14px!important}
-  .mc-stat b{font-size:15px!important}
-  .mc-info{font-size:14px!important}
-  .emeta{font-size:14px!important}
-  .etm{font-size:14px!important;font-weight:700!important}
-  .sc-v{font-size:24px!important;font-weight:800!important}
-  .sc-l{font-size:14px!important}
-  .sc-u{font-size:13px!important}
-  .mst-v{font-size:15px!important;font-weight:700!important}
-  .mst-l{font-size:12px!important}
-  .sbn{font-size:16px!important;padding:10px 16px!important}
-  .field input,.field select,.field textarea{font-size:17px!important}
-  .field label{font-size:13px!important}
-  .mttl{font-size:20px!important}
-  .dash-sec-title{font-size:16px!important}
-  .sec-cnt{font-size:14px!important}
-  .cttl{font-size:14px!important}
-  .card{padding:18px!important;border-radius:16px!important}
-  .mc{padding:15px!important}
-  .ach-box-val{font-size:22px!important;font-weight:800!important}
-  .ach-box-ttl{font-size:13px!important}
-  .ach-box-sub{font-size:13px!important}
-  .mbtn{font-size:13px!important;padding:7px 14px!important}
-  .tb-l{font-size:12px!important;font-weight:600!important}
-  .tb-i{font-size:22px!important}
-  .mob-hdr-title{font-size:20px!important}
-  .hint{font-size:13px!important}
-  .blbl{font-size:14px!important}
-  .phdr-title{font-size:22px!important}
-  .sb-srow{font-size:14px!important}
-  .entry .edesc{font-size:15px!important}
-  .entry .emeta{font-size:13px!important}
-  .cur-pill{font-size:13px!important;padding:4px 11px!important}
-  .more-btn{font-size:13px!important;padding:5px 13px!important}
-  .savebtn{font-size:17px!important;padding:15px!important}
-  .cancelbtn{font-size:16px!important}
-  .tt-lbl{font-size:14px!important}
-  .tt-sub{font-size:12px!important}
-  .tt-ico{font-size:22px!important}
+:root{
+  --g:#1A7A52;--gl:#E8F5EE;--b:#2563EB;--bl:#EBF0FE;
+  --p:#7C3AED;--pl:#F3F0FF;--o:#D97706;--ol:#FEF3C7;
+  --r:#DC2626;--rl:#FEE2E2;--t:#0D9488;--tl:#CCFBF1;
+  --gray:#6B7280;--grayl:#F3F4F6;
+  --bg:#F8F9FA;--white:#fff;--text:#111827;--text2:#374151;--text3:#9CA3AF;
+  --border:#E5E7EB;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow2:0 4px 16px rgba(0,0,0,.08);
+  --sb:220px;--r8:8px;--r12:12px;--r16:16px;
+  --green:var(--g);--green-l:var(--gl);--blue:var(--b);--blue-l:var(--bl);
+  --purple:var(--p);--purple-l:var(--pl);--orange:var(--o);--orange-l:var(--ol);
+  --red:var(--r);--red-l:var(--rl);--gold:var(--o);--gold-l:var(--ol);
+  --teal:var(--t);--teal-l:var(--tl);
 }
-.layout{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
-@media(min-width:768px){.layout{flex-direction:row;height:100vh}}
-.sidebar{display:none;width:var(--sb);background:var(--white);border-right:1px solid var(--border);flex-direction:column;flex-shrink:0}
+html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-system,sans-serif;color:var(--text)}
+.layout{display:flex;height:100dvh;overflow:hidden}
+.sidebar{width:var(--sb);background:var(--white);border-right:1px solid var(--border);display:none;flex-direction:column;flex-shrink:0}
 @media(min-width:768px){.sidebar{display:flex}}
-.sb-hdr{padding:22px 18px 12px;border-bottom:1px solid var(--border)}.sb-logo{display:flex;align-items:center;gap:8px;margin-bottom:3px}
-.sb-logo-ico{font-size:22px}.sb-logo-txt{font-size:15px;font-weight:700}.sb-date{font-size:11px;color:var(--text3)}
-.sb-stats{padding:9px 14px;border-bottom:1px solid var(--border)}.sb-srow{display:flex;justify-content:space-between;padding:3px 0;font-size:12px}
+.sb-hdr{padding:18px 16px 12px;border-bottom:1px solid var(--border)}
+.sb-logo{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.sb-logo-ico{font-size:20px}.sb-logo-txt{font-size:14px;font-weight:800}
+.sb-date{font-size:11px;color:var(--text3)}
+.sb-stats{padding:8px 14px;border-bottom:1px solid var(--border)}
+.sb-srow{display:flex;justify-content:space-between;padding:3px 0;font-size:12px}
 .sb-srow-lbl{color:var(--text3)}.sb-srow-val{font-weight:600}
 .sb-nav{flex:1;padding:6px 0;overflow-y:auto}
-.sbn{width:100%;display:flex;align-items:center;gap:9px;padding:8px 16px;border:none;background:none;cursor:pointer;font-family:inherit;font-size:13px;color:var(--text2);text-align:left}
-.sbn:hover{background:var(--bg)}.sbn.on{background:var(--green-l);color:var(--green);font-weight:600}
-.sbn-ico{font-size:15px;width:20px;text-align:center}.sb-foot{padding:9px 14px;border-top:1px solid var(--border)}
+.sbn{width:100%;display:flex;align-items:center;gap:9px;padding:9px 16px;border:none;background:none;cursor:pointer;font-family:inherit;font-size:13px;color:var(--text2);text-align:left}
+.sbn:hover{background:var(--bg)}.sbn.on{background:var(--gl);color:var(--g);font-weight:600}
+.sbn-ico{font-size:15px;width:20px;text-align:center}
+.sb-foot{padding:9px 14px;border-top:1px solid var(--border)}
 .sb-sync{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:5px;margin-bottom:4px}
-.sdot{width:7px;height:7px;border-radius:50%;background:var(--text3);flex-shrink:0}
-.sdot.ok{background:var(--green)}.sdot.err{background:var(--red)}.sdot.sy{background:var(--blue);animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--text3);flex-shrink:0}
+.sdot.ok{background:var(--g)}.sdot.err{background:var(--r)}.sdot.sy{background:var(--b);animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
-.mob-hdr{background:linear-gradient(135deg,#1A7A52,#2E6BE6);color:#fff;padding:46px 16px 13px;flex-shrink:0}
+.mob-hdr{background:var(--g);color:#fff;padding:44px 16px 0;flex-shrink:0}
 @media(min-width:768px){.mob-hdr{display:none}}
-.mob-hdr-top{display:flex;align-items:center;gap:8px;margin-bottom:9px}
-.mob-hdr-title{font-size:16px;font-weight:700}.mob-hdr-date{font-size:11px;opacity:.8;margin-left:auto}
-.mob-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
-.mst{background:rgba(255,255,255,.18);border-radius:8px;padding:6px 3px;text-align:center}
-.mst-v{font-size:11px;font-weight:700;display:block}.mst-l{font-size:9px;opacity:.85;display:block;margin-top:1px}
+.mob-hdr-top{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.mob-hdr-title{font-size:17px;font-weight:800}
+.mob-hdr-date{font-size:11px;opacity:.75;margin-left:auto}
+.kpi-scroll{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:14px;scrollbar-width:none}
+.kpi-scroll::-webkit-scrollbar{display:none}
+.kpi-card{background:rgba(255,255,255,.18);border-radius:var(--r12);padding:10px 14px;flex-shrink:0;min-width:120px;cursor:pointer;border:1px solid rgba(255,255,255,.15);transition:all .15s}
+.kpi-card:active{background:rgba(255,255,255,.28)}
+.kpi-label{font-size:10px;opacity:.85;margin-bottom:2px;white-space:nowrap;font-weight:600}
+.kpi-value{font-size:17px;font-weight:800;line-height:1.1}
+.kpi-sub{font-size:9px;opacity:.7;margin-top:2px}
 .phdr{display:none;flex-shrink:0}
 @media(min-width:768px){.phdr{display:flex;align-items:center;justify-content:space-between;padding:16px 22px 0}}
-@media(min-width:1200px){.phdr{padding:20px 30px 0}}
-.phdr-title{font-size:19px;font-weight:700}.phdr-sub{font-size:12px;color:var(--text3);margin-top:2px}
-.phdr-act{display:flex;gap:8px;align-items:center}
-.tbanner{background:var(--green-l);border-bottom:1px solid #b8deca;padding:7px 13px;display:flex;align-items:center;gap:7px;flex-shrink:0}
-.tdot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.4s infinite;flex-shrink:0}
-.tlbl{font-size:11px;color:var(--green);font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ttime{font-family:monospace;font-size:12px;font-weight:700;color:var(--green);margin-right:5px}
-.tstop{background:var(--green);color:#fff;border:none;border-radius:12px;padding:4px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
-.syncbar{background:var(--blue-l);border-bottom:1px solid #c0d4f8;padding:5px 13px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--blue);flex-shrink:0}
-.content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:13px 13px 86px}
-@media(min-width:768px){.content{padding:18px 22px 38px}}@media(min-width:1200px){.content{padding:20px 30px 38px}}
-.tabbar{position:absolute;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);display:flex;padding-bottom:max(env(safe-area-inset-bottom),9px);z-index:50}
+.phdr-title{font-size:19px;font-weight:800}.phdr-act{display:flex;gap:8px;align-items:center}
+.tbanner{background:var(--gl);border-bottom:1px solid #BBE5CF;padding:7px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.tdot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse 1.2s infinite;flex-shrink:0}
+.tlbl{font-size:12px;color:var(--g);font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ttime{font-family:monospace;font-size:12px;font-weight:700;color:var(--g);margin-right:4px}
+.tstop{background:var(--g);color:#fff;border:none;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.syncbar{background:var(--bl);border-bottom:1px solid #BFDBFE;padding:5px 14px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--b);flex-shrink:0}
+.content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:13px 14px 90px}
+@media(min-width:768px){.content{padding:18px 22px 40px}}
+.tabbar{position:absolute;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);display:flex;padding-bottom:max(env(safe-area-inset-bottom),8px);z-index:50}
 @media(min-width:768px){.tabbar{display:none}}
 .tb{flex:1;display:flex;flex-direction:column;align-items:center;padding:7px 0 0;cursor:pointer;border:none;background:none;gap:2px;font-family:inherit}
-.tb-i{font-size:17px;line-height:1}.tb-l{font-size:9px;color:var(--text3);font-weight:500}
-.tb.on .tb-l{color:var(--green);font-weight:700}
+.tb-i{font-size:20px;line-height:1}.tb-l{font-size:10px;color:var(--text3);font-weight:500}
+.tb.on .tb-l{color:var(--g);font-weight:700}
 .fab-wrap{flex:1;display:flex;flex-direction:column;align-items:center;padding:1px 0 0;cursor:pointer;border:none;background:none;gap:2px;font-family:inherit}
-.fab{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:21px;margin-top:-11px;box-shadow:0 3px 10px rgba(46,107,230,.4)}
+.fab{width:42px;height:42px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;margin-top:-12px;box-shadow:0 4px 12px rgba(26,122,82,.4)}
 .fab-l{font-size:9px;color:var(--text3)}
-.card{background:var(--white);border-radius:14px;padding:14px;margin-bottom:11px;box-shadow:var(--shadow)}
-@media(min-width:768px){.card{padding:18px;border-radius:16px;margin-bottom:14px}}
-.cttl{font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
-.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:11px}
-@media(min-width:768px){.sgrid{gap:11px;margin-bottom:13px}}
+.card{background:var(--white);border-radius:var(--r16);padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
+@media(min-width:768px){.card{padding:18px}}
+.cttl{font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sec-title{font-size:13px;font-weight:700;color:var(--text2)}
+.sec-meta{font-size:11px;color:var(--text3);font-weight:400;margin-left:4px}
+.more-btn{font-size:11px;color:var(--b);background:var(--bl);border:none;border-radius:20px;padding:3px 10px;cursor:pointer;font-family:inherit;font-weight:600}
+.divider{height:1px;background:var(--border);margin:12px 0}
+.empty{text-align:center;padding:36px 0;color:var(--text3)}
+.empty-ico{font-size:30px;display:block;margin-bottom:7px}
+/* stat */
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+@media(min-width:768px){.sgrid{gap:10px}}
 @media(min-width:1024px){.sgrid.c4{grid-template-columns:repeat(4,1fr)}.sgrid.c3{grid-template-columns:repeat(3,1fr)}}
-.sc{border-radius:12px;padding:11px 10px}.sc-l{font-size:11px;color:var(--text3);line-height:1.3;margin-bottom:3px}
-.sc-v{font-size:18px;font-weight:700;line-height:1.1}.sc-u{font-size:10px;color:var(--text3);margin-top:2px}
-.sc.g{background:var(--green-l)}.sc.g .sc-v{color:var(--green)}.sc.b{background:var(--blue-l)}.sc.b .sc-v{color:var(--blue)}
-.sc.p{background:var(--purple-l)}.sc.p .sc-v{color:var(--purple)}.sc.o{background:var(--orange-l)}.sc.o .sc-v{color:var(--orange)}
-.sc.gold{background:var(--gold-l)}.sc.gold .sc-v{color:var(--gold)}.sc.teal{background:var(--teal-l)}.sc.teal .sc-v{color:var(--teal)}
-.sc.red{background:var(--red-l)}.sc.red .sc-v{color:var(--red)}
-.add-btn{width:100%;padding:11px;border:none;border-radius:12px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:11px;font-family:inherit;background:linear-gradient(135deg,var(--green),var(--blue));box-shadow:0 2px 8px rgba(46,107,230,.18)}
-.add-btn:active{opacity:.85}.add-btn.out{background:var(--white);color:var(--green);border:1.5px solid var(--green);box-shadow:none}
-@media(min-width:768px){.add-btn{max-width:280px}}
-.two-col{display:block}@media(min-width:1200px){.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}}
-.three-col{display:block}@media(min-width:1100px){.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}}
-.matter-grid{display:block}@media(min-width:1024px){.matter-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}}.matter-grid .mc{margin-bottom:0}
-.entry{padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:9px;align-items:flex-start}
-.entry:last-child{border-bottom:none;padding-bottom:0}
-.edot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}.ebody{flex:1;min-width:0}
+.sc{border-radius:var(--r12);padding:11px 12px;cursor:default}
+.sc-l{font-size:11px;line-height:1.3;margin-bottom:3px;opacity:.8}
+.sc-v{font-size:18px;font-weight:800;line-height:1.1}
+.sc-u{font-size:10px;margin-top:2px;opacity:.7}
+.sc.g{background:var(--gl);color:var(--g)}.sc.b{background:var(--bl);color:var(--b)}
+.sc.p{background:var(--pl);color:var(--p)}.sc.o,.sc.gold{background:var(--ol);color:var(--o)}
+.sc.teal{background:var(--tl);color:var(--t)}.sc.r,.sc.red{background:var(--rl);color:var(--r)}
+.sc.gray{background:var(--grayl);color:var(--gray)}
+/* matter list item */
+.mitem{display:flex;align-items:center;padding:11px 12px;background:var(--white);border-radius:var(--r12);margin-bottom:6px;box-shadow:var(--shadow);cursor:pointer;gap:10px;border-left:3px solid transparent;transition:opacity .15s}
+.mitem:active{opacity:.75}
+.mitem.g-b{border-left-color:var(--g)}.mitem.p-b{border-left-color:var(--p)}
+.mitem.b-b{border-left-color:var(--b)}.mitem.r-b{border-left-color:var(--r)}
+.mitem.o-b,.mitem.gold-b{border-left-color:var(--o)}.mitem.gray-b{border-left-color:var(--gray)}
+.mitem-body{flex:1;min-width:0}
+.mitem-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.mitem-code{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.mitem-name{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.mitem-client{font-size:11px;color:var(--text3);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mitem-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mitem-amt{font-size:13px;font-weight:700}.mitem-arr{font-size:18px;color:var(--text3);flex-shrink:0}
+/* tags */
+.tag{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;white-space:nowrap}
+.tag.g{background:var(--gl);color:var(--g)}.tag.p{background:var(--pl);color:var(--p)}
+.tag.b{background:var(--bl);color:var(--b)}.tag.r,.tag.red{background:var(--rl);color:var(--r)}
+.tag.o,.tag.gold,.tag.orange{background:var(--ol);color:var(--o)}
+.tag.teal{background:var(--tl);color:var(--t)}.tag.gray{background:var(--grayl);color:var(--gray)}
+/* buttons */
+.add-btn{width:100%;padding:11px;border:none;border-radius:var(--r12);color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:10px;font-family:inherit;background:var(--g);box-shadow:var(--shadow)}
+.add-btn:active{opacity:.85}.add-btn.out{background:var(--white);color:var(--g);border:1.5px solid var(--g);box-shadow:none}
+@media(min-width:768px){.add-btn{max-width:260px}}
+.mbtn{padding:5px 11px;border-radius:18px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text2);font-family:inherit;white-space:nowrap}
+.mbtn:active{opacity:.7}
+.mbtn.g{background:var(--g);border-color:var(--g);color:#fff}.mbtn.p{background:var(--p);border-color:var(--p);color:#fff}
+.mbtn.gold,.mbtn.o{background:var(--o);border-color:var(--o);color:#fff}.mbtn.red,.mbtn.r{background:var(--r);border-color:var(--r);color:#fff}
+.mbtn.teal,.mbtn.t{background:var(--t);border-color:var(--t);color:#fff}.mbtn.run{background:var(--gl);border-color:var(--g);color:var(--g)}
+/* forms */
+.field{margin-bottom:10px}.field label{font-size:11px;color:var(--text3);font-weight:700;display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em}
+.field input,.field select,.field textarea{width:100%;padding:10px 12px;font-size:15px;border:none;border-radius:var(--r8);background:var(--white);color:var(--text);font-family:inherit;-webkit-appearance:none;appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--g);outline-offset:-1px}
+.field textarea{resize:none;line-height:1.5}.field-row{display:flex;gap:7px}.field-row .field{flex:1}
+.field .cs{flex:0 0 85px!important}.hint{font-size:11px;color:var(--text3);margin-top:2px;line-height:1.5}
+.conv{font-size:12px;color:var(--g);font-weight:700;margin-top:2px;min-height:14px}
+.crow{display:flex;align-items:center;gap:9px;padding:1px 0 10px}
+.crow input[type=checkbox]{width:18px;height:18px;accent-color:var(--g);cursor:pointer;flex-shrink:0}
+.crow label{font-size:13px;cursor:pointer}
+.tt{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.tt-b{padding:9px 6px;border-radius:var(--r8);border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
+.tt-b.on.g{background:var(--gl);border-color:var(--g);color:var(--g)}.tt-b.on.p{background:var(--pl);border-color:var(--p);color:var(--p)}
+.tt-b.on.b{background:var(--bl);border-color:var(--b);color:var(--b)}.tt-b.on.r,.tt-b.on.red{background:var(--rl);border-color:var(--r);color:var(--r)}
+.tt-b.on.gold,.tt-b.on.o{background:var(--ol);border-color:var(--o);color:var(--o)}.tt-b.on.gray{background:var(--grayl);border-color:var(--gray);color:var(--gray)}
+.tt-b.on.teal{background:var(--tl);border-color:var(--t);color:var(--t)}
+.tt-ico{font-size:18px;display:block;margin-bottom:2px}.tt-lbl{font-size:11px;font-weight:700}.tt-sub{font-size:9px;color:var(--text3);margin-top:1px}
+.cur-row{display:flex;gap:5px;align-items:flex-end}.cur-row .field{flex:1}.cur-row .field.cs{flex:0 0 85px}
+/* modal */
+.mbg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;display:flex;align-items:flex-end;justify-content:center}
+@media(min-width:768px){.mbg{align-items:center}}
+.msh{background:var(--bg);border-radius:20px 20px 0 0;padding:13px 15px;width:100%;max-width:600px;max-height:94vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:max(env(safe-area-inset-bottom),22px)}
+@media(min-width:768px){.msh{border-radius:var(--r16);max-height:90vh;padding:20px 24px 24px}}
+.mhdl{width:32px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 12px}
+@media(min-width:768px){.mhdl{display:none}}
+.mttl{font-size:15px;font-weight:800;text-align:center;margin-bottom:13px}
+@media(min-width:768px){.mttl{text-align:left;font-size:17px}}
+.savebtn{width:100%;padding:13px;border:none;border-radius:var(--r12);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:var(--g);margin-top:2px}
+.savebtn:active{opacity:.85}.savebtn.red{background:var(--r)}.savebtn.gold,.savebtn.o{background:var(--o)}.savebtn.teal,.savebtn.t{background:var(--t)}
+.cancelbtn{width:100%;padding:10px;background:none;border:none;font-size:13px;color:var(--text3);cursor:pointer;font-family:inherit;text-align:center;margin-top:2px}
+.wbox{background:var(--ol);border-radius:var(--r8);padding:9px 11px;font-size:12px;color:var(--o);margin-bottom:10px;line-height:1.5}
+.ibox{background:var(--bl);border-radius:var(--r8);padding:9px 11px;font-size:12px;color:var(--b);margin-bottom:10px;line-height:1.5}
+.rbox{background:var(--rl);border-radius:var(--r8);padding:9px 11px;font-size:12px;color:var(--r);margin-bottom:10px;line-height:1.5}
+.gbox{background:var(--gl);border-radius:var(--r8);padding:9px 11px;font-size:12px;color:var(--g);margin-bottom:10px;line-height:1.5}
+.fbar{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.fbar input,.fbar select{flex:1;min-width:90px;padding:8px 10px;font-size:13px;border:1px solid var(--border);border-radius:var(--r8);background:var(--white);color:var(--text);font-family:inherit;-webkit-appearance:none}
+.stab-bar{display:flex;margin-bottom:12px;border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.stab-bar::-webkit-scrollbar{display:none}
+.stab{flex-shrink:0;padding:8px 12px;font-size:12px;font-weight:600;background:none;border:none;cursor:pointer;color:var(--text3);font-family:inherit;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.stab.on{color:var(--g);border-bottom-color:var(--g)}
+.entry,.erow{padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:9px;align-items:flex-start}
+.entry:last-child,.erow:last-child{border-bottom:none;padding-bottom:0}
+.edot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.ebody{flex:1;min-width:0}
 .ecode{font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;display:inline-block;margin-bottom:2px}
 .edesc{font-size:12px;color:var(--text);line-height:1.4;margin-bottom:2px;word-break:break-all}
 .emeta{font-size:11px;color:var(--text3);display:flex;gap:5px;align-items:center;flex-wrap:wrap}
 .etm{font-size:11px;font-weight:700;margin-left:auto;white-space:nowrap}
-.btag{font-size:10px;padding:1px 5px;border-radius:10px}.eact{display:flex;gap:1px;flex-shrink:0}
+.btag{font-size:10px;padding:1px 5px;border-radius:10px}
+.eact{display:flex;gap:1px;flex-shrink:0}
 .icobtn{background:none;border:none;cursor:pointer;padding:3px;font-size:15px;line-height:1}
-.mc{border-radius:13px;padding:13px;margin-bottom:9px;box-shadow:var(--shadow);background:var(--white);cursor:pointer;position:relative}
-.mc.time-b{border-left:4px solid var(--green)}.mc.fixed-f{border-left:4px solid var(--purple)}
-.mc.biz-b{border-left:4px solid var(--gold)}.mc.office-i{border-left:4px solid var(--gray)}
-.mc.failed{border-left:4px solid var(--red);opacity:.8}.mc.closed{border-left:4px solid var(--teal);opacity:.9}.mc.retainer{border-left:4px solid var(--blue)}.mc.litigation{border-left:4px solid var(--red)}
-.mc-top{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;flex-wrap:wrap}.mc-name{font-size:13px;font-weight:600;flex:1}
-.mc-tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:1px}
-.tag{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:600;white-space:nowrap}
-.tag.g{background:var(--green-l);color:var(--green)}.tag.p{background:var(--purple-l);color:var(--purple)}
-.tag.gold{background:var(--gold-l);color:var(--gold)}.tag.gray{background:var(--gray-l);color:var(--gray)}
-.tag.b{background:var(--blue-l);color:var(--blue)}.tag.teal{background:var(--teal-l);color:var(--teal)}
-.tag.red{background:var(--red-l);color:var(--red)}.tag.orange{background:var(--orange-l);color:var(--orange)}
-.mc-info{font-size:11px;color:var(--text3);margin-bottom:5px}.mc-stats{display:flex;gap:9px;margin-bottom:8px;flex-wrap:wrap}
-.mc-stat{font-size:11px;color:var(--text3)}.mc-stat b{font-weight:600;color:var(--text);margin-left:2px}
-.mc-btns{display:flex;gap:5px;flex-wrap:wrap}
-.mbtn{padding:5px 11px;border-radius:18px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text2);font-family:inherit}
-.mbtn:active{opacity:.7}.mbtn.g{background:var(--green);border-color:var(--green);color:#fff}.mbtn.p{background:var(--purple);border-color:var(--purple);color:#fff}
-.mbtn.gold{background:var(--gold);border-color:var(--gold);color:#fff}.mbtn.red{background:var(--red);border-color:var(--red);color:#fff}
-.mbtn.teal{background:var(--teal);border-color:var(--teal);color:#fff}.mbtn.run{background:var(--green-l);border-color:var(--green);color:var(--green)}
-.star-btn{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:2px;z-index:1}
-.pay-row{display:flex;align-items:center;gap:7px;padding:7px 10px;background:var(--bg);border-radius:9px;margin-bottom:5px}
-.cur-summary{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.cur-pill{font-size:11px;padding:3px 9px;border-radius:12px;font-weight:600}
-.cur-pill.krw{background:var(--green-l);color:var(--green)}.cur-pill.usd{background:var(--blue-l);color:var(--blue)}.cur-pill.cny{background:var(--red-l);color:var(--red)}
-.dash-sec{margin-bottom:13px}.dash-sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;user-select:none}
-.dash-sec-title{font-size:13px;font-weight:700;color:var(--text2)}.dash-sec-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.more-btn{font-size:11px;color:var(--blue);background:var(--blue-l);border:none;border-radius:12px;padding:3px 10px;cursor:pointer;font-family:inherit;font-weight:600}
-.dash-grid{display:grid;grid-template-columns:1fr;gap:11px;align-items:start}
-@media(min-width:768px){.dash-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1100px){.dash-grid{grid-template-columns:1fr 1fr 1fr}}
-.ach-compare{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
-.ach-box{border-radius:12px;padding:12px}
-.ach-box.retainer{background:linear-gradient(135deg,#FDF8E1,#FFF3CD);border:1.5px solid var(--gold)}
-.ach-box.payment{background:linear-gradient(135deg,#E0F5F5,#C8EBEB);border:1.5px solid var(--teal)}
-.ach-box-ttl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
-.ach-box.retainer .ach-box-ttl{color:var(--gold)}.ach-box.payment .ach-box-ttl{color:var(--teal)}
-.ach-box-val{font-size:16px;font-weight:700;line-height:1.2;margin-bottom:3px}
-.ach-box.retainer .ach-box-val{color:var(--gold)}.ach-box.payment .ach-box-val{color:var(--teal)}
-.ach-box-sub{font-size:10px;color:var(--text3)}
-.ret-bar{height:4px;background:rgba(0,0,0,.08);border-radius:2px;overflow:hidden;margin-top:5px}
-.ret-fill{height:100%;border-radius:2px;background:var(--gold);transition:width .5s}
-.fbar{display:flex;gap:6px;margin-bottom:9px;flex-wrap:wrap}
-.fbar input,.fbar select{flex:1;min-width:90px;padding:8px 10px;font-size:13px;border:1px solid var(--border);border-radius:9px;background:var(--white);color:var(--text);font-family:inherit;-webkit-appearance:none}
-.fbar input:focus,.fbar select:focus{outline:2px solid var(--green);outline-offset:-1px}
-.sec-hdr{font-size:13px;font-weight:700;color:var(--text2);margin:12px 0 7px;display:flex;align-items:center;justify-content:space-between}
-.sec-cnt{font-size:11px;color:var(--text3);font-weight:400}.empty{text-align:center;padding:32px 0;color:var(--text3)}
-.empty-ico{font-size:30px;display:block;margin-bottom:7px}
-.wwrap{display:flex;gap:3px;align-items:flex-end;height:70px;margin-bottom:5px}
+.pay-row{display:flex;align-items:center;gap:7px;padding:7px 10px;background:var(--bg);border-radius:var(--r8);margin-bottom:5px}
+.prog-bar,.ret-bar{height:4px;background:rgba(0,0,0,.08);border-radius:2px;overflow:hidden;margin-top:5px}
+.prog-fill,.ret-fill{height:100%;border-radius:2px;background:var(--t);transition:width .5s}
+.brow{margin-bottom:8px}.brow:last-child{margin-bottom:0}
+.blbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px}
+.btrk{height:5px;background:var(--bg);border-radius:3px;overflow:hidden}
+.bfil{height:100%;border-radius:3px;transition:width .5s}
+.wwrap{display:flex;gap:3px;align-items:flex-end;height:72px;margin-bottom:5px}
 @media(min-width:768px){.wwrap{height:100px;gap:5px}}
 .wc{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;height:100%;justify-content:flex-end}
-.wb{width:100%;border-radius:3px 3px 0 0;min-height:2px;transition:height .4s}.wd{font-size:9px;color:var(--text3);text-align:center}
-@media(min-width:768px){.wd{font-size:11px}}.wv{font-size:9px;font-weight:700}
-.brow{margin-bottom:8px}.brow:last-child{margin-bottom:0}.blbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px}
-.btrk{height:5px;background:var(--bg);border-radius:3px;overflow:hidden}.bfil{height:100%;border-radius:3px;transition:width .5s}
-.reason-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:18px;background:var(--red-l);color:var(--red);font-weight:600;margin:1px 2px}
-.mbg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:flex;align-items:flex-end;justify-content:center}
-@media(min-width:768px){.mbg{align-items:center}}
-.msh{background:var(--bg);border-radius:20px 20px 0 0;padding:13px 15px;width:100%;max-width:580px;max-height:94vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:max(env(safe-area-inset-bottom),22px)}
-@media(min-width:768px){.msh{border-radius:18px;max-height:90vh;padding:20px 24px 24px}}
-.mhdl{width:32px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 12px}
-@media(min-width:768px){.mhdl{display:none}}
-.mttl{font-size:15px;font-weight:700;text-align:center;margin-bottom:13px}
-@media(min-width:768px){.mttl{font-size:17px;text-align:left}}
-.field{margin-bottom:10px}.field label{font-size:11px;color:var(--text3);font-weight:700;display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em}
-.field input,.field select,.field textarea{width:100%;padding:10px 12px;font-size:15px;border:none;border-radius:10px;background:var(--white);color:var(--text);font-family:inherit;-webkit-appearance:none;appearance:none}
-.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--green);outline-offset:-1px}
-.field textarea{resize:none;line-height:1.5}.field-row{display:flex;gap:7px}.field-row .field{flex:1}
-.hint{font-size:11px;color:var(--text3);margin-top:2px;padding-left:2px}.conv{font-size:12px;color:var(--green);font-weight:700;margin-top:2px;padding-left:2px;min-height:14px}
-.crow{display:flex;align-items:center;gap:9px;padding:1px 0 10px}
-.crow input[type=checkbox]{width:18px;height:18px;accent-color:var(--green);cursor:pointer;flex-shrink:0}
-.crow label{font-size:13px;cursor:pointer}
-.savebtn{width:100%;padding:13px;border:none;border-radius:12px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,var(--green),var(--blue));box-shadow:0 2px 8px rgba(46,107,230,.2);margin-top:2px}
-.savebtn:active{opacity:.85}.savebtn.red{background:var(--red);box-shadow:none}.savebtn.gold{background:var(--gold);box-shadow:none}.savebtn.teal{background:var(--teal);box-shadow:none}
-.cancelbtn{width:100%;padding:10px;background:none;border:none;font-size:13px;color:var(--text3);cursor:pointer;font-family:inherit;text-align:center;margin-top:2px}
-.wbox{background:var(--orange-l);border-radius:10px;padding:9px 11px;font-size:12px;color:var(--orange);margin-bottom:10px;line-height:1.5}
-.ibox{background:var(--blue-l);border-radius:10px;padding:9px 11px;font-size:12px;color:var(--blue);margin-bottom:10px;line-height:1.5}
-.rbox{background:var(--red-l);border-radius:10px;padding:9px 11px;font-size:12px;color:var(--red);margin-bottom:10px;line-height:1.5}
-.gbox{background:var(--green-l);border-radius:10px;padding:9px 11px;font-size:12px;color:var(--green);margin-bottom:10px;line-height:1.5}
-.tt{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px}
-.tt-b{padding:9px;border-radius:10px;border:2px solid var(--border);background:var(--white);cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
-.tt-b.on.g{background:var(--green-l);border-color:var(--green);color:var(--green)}.tt-b.on.p{background:var(--purple-l);border-color:var(--purple);color:var(--purple)}
-.tt-b.on.gold{background:var(--gold-l);border-color:var(--gold);color:var(--gold)}.tt-b.on.gray{background:var(--gray-l);border-color:var(--gray);color:var(--gray)}.tt-b.on.b{background:var(--blue-l);border-color:var(--blue);color:var(--blue)}.tt-b.on.red{background:var(--red-l);border-color:var(--red);color:var(--red)}.tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}.tt-b.on.orange{background:var(--orange-l);border-color:var(--orange);color:var(--orange)}
-.tt-b.on.teal{background:var(--teal-l);border-color:var(--teal);color:var(--teal)}
-.tt-ico{font-size:19px;display:block;margin-bottom:2px}.tt-lbl{font-size:12px;font-weight:700}.tt-sub{font-size:10px;color:var(--text3);margin-top:1px}
-.cur-row{display:flex;gap:5px;align-items:flex-end}.cur-row .field{flex:1}.cur-row .field.cs{flex:0 0 85px}
-.divider{height:1px;background:var(--border);margin:12px 0}
-.stab-bar{display:flex;margin-bottom:12px;border-bottom:2px solid var(--border)}
-.stab{flex:1;padding:8px 0;font-size:12px;font-weight:600;background:none;border:none;cursor:pointer;color:var(--text3);font-family:inherit;border-bottom:2px solid transparent;margin-bottom:-2px}
-.stab.on{color:var(--green);border-bottom-color:var(--green)}
-.dropzone{border:2px dashed var(--border);border-radius:12px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:10px}
-.dropzone:hover,.dropzone.drag{border-color:var(--green);background:var(--green-l)}
+.wb{width:100%;border-radius:3px 3px 0 0;min-height:2px;transition:height .4s}
+.wd{font-size:9px;color:var(--text3);text-align:center}.wv{font-size:9px;font-weight:700}
+.cur-summary{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.cur-pill{font-size:11px;padding:3px 9px;border-radius:12px;font-weight:600}
+.cur-pill.krw{background:var(--gl);color:var(--g)}.cur-pill.usd{background:var(--bl);color:var(--b)}.cur-pill.cny{background:var(--rl);color:var(--r)}
+.ach-compare{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
+.ach-box{border-radius:var(--r12);padding:12px}
+.ach-box.retainer{background:var(--ol);border:1.5px solid var(--o)}
+.ach-box.payment{background:var(--tl);border:1.5px solid var(--t)}
+.ach-box-ttl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.ach-box.retainer .ach-box-ttl{color:var(--o)}.ach-box.payment .ach-box-ttl{color:var(--t)}
+.ach-box-val{font-size:16px;font-weight:800;line-height:1.2;margin-bottom:3px}
+.ach-box.retainer .ach-box-val{color:var(--o)}.ach-box.payment .ach-box-val{color:var(--t)}
+.ach-box-sub{font-size:10px;color:var(--text3)}
+.two-col{display:block}@media(min-width:1100px){.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}}
+.three-col{display:block}@media(min-width:1000px){.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}}
+.dash-grid{display:grid;grid-template-columns:1fr;gap:10px;align-items:start}
+@media(min-width:768px){.dash-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.dash-grid{grid-template-columns:1fr 1fr 1fr}}
+.reason-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:18px;background:var(--rl);color:var(--r);font-weight:600;margin:1px 2px}
+.dropzone{border:2px dashed var(--border);border-radius:var(--r12);padding:24px;text-align:center;cursor:pointer;margin-bottom:10px}
+.dropzone:hover,.dropzone.drag{border-color:var(--g);background:var(--gl)}
 .dropzone-ico{font-size:28px;display:block;margin-bottom:6px}.dropzone-txt{font-size:13px;color:var(--text3)}
+@media(max-width:767px){
+  html,body{font-size:16px}
+  .mitem-name{font-size:15px!important}
+  .mitem-amt{font-size:14px!important}
+  .sc-v{font-size:20px!important}
+  .kpi-value{font-size:18px!important}
+  .field input,.field select,.field textarea{font-size:16px!important}
+  .savebtn{font-size:16px!important;padding:15px!important}
+  .tag{font-size:11px!important;padding:3px 8px!important}
+  .tb-i{font-size:21px!important}.tb-l{font-size:11px!important}
+  .edesc{font-size:13px!important}.emeta{font-size:12px!important}
+  .mttl{font-size:17px!important}
+}
 </style>
 </head>
 <body>
@@ -249,8 +248,9 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 </div>
 <div class="main">
   <div class="mob-hdr">
-    <div class="mob-hdr-top"><span style="font-size:19px">⚖️</span><span class="mob-hdr-title">LegalTrack</span><span class="mob-hdr-date" id="mobDate"></span></div>
-    <div class="mob-stats" id="mobStats"></div>
+    <div class="mob-hdr-top"><span style="font-size:19px">⚖️</span><span class="mob-hdr-title">LegalTrack</span><span class="mob-hdr-date" id="mobDate"></span>
+    <button onclick="openSettings()" style="background:rgba(255,255,255,.2);border:none;border-radius:20px;padding:4px 10px;font-size:12px;color:#fff;cursor:pointer;font-family:inherit;margin-left:8px">⚙️</button></div>
+    <div class="kpi-scroll" id="kpiScroll"></div>
   </div>
   <div id="syncBar" style="display:none" class="syncbar"><div class="sdot" id="syncDot"></div><span id="syncTxt"></span></div>
   <div id="timerBanner" style="display:none" class="tbanner">
@@ -269,7 +269,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
     <button class="tb on" id="tb0" onclick="goTab(0)"><span class="tb-i">📊</span><span class="tb-l">홈</span></button>
     <button class="tb" id="tb1" onclick="goTab(1)"><span class="tb-i">📁</span><span class="tb-l">Matters</span></button>
     <button class="fab-wrap" onclick="openEntryModal()"><div class="fab">＋</div><span class="fab-l">입력</span></button>
-    <button class="tb" id="tb2" onclick="goTab(3)"><span class="tb-i">🏆</span><span class="tb-l">업적</span></button>
+    <button class="tb" id="tb2" onclick="goTab(2)"><span class="tb-i">🔍</span><span class="tb-l">조회</span></button>
     <button class="tb" id="tb3" onclick="openMobMenu()"><span class="tb-i">⋯</span><span class="tb-l">더보기</span></button>
   </div>
 </div>
@@ -465,11 +465,45 @@ async function init(){
   renderAll();
 }
 function renderAll(){
-  // Update sidebar sync status
+  const now=new Date();
+  const ds=now.getFullYear()+'년 '+(now.getMonth()+1)+'월 '+now.getDate()+'일';
+  const s=statsNow();
+  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
+  const prospectM=D.matters.filter(m=>m.status==='prospect');
+  const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
+  const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
+  const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
+    .reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  // Sidebar status
   const _sd=document.getElementById('sbDot'),_st=document.getElementById('sbSyncTxt');
-  if(_sd)_sd.className='sdot'+(CFG.ghToken?'ok':(CFG.supaUrl?'ok':''));
-  if(_st)_st.textContent=CFG.ghToken?'🐙 GitHub 동기화':(CFG.supaUrl?'☁️ Supabase 동기화':'로컬 모드');
-  const now=new Date(),ds=now.getFullYear()+'년 '+(now.getMonth()+1)+'월 '+now.getDate()+'일';const s=statsNow();const md=document.getElementById('mobDate');if(md)md.textContent=ds;const ms=document.getElementById('mobStats');const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));const retT=activeM.reduce((a,m)=>a+retainerKRW(m),0);const payT=activeM.reduce((a,m)=>a+paymentKRW(m),0);if(ms)ms.innerHTML=[['이번달',hhmm(s.month)],['수임액',fmtK(retT).replace('₩','')],['입금',fmtK(payT).replace('₩','')],['진행중',D.matters.filter(m=>m.status==='prospect').length+'건']].map(([l,v])=>`<div class="mst"><span class="mst-v">${v}</span><span class="mst-l">${l}</span></div>`).join('');const sd=document.getElementById('sbDate');if(sd)sd.textContent=ds;const ss=document.getElementById('sbStats');if(ss)ss.innerHTML=[['주간',hhmm(s.week),''],['이번달',hhmm(s.month),'var(--blue)'],['수임액(KRW)',fmtK(retT),'var(--gold)'],['입금액(KRW)',fmtK(payT),'var(--teal)']].map(([l,v,c])=>`<div class="sb-srow"><span class="sb-srow-lbl">${l}</span><span class="sb-srow-val" style="${c?'color:'+c:''}">${v}</span></div>`).join('');for(let i=0;i<7;i++){const e=document.getElementById('sbt'+i);if(e)e.classList.toggle('on',i===curTab);}const mobMap=[0,1,-1,3,-1,5];for(let i=0;i<4;i++){const e=document.getElementById('tb'+i);if(e)e.classList.toggle('on',mobMap[i]===curTab);}const titles=['대시보드','Matters','조회 / 수정','업적 관리','수임 실패 분석','리포트'];const pt=document.getElementById('phdrTitle');if(pt)pt.textContent=titles[curTab]||'';renderTimerBanner();renderTab(curTab);}
+  if(_sd)_sd.className='sdot'+(CFG.ghToken||CFG.supaUrl?'ok':'');
+  if(_st)_st.textContent=CFG.ghToken?'🐙 GitHub':(CFG.supaUrl?'☁️ Supabase':'로컬 모드');
+  const sd2=document.getElementById('sbDate');if(sd2)sd2.textContent=ds;
+  const md=document.getElementById('mobDate');if(md)md.textContent=ds;
+  // Sidebar stats
+  const ss=document.getElementById('sbStats');
+  if(ss)ss.innerHTML=[['수임액',fmtK(retKRW),'var(--o)'],['입금액',fmtK(payKRW),'var(--t)'],['이번달',hhmm(s.month),'var(--b)'],['이번주',hhmm(s.week),'var(--g)']].map(([l,v,c])=>`<div class="sb-srow"><span class="sb-srow-lbl">${l}</span><span class="sb-srow-val" style="color:${c}">${v}</span></div>`).join('');
+  // Mobile KPI scroll
+  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?(v/10000).toFixed(0)+'만':fmtK(v);
+  const kpi=document.getElementById('kpiScroll');
+  if(kpi)kpi.innerHTML=[
+    {l:'수임액',v:fmt(retKRW),u:'올해 기준',fn:`goTab(2);setTimeout(()=>setQueryTab('achievement'),100)`},
+    {l:'입금액',v:fmt(payKRW),u:'올해 기준',fn:`goTab(2);setTimeout(()=>setQueryTab('payment'),100)`},
+    {l:'이번달',v:hhmm(s.month),u:'시간',fn:`goTab(2);setTimeout(()=>setQueryTab('time'),100)`},
+    {l:'이번주',v:hhmm(s.week),u:'시간',fn:''},
+    {l:'수임 진행',v:prospectM.length+'건',u:'진행중',fn:'goTab(1)'},
+    ...(contKRW>0?[{l:'성공보수',v:fmt(contKRW),u:'예정액',fn:`goTab(2);setTimeout(()=>setQueryTab('contingency'),100)`}]:[]),
+  ].map(({l,v,u,fn})=>`<div class="kpi-card" onclick="${fn}"${fn?' style="cursor:pointer"':''}>
+    <div class="kpi-label">${l}</div><div class="kpi-value">${v}</div><div class="kpi-sub">${u}</div>
+  </div>`).join('');
+  // Nav active states
+  for(let i=0;i<7;i++){const e=document.getElementById('sbt'+i);if(e)e.classList.toggle('on',i===curTab);}
+  const mobMap=[0,1,-1,2,-1,-1];
+  for(let i=0;i<4;i++){const e=document.getElementById('tb'+i);if(e)e.classList.toggle('on',mobMap[i]===curTab);}
+  const titles=['대시보드','Matters','조회','업적 관리','실패 분석','리포트'];
+  const pt=document.getElementById('phdrTitle');if(pt)pt.textContent=titles[curTab]||'';
+  renderTimerBanner();renderTab(curTab);
+}
 function renderTimerBanner(){const b=document.getElementById('timerBanner');if(!timerObj){b.style.display='none';return;}b.style.display='flex';const m=D.matters.find(x=>x.id===timerObj.matterId);document.getElementById('tLbl').textContent=m?`[${m.code}] ${m.name}`:'타이머';}
 function goTab(t){curTab=t;renderAll();}
 function renderTab(t){const c=document.getElementById('content');if(t===0)c.innerHTML=renderDash();else if(t===1)c.innerHTML=renderMatters();else if(t===2)c.innerHTML=renderSearch();else if(t===3)c.innerHTML=renderAchievement();else if(t===4)c.innerHTML=renderFailed();else c.innerHTML=renderReport();}
@@ -486,169 +520,120 @@ function renderDash(){
   const s=statsNow();
   const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
   const prospectM=D.matters.filter(m=>m.status==='prospect');
-  const closedM=D.matters.filter(m=>m.status==='closed');
-  const retActiveKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
-  const payActiveKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
-  const retProspectKRW=prospectM.reduce((a,m)=>a+retainerKRW(m),0);
-  const retByCur=groupByCur(activeM,m=>getRetainerBase(m).amount,m=>getRetainerBase(m).currency);
-  const payByCur={KRW:0,USD:0,CNY:0};
-  (D.payments||[]).filter(p=>{const m=D.matters.find(x=>x.id===p.matterId);return m&&['active','closed'].includes(m.status);}).forEach(p=>{payByCur[p.currency||'KRW']=(payByCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});
-  const billable=D.entries.filter(e=>e.billable).reduce((a,e)=>a+e.minutes,0);
-  const recent=[...D.entries].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
-
-  // Starred first, then rest (max PREVIEW non-starred shown)
-  const PREVIEW=2;
-  const prospectStarred=prospectM.filter(m=>m.starred);
-  const prospectRest=prospectM.filter(m=>!m.starred);
-  const activeCurrent=activeM.filter(m=>m.status==='active');
-  const activeStarred=activeCurrent.filter(m=>m.starred);
-  const activeRest=activeCurrent.filter(m=>!m.starred);
-
+  const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
+  const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
+  const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
+    .reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?(v/10000).toFixed(0)+'만':fmtK(v);
+  const recent=[...D.entries].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
   return`
 <!-- KPI Row -->
 <div class="sgrid c4" style="margin-bottom:10px">
-  <div class="sc g"><div class="sc-l">이번달</div><div class="sc-v">${hhmm(s.month)}</div><div class="sc-u">월 누계</div></div>
-  <div class="sc b"><div class="sc-l">이번주</div><div class="sc-v">${hhmm(s.week)}</div><div class="sc-u">주간</div></div>
-  <div class="sc p"><div class="sc-l">청구가능</div><div class="sc-v">${hhmm(billable)}</div><div class="sc-u">Billable</div></div>
-  <div class="sc o"><div class="sc-l">수임 진행중</div><div class="sc-v">${prospectM.length}건</div><div class="sc-u">건</div></div>
+  <div class="sc o" style="cursor:pointer" onclick="goTab(2);setTimeout(()=>setQueryTab('achievement'),100)">
+    <div class="sc-l">🏆 수임액 (올해)</div>
+    <div class="sc-v">${fmt(retKRW)}</div>
+    <div class="sc-u">상세보기 ›</div>
+  </div>
+  <div class="sc teal" style="cursor:pointer" onclick="goTab(2);setTimeout(()=>setQueryTab('payment'),100)">
+    <div class="sc-l">💰 입금액 (올해)</div>
+    <div class="sc-v">${fmt(payKRW)}</div>
+    <div class="sc-u">상세보기 ›</div>
+  </div>
+  <div class="sc b" style="cursor:pointer" onclick="goTab(2);setTimeout(()=>setQueryTab('time'),100)">
+    <div class="sc-l">⏱ 이번달 시간</div>
+    <div class="sc-v">${hhmm(s.month)}</div>
+    <div class="sc-u">주간 ${hhmm(s.week)}</div>
+  </div>
+  <div class="sc g">
+    <div class="sc-l">📁 사건 현황</div>
+    <div class="sc-v">${activeM.length+prospectM.length}<span style="font-size:13px;font-weight:500">건</span></div>
+    <div class="sc-u">완료 ${activeM.length} · 진행 ${prospectM.length}</div>
+  </div>
 </div>
 
-<!-- Achievement Row -->
-<div class="ach-compare" style="margin-bottom:10px">
-  <div class="ach-box retainer">
-    <div class="ach-box-ttl">🏆 수임액 업적 (오늘 환율)</div>
-    <div class="ach-box-val">${fmtK(retActiveKRW)}</div>
-    ${renderCurPills(retByCur,true)}
-    ${retProspectKRW>0?`<div class="ach-box-sub" style="color:var(--orange);margin-top:3px">진행중 예상 +${fmtK(retProspectKRW)}</div>`:''}
-  </div>
-  <div class="ach-box payment">
-    <div class="ach-box-ttl">💰 입금액 업적 (입금일 환율)</div>
-    <div class="ach-box-val">${fmtK(payActiveKRW)}</div>
-    ${renderCurPills(payByCur,true)}
-    ${retActiveKRW>payActiveKRW?`<div class="ach-box-sub" style="color:var(--orange);margin-top:3px">미입금 ≈${fmtK(retActiveKRW-payActiveKRW)}</div>`:''}
-  </div>
-</div>
-${(()=>{
-  const cM=D.matters.filter(m=>m.contingency_amount&&parseFloat(m.contingency_amount)>0&&!['failed','internal'].includes(m.status));
-  if(!cM.length)return'';
-  const tot=cM.reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
-  return '<div style="background:linear-gradient(135deg,#FFFBEA,#FFF3CD);border:2px solid var(--gold);border-radius:14px;padding:14px 16px;margin-bottom:10px">'
-    +'<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px">'
-    +'<div><div style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">🎯 성공보수 예정 합계 (업적 별도)</div>'
-    +'<div style="font-size:24px;font-weight:800;color:var(--gold)">'+fmtK(tot)+'</div>'
-    +'<div style="font-size:11px;color:var(--text3);margin-top:3px">✓ 달성 후 💰 입금 등록 시 업적에 자동 반영</div></div>'
-    +'<div style="display:flex;flex-direction:column;gap:5px;flex:1;min-width:0">'
-    +cM.map(m=>'<div style="background:rgba(255,255,255,.8);border-radius:9px;padding:7px 10px;font-size:12px;border:1px solid #FFE082">'
-      +'<div style="font-weight:700;color:var(--text2)">['+m.code+'] '+m.name+'</div>'
-      +'<div style="color:var(--gold);font-weight:700;margin-top:2px">'+fmtM(m.contingency_amount,m.retainer_cur||'KRW')
-      +(m.contingency_condition?'<span style="color:var(--text3);font-weight:400"> · '+m.contingency_condition.slice(0,30)+(m.contingency_condition.length>30?'…':'')+'</span>':'')
-      +'</div></div>').join('')
-    +'</div></div></div>';
-})()}
+${contKRW>0?`<div style="background:var(--ol);border-radius:var(--r12);padding:11px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:1px solid rgba(217,119,6,.2)" onclick="goTab(2);setTimeout(()=>setQueryTab('contingency'),100)">
+  <div><div style="font-size:11px;font-weight:700;color:var(--o)">🎯 성공보수 예정 (업적 별도)</div>
+  <div style="font-size:20px;font-weight:800;color:var(--o);margin-top:2px">${fmtK(contKRW)}</div></div>
+  <div style="font-size:18px;color:var(--o);opacity:.5">›</div>
+</div>`:''}
 
-<!-- Responsive layout: 3-col desktop, 1-col mobile -->
+${retKRW>payKRW?`<div style="background:var(--rl);border-radius:var(--r12);padding:9px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;cursor:pointer" onclick="goTab(2);setTimeout(()=>setQueryTab('payment'),100)">
+  <div style="font-size:12px;color:var(--r)">⚠️ 미입금 <b>${fmtK(retKRW-payKRW)}</b> — 탭하여 확인</div>
+  <span style="color:var(--r);opacity:.6">›</span>
+</div>`:''}
+
+<!-- 3 columns: prospect | active | recent -->
 <div class="dash-grid">
 
 <!-- 수임 진행중 -->
 <div>
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px">
-    <span style="font-size:12px;font-weight:700;color:var(--orange)">🔵 수임 진행중 <span style="font-weight:400;color:var(--text3);font-size:11px">${prospectM.length}건</span></span>
-    <div style="display:flex;gap:5px;align-items:center">
-      ${retProspectKRW>0?`<span style="font-size:10px;color:var(--orange);font-weight:600">${fmtK(retProspectKRW)}</span>`:''}
-      <button class="more-btn" style="font-size:10px;padding:2px 8px" onclick="openMatterModal()">＋</button>
-      ${prospectRest.length>PREVIEW?`<button class="more-btn" style="font-size:10px;padding:2px 8px" onclick="toggleExpand('prospect')">${dashExpand.prospect?'접기':'+'+( prospectRest.length-PREVIEW)+'건'}</button>`:''}
-    </div>
+  <div class="sec-hdr">
+    <div class="sec-title" style="color:var(--o)">🔵 수임 진행중 <span class="sec-meta">${prospectM.length}건</span></div>
+    <button class="more-btn" onclick="openMatterModal()">＋</button>
   </div>
-  ${prospectM.length===0?`<div style="font-size:11px;color:var(--text3);text-align:center;padding:18px 0;background:var(--white);border-radius:11px">진행중인 Matter 없음</div>`:''}
-  ${prospectStarred.map(m=>dashCard(m)).join('')}
-  ${(dashExpand.prospect?prospectRest:prospectRest.slice(0,PREVIEW)).map(m=>dashCard(m)).join('')}
+  ${prospectM.length===0?`<div style="background:var(--white);border-radius:var(--r12);padding:16px;text-align:center;font-size:13px;color:var(--text3);box-shadow:var(--shadow)">없음</div>`:
+  prospectM.map(m=>mListItem(m)).join('')}
 </div>
 
-<!-- 수임 완료 진행중 -->
+<!-- 수임 완료 -->
 <div>
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px">
-    <span style="font-size:12px;font-weight:700;color:var(--green)">✅ 수임 완료 <span style="font-weight:400;color:var(--text3);font-size:11px">${activeCurrent.length}건</span></span>
-    <div style="display:flex;gap:5px;align-items:center">
-      <span style="font-size:10px;color:var(--gold);font-weight:600">${fmtK(retActiveKRW)}</span>
-      ${activeRest.length>PREVIEW?`<button class="more-btn" style="font-size:10px;padding:2px 8px" onclick="toggleExpand('active')">${dashExpand.active?'접기':'+'+( activeRest.length-PREVIEW)+'건'}</button>`:''}
-    </div>
+  <div class="sec-hdr">
+    <div class="sec-title" style="color:var(--g)">✅ 수임 완료 <span class="sec-meta">${activeM.filter(m=>m.status==='active').length}건</span></div>
+    <button class="more-btn" onclick="goTab(1)">전체</button>
   </div>
-  ${activeCurrent.length===0?`<div style="font-size:11px;color:var(--text3);text-align:center;padding:18px 0;background:var(--white);border-radius:11px">없음</div>`:''}
-  ${activeStarred.map(m=>dashCard(m)).join('')}
-  ${(dashExpand.active?activeRest:activeRest.slice(0,PREVIEW)).map(m=>dashCard(m)).join('')}
-  ${closedM.length>0?`<div style="margin-top:8px">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
-      <span style="font-size:11px;font-weight:700;color:var(--teal)">🔒 클로징 <span style="font-weight:400;color:var(--text3)">${closedM.length}건</span></span>
-      <button class="more-btn" style="font-size:10px;padding:2px 8px" onclick="toggleExpand('closed')">${dashExpand.closed?'접기':'보기'}</button>
-    </div>
-    ${dashExpand.closed?closedM.map(m=>dashCard(m)).join(''):''}
-  </div>`:''}
+  ${activeM.filter(m=>m.status==='active').length===0?`<div style="background:var(--white);border-radius:var(--r12);padding:16px;text-align:center;font-size:13px;color:var(--text3);box-shadow:var(--shadow)">없음</div>`:
+  activeM.filter(m=>m.status==='active').slice(0,4).map(m=>mListItem(m)).join('')}
 </div>
 
 <!-- 최근 기록 -->
 <div>
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px">
-    <span style="font-size:12px;font-weight:700;color:var(--text2)">🕐 최근 기록</span>
-    <button class="more-btn" style="font-size:10px;padding:2px 8px" onclick="goTab(2)">전체보기</button>
+  <div class="sec-hdr">
+    <div class="sec-title">🕐 최근 기록</div>
+    <button class="more-btn" onclick="goTab(2);setTimeout(()=>setQueryTab('time'),100)">전체</button>
   </div>
-  <div style="background:var(--white);border-radius:11px;padding:10px 12px;box-shadow:var(--shadow)">
-    ${recent.length===0?`<div style="font-size:11px;color:var(--text3);text-align:center;padding:16px 0">기록 없음</div>`:
-    recent.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{code:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];
-      return`<div style="padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start">
-        <div style="flex:1;min-width:0">
-          <div style="display:flex;align-items:center;gap:5px;margin-bottom:2px">
-            <span class="ecode" style="background:var(--${mt.tagCls==='g'?'green':mt.tagCls==='p'?'purple':mt.tagCls==='gold'?'gold':'gray'}-l);color:${mt.color};font-size:9px;padding:1px 5px">${m.code}</span>
-            <span style="font-size:11px;font-weight:700;color:${mt.color}">${hhmm(e.minutes)}</span>
-            <span style="font-size:10px;color:var(--text3);margin-left:auto">${fmtD(e.date)}</span>
-          </div>
-          <div style="font-size:11px;color:var(--text2);line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.description||e.desc||'내용 없음'}</div>
+  <div class="card" style="margin-bottom:0">
+    ${recent.length===0?`<div style="text-align:center;padding:16px 0;font-size:13px;color:var(--text3)">기록 없음</div>`:
+    recent.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{code:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':mt.tagCls==='red'||mt.tagCls==='r'?'r':'o';
+      return`<div class="entry"><div class="edot" style="background:${mt.color}"></div><div class="ebody">
+        <div style="display:flex;align-items:center;gap:5px;margin-bottom:2px">
+          <span class="ecode tag ${tagCls}">${m.code}</span>
+          <span class="etm" style="color:${mt.color}">${hhmm(e.minutes)}</span>
+          <span style="font-size:10px;color:var(--text3);margin-left:auto">${fmtD(e.date)}</span>
         </div>
-        <div style="display:flex;gap:1px;flex-shrink:0">
-          <button class="icobtn" style="font-size:13px" onclick="editEntry('${e.id}')">✏️</button>
-          <button class="icobtn" style="font-size:13px" onclick="delEntry('${e.id}')">🗑️</button>
-        </div>
-      </div>`;}).join('')}
+        <div class="edesc">${e.description||e.desc||'내용 없음'}</div>
+      </div><div class="eact"><button class="icobtn" onclick="editEntry('${e.id}')">✏️</button></div></div>`;}).join('')}
+    <button class="add-btn out" style="margin-top:8px;margin-bottom:0" onclick="openEntryModal()">＋ 시간 기록</button>
   </div>
-  <button class="add-btn" style="margin-top:8px;padding:8px;font-size:12px" onclick="openEntryModal()">＋ 시간 기록 추가</button>
 </div>
 
 </div>`;}
-
-function dashCard(m){
-  const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];
-  const mins=D.entries.filter(e=>e.matterId===m.id).reduce((a,e)=>a+e.minutes,0);
-  const pays=(D.payments||[]).filter(p=>p.matterId===m.id);
+function mListItem(m){
+  const mt=MTYPE[m.type||'time-b'];
   const rb=getRetainerBase(m);
-  const retNative=rb.amount?fmtM(rb.amount,rb.currency):'';
-  const retKRW=retainerKRW(m);
-  const payByCur={};pays.forEach(p=>{payByCur[p.currency||'KRW']=(payByCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});
-  const payNative=Object.keys(payByCur).length?Object.entries(payByCur).map(([c,a])=>fmtM(a,c)).join('+'):'';
-  const payKRW=paymentKRW(m);
+  const retK=retainerKRW(m);
+  const pays=(D.payments||[]).filter(p=>p.matterId===m.id);
+  const payK=paymentKRW(m);
   const prog=payProgress(m);
-  const statusColor=mst.tagCls==='orange'?'var(--orange)':mst.tagCls==='g'?'var(--green)':mst.tagCls==='teal'?'var(--teal)':'var(--gray)';
-  return`<div style="background:var(--white);border-radius:11px;padding:10px 11px;margin-bottom:6px;box-shadow:var(--shadow);border-left:3px solid ${statusColor};position:relative">
-  <button style="position:absolute;top:7px;right:7px;background:none;border:none;cursor:pointer;font-size:13px;line-height:1;padding:1px" onclick="toggleStar('${m.id}',event)">${m.starred?'⭐':'☆'}</button>
-  <div style="padding-right:20px;cursor:pointer" onclick="openMatterDetail('${m.id}')">
-    <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;flex-wrap:wrap">
-      <span class="ecode" style="background:var(--${mt.tagCls==='g'?'green':mt.tagCls==='p'?'purple':mt.tagCls==='gold'?'gold':'gray'}-l);color:${mt.color};font-size:9px;padding:1px 5px">${m.code}</span>
-      <span style="font-size:11px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</span>
+  const mins=D.entries.filter(e=>e.matterId===m.id).reduce((a,e)=>a+e.minutes,0);
+  const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':mt.tagCls==='red'||mt.tagCls==='r'?'r':mt.tagCls==='gold'||mt.tagCls==='o'?'o':'gray';
+  return`<div class="mitem ${tagCls}-b" onclick="openMatterDetail('${m.id}')">
+  <div class="mitem-body">
+    <div class="mitem-top">
+      <span class="mitem-code tag ${tagCls}">${m.code}</span>
+      <span class="mitem-name">${m.starred?'⭐ ':''}${m.name}</span>
     </div>
-    ${m.client?`<div style="font-size:10px;color:var(--text3);margin-bottom:3px">${m.client}</div>`:''}
-    <div style="display:flex;gap:8px;font-size:10px;flex-wrap:wrap;margin-bottom:4px">
-      ${hhmm(mins)!=='0m'?`<span style="color:var(--text3)">${hhmm(mins)}</span>`:''}
-      ${retNative?`<span style="color:var(--gold);font-weight:600">${retNative}${rb.currency!=='KRW'?` <span style="color:var(--text3)">(≈${fmtK(retKRW)})</span>`:''}</span>`:''}
-      ${payNative?`<span style="color:var(--teal);font-weight:600">입금 ${payNative}</span>`:`<span style="color:var(--text3)">미입금</span>`}
+    ${m.client?`<div class="mitem-client">${m.client}</div>`:''}
+    <div class="mitem-meta">
+      ${mins>0?`<span style="font-size:11px;color:var(--text3)">⏱ ${hhmm(mins)}</span>`:''}
+      ${rb.amount?`<span class="mitem-amt" style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</span>`:''}
+      ${payK>0?`<span style="font-size:11px;color:var(--t)">💰 ${fmtK(payK)}</span>`:'<span style="font-size:11px;color:var(--text3)">미입금</span>'}
+      ${m.contingency_amount?`<span class="tag o" style="font-size:9px;padding:1px 5px">🎯</span>`:''}
     </div>
-    ${prog?`<div class="ret-bar"><div class="ret-fill" style="width:${prog.pct}%;background:var(--teal)"></div></div>`:''}
+    ${prog?`<div class="prog-bar"><div class="prog-fill" style="width:${prog.pct}%"></div></div>`:''}
   </div>
-  <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">
-    <button class="mbtn g" style="font-size:10px;padding:3px 9px" onclick="openEntryModal('${m.id}')">＋ 기록</button>
-    <button class="mbtn gold" style="font-size:10px;padding:3px 9px" onclick="openPaymentModal('${m.id}')">💰</button>
-    ${m.status==='prospect'?`<button class="mbtn g" style="font-size:10px;padding:3px 9px" onclick="convertToActive('${m.id}')">✓ 완료</button><button class="mbtn red" style="font-size:10px;padding:3px 9px" onclick="openFailModal('${m.id}')">✗</button>`:''}
-    ${m.status==='active'?`<button class="mbtn teal" style="font-size:10px;padding:3px 9px" onclick="closeDeal('${m.id}')">🔒</button>`:''}
-    ${m.status==='closed'?`<button class="mbtn" style="font-size:10px;padding:3px 9px" onclick="reopenDeal('${m.id}')">↩</button>`:''}
-  </div>
+  <span class="mitem-arr">›</span>
 </div>`;}
+
 
 /* ── Matter Detail ── */
 function openMatterDetail(mid){
@@ -735,48 +720,255 @@ function openMatterDetail(mid){
 
 /* ── Matters Tab ── */
 function renderMatters(){
-  const groups=[{key:'prospect',label:'🔵 수임 진행중',items:D.matters.filter(m=>m.status==='prospect')},{key:'active',label:'✅ 수임 완료',items:D.matters.filter(m=>m.status==='active')},{key:'closed',label:'🔒 클로징된 딜',items:D.matters.filter(m=>m.status==='closed')},{key:'internal',label:'🏢 비빌링',items:D.matters.filter(m=>m.status==='internal')}];
+  const groups=[
+    {key:'prospect',label:'🔵 수임 진행중',color:'var(--o)',items:D.matters.filter(m=>m.status==='prospect')},
+    {key:'active',label:'✅ 수임 완료',color:'var(--g)',items:D.matters.filter(m=>m.status==='active')},
+    {key:'closed',label:'🔒 딜 클로징',color:'var(--t)',items:D.matters.filter(m=>m.status==='closed')},
+    {key:'internal',label:'🏢 비빌링',color:'var(--gray)',items:D.matters.filter(m=>m.status==='internal')},
+  ];
   return`<button class="add-btn" onclick="openMatterModal()">＋ 새 Matter 추가</button>
 ${D.matters.filter(m=>m.status!=='failed').length===0?`<div class="empty"><span class="empty-ico">📁</span><div>등록된 Matter가 없습니다</div></div>`:''}
-${groups.map(g=>g.items.length===0?'':`<div class="sec-hdr">${g.label} <span class="sec-cnt">${g.items.length}건</span></div><div class="matter-grid">${g.items.map(mCard).join('')}</div>`).join('')}`;}
+${groups.map(g=>g.items.length===0?'':
+  '<div class="sec-hdr" style="margin-bottom:6px"><div class="sec-title" style="color:'+g.color+'">'+g.label+' <span class="sec-meta">'+g.items.length+'건</span></div></div>'
+  +g.items.map(m=>mListItem(m)).join('')+'<div style="height:6px"></div>'
+).join('')}`;}
+function renderSearch(){
+  return`<div class="stab-bar">
+  <button class="stab on" id="qt0" onclick="setQueryTab('time')">⏱ 시간</button>
+  <button class="stab" id="qt1" onclick="setQueryTab('achievement')">🏆 수임/업적</button>
+  <button class="stab" id="qt2" onclick="setQueryTab('payment')">💰 입금</button>
+  <button class="stab" id="qt3" onclick="setQueryTab('contingency')">🎯 성공보수</button>
+</div>
+<div id="queryContent">${renderQueryTab(_curQueryTab||'time')}</div>`;}
 
-function mCard(m){
-  const mt=MTYPE[m.type||'time-b'],mst=MSTATUS[m.status||'active'];
-  const mins=D.entries.filter(e=>e.matterId===m.id).reduce((a,e)=>a+e.minutes,0);
-  const run=timerObj?.matterId===m.id;const rb=getRetainerBase(m);
-  const pays=(D.payments||[]).filter(p=>p.matterId===m.id);
-  const payByCur={};pays.forEach(p=>{payByCur[p.currency||'KRW']=(payByCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});
-  const prog=payProgress(m);
-  return`<div class="mc ${mt.cls}${m.status==='closed'?' closed':''}" onclick="openMatterDetail('${m.id}')">
-  <button class="star-btn" onclick="toggleStar('${m.id}',event)">${m.starred?'⭐':'☆'}</button>
-  <div class="mc-top" style="padding-right:22px"><span class="ecode tag ${mt.tagCls}" style="font-size:10px;padding:2px 8px">${m.code}</span><span class="mc-name">${m.name}</span></div>
-  <div class="mc-tags"><span class="tag ${mt.tagCls}">${mt.ico} ${mt.label}</span><span class="tag ${mst.tagCls}">${mst.label}</span></div>
-  ${m.client?`<div class="mc-info" style="margin-top:5px">의뢰인: ${m.client}</div>`:''}
-  ${m.type==='retainer'&&m.monthly_hours?`<div class="mc-info" style="color:var(--blue)">📅 월 ${m.monthly_hours}h 포함 | 초과 ${m.overage_rate?fmtM(m.overage_rate,m.ret_cur||m.retainer_cur||'KRW')+'/h':'미설정'}${m.ret_start?' | '+fmtDF(m.ret_start)+'~'+fmtDF(m.ret_end):''}</div>`:''}
-  ${m.type==='litigation'?`<div class="mc-info" style="color:var(--red)">⚖️ ${m.lit_mode==='time'?'시간+Cap':m.lit_mode==='mixed'?'혼합':'고정'}${m.lit_retainer?' | 착수금 '+fmtM(m.lit_retainer,m.retainer_cur||'KRW'):''}${m.lit_balance?' | 잔금 '+fmtM(m.lit_balance,m.retainer_cur||'KRW'):''}</div>`:''}
-  ${m.contingency_amount?`<div style="display:inline-flex;align-items:center;gap:4px;background:var(--gold-l);border:1.5px solid var(--gold);border-radius:10px;padding:3px 9px;font-size:11px;color:var(--gold);font-weight:700;margin-top:3px">🎯 성공보수 ${fmtM(m.contingency_amount,m.retainer_cur||'KRW')}</div>`:''}
-  <div class="mc-stats" style="margin-top:6px">
-    <div class="mc-stat">시간<b>${hhmm(mins)}</b></div>
-    ${rb.amount?`<div class="mc-stat">수임<b style="color:var(--gold)">${fmtM(rb.amount,rb.currency)}</b></div>`:''}
-    ${pays.length>0?`<div class="mc-stat">입금<b style="color:var(--teal)">${Object.entries(payByCur).map(([c,a])=>fmtM(a,c)).join('+')}</b></div>`:m.status==='active'?`<div class="mc-stat" style="color:var(--orange)">미입금</div>`:''}
-  </div>
-  ${prog?`<div class="ret-bar"><div class="ret-fill" style="width:${prog.pct}%"></div></div>`:''}
-  <div class="mc-btns" onclick="event.stopPropagation()">
-    ${run?`<button class="mbtn run" onclick="stopTimer()">■ 정지</button>`:`<button class="mbtn" onclick="startTimer('${m.id}')" ${timerObj&&!run?'disabled style="opacity:.4"':''}>▶ 타이머</button>`}
-    <button class="mbtn g" onclick="openEntryModal('${m.id}')">＋</button>
-    ${m.status!=='internal'?`<button class="mbtn gold" onclick="event.stopPropagation();openPaymentModal('${m.id}')">💰</button>`:''}
-    ${m.status==='prospect'?`<button class="mbtn g" onclick="event.stopPropagation();convertToActive('${m.id}')">✓</button><button class="mbtn red" onclick="event.stopPropagation();openFailModal('${m.id}')">✗</button>`:''}
-    ${m.status==='active'?`<button class="mbtn teal" onclick="event.stopPropagation();closeDeal('${m.id}')">🔒</button>`:''}
-    ${m.status==='closed'?`<button class="mbtn" onclick="event.stopPropagation();reopenDeal('${m.id}')">↩</button>`:''}
-  </div>
+let _curQueryTab='time';
+function setQueryTab(t){
+  _curQueryTab=t;
+  ['time','achievement','payment','contingency'].forEach((k,i)=>{
+    const e=document.getElementById('qt'+i);if(e)e.classList.toggle('on',k===t);
+  });
+  const el=document.getElementById('queryContent');
+  if(el)el.innerHTML=renderQueryTab(t);
+}
+function renderQueryTab(t){
+  if(t==='time')return renderTimeQuery();
+  if(t==='achievement')return renderAchQuery();
+  if(t==='payment')return renderPayQuery();
+  if(t==='contingency')return renderContingencyQuery();
+  return'';
+}
+function renderTimeQuery(){
+  const from=document.getElementById('tq_from')?.value||'';
+  const to=document.getElementById('tq_to')?.value||'';
+  const mid=document.getElementById('tq_mid')?.value||'all';
+  const bfilter=document.getElementById('tq_bill')?.value||'all';
+  let rows=[...D.entries];
+  if(mid!=='all')rows=rows.filter(e=>e.matterId===mid);
+  if(from)rows=rows.filter(e=>e.date>=from);
+  if(to)rows=rows.filter(e=>e.date<=to);
+  if(bfilter==='bill')rows=rows.filter(e=>e.billable);
+  if(bfilter==='nobill')rows=rows.filter(e=>!e.billable);
+  rows.sort((a,b)=>b.date.localeCompare(a.date));
+  const total=rows.reduce((a,e)=>a+e.minutes,0);
+  const billM=rows.filter(e=>e.billable).reduce((a,e)=>a+e.minutes,0);
+  const byMatter={};rows.forEach(e=>{if(!byMatter[e.matterId])byMatter[e.matterId]=0;byMatter[e.matterId]+=e.minutes;});
+  return`<div class="fbar">
+  <input type="date" id="tq_from" value="${from}" onchange="setQueryTab('time')">
+  <span style="display:flex;align-items:center;font-size:12px;color:var(--text3);flex-shrink:0">~</span>
+  <input type="date" id="tq_to" value="${to}" onchange="setQueryTab('time')">
+</div>
+<div class="fbar">
+  <select id="tq_mid" onchange="setQueryTab('time')">
+    <option value="all">전체 Matter</option>
+    ${D.matters.map(m=>`<option value="${m.id}" ${mid===m.id?'selected':''}>[${m.code}] ${m.name}</option>`).join('')}
+  </select>
+  <select id="tq_bill" onchange="setQueryTab('time')">
+    <option value="all">전체</option>
+    <option value="bill" ${bfilter==='bill'?'selected':''}>청구 가능만</option>
+    <option value="nobill" ${bfilter==='nobill'?'selected':''}>비청구만</option>
+  </select>
+</div>
+<div class="sgrid c4" style="margin-bottom:10px">
+  <div class="sc g"><div class="sc-l">총 시간</div><div class="sc-v">${hhmm(total)}</div></div>
+  <div class="sc b"><div class="sc-l">청구 가능</div><div class="sc-v">${hhmm(billM)}</div></div>
+  <div class="sc gray"><div class="sc-l">비청구</div><div class="sc-v">${hhmm(total-billM)}</div></div>
+  <div class="sc o"><div class="sc-l">기록 수</div><div class="sc-v">${rows.length}건</div></div>
+</div>
+${Object.keys(byMatter).length>1?`<div class="card" style="margin-bottom:10px"><div class="cttl">Matter별</div>
+${Object.entries(byMatter).sort((a,b)=>b[1]-a[1]).map(([mid2,mins])=>{const m=D.matters.find(x=>x.id===mid2)||{code:'?',name:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];const pct=total>0?Math.round(mins/total*100):0;
+  return`<div class="brow"><div class="blbl"><span style="color:${mt.color};font-size:12px">[${m.code}] ${m.name}</span><b style="color:${mt.color}">${hhmm(mins)} (${pct}%)</b></div><div class="btrk"><div class="bfil" style="width:${pct}%;background:${mt.color}"></div></div></div>`;}).join('')}</div>`:''}
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+  <div class="cttl" style="margin-bottom:0">${rows.length}건 · ${hhmm(total)}</div>
+  <button class="more-btn" onclick="exportTimeQuery()">📥 내보내기</button>
+</div>
+${rows.length===0?`<div class="empty"><span class="empty-ico">🔍</span><div>결과 없음</div></div>`:
+rows.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{code:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':'o';
+  return`<div class="entry"><div class="edot" style="background:${mt.color}"></div><div class="ebody">
+  <span class="ecode tag ${tagCls}">${m.code}</span>
+  <div class="edesc">${e.description||e.desc||'없음'}</div>
+  <div class="emeta"><span>${fmtDF(e.date)}</span>${e.billable?'<span class="btag tag g">청구</span>':''}<span class="etm" style="color:${mt.color}">${hhmm(e.minutes)}</span></div>
+  </div><div class="eact"><button class="icobtn" onclick="editEntry('${e.id}')">✏️</button><button class="icobtn" onclick="delEntry('${e.id}')">🗑️</button></div></div>`;}).join('')}
 </div>`;}
-
-/* ── Search ── */
-function renderSearch(){return`<div class="fbar"><select id="fM" onchange="applyF()"><option value="all">전체 Matter</option>${D.matters.map(m=>`<option value="${m.id}">[${m.code}] ${m.name}</option>`).join('')}</select></div><div class="fbar"><input type="date" id="fFrom" onchange="applyF()"><span style="display:flex;align-items:center;font-size:12px;color:var(--text3);flex-shrink:0">~</span><input type="date" id="fTo" value="${today()}" onchange="applyF()"></div><div id="fR">${renderFE('all','','')}</div>`;}
-function applyF(){const mid=document.getElementById('fM')?.value||'all',from=document.getElementById('fFrom')?.value||'',to=document.getElementById('fTo')?.value||'';document.getElementById('fR').innerHTML=renderFE(mid,from,to);}
-function renderFE(mid,from,to){let rows=[...D.entries];if(mid!=='all')rows=rows.filter(e=>e.matterId===mid);if(from)rows=rows.filter(e=>e.date>=from);if(to)rows=rows.filter(e=>e.date<=to);rows.sort((a,b)=>b.date.localeCompare(a.date));const total=rows.reduce((a,e)=>a+e.minutes,0);if(!rows.length)return`<div class="empty"><span class="empty-ico">🔍</span><div>결과 없음</div></div>`;return`<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px"><div class="cttl" style="margin-bottom:0">${rows.length}건</div><div style="font-size:13px;font-weight:700;color:var(--green)">${hhmm(total)}</div></div>${rows.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{code:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];return`<div class="entry"><div class="edot" style="background:${mt.color}"></div><div class="ebody"><span class="ecode" style="background:var(--${mt.tagCls==='g'?'green':mt.tagCls==='p'?'purple':mt.tagCls==='gold'?'gold':'gray'}-l);color:${mt.color}">${m.code}</span><div class="edesc">${e.description||e.desc||'없음'}</div><div class="emeta"><span>${fmtDF(e.date)}</span>${e.billable?'<span class="btag tag g">청구</span>':''}<span class="etm" style="color:${mt.color}">${hhmm(e.minutes)}</span></div></div><div class="eact"><button class="icobtn" onclick="editEntry('${e.id}')">✏️</button><button class="icobtn" onclick="delEntry('${e.id}')">🗑️</button></div></div>`;}).join('')}</div><button class="add-btn out" onclick="openExportModalF('all','${from}','${to}')">📥 내보내기</button>`;}
-
-/* ── Achievement ── */
+function exportTimeQuery(){
+  const from=document.getElementById('tq_from')?.value||'',to=document.getElementById('tq_to')?.value||'',mid=document.getElementById('tq_mid')?.value||'all',bfilter=document.getElementById('tq_bill')?.value||'all';
+  let rows=[...D.entries];
+  if(mid!=='all')rows=rows.filter(e=>e.matterId===mid);
+  if(from)rows=rows.filter(e=>e.date>=from);if(to)rows=rows.filter(e=>e.date<=to);
+  if(bfilter==='bill')rows=rows.filter(e=>e.billable);if(bfilter==='nobill')rows=rows.filter(e=>!e.billable);
+  rows.sort((a,b)=>a.date.localeCompare(b.date));
+  const hdr=['날짜','Matter코드','Matter명','업무내용','소요(분)','소요(h)','청구가능'];
+  const data=rows.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{};return[e.date,m.code||'',m.name||'',e.description||e.desc||'',e.minutes,(e.minutes/60).toFixed(2),e.billable?'Y':'N'];});
+  data.push(['합계','','','',rows.reduce((a,e)=>a+e.minutes,0),(rows.reduce((a,e)=>a+e.minutes,0)/60).toFixed(2),'']);
+  exportCSV([hdr,...data],`LegalTrack_시간조회_${today()}.csv`);
+}
+function renderAchQuery(){
+  const from=document.getElementById('aq_from')?.value||'',to=document.getElementById('aq_to')?.value||'';
+  const typeF=document.getElementById('aq_type')?.value||'all',statusF=document.getElementById('aq_status')?.value||'active';
+  let matters=D.matters.filter(m=>!['biz-b','office-i'].includes(m.type||''));
+  if(statusF==='active')matters=matters.filter(m=>['active','closed'].includes(m.status));
+  else if(statusF==='prospect')matters=matters.filter(m=>m.status==='prospect');
+  else matters=matters.filter(m=>m.status!=='failed');
+  if(typeF!=='all')matters=matters.filter(m=>m.type===typeF);
+  const retKRW=matters.reduce((a,m)=>a+retainerKRW(m),0);
+  const payKRW=matters.reduce((a,m)=>a+paymentKRW(m),0);
+  const contKRW=matters.filter(m=>m.contingency_amount).reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  return`<div class="fbar">
+  <select id="aq_status" onchange="setQueryTab('achievement')">
+    <option value="active" ${statusF==='active'?'selected':''}>수임 완료 + 클로징</option>
+    <option value="prospect" ${statusF==='prospect'?'selected':''}>수임 진행중</option>
+    <option value="all" ${statusF==='all'?'selected':''}>전체</option>
+  </select>
+  <select id="aq_type" onchange="setQueryTab('achievement')">
+    <option value="all">전체 유형</option>
+    ${Object.entries(MTYPE).filter(([k])=>!['biz-b','office-i'].includes(k)).map(([k,v])=>`<option value="${k}" ${typeF===k?'selected':''}>${v.ico} ${v.label}</option>`).join('')}
+  </select>
+</div>
+<div class="sgrid c4" style="margin-bottom:10px">
+  <div class="sc o"><div class="sc-l">수임액</div><div class="sc-v" style="font-size:16px">${fmtK(retKRW)}</div></div>
+  <div class="sc teal"><div class="sc-l">입금액</div><div class="sc-v" style="font-size:16px">${fmtK(payKRW)}</div></div>
+  <div class="sc gray"><div class="sc-l">미입금</div><div class="sc-v" style="font-size:16px">${fmtK(Math.max(0,retKRW-payKRW))}</div></div>
+  ${contKRW>0?`<div class="sc o"><div class="sc-l">성공보수 예정</div><div class="sc-v" style="font-size:16px">${fmtK(contKRW)}</div></div>`:'<div class="sc g"><div class="sc-l">건수</div><div class="sc-v">${matters.length}건</div></div>'}
+</div>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+  <div class="cttl" style="margin-bottom:0">${matters.length}건</div>
+  <button class="more-btn" onclick="exportAchQuery()">📥 내보내기</button>
+</div>
+${matters.length===0?`<div class="empty"><span class="empty-ico">🏆</span><div>결과 없음</div></div>`:
+matters.map(m=>{const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];const rb=getRetainerBase(m);const retK=retainerKRW(m);const payK=paymentKRW(m);const pays=(D.payments||[]).filter(p=>p.matterId===m.id);const payByCur={};pays.forEach(p=>{payByCur[p.currency||'KRW']=(payByCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});const prog=payProgress(m);const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':mt.tagCls==='red'||mt.tagCls==='r'?'r':'o';
+  return`<div class="entry" onclick="openMatterDetail('${m.id}')" style="cursor:pointer"><div class="edot" style="background:${mt.color}"></div><div class="ebody">
+    <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;flex-wrap:wrap">
+      <span class="ecode tag ${tagCls}">${m.code}</span><span class="tag gray" style="font-size:9px">${mst.label}</span>
+      <span style="font-size:13px;font-weight:600">${m.name}</span>
+    </div>
+    ${m.client?`<div style="font-size:11px;color:var(--text3);margin-bottom:3px">${m.client}</div>`:''}
+    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px">
+      ${rb.amount?`<span>수임: <b style="color:var(--o)">${fmtM(rb.amount,rb.currency)}</b></span>`:''}
+      <span>입금: <b style="color:var(--t)">${Object.keys(payByCur).length?Object.entries(payByCur).map(([c,a])=>fmtM(a,c)).join('+'):'없음'}</b></span>
+      ${m.contingency_amount?`<span>🎯 <b style="color:var(--o)">${fmtM(m.contingency_amount,m.retainer_cur||'KRW')}</b></span>`:''}
+    </div>
+    ${prog?`<div class="prog-bar"><div class="prog-fill" style="width:${prog.pct}%"></div></div>`:''}
+  </div></div>`;}).join('')}
+</div>`;}
+function exportAchQuery(){
+  const statusF=document.getElementById('aq_status')?.value||'active',typeF=document.getElementById('aq_type')?.value||'all';
+  let matters=D.matters.filter(m=>!['biz-b','office-i'].includes(m.type||''));
+  if(statusF==='active')matters=matters.filter(m=>['active','closed'].includes(m.status));
+  else if(statusF==='prospect')matters=matters.filter(m=>m.status==='prospect');
+  else matters=matters.filter(m=>m.status!=='failed');
+  if(typeF!=='all')matters=matters.filter(m=>m.type===typeF);
+  const hdr=['코드','Matter명','유형','상태','의뢰인','수임금액','수임통화','수임KRW','입금KRW','미입금KRW','성공보수예정','성공보수조건','총시간(h)'];
+  const data=matters.map(m=>{const rb=getRetainerBase(m);const retK=retainerKRW(m);const payK=paymentKRW(m);const mins=D.entries.filter(e=>e.matterId===m.id).reduce((a,e)=>a+e.minutes,0);const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];return[m.code,m.name,mt.label,mst.label,m.client||'',rb.amount||'',rb.currency||'KRW',retK,payK,Math.max(0,retK-payK),m.contingency_amount||'',m.contingency_condition||'',(mins/60).toFixed(2)];});
+  exportCSV([hdr,...data],`LegalTrack_수임업적_${today()}.csv`);
+}
+function renderPayQuery(){
+  const from=document.getElementById('pq_from')?.value||'',to=document.getElementById('pq_to')?.value||'',mid=document.getElementById('pq_mid')?.value||'all';
+  let pays=[...(D.payments||[])];
+  if(mid!=='all')pays=pays.filter(p=>p.matterId===mid);
+  if(from)pays=pays.filter(p=>p.date>=from);if(to)pays=pays.filter(p=>p.date<=to);
+  pays.sort((a,b)=>b.date.localeCompare(a.date));
+  const totKRW=pays.reduce((a,p)=>a+(p.krw_amount||0),0);
+  const byCur={};pays.forEach(p=>{byCur[p.currency||'KRW']=(byCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});
+  return`<div class="fbar">
+  <input type="date" id="pq_from" value="${from}" onchange="setQueryTab('payment')">
+  <span style="display:flex;align-items:center;font-size:12px;color:var(--text3);flex-shrink:0">~</span>
+  <input type="date" id="pq_to" value="${to}" onchange="setQueryTab('payment')">
+</div>
+<div class="fbar">
+  <select id="pq_mid" onchange="setQueryTab('payment')">
+    <option value="all">전체 Matter</option>
+    ${D.matters.map(m=>`<option value="${m.id}" ${mid===m.id?'selected':''}>[${m.code}] ${m.name}</option>`).join('')}
+  </select>
+</div>
+<div class="sgrid c4" style="margin-bottom:10px">
+  <div class="sc teal"><div class="sc-l">입금 합계 (KRW)</div><div class="sc-v" style="font-size:16px">${fmtK(totKRW)}</div></div>
+  <div class="sc b"><div class="sc-l">입금 건수</div><div class="sc-v">${pays.length}건</div></div>
+  ${Object.entries(byCur).map(([c,a])=>`<div class="sc ${c==='USD'?'b':c==='CNY'?'r':'g'}"><div class="sc-l">${c} 합계</div><div class="sc-v" style="font-size:14px">${fmtM(a,c)}</div></div>`).join('')}
+</div>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+  <div class="cttl" style="margin-bottom:0">${pays.length}건</div>
+  <button class="more-btn" onclick="exportPayQuery()">📥 내보내기</button>
+</div>
+${pays.length===0?`<div class="empty"><span class="empty-ico">💰</span><div>결과 없음</div></div>`:
+pays.map(p=>{const m=D.matters.find(x=>x.id===p.matterId)||{code:'?',name:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':'o';
+  return`<div class="entry"><div class="edot" style="background:var(--t)"></div><div class="ebody">
+    <div style="display:flex;align-items:center;gap:5px;margin-bottom:2px">
+      <span class="ecode tag ${tagCls}">${m.code}</span>
+      <span style="font-size:12px;font-weight:600">${m.name}</span>
+    </div>
+    <div class="emeta"><span>${fmtDF(p.date)}</span><span style="font-weight:700;color:var(--t)">${fmtM(p.amount,p.currency)}</span>${p.currency!=='KRW'?`<span>(≈${fmtK(p.krw_amount)})</span>`:''}<span>${p.note||''}</span></div>
+  </div><button class="icobtn" onclick="if(confirm('삭제?')){D.payments=D.payments.filter(x=>x.id!=='${p.id}');cloudSave('payment',{id:'${p.id}'},'del');setQueryTab('payment');}">🗑️</button></div>`;}).join('')}
+</div>`;}
+function exportPayQuery(){
+  const from=document.getElementById('pq_from')?.value||'',to=document.getElementById('pq_to')?.value||'',mid=document.getElementById('pq_mid')?.value||'all';
+  let pays=[...(D.payments||[])];
+  if(mid!=='all')pays=pays.filter(p=>p.matterId===mid);
+  if(from)pays=pays.filter(p=>p.date>=from);if(to)pays=pays.filter(p=>p.date<=to);
+  pays.sort((a,b)=>a.date.localeCompare(b.date));
+  const hdr=['입금일','Matter코드','Matter명','입금금액','통화','환율(원)','KRW환산','메모'];
+  const data=pays.map(p=>{const m=D.matters.find(x=>x.id===p.matterId)||{};return[p.date,m.code||'',m.name||'',p.amount,p.currency,p.rate_on_date||'',p.krw_amount||p.amount,p.note||''];});
+  exportCSV([hdr,...data],`LegalTrack_입금내역_${today()}.csv`);
+}
+function renderContingencyQuery(){
+  let matters=D.matters.filter(m=>m.contingency_amount&&parseFloat(m.contingency_amount)>0&&!['failed','internal'].includes(m.status));
+  const statusF=document.getElementById('cq_status')?.value||'all';
+  if(statusF!=='all')matters=matters.filter(m=>m.status===statusF);
+  const tot=matters.reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  return`<div class="fbar">
+  <select id="cq_status" onchange="setQueryTab('contingency')">
+    <option value="all">전체 상태</option>
+    <option value="prospect" ${statusF==='prospect'?'selected':''}>수임 진행중</option>
+    <option value="active" ${statusF==='active'?'selected':''}>수임 완료</option>
+    <option value="closed" ${statusF==='closed'?'selected':''}>클로징</option>
+  </select>
+</div>
+<div style="background:var(--ol);border-radius:var(--r12);padding:12px 14px;margin-bottom:10px;border:1px solid rgba(217,119,6,.2)">
+  <div style="font-size:11px;font-weight:700;color:var(--o);margin-bottom:3px">🎯 성공보수 예정 합계 (업적 별도)</div>
+  <div style="font-size:24px;font-weight:800;color:var(--o)">${fmtK(tot)}</div>
+  <div style="font-size:11px;color:var(--text3);margin-top:2px">${matters.length}건 · 달성 시 💰 입금 등록 → 업적 자동 반영</div>
+</div>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+  <div class="cttl" style="margin-bottom:0">${matters.length}건</div>
+  <button class="more-btn" onclick="exportContingencyQuery()">📥 내보내기</button>
+</div>
+${matters.length===0?`<div class="empty"><span class="empty-ico">🎯</span><div>성공보수 설정된 Matter 없음</div></div>`:
+matters.map(m=>{const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];const tagCls=mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':'o';
+  return`<div class="mitem ${tagCls}-b" onclick="openMatterDetail('${m.id}')">
+  <div class="mitem-body">
+    <div class="mitem-top"><span class="mitem-code tag ${tagCls}">${m.code}</span><span class="mitem-name">${m.name}</span></div>
+    ${m.client?`<div class="mitem-client">${m.client}</div>`:''}
+    <div class="mitem-meta">
+      <span class="mitem-amt" style="color:var(--o)">${fmtM(m.contingency_amount,m.retainer_cur||'KRW')}</span>
+      <span class="tag gray">${mst.label}</span>
+    </div>
+    ${m.contingency_condition?`<div style="font-size:11px;color:var(--text2);margin-top:3px">조건: ${m.contingency_condition}</div>`:''}
+  </div><span class="mitem-arr">›</span></div>`;}).join('')}
+</div>`;}
+function exportContingencyQuery(){
+  let matters=D.matters.filter(m=>m.contingency_amount&&parseFloat(m.contingency_amount)>0&&!['failed','internal'].includes(m.status));
+  const hdr=['코드','Matter명','유형','상태','의뢰인','성공보수예정액','통화','KRW','성공보수조건'];
+  const data=matters.map(m=>{const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];return[m.code,m.name,mt.label,mst.label,m.client||'',m.contingency_amount||'',m.retainer_cur||'KRW',toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),m.contingency_condition||''];});
+  exportCSV([hdr,...data],`LegalTrack_성공보수_${today()}.csv`);
+}
 function renderAchievement(){
   // Period filter state (persisted in achFilter global)
   return`
