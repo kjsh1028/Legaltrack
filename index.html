@@ -27,8 +27,8 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 
 /* ── App shell ── */
 .app{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
-.app-header{background:var(--g);color:#fff;padding:44px 16px 12px;flex-shrink:0}
-@media(min-width:768px){.app-header{padding:14px 24px;display:flex;align-items:center;gap:12px}}
+.app-header{background:var(--g);color:#fff;padding:48px 16px 10px;flex-shrink:0}
+@media(min-width:768px){.app-header{padding:12px 24px;display:flex;align-items:center;gap:12px}}
 .hdr-top{display:flex;align-items:center;gap:8px}
 .hdr-logo{font-size:16px;font-weight:800}
 .hdr-date{font-size:11px;opacity:.75;margin-left:auto}
@@ -67,10 +67,10 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 #content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
 
 /* ── Bottom tabs (mobile) ── */
-.tabbar{background:var(--white);border-top:1px solid var(--border);display:flex;padding-bottom:max(env(safe-area-inset-bottom),6px);flex-shrink:0}
+.tabbar{background:var(--white);border-top:1px solid var(--border);display:flex;padding-bottom:max(env(safe-area-inset-bottom),8px);flex-shrink:0;box-shadow:0 -2px 12px rgba(0,0,0,.06)}
 @media(min-width:768px){.tabbar{display:none}}
 .tb{flex:1;display:flex;flex-direction:column;align-items:center;padding:7px 0 0;cursor:pointer;border:none;background:none;gap:2px;font-family:inherit}
-.tb-i{font-size:20px;line-height:1}.tb-l{font-size:10px;color:var(--text3);font-weight:500}
+.tb-i{font-size:22px;line-height:1}.tb-l{font-size:11px;color:var(--text3);font-weight:500}
 .tb.on .tb-l{color:var(--g);font-weight:700}
 .fab-wrap{flex:0 0 70px;display:flex;flex-direction:column;align-items:center;padding:0;cursor:pointer;border:none;background:none;font-family:inherit}
 .fab{width:52px;height:52px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;margin-top:-16px;box-shadow:0 4px 16px rgba(26,122,82,.5)}
@@ -80,37 +80,59 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
    DASHBOARD - fits one screen
 ═══════════════════════════════ */
 
-/* ═══ DASHBOARD KPI ═══ */
-.dash-wrap{padding:10px;height:100%;display:flex;flex-direction:column;overflow:hidden}
-@media(min-width:768px){.dash-wrap{padding:16px}}
-.dash-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;grid-auto-rows:1fr}
-@media(min-width:500px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr}}
-.kpi-item{background:var(--white);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);overflow:hidden}
-.kpi-item.kpi-tap{cursor:pointer;transition:transform .12s,opacity .12s}
-.kpi-item.kpi-tap:active{transform:scale(.95);opacity:.85}
-.kpi-lbl{font-size:13px;color:var(--text3);font-weight:600;line-height:1.3;margin-bottom:8px}
-@media(min-width:500px){.kpi-lbl{font-size:14px}}
-.kpi-num{font-size:clamp(26px,7vw,38px);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--text)}
+/* ═══ DASHBOARD ═══ */
+.dash-wrap{
+  padding:0;height:100%;display:flex;flex-direction:column;overflow:hidden;
+  background:linear-gradient(160deg,#f0faf5 0%,#e8f4ff 100%);
+}
+.dash-kpi{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:10px;padding:12px 12px 8px;
+  flex:1;
+}
+@media(min-width:500px){
+  .dash-kpi{grid-template-columns:repeat(4,1fr);padding:16px}
+}
+/* Each KPI card */
+.kpi-item{
+  border-radius:18px;
+  padding:16px 14px 14px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  transition:transform .15s,box-shadow .15s;
+}
+.kpi-item.kpi-tap{cursor:pointer}
+.kpi-item.kpi-tap:active{transform:scale(.95);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+/* color themes */
+.kpi-o{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:var(--o)}
+.kpi-g{background:linear-gradient(135deg,#D1FAE5,#A7F3D0);color:var(--g)}
+.kpi-gold{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:var(--o)}
+.kpi-teal{background:linear-gradient(135deg,#CCFBF1,#99F6E4);color:var(--t)}
+.kpi-r{background:linear-gradient(135deg,#FEE2E2,#FECACA);color:var(--r)}
+.kpi-b,.kpi-blue{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:var(--b)}
+.kpi-p{background:linear-gradient(135deg,#EDE9FE,#DDD6FE);color:var(--p)}
+/* label */
+.kpi-lbl{
+  font-size:13px;font-weight:700;opacity:.75;
+  letter-spacing:.01em;line-height:1.2;
+  margin-bottom:10px;
+}
+@media(max-width:380px){.kpi-lbl{font-size:12px}}
+/* number */
+.kpi-num{
+  font-size:clamp(26px,8vw,40px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.03em;
+}
 @media(min-width:500px){.kpi-num{font-size:32px}}
-.kpi-g .kpi-num,.kpi-g .kpi-lbl{color:var(--g)}
-.kpi-gold .kpi-num,.kpi-gold .kpi-lbl{color:var(--o)}
-.kpi-teal .kpi-num,.kpi-teal .kpi-lbl{color:var(--t)}
-.kpi-b .kpi-num,.kpi-b .kpi-lbl,.kpi-blue .kpi-num{color:var(--b)}
-.kpi-r .kpi-num,.kpi-r .kpi-lbl{color:var(--r)}
-.kpi-p .kpi-num,.kpi-p .kpi-lbl{color:var(--p)}
-.kpi-g{background:var(--gl)}.kpi-gold{background:var(--ol)}.kpi-teal{background:var(--tl)}
-.kpi-b,.kpi-blue{background:var(--bl)}.kpi-r{background:var(--rl)}.kpi-p{background:var(--pl)}
+@media(min-width:900px){.kpi-num{font-size:36px}}
 /* legacy compat */
 .kpi-val{font-size:clamp(22px,6vw,36px);font-weight:800;line-height:1}
-.kpi-unit{font-size:14px;font-weight:600;margin-left:2px}
-.kpi-sub{font-size:11px;color:var(--text3);margin-top:4px}
-}.kpi-gold{color:var(--o)}.kpi-teal{color:var(--t)}
-.kpi-b,.kpi-blue{color:var(--b)}.kpi-o,.kpi-orange{color:var(--o)}
-.kpi-r{color:var(--r)}.kpi-p{color:var(--p)}.kpi-gray{color:var(--gray)}
+.kpi-unit{font-size:14px;font-weight:600;margin-left:1px;opacity:.8}
+.kpi-sub{font-size:11px;opacity:.7;margin-top:4px}
 
-/* ═══════════════════════════════
-   LIST VIEW (layer 2)
-═══════════════════════════════ */
 .list-wrap{padding:8px 14px 80px}
 @media(min-width:768px){.list-wrap{padding:12px 22px 40px}}
 .group-hdr{font-size:12px;font-weight:700;padding:10px 0 4px;letter-spacing:.02em}
@@ -358,9 +380,9 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
         </div>
       </div>
       <!-- Mobile sub-page header (visible when navigated into a layer) -->
-      <div id="mobSubHdr" style="display:none;background:var(--white);border-bottom:1px solid var(--border);padding:10px 14px;flex-shrink:0;align-items:center;gap:10px">
-        <button onclick="handleBack()" style="background:none;border:none;cursor:pointer;font-size:16px;color:var(--b);padding:4px 8px 4px 0;font-family:inherit;font-weight:600">‹ 뒤로</button>
-        <span id="mobSubTitle" style="font-size:15px;font-weight:700;flex:1"></span>
+      <div id="mobSubHdr" style="display:none;background:var(--white);border-bottom:1px solid var(--border);padding:8px 14px;flex-shrink:0;align-items:center;gap:6px">
+        <button onclick="handleBack()" style="background:var(--bl);border:none;cursor:pointer;font-size:14px;color:var(--b);padding:5px 12px;font-family:inherit;font-weight:700;border-radius:20px">‹ 뒤로</button>
+        <span id="mobSubTitle" style="font-size:15px;font-weight:700;flex:1;text-align:center;margin-right:60px"></span>
       </div>
       <!-- Timer -->
       <div id="timerBanner" style="display:none" class="tbanner">
@@ -376,8 +398,8 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
   <!-- Bottom tabs (mobile) -->
   <div class="tabbar">
     <button class="tb on" id="tb0" onclick="goTab(0)"><span class="tb-i">📊</span><span class="tb-l">홈</span></button>
-    <button class="fab-wrap" onclick="openEntryModal()"><div class="fab">＋</div><span class="fab-l">입력</span></button>
     <button class="tb" id="tb2" onclick="_queryMode=null;curLayer=null;goTab(2)"><span class="tb-i">🔍</span><span class="tb-l">조회</span></button>
+    <button class="fab-wrap" onclick="openEntryModal()"><div class="fab">＋</div><span class="fab-l">입력</span></button>
     <button class="tb" id="tb5" onclick="goTab(5)"><span class="tb-i">📈</span><span class="tb-l">리포트</span></button>
     <button class="tb" id="tb3" onclick="openMobMenu()"><span class="tb-i">⋯</span><span class="tb-l">더보기</span></button>
   </div>
@@ -602,7 +624,7 @@ function renderAll(){
   renderTab(curTab);
 }
 
-function goTab(t){curTab=t;curLayer=null;renderAll();}
+function goTab(t){curTab=t;curLayer=null;_queryMode=null;renderAll();}
 function goLayer(l){curLayer=l;renderContent();}
 function goBack(){curLayer=null;renderContent();}
 
@@ -638,7 +660,8 @@ function renderContent(){
   // Mobile sub-header
   const msh=document.getElementById('mobSubHdr');
   const mst=document.getElementById('mobSubTitle');
-  const showSub=!!(curLayer||_queryMode);
+  // Only show back header when inside a sublayer or query result (not the selector)
+  const showSub=!!(curLayer)||(_queryMode&&_queryMode!==null);
   if(msh)msh.style.display=showSub?'flex':'none';
   // Page title
   const titles={0:'대시보드',1:'Matters',2:'조회'};
@@ -705,34 +728,31 @@ function renderDash(){
 
   const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
 
-  const kpis=[
-    {l:'수임 진행중', v:prospectM.length+'건',
-      fn:"curLayer='matters_list';renderContent()"},
-    {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length+'건',
-      fn:"curLayer='active_list';renderContent()"},
-    {l:'수임액', v:fmt(retKRW),
-      fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()"},
-    {l:'입금액', v:fmt(payKRW),
-      fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
-    {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'—',
-      fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
-    {l:'고객 관리', v:clientCount+'개',
-      fn:"goTab(2);_queryMode='clients';renderContent()"},
-    {l:'이번 주', v:hhmm(s.week),
-      fn:"goTab(2);_queryMode='time';_timePresetQ='week';renderContent()"},
-    {l:'이번 달', v:hhmm(s.month),
-      fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
+  const cards=[
+    {l:'수임 진행중', v:prospectM.length+'건', c:'kpi-o',
+     fn:"curLayer='matters_list';renderContent()"},
+    {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length+'건', c:'kpi-g',
+     fn:"curLayer='active_list';renderContent()"},
+    {l:'수임액', v:fmt(retKRW), c:'kpi-gold',
+     fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()"},
+    {l:'입금액', v:fmt(payKRW), c:'kpi-teal',
+     fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
+    {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'—', c:'kpi-r',
+     fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
+    {l:'고객 관리', v:clientCount+'개', c:'kpi-b',
+     fn:"goTab(2);_queryMode='clients';renderContent()"},
+    {l:'이번 주', v:hhmm(s.week), c:'kpi-p',
+     fn:"goTab(2);_queryMode='time';_timePresetQ='week';renderContent()"},
+    {l:'이번 달', v:hhmm(s.month), c:'kpi-b',
+     fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
   ];
-  let html='<div class="dash-wrap"><div class="dash-kpi">';
-  kpis.forEach(k=>{
-    html+='<div class="kpi-item'+(k.fn?' kpi-tap':'')+'"'+(k.fn?' onclick="'+k.fn+'"':'')+' style="cursor:'+(k.fn?'pointer':'default')+'">'
-      +'<div class="kpi-lbl">'+k.l+'</div>'
-      +'<div class="kpi-num">'+k.v+'</div>'
-      +'</div>';
-  });
-  html+='</div></div>';
-  return html;
-}
+
+  const cardsHTML=cards.map(k=>`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
+  <div class="kpi-lbl">${k.l}</div>
+  <div class="kpi-num">${k.v}</div>
+</div>`).join('');
+
+  return`<div class="dash-wrap"><div class="dash-kpi">${cardsHTML}</div></div>`;}
 
 /* Layer: Matter 목록 (진행중/완료) */
 function renderMattersList(statusKey){
