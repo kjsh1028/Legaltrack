@@ -498,6 +498,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -687,6 +688,7 @@ async function ghSave(){
 let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
 let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all';
+let _timePresetQ='month', _timeFrom='', _timeTo='';
 let _selectedMatterId=null, _selectedEntryId=null;
 
 /* ════════════════════════════════════════════
@@ -1011,12 +1013,14 @@ function renderQueryPage(){
     {ico:'🏢',l:'고객사',m:'clients',extra:''},
     {ico:'👤',l:'명함',m:'contacts',extra:''},
   ];
-  return`<div class="query-selector"><div class="qs-grid">
-${items.map(k=>`<button class="qs-btn" data-qmode="${k.m}" data-qextra="${k.extra}">
-  <span class="qs-ico">${k.ico}</span>
-  <span class="qs-lbl">${k.l}</span>
-</button>`).join('')}
-</div></div>`;
+  const qsBtns=items.map(k=>{
+    let fn='';
+    if(k.m==='time') fn=`_queryMode='time';_timePresetQ='${k.extra}';renderContent()`;
+    else if(k.m==='money') fn=`_queryMode='money';_moneyType='${k.extra}';renderContent()`;
+    else fn=`_queryMode='${k.m}';renderContent()`;
+    return '<button class="qs-btn" onclick="'+fn+'"><span class="qs-ico">'+k.ico+'</span><span class="qs-lbl">'+k.l+'</span></button>';
+  }).join('');
+  return`<div class="query-selector"><div class="qs-grid">${qsBtns}</div></div>`;
 }
 
 
@@ -1091,7 +1095,7 @@ function renderTimeResults(){
 
   const presets=[['today','오늘'],['week','이번주'],['month','이번달'],['custom','직접입력']];
 
-  const presetBtns=presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" data-preset="${k}">${l}</button>`).join('');
+  const presetBtns=presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" onclick="setTimePreset('${k}')">${l}</button>`).join('');
 
   const matterOpts=D.matters.map(m=>`<option value="${m.id}"${selMatter===m.id?' selected':''}>${m.name}</option>`).join('');
 
@@ -1171,7 +1175,7 @@ function exportTimeQ(from,to){
 function renderMoneyResults(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
   const tabs=[['retainer','🏆 수임액'],['payment','💰 입금액'],['contingency','🎯 성공보수']];
-  const moneyTabBtns=tabs.map(([k,l])=>`<button class="ptab${_moneyType===k?' on':''}" data-moneytype="${k}">${l}</button>`).join('');
+  const moneyTabBtns=tabs.map(([k,l])=>`<button class="ptab${_moneyType===k?' on':''}" onclick="_moneyType='${k}';renderContent()">${l}</button>`).join('');
   let items=[], total=0, totalLabel='';
 
   if(_moneyType==='retainer'){
@@ -2139,6 +2143,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 </script>
