@@ -84,15 +84,13 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .dash-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;grid-template-rows:repeat(4,1fr)}
 @media(min-width:600px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}}
 @media(min-width:900px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}}
-.kpi-item{background:var(--white);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.kpi-item{background:var(--white);border-radius:14px;padding:clamp(10px,3vw,18px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
 .kpi-item.tap{cursor:pointer;transition:transform .12s,box-shadow .12s}
 .kpi-item.tap:active{transform:scale(.96);box-shadow:none}
-.kpi-lbl{font-size:12px;color:var(--text3);font-weight:600;margin-bottom:6px;line-height:1.2}
-.kpi-val{font-size:28px;font-weight:800;line-height:1;letter-spacing:-.02em}
-@media(max-width:380px){.kpi-val{font-size:22px}}
-@media(min-width:600px){.kpi-val{font-size:32px}}
-.kpi-unit{font-size:15px;font-weight:600;margin-left:2px}
-.kpi-sub{font-size:11px;color:var(--text3);margin-top:5px}
+.kpi-lbl{font-size:clamp(11px,2.8vw,13px);color:var(--text3);font-weight:600;margin-bottom:5px;line-height:1.3}
+.kpi-val{font-size:clamp(22px,6vw,36px);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.kpi-unit{font-size:clamp(13px,3vw,17px);font-weight:600;margin-left:2px}
+.kpi-sub{font-size:clamp(10px,2.5vw,12px);color:var(--text3);margin-top:4px}
 .kpi-g{color:var(--g)}.kpi-gold{color:var(--o)}.kpi-teal{color:var(--t)}
 .kpi-b,.kpi-blue{color:var(--b)}.kpi-o,.kpi-orange{color:var(--o)}
 .kpi-r{color:var(--r)}.kpi-p{color:var(--p)}.kpi-gray{color:var(--gray)}
@@ -374,6 +372,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 <div id="modalArea"></div>
 <script>
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -566,75 +565,6 @@ async function init(){
   fetchLiveRates().then(ok=>{if(ok)renderAll();});
   renderAll();
 }
-function renderAll(){
-  const now=new Date();
-  const ds=now.getFullYear()+'년 '+(now.getMonth()+1)+'월 '+now.getDate()+'일';
-  const s=statsNow();
-  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
-  const prospectM=D.matters.filter(m=>m.status==='prospect');
-  const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
-  const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
-  const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
-    .reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
-  // Sidebar status
-  const _sd=document.getElementById('sbDot'),_st=document.getElementById('sbSyncTxt');
-  if(_sd)_sd.className='sdot'+(CFG.ghToken||CFG.supaUrl?'ok':'');
-  if(_st)_st.textContent=CFG.ghToken?'🐙 GitHub':(CFG.supaUrl?'☁️ Supabase':'로컬 모드');
-  const sd2=document.getElementById('sbDate');if(sd2)sd2.textContent=ds;
-  const md=document.getElementById('mobDate');if(md)md.textContent=ds;
-  // Sidebar stats
-  const ss=document.getElementById('sbStats');
-  if(ss)ss.innerHTML=[['수임액',fmtK(retKRW),'var(--o)'],['입금액',fmtK(payKRW),'var(--t)'],['이번달',hhmm(s.month),'var(--b)'],['이번주',hhmm(s.week),'var(--g)']].map(([l,v,c])=>`<div class="sb-srow"><span class="sb-srow-lbl">${l}</span><span class="sb-srow-val" style="color:${c}">${v}</span></div>`).join('');
-  // Mobile KPI scroll
-  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?(v/10000).toFixed(0)+'만':fmtK(v);
-  const kpi=document.getElementById('kpiScroll');
-  if(kpi)kpi.innerHTML=[
-    {l:'수임액',v:fmt(retKRW),u:'올해 기준',fn:`goTab(2);setTimeout(()=>setQueryTab('achievement'),100)`},
-    {l:'입금액',v:fmt(payKRW),u:'올해 기준',fn:`goTab(2);setTimeout(()=>setQueryTab('payment'),100)`},
-    {l:'이번달',v:hhmm(s.month),u:'시간',fn:`goTab(2);setTimeout(()=>setQueryTab('time'),100)`},
-    {l:'이번주',v:hhmm(s.week),u:'시간',fn:`goTab(2);_queryMode='time';_timePresetQ='week';renderContent()`},
-    {l:'수임 진행',v:prospectM.length+'건',u:'진행중',fn:'goTab(1)'},
-    ...(contKRW>0?[{l:'성공보수',v:fmt(contKRW),u:'예정액',fn:`goTab(2);setTimeout(()=>setQueryTab('contingency'),100)`}]:[]),
-  ].map(({l,v,u,fn})=>`<div class="kpi-card" onclick="${fn}"${fn?' style="cursor:pointer"':''}>
-    <div class="kpi-label">${l}</div><div class="kpi-value">${v}</div><div class="kpi-sub">${u}</div>
-  </div>`).join('');
-  // Nav active states
-  for(let i=0;i<7;i++){const e=document.getElementById('sbt'+i);if(e)e.classList.toggle('on',i===curTab);}
-  // Mobile tab active states
-  [{id:'tb0',tab:0},{id:'tb2',tab:2},{id:'tb5',tab:5},{id:'tb3',tab:-1}].forEach(({id,tab})=>{
-    const e=document.getElementById(id);if(e)e.classList.toggle('on',tab===curTab&&tab>=0);
-  });
-  const titles=['대시보드','Matters','조회','업적 관리','실패 분석','리포트'];
-  const pt=document.getElementById('phdrTitle');if(pt)pt.textContent=titles[curTab]||'';
-  renderTimerBanner();renderTab(curTab);
-}
-function startTimer(matterId){
-  if(timerObj){if(!confirm('현재 타이머를 종료하고 새로 시작하시겠습니까?'))return;stopTimer();}
-  timerObj={matterId,startMs:Date.now()};
-  renderTimerBanner();
-}
-
-function stopTimer(){
-  if(!timerObj)return;
-  const mins=Math.round((Date.now()-timerObj.startMs)/60000);
-  clearInterval(timerIv);timerIv=null;
-  if(mins>0)openEntryModal(timerObj.matterId,mins);
-  timerObj=null;
-  renderTimerBanner();
-}
-
-function renderTimerBanner(){const b=document.getElementById('timerBanner');if(!timerObj){b.style.display='none';return;}b.style.display='flex';const m=D.matters.find(x=>x.id===timerObj.matterId);document.getElementById('tLbl').textContent=m?`[${m.code}] ${m.name}`:'타이머';}
-function goTab(t){curTab=t;renderAll();}
-function renderTab(t){const c=document.getElementById('content');if(t===0)c.innerHTML=renderDash();else if(t===1)c.innerHTML=renderMatters();else if(t===2)c.innerHTML=renderSearch();else if(t===3)c.innerHTML=renderAchievement();else if(t===4)c.innerHTML=renderFailed();else c.innerHTML=renderReport();}
-function toggleStar(mid,e){e.stopPropagation();const m=D.matters.find(x=>x.id===mid);if(!m)return;m.starred=!m.starred;cloudSave('matter',m);renderAll();}
-function toggleExpand(key){dashExpand[key]=!dashExpand[key];renderTab(0);}
-function closeDeal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='closed';m.closed_date=today();cloudSave('matter',m);closeModal();renderAll();}
-function reopenDeal(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('클로징을 취소하고 진행중으로 변경합니까?'))return;m.status='active';m.closed_date=null;cloudSave('matter',m);renderAll();},100);}
-function convertToActive(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='active';cloudSave('matter',m);closeModal();renderAll();}
-function reactivate(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('수임 진행중으로 다시 변경합니까?'))return;m.status='prospect';['failed_date','fail_category','fail_reason','fail_competitor','fail_memo'].forEach(k=>m[k]=null);cloudSave('matter',m);curTab=1;renderAll();},100);}
-
-
-/* ── Dashboard ── */
 /* ── Layer state ── */
 let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
@@ -715,6 +645,10 @@ function renderContent(){
   if(curTab===0)c.innerHTML=renderDash();
   else if(curTab===1)c.innerHTML=renderMattersPage();
   else if(curTab===2)c.innerHTML=renderQueryPage();
+  else if(curTab===3)c.innerHTML=renderAchievement();
+  else if(curTab===4)c.innerHTML=renderFailed();
+  else if(curTab===5)c.innerHTML=renderReport();
+  else c.innerHTML=renderDash();
 }
 
 function renderTimerBanner(){
@@ -738,32 +672,39 @@ function renderDash(){
   const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
     .reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
   const clientCount=(D.clients||[]).filter(c=>c.status!=='inactive').length;
-  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
 
   if(curLayer==='matters_list') return renderMattersList('prospect');
   if(curLayer==='active_list') return renderMattersList('active');
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
 
-  // 8 KPI cards
+  const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
+
   const kpis=[
-    {l:'수임 진행중', v:prospectM.length, u:'건', c:'o', fn:`curLayer='matters_list';renderContent()`},
-    {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length, u:'건', c:'g', fn:`curLayer='active_list';renderContent()`},
-    {l:'수임액', v:fmt(retKRW), u:'올해', c:'gold', fn:`goTab(2);_queryMode='money';_moneyType='retainer';renderContent()`},
-    {l:'입금액', v:fmt(payKRW), u:'올해', c:'teal', fn:`goTab(2);_queryMode='money';_moneyType='payment';renderContent()`},
-    {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'없음', u:'업적 별도', c:'r', fn:contKRW>0?`goTab(2);_queryMode='money';_moneyType='contingency';renderContent()`:''},
-    {l:'고객 관리', v:clientCount, u:'등록 고객사', c:'b', fn:`goTab(2);_queryMode='clients';renderContent()`},
-    {l:'이번주', v:hhmm(s.week), u:'시간', c:'p', fn:`goTab(2);_queryMode='time';_timePresetQ='week';renderContent()`},
-    {l:'이번달', v:hhmm(s.month), u:'시간', c:'b', fn:`goTab(2);_queryMode='time';_timePresetQ='month';renderContent()`},
+    {l:'수임 진행중',v:prospectM.length,u:'건',c:'o',
+     fn:"curLayer='matters_list';renderContent()"},
+    {l:'수임 완료',v:activeM.filter(m=>m.status==='active').length,u:'건',c:'g',
+     fn:"curLayer='active_list';renderContent()"},
+    {l:'수임액',v:fmt(retKRW),u:'올해',c:'gold',
+     fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()"},
+    {l:'입금액',v:fmt(payKRW),u:'올해',c:'teal',
+     fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
+    {l:'성공보수 예정',v:contKRW>0?fmt(contKRW):'—',u:'업적 별도',c:'r',
+     fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
+    {l:'고객 관리',v:clientCount,u:'등록 고객사',c:'b',
+     fn:"goTab(2);_queryMode='clients';renderContent()"},
+    {l:'이번주',v:hhmm(s.week),u:'시간',c:'p',
+     fn:"goTab(2);_queryMode='time';_timePresetQ='week';renderContent()"},
+    {l:'이번달',v:hhmm(s.month),u:'시간',c:'b',
+     fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
   ];
-  return`<div class="dash-wrap">
-<div class="dash-kpi">
-${kpis.map(k=>`<div class="kpi-item${k.fn?' tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
-  <div class="kpi-lbl">${k.l}</div>
-  <div class="kpi-val kpi-${k.c}">${k.v}<span class="kpi-unit">${typeof k.v==='number'?k.u:''}</span></div>
-  <div class="kpi-sub">${typeof k.v==='number'?'탭하여 상세':k.u}</div>
-</div>`).join('')}
-</div>
-</div>`;}
+  return'<div class="dash-wrap"><div class="dash-kpi">'
+    +kpis.map(k=>'<div class="kpi-item'+(k.fn?' kpi-tap"':'"')+' onclick="'+(k.fn||'')+'" style="cursor:'+(k.fn?'pointer':'default')+'">'
+      +'<div class="kpi-lbl">'+k.l+'</div>'
+      +'<div class="kpi-val kpi-'+k.c+'">'+k.v+(typeof k.v==='number'?'<span class="kpi-unit">'+k.u+'</span>':'')+'</div>'
+      +'<div class="kpi-sub">'+(typeof k.v==='number'||!k.fn?k.u:'')+'</div>'
+      +'</div>').join('')
+    +'</div></div>';
+}
 
 /* Layer: Matter 목록 (진행중/완료) */
 function renderMattersList(statusKey){
@@ -1484,6 +1425,14 @@ function delPayment(id){
   renderContent();
 }
 
+function closeDeal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='closed';m.closed_date=today();cloudSave('matter',m);closeModal();renderAll();}
+function reopenDeal(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('클로징을 취소하고 진행중으로 변경합니까?'))return;m.status='active';m.closed_date=null;cloudSave('matter',m);renderAll();},100);}
+function convertToActive(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='active';cloudSave('matter',m);closeModal();renderAll();}
+function reactivate(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('수임 진행중으로 다시 변경합니까?'))return;m.status='prospect';['failed_date','fail_category','fail_reason','fail_competitor','fail_memo'].forEach(k=>m[k]=null);cloudSave('matter',m);curTab=1;renderAll();},100);}
+
+
+/* ── Dashboard ── */
+
 function closeModal(){
   const ma=document.getElementById('modalArea');
   if(ma)ma.innerHTML='';
@@ -1872,6 +1821,9 @@ function saveSettings(){
 window.addEventListener('resize',()=>renderAll());
 init();
 
+
+window.addEventListener("resize",()=>renderAll());
+init();
 </script>
 </body>
 </html>
