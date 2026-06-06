@@ -172,6 +172,14 @@
   ],
   "entries": [
     {
+      "id": "mq211mf9034lf",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-05",
+      "minutes": 24,
+      "description": "청도법원 입안 일정 확정 및 고객소통",
+      "billable": true
+    },
+    {
       "id": "mq20rkf6984ya",
       "matterId": "mq20qil2xsxww",
       "date": "2026-06-03",
