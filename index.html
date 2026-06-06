@@ -500,6 +500,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -1613,11 +1614,27 @@ function closeModal(){
 }
 
 function handleBack(){
-  if(curLayer==='matter_detail'&&_queryMode&&['clients','contacts'].includes(_queryMode)){
-    curLayer=_queryMode==='clients'?'client_detail':'contact_detail';
-  } else if(curLayer==='entry_detail'){curLayer=null;}
-  else if(curLayer==='contact_detail'&&_selClientId){curLayer='client_detail';}
-  else{_queryMode=null;curLayer=null;}
+  // 3단계 → 2단계
+  if(curLayer==='matter_detail'){
+    // matter_detail에서 뒤로: curLayer만 null, _queryMode 유지 → 2단계 목록으로
+    curLayer=null;
+    // clients/contacts에서 왔으면 해당 목록으로
+    if(_queryMode==='clients'){curLayer='client_detail'; /* actually go to list */ curLayer=null;}
+    // _queryMode 유지: 시간/수임/사건 목록으로 돌아감
+  } else if(curLayer==='entry_detail'){
+    curLayer=null; // _queryMode='time' 유지 → 시간 목록으로
+  } else if(curLayer==='contact_detail'){
+    if(_queryMode==='clients'&&_selClientId){curLayer='client_detail';}
+    else{curLayer=null;}
+  } else if(curLayer==='client_detail'){
+    curLayer=null; // _queryMode='clients' 유지 → 고객사 목록으로
+  } else if(curLayer==='matters_list'||curLayer==='active_list'){
+    // 홈에서 진입한 경우
+    curLayer=null;
+  } else {
+    // 조회 결과 → 조회 선택 화면
+    _queryMode=null;curLayer=null;
+  }
   renderContent();
 }
 
@@ -2195,6 +2212,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
