@@ -499,6 +499,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -914,10 +915,11 @@ function renderMatterDetailLayer(){
   <!-- Recent payments -->
   ${pays.length>0?`<div class="section-title">입금 내역</div>
   <div class="entry-list">
-    ${pays.slice(0,5).map(p=>`<div class="entry-row">
+    ${pays.slice(0,5).map(p=>`<div class="entry-row" style="cursor:pointer" onclick="editPayment('${p.id}','${m.id}')">
       <span class="er-date">${fmtDF(p.date)}</span>
       <span class="er-desc">${p.note||'—'}</span>
       <span class="er-time" style="color:var(--t)">${fmtM(p.amount,p.currency)}</span>
+      <span style="font-size:13px;color:var(--text3);margin-left:4px">✏️</span>
     </div>`).join('')}
   </div>`:''}
   <!-- Action buttons -->
@@ -1931,6 +1933,56 @@ function saveMatter(eid){
 }
 
 /* ── Payment Modal ── */
+function editPayment(pid, mid){
+  const p=(D.payments||[]).find(x=>x.id===pid);
+  if(!p)return;
+  const m=D.matters.find(x=>x.id===mid)||{};
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh"><div class="mhdl"></div>
+<div class="mttl">💰 입금 수정</div>
+<div class="field"><label>입금일</label><input id="epDate" type="date" value="${p.date||today()}"></div>
+<div class="field-row">
+  <div class="field"><label>금액</label><input id="epAmt" value="${p.amount||''}" oninput="numInput(this);updEditPayKRW()" inputmode="numeric"></div>
+  <div class="field cs"><label>통화</label><select id="epCur" onchange="updEditPayKRW()">
+    <option value="KRW" ${(p.currency||'KRW')==='KRW'?'selected':''}>₩ KRW</option>
+    <option value="USD" ${p.currency==='USD'?'selected':''}>$ USD</option>
+    <option value="CNY" ${p.currency==='CNY'?'selected':''}>¥ CNY</option>
+  </select></div>
+</div>
+<div class="conv" id="epConv">${p.currency!=='KRW'&&p.krw_amount?'≈ '+fmtK(p.krw_amount):''}</div>
+<div class="field"><label>메모</label><input id="epNote" value="${p.note||''}" placeholder="메모 (선택)"></div>
+<button class="savebtn" onclick="saveEditPayment('${pid}','${mid}')">수정 저장</button>
+<button class="savebtn red" style="margin-top:6px" onclick="if(confirm('이 입금 기록을 삭제하시겠습니까?')){D.payments=D.payments.filter(x=>x.id!=='${pid}');cloudSave('payment',{id:'${pid}'},'del');closeModal();renderContent();}">🗑️ 삭제</button>
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+</div></div>`;
+}
+
+function updEditPayKRW(){
+  const amt=parseFloat((document.getElementById('epAmt')?.value||'').replace(/,/g,''))||0;
+  const cur=document.getElementById('epCur')?.value||'KRW';
+  const conv=document.getElementById('epConv');
+  if(conv&&cur!=='KRW'&&amt>0){conv.textContent='≈ '+fmtK(toKRW(amt,cur));}
+  else if(conv){conv.textContent='';}
+}
+
+function saveEditPayment(pid, mid){
+  const p=(D.payments||[]).find(x=>x.id===pid);
+  if(!p)return;
+  const amt=parseFloat((document.getElementById('epAmt')?.value||'').replace(/,/g,''))||0;
+  const cur=document.getElementById('epCur')?.value||'KRW';
+  p.date=document.getElementById('epDate')?.value||today();
+  p.amount=amt;
+  p.currency=cur;
+  p.krw_amount=toKRW(amt,cur);
+  p.rate_on_date=cur==='USD'?CFG.usdKrw:cur==='CNY'?CFG.cnyKrw:1;
+  p.note=(document.getElementById('epNote')?.value||'').trim();
+  D.payments=D.payments.map(x=>x.id===pid?p:x);
+  cloudSave('payment',p);
+  closeModal();
+  renderContent();
+}
+
 function openPaymentModal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;document.getElementById('modalArea').innerHTML=`
 <div class="mbg" onclick="if(event.target===this)closeModal()">
 <div class="msh" style="max-width:440px"><div class="mhdl"></div><div class="mttl">💰 입금 등록</div>
@@ -2143,6 +2195,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
