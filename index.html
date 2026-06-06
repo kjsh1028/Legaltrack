@@ -430,6 +430,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -2016,19 +2017,8 @@ function saveSettings(){
   else if(CFG.supaUrl){syncCloud().then(renderAll);}
   else{renderAll();}
 }
-
 window.addEventListener('resize',()=>renderAll());
-init();
-
-
-window.addEventListener("resize",()=>renderAll());
-init();
-
-window.addEventListener("resize",()=>renderAll());
-init();
-
-window.addEventListener("resize",()=>renderAll());
-init();
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 </script>
 </body>
 </html>
