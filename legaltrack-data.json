@@ -126,6 +126,27 @@
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false
+    },
+    {
+      "id": "mq20lebejr8qp",
+      "code": "나우코스/CHINA/중국법인청산",
+      "name": "중국 상해 법인 청산",
+      "client": "나우코스",
+      "type": "fixed-f",
+      "status": "active",
+      "retainer_amount": 100000,
+      "retainer_cur": "CNY",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false
     }
   ],
   "entries": [
