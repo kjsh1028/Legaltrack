@@ -373,6 +373,20 @@
       "note": ""
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "id": "mq2grmdjpn7p8",
+      "name": "인지",
+      "fullname": "인지 디스플레이",
+      "industry": "제조",
+      "country": "한국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    }
+  ],
   "contacts": []
 }
