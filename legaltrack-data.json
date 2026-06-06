@@ -166,7 +166,7 @@
       "client": "파트라",
       "type": "fixed-f",
       "status": "active",
-      "retainer_amount": 10000000,
+      "retainer_amount": 100000,
       "retainer_cur": "CNY",
       "rate": null,
       "rate_cur": "KRW",
