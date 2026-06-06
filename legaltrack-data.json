@@ -65,27 +65,6 @@
       "starred": false
     },
     {
-      "id": "mq20cokbokti9",
-      "code": "OFFICE",
-      "name": "율촌 내부 관련",
-      "client": "율촌",
-      "type": "office-i",
-      "status": "active",
-      "retainer_amount": null,
-      "retainer_cur": "KRW",
-      "rate": null,
-      "rate_cur": "KRW",
-      "cap_amount": null,
-      "estimated_amount": null,
-      "cap_cur": "KRW",
-      "achievement_type": "solo",
-      "collab_team": "",
-      "my_ratio": 100,
-      "billed_amount": null,
-      "billed_cur": "KRW",
-      "starred": false
-    },
-    {
       "id": "mq20ej2g25wzu",
       "code": "미정-구매대금소송",
       "name": "구매대금 소송",
@@ -156,14 +135,6 @@
       "date": "2026-06-04",
       "minutes": 108,
       "description": "인지정밀 본사에 정부협상 경과 보고서 작성",
-      "billable": true
-    },
-    {
-      "id": "mq20d5vhk1wnl",
-      "matterId": "mq20cokbokti9",
-      "date": "2026-06-01",
-      "minutes": 30,
-      "description": "중국팀 주간회의",
       "billable": true
     },
     {
