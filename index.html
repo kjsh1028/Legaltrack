@@ -133,6 +133,25 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .kpi-unit{font-size:14px;font-weight:600;margin-left:1px;opacity:.8}
 .kpi-sub{font-size:11px;opacity:.7;margin-top:4px}
 
+/* Time query custom date */
+.custom-date-row{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.cdr-fields{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
+.cdr-input{flex:1;padding:10px 10px;font-size:15px;border:1.5px solid var(--g);border-radius:10px;background:#fff;font-family:inherit;color:var(--text);min-width:0;-webkit-appearance:none}
+.cdr-input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(26,122,82,.15)}
+.cdr-sep{font-size:14px;color:var(--text3);flex-shrink:0}
+.cdr-btn{padding:10px 18px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap}
+.cdr-btn:active{opacity:.8}
+.matter-sel{width:100%;padding:10px 11px;font-size:14px;border:1px solid var(--border);border-radius:10px;background:#fff;font-family:inherit;margin-bottom:10px;-webkit-appearance:none;color:var(--text)}
+.tq-stats{display:flex;gap:8px;margin-bottom:10px}
+.tqs{flex:1;border-radius:10px;padding:10px 12px}
+.tqs-l{font-size:11px;font-weight:600;margin-bottom:3px;opacity:.8}
+.tqs-v{font-size:20px;font-weight:800;line-height:1}
+.tqs.g{background:var(--gl);color:var(--g)}
+.tqs.b{background:var(--bl);color:var(--b)}
+.tqs.gray{background:var(--grayl);color:var(--gray)}
+.export-btn{background:var(--bl);border:none;border-radius:20px;padding:5px 14px;font-size:12px;color:var(--b);font-weight:600;cursor:pointer;font-family:inherit}
+.export-btn:active{opacity:.8}
+
 .list-wrap{padding:8px 14px 80px}
 @media(min-width:768px){.list-wrap{padding:12px 22px 40px}}
 .group-hdr{font-size:12px;font-weight:700;padding:10px 0 4px;letter-spacing:.02em}
@@ -197,7 +216,8 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 @media(min-width:768px){.query-results{padding:14px 22px 40px}}
 .preset-tabs{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
 .preset-tabs::-webkit-scrollbar{display:none}
-.ptab{padding:7px 14px;border:1.5px solid var(--border);border-radius:20px;background:var(--white);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--text2);white-space:nowrap;flex-shrink:0}
+.ptab{padding:9px 16px;border:1.5px solid var(--border);border-radius:20px;background:var(--white);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--text2);white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.ptab:active{opacity:.7}
 .ptab.on{border-color:var(--g);background:var(--gl);color:var(--g)}
 .date-row{display:flex;align-items:center;margin-bottom:8px;gap:6px}
 .qr-total{background:var(--white);border-radius:12px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);flex-wrap:wrap}
@@ -981,13 +1001,30 @@ function renderMattersQuery(){
   <div class="qr-list">${items.length===0?'<div class="empty-state">항목 없음</div>':rows}</div>
   </div>`;}
 
+function setTimePreset(k){_timePresetQ=k;_queryMode='time';renderContent();}
+function applyCustomTime(){
+  const f=document.getElementById('tqFrom');
+  const t=document.getElementById('tqTo');
+  if(f)_timeFrom=f.value;
+  if(t)_timeTo=t.value;
+  _queryMode='time';
+  renderContent();
+}
+
 function renderTimeResults(){
   if(curLayer==='entry_detail') return renderEntryDetailLayer();
   const now=new Date();
   let from='',to='';
   if(_timePresetQ==='today'){from=to=today();}
-  else if(_timePresetQ==='week'){const ws=new Date(now);ws.setDate(now.getDate()-now.getDay()+1);from=ws.toISOString().slice(0,10);to=today();}
-  else if(_timePresetQ==='month'){from=now.getFullYear()+'-'+(String(now.getMonth()+1).padStart(2,'0'))+'-01';to=today();}
+  else if(_timePresetQ==='week'){
+    const ws=new Date(now);
+    ws.setDate(now.getDate()-now.getDay()+1);
+    from=ws.toISOString().slice(0,10);to=today();
+  }
+  else if(_timePresetQ==='month'){
+    from=now.getFullYear()+'-'+(String(now.getMonth()+1).padStart(2,'0'))+'-01';
+    to=today();
+  }
   else if(_timePresetQ==='custom'){from=_timeFrom||'';to=_timeTo||'';}
 
   const selMatter=(typeof _tqMatter!=='undefined'?_tqMatter:'all');
@@ -1000,21 +1037,11 @@ function renderTimeResults(){
   const billM=rows.filter(e=>e.billable).reduce((a,e)=>a+e.minutes,0);
 
   const presets=[['today','오늘'],['week','이번주'],['month','이번달'],['custom','직접입력']];
-  const presetHTML=presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" onclick="_timePresetQ='${k}';_queryMode='time';renderContent()">${l}</button>`).join('');
 
-  const matterSel=`<select onchange="_tqMatter=this.value;_queryMode='time';renderContent()" style="width:100%;padding:9px 11px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;margin-bottom:8px;-webkit-appearance:none">
-    <option value="all">전체 Matter</option>
-    ${D.matters.map(m=>`<option value="${m.id}"${selMatter===m.id?' selected':''}>${m.name}</option>`).join('')}
-  </select>`;
+  const matterOpts=D.matters.map(m=>`<option value="${m.id}"${selMatter===m.id?' selected':''}>${m.name}</option>`).join('');
 
-  const customHTML=_timePresetQ==='custom'?`<div class="date-row">
-    <input type="date" id="tqFrom" value="${_timeFrom||''}" style="flex:1;padding:9px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit">
-    <span style="color:var(--text3);padding:0 6px">~</span>
-    <input type="date" id="tqTo" value="${_timeTo||''}" style="flex:1;padding:9px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit">
-    <button onclick="_timeFrom=document.getElementById('tqFrom').value;_timeTo=document.getElementById('tqTo').value;renderContent()" style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">조회</button>
-  </div>`:'';
-
-  const rowsHTML=rows.length===0?'<div class="empty-state">기록 없음</div>'
+  const rowsHTML=rows.length===0
+    ?'<div class="empty-state">기록 없음</div>'
     :rows.map(e=>{
       const m=D.matters.find(x=>x.id===e.matterId)||{name:'?',type:'time-b'};
       const mt=MTYPE[m.type||'time-b'];
@@ -1023,19 +1050,33 @@ function renderTimeResults(){
         <span class="qri-name">${m.name}</span>
         <span class="qri-time" style="color:${mt.color}">${hhmm(e.minutes)}</span>
         <span class="qri-arr">›</span>
-      </div>`;}).join('');
+      </div>`;
+    }).join('');
 
   return`<div class="query-results">
-  <div class="preset-tabs">${presetHTML}</div>
-  ${customHTML}
-  ${matterSel}
-  <div style="display:flex;gap:8px;margin-bottom:10px">
-    <div style="flex:1;background:var(--gl);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:var(--g);font-weight:600">총 시간</div><div style="font-size:20px;font-weight:800;color:var(--g)">${hhmm(total)}</div></div>
-    <div style="flex:1;background:var(--bl);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:var(--b);font-weight:600">청구 가능</div><div style="font-size:20px;font-weight:800;color:var(--b)">${hhmm(billM)}</div></div>
-    <div style="flex:1;background:var(--grayl);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:var(--gray);font-weight:600">기록 수</div><div style="font-size:20px;font-weight:800;color:var(--gray)">${rows.length}건</div></div>
+  <div class="preset-tabs">
+    ${presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" onclick="setTimePreset('${k}')">${l}</button>`).join('')}
+  </div>
+  ${_timePresetQ==='custom'?`
+  <div class="custom-date-row">
+    <div class="cdr-fields">
+      <input type="date" id="tqFrom" value="${_timeFrom||''}" placeholder="시작일" class="cdr-input">
+      <span class="cdr-sep">~</span>
+      <input type="date" id="tqTo" value="${_timeTo||''}" placeholder="종료일" class="cdr-input">
+    </div>
+    <button class="cdr-btn" onclick="applyCustomTime()">조회</button>
+  </div>`:''}
+  <select onchange="_tqMatter=this.value;_queryMode='time';renderContent()" class="matter-sel">
+    <option value="all">전체 Matter</option>
+    ${matterOpts}
+  </select>
+  <div class="tq-stats">
+    <div class="tqs g"><div class="tqs-l">총 시간</div><div class="tqs-v">${hhmm(total)}</div></div>
+    <div class="tqs b"><div class="tqs-l">청구 가능</div><div class="tqs-v">${hhmm(billM)}</div></div>
+    <div class="tqs gray"><div class="tqs-l">기록 수</div><div class="tqs-v">${rows.length}건</div></div>
   </div>
   <div style="display:flex;justify-content:flex-end;margin-bottom:8px">
-    <button onclick="exportTimeQ('${from}','${to}')" style="background:var(--bl);border:none;border-radius:20px;padding:5px 12px;font-size:12px;color:var(--b);font-weight:600;cursor:pointer">📥 내보내기</button>
+    <button onclick="exportTimeQ('${from}','${to}')" class="export-btn">📥 내보내기</button>
   </div>
   <div class="qr-list">${rowsHTML}</div>
 </div>`;}
