@@ -1,27 +1,5 @@
 {
-  "matters": [
-    {
-      "id": "mq1vqm8a0tkj4",
-      "code": "ì°ìµì´ë¤",
-      "name": "ê·¸ë¥ ì°ìµ",
-      "client": "ì°ìµ",
-      "type": "time-b",
-      "status": "active",
-      "retainer_amount": null,
-      "retainer_cur": "KRW",
-      "rate": 500000,
-      "rate_cur": "KRW",
-      "cap_amount": 20000000,
-      "estimated_amount": 20000000,
-      "cap_cur": "KRW",
-      "achievement_type": "team-originate",
-      "collab_team": "ê¸ìµí ì¥ë³´ì±",
-      "my_ratio": 50,
-      "billed_amount": null,
-      "billed_cur": "KRW",
-      "starred": false
-    }
-  ],
+  "matters": [],
   "entries": [],
   "payments": []
 }
