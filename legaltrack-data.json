@@ -164,7 +164,7 @@
     {
       "id": "mq20lebejr8qp",
       "code": "나우코스/CHINA/중국법인청산",
-      "name": "중국 상해 법인 청산",
+      "name": "나우코스-상해법인청산",
       "client": "나우코스",
       "type": "fixed-f",
       "status": "active",
@@ -180,7 +180,18 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null
     },
     {
       "id": "mq20qil2xsxww",
