@@ -42,6 +42,27 @@
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false
+    },
+    {
+      "id": "mq20ac8bqbt35",
+      "code": "BD",
+      "name": "수임 마케팅 / business building",
+      "client": "",
+      "type": "biz-b",
+      "status": "active",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false
     }
   ],
   "entries": [
