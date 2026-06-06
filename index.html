@@ -73,25 +73,38 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .tb-i{font-size:20px;line-height:1}.tb-l{font-size:10px;color:var(--text3);font-weight:500}
 .tb.on .tb-l{color:var(--g);font-weight:700}
 .fab-wrap{flex:0 0 70px;display:flex;flex-direction:column;align-items:center;padding:0;cursor:pointer;border:none;background:none;font-family:inherit}
-.fab{width:44px;height:44px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;margin-top:-12px;box-shadow:0 4px 12px rgba(26,122,82,.4)}
+.fab{width:52px;height:52px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;margin-top:-16px;box-shadow:0 4px 16px rgba(26,122,82,.5)}
 .fab-l{font-size:9px;color:var(--text3);margin-top:3px}
 
 /* ═══════════════════════════════
    DASHBOARD - fits one screen
 ═══════════════════════════════ */
-.dash-wrap{padding:10px 12px;height:100%;display:flex;flex-direction:column;overflow:hidden}
-@media(min-width:768px){.dash-wrap{padding:14px 20px}}
-.dash-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;grid-template-rows:repeat(4,1fr)}
-@media(min-width:600px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}}
-@media(min-width:900px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}}
-.kpi-item{background:var(--white);border-radius:14px;padding:clamp(10px,3vw,18px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
-.kpi-item.tap{cursor:pointer;transition:transform .12s,box-shadow .12s}
-.kpi-item.tap:active{transform:scale(.96);box-shadow:none}
-.kpi-lbl{font-size:clamp(11px,2.8vw,13px);color:var(--text3);font-weight:600;margin-bottom:5px;line-height:1.3}
-.kpi-val{font-size:clamp(22px,6vw,36px);font-weight:800;line-height:1.1;letter-spacing:-.02em}
-.kpi-unit{font-size:clamp(13px,3vw,17px);font-weight:600;margin-left:2px}
-.kpi-sub{font-size:clamp(10px,2.5vw,12px);color:var(--text3);margin-top:4px}
-.kpi-g{color:var(--g)}.kpi-gold{color:var(--o)}.kpi-teal{color:var(--t)}
+
+/* ═══ DASHBOARD KPI ═══ */
+.dash-wrap{padding:10px;height:100%;display:flex;flex-direction:column;overflow:hidden}
+@media(min-width:768px){.dash-wrap{padding:16px}}
+.dash-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;grid-auto-rows:1fr}
+@media(min-width:500px){.dash-kpi{grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr}}
+.kpi-item{background:var(--white);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);overflow:hidden}
+.kpi-item.kpi-tap{cursor:pointer;transition:transform .12s,opacity .12s}
+.kpi-item.kpi-tap:active{transform:scale(.95);opacity:.85}
+.kpi-lbl{font-size:13px;color:var(--text3);font-weight:600;line-height:1.3;margin-bottom:8px}
+@media(min-width:500px){.kpi-lbl{font-size:14px}}
+.kpi-num{font-size:clamp(26px,7vw,38px);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--text)}
+@media(min-width:500px){.kpi-num{font-size:32px}}
+.kpi-g .kpi-num,.kpi-g .kpi-lbl{color:var(--g)}
+.kpi-gold .kpi-num,.kpi-gold .kpi-lbl{color:var(--o)}
+.kpi-teal .kpi-num,.kpi-teal .kpi-lbl{color:var(--t)}
+.kpi-b .kpi-num,.kpi-b .kpi-lbl,.kpi-blue .kpi-num{color:var(--b)}
+.kpi-r .kpi-num,.kpi-r .kpi-lbl{color:var(--r)}
+.kpi-p .kpi-num,.kpi-p .kpi-lbl{color:var(--p)}
+.kpi-g{background:var(--gl)}.kpi-gold{background:var(--ol)}.kpi-teal{background:var(--tl)}
+.kpi-b,.kpi-blue{background:var(--bl)}.kpi-r{background:var(--rl)}.kpi-p{background:var(--pl)}
+/* legacy compat */
+.kpi-val{font-size:clamp(22px,6vw,36px);font-weight:800;line-height:1}
+.kpi-unit{font-size:14px;font-weight:600;margin-left:2px}
+.kpi-sub{font-size:11px;color:var(--text3);margin-top:4px}
+}.kpi-gold{color:var(--o)}.kpi-teal{color:var(--t)}
 .kpi-b,.kpi-blue{color:var(--b)}.kpi-o,.kpi-orange{color:var(--o)}
 .kpi-r{color:var(--r)}.kpi-p{color:var(--p)}.kpi-gray{color:var(--gray)}
 
@@ -150,9 +163,9 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 .query-selector{padding:24px 16px}
 @media(min-width:768px){.query-selector{padding:32px 24px}}
 .qs-title{font-size:15px;font-weight:700;color:var(--text2);margin-bottom:16px;text-align:center}
-.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(min-width:600px){.qs-grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.qs-grid{grid-template-columns:repeat(6,1fr)}}
+.qs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:500px){.qs-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.qs-grid{grid-template-columns:repeat(7,1fr)}}
 .qs-btn{background:var(--white);border:none;border-radius:16px;padding:20px 10px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:var(--shadow);transition:all .15s}
 .qs-btn:active{transform:scale(.96)}
 .qs-ico{font-size:28px}
@@ -373,6 +386,7 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',-apple-sys
 <script>
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -568,7 +582,7 @@ async function init(){
 /* ── Layer state ── */
 let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
-let _queryMode=null, _moneyType='retainer';
+let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all';
 let _selectedMatterId=null, _selectedEntryId=null;
 
 /* ════════════════════════════════════════════
@@ -649,6 +663,18 @@ function renderContent(){
   else if(curTab===4)c.innerHTML=renderFailed();
   else if(curTab===5)c.innerHTML=renderReport();
   else c.innerHTML=renderDash();
+  // Add swipe-back on content
+  setupSwipeBack(c);
+}
+
+let _swipeStartX=0;
+function setupSwipeBack(el){
+  if(!el)return;
+  el.addEventListener('touchstart',e=>{_swipeStartX=e.touches[0].clientX;},{passive:true,once:true});
+  el.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-_swipeStartX;
+    if(dx>80&&(curLayer||_queryMode)){handleBack();}
+  },{passive:true,once:true});
 }
 
 function renderTimerBanner(){
@@ -680,30 +706,32 @@ function renderDash(){
   const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
 
   const kpis=[
-    {l:'수임 진행중',v:prospectM.length,u:'건',c:'o',
-     fn:"curLayer='matters_list';renderContent()"},
-    {l:'수임 완료',v:activeM.filter(m=>m.status==='active').length,u:'건',c:'g',
-     fn:"curLayer='active_list';renderContent()"},
-    {l:'수임액',v:fmt(retKRW),u:'올해',c:'gold',
-     fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()"},
-    {l:'입금액',v:fmt(payKRW),u:'올해',c:'teal',
-     fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
-    {l:'성공보수 예정',v:contKRW>0?fmt(contKRW):'—',u:'업적 별도',c:'r',
-     fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
-    {l:'고객 관리',v:clientCount,u:'등록 고객사',c:'b',
-     fn:"goTab(2);_queryMode='clients';renderContent()"},
-    {l:'이번주',v:hhmm(s.week),u:'시간',c:'p',
-     fn:"goTab(2);_queryMode='time';_timePresetQ='week';renderContent()"},
-    {l:'이번달',v:hhmm(s.month),u:'시간',c:'b',
-     fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
+    {l:'수임 진행중', v:prospectM.length+'건',
+      fn:"curLayer='matters_list';renderContent()"},
+    {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length+'건',
+      fn:"curLayer='active_list';renderContent()"},
+    {l:'수임액', v:fmt(retKRW),
+      fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()"},
+    {l:'입금액', v:fmt(payKRW),
+      fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
+    {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'—',
+      fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
+    {l:'고객 관리', v:clientCount+'개',
+      fn:"goTab(2);_queryMode='clients';renderContent()"},
+    {l:'이번 주', v:hhmm(s.week),
+      fn:"goTab(2);_queryMode='time';_timePresetQ='week';renderContent()"},
+    {l:'이번 달', v:hhmm(s.month),
+      fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
   ];
-  return'<div class="dash-wrap"><div class="dash-kpi">'
-    +kpis.map(k=>'<div class="kpi-item'+(k.fn?' kpi-tap"':'"')+' onclick="'+(k.fn||'')+'" style="cursor:'+(k.fn?'pointer':'default')+'">'
+  let html='<div class="dash-wrap"><div class="dash-kpi">';
+  kpis.forEach(k=>{
+    html+='<div class="kpi-item'+(k.fn?' kpi-tap':'')+'"'+(k.fn?' onclick="'+k.fn+'"':'')+' style="cursor:'+(k.fn?'pointer':'default')+'">'
       +'<div class="kpi-lbl">'+k.l+'</div>'
-      +'<div class="kpi-val kpi-'+k.c+'">'+k.v+(typeof k.v==='number'?'<span class="kpi-unit">'+k.u+'</span>':'')+'</div>'
-      +'<div class="kpi-sub">'+(typeof k.v==='number'||!k.fn?k.u:'')+'</div>'
-      +'</div>').join('')
-    +'</div></div>';
+      +'<div class="kpi-num">'+k.v+'</div>'
+      +'</div>';
+  });
+  html+='</div></div>';
+  return html;
 }
 
 /* Layer: Matter 목록 (진행중/완료) */
@@ -877,93 +905,121 @@ function showMoneyQuery(type){_queryMode='money';_moneyType=type;goTab(2);}
 function renderQueryPage(){
   if(_queryMode==='time') return renderTimeResults();
   if(_queryMode==='money') return renderMoneyResults();
+  if(_queryMode==='matters') return renderMattersQuery();
   if(_queryMode==='clients') return renderClientsPage();
   if(_queryMode==='contacts') return renderContactsPage();
-  // Selector screen
-  return`<div class="query-selector">
-  <div class="qs-title">조회 및 관리</div>
-  <div class="qs-grid">
-    <button class="qs-btn" onclick="_queryMode='time';_timePresetQ='month';renderContent()">
-      <span class="qs-ico">⏱</span>
-      <span class="qs-lbl">시간 조회</span>
-      <span class="qs-sub">날짜별 업무시간</span>
-    </button>
-    <button class="qs-btn" onclick="_queryMode='money';_moneyType='retainer';renderContent()">
-      <span class="qs-ico">🏆</span>
-      <span class="qs-lbl">수임액</span>
-      <span class="qs-sub">Matter별 수임액</span>
-    </button>
-    <button class="qs-btn" onclick="_queryMode='money';_moneyType='payment';renderContent()">
-      <span class="qs-ico">💰</span>
-      <span class="qs-lbl">입금액</span>
-      <span class="qs-sub">입금 내역 조회</span>
-    </button>
-    <button class="qs-btn" onclick="_queryMode='money';_moneyType='contingency';renderContent()">
-      <span class="qs-ico">🎯</span>
-      <span class="qs-lbl">성공보수 예정</span>
-      <span class="qs-sub">예정 성공보수</span>
-    </button>
-    <button class="qs-btn" onclick="_queryMode='clients';renderContent()">
-      <span class="qs-ico">🏢</span>
-      <span class="qs-lbl">고객사 관리</span>
-      <span class="qs-sub">고객·담당자 정보</span>
-    </button>
-    <button class="qs-btn" onclick="_queryMode='contacts';renderContent()">
-      <span class="qs-ico">👤</span>
-      <span class="qs-lbl">명함 관리</span>
-      <span class="qs-sub">미팅·연락처 관리</span>
-    </button>
-  </div>
-</div>`;}
+  // Selector screen - clean grid
+  return '<div class="query-selector">'
+    +'<div class="qs-grid">'
+    +[
+      {ico:'⏱',l:'시간 조회',fn:"_queryMode='time';_timePresetQ='month';renderContent()"},
+      {ico:'📁',l:'사건 조회',fn:"_queryMode='matters';renderContent()"},
+      {ico:'🏆',l:'수임액',fn:"_queryMode='money';_moneyType='retainer';renderContent()"},
+      {ico:'💰',l:'입금액',fn:"_queryMode='money';_moneyType='payment';renderContent()"},
+      {ico:'🎯',l:'성공보수',fn:"_queryMode='money';_moneyType='contingency';renderContent()"},
+      {ico:'🏢',l:'고객사',fn:"_queryMode='clients';renderContent()"},
+      {ico:'👤',l:'명함',fn:"_queryMode='contacts';renderContent()"},
+    ].map(k=>'<button class="qs-btn" onclick="'+k.fn+'">'
+      +'<span class="qs-ico">'+k.ico+'</span>'
+      +'<span class="qs-lbl">'+k.l+'</span>'
+      +'</button>').join('')
+    +'</div>'
+    +'</div>';
+}
 
-/* ── 시간 조회 결과 ── */
+function renderMattersQuery(){
+  if(curLayer==='matter_detail') return renderMatterDetailLayer();
+  const statusF=(typeof _mqStatus!=='undefined'?_mqStatus:'all');
+  const typeF=(typeof _mqType!=='undefined'?_mqType:'all');
+  let items=D.matters.filter(m=>m.status!=='failed');
+  if(statusF!=='all')items=items.filter(m=>m.status===statusF);
+  if(typeF!=='all')items=items.filter(m=>m.type===typeF);
+  items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+  const statusSel=`<select onchange="_mqStatus=this.value;renderContent()" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
+    <option value="all">전체 상태</option>
+    ${[['prospect','수임 진행중'],['active','수임 완료'],['closed','클로징'],['internal','비빌링']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
+  </select>`;
+  const typeSel=`<select onchange="_mqType=this.value;renderContent()" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
+    <option value="all">전체 유형</option>
+    ${Object.entries(MTYPE).map(([k,v])=>`<option value="${k}"${typeF===k?' selected':''}>${v.ico} ${v.label}</option>`).join('')}
+  </select>`;
+  const rows=items.map(m=>{
+    const mt=MTYPE[m.type||'time-b'];
+    const rb=getRetainerBase(m);
+    const mst=MSTATUS[m.status||'active'];
+    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+      <div style="flex:1;min-width:0">
+        <div class="qri-name">${m.name}</div>
+        <div style="font-size:11px;color:var(--text3)">${mst.label}${m.client?' · '+m.client:''}</div>
+      </div>
+      ${rb.amount?`<span class="qri-time" style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</span>`:''}
+      <span class="qri-arr">›</span>
+    </div>`;}).join('');
+  return`<div class="query-results">
+  <div style="display:flex;gap:6px;margin-bottom:8px">${statusSel}${typeSel}</div>
+  <div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-align:right">${items.length}건</div>
+  <div class="qr-list">${items.length===0?'<div class="empty-state">항목 없음</div>':rows}</div>
+  </div>`;}
+
 function renderTimeResults(){
   if(curLayer==='entry_detail') return renderEntryDetailLayer();
-  // Calculate date range from preset
   const now=new Date();
   let from='',to='';
   if(_timePresetQ==='today'){from=to=today();}
-  else if(_timePresetQ==='week'){const ws=new Date(now);ws.setDate(now.getDate()-now.getDay());from=ws.toISOString().slice(0,10);to=today();}
+  else if(_timePresetQ==='week'){const ws=new Date(now);ws.setDate(now.getDate()-now.getDay()+1);from=ws.toISOString().slice(0,10);to=today();}
   else if(_timePresetQ==='month'){from=now.getFullYear()+'-'+(String(now.getMonth()+1).padStart(2,'0'))+'-01';to=today();}
-  else if(_timePresetQ==='custom'){from=_timeFrom;to=_timeTo;}
+  else if(_timePresetQ==='custom'){from=_timeFrom||'';to=_timeTo||'';}
 
+  const selMatter=(typeof _tqMatter!=='undefined'?_tqMatter:'all');
   let rows=[...D.entries];
+  if(selMatter!=='all')rows=rows.filter(e=>e.matterId===selMatter);
   if(from)rows=rows.filter(e=>e.date>=from);
   if(to)rows=rows.filter(e=>e.date<=to);
   rows.sort((a,b)=>b.date.localeCompare(a.date));
   const total=rows.reduce((a,e)=>a+e.minutes,0);
+  const billM=rows.filter(e=>e.billable).reduce((a,e)=>a+e.minutes,0);
 
-  return`<div class="query-results">
-  <!-- Preset tabs -->
-  <div class="preset-tabs">
-    ${[['today','오늘'],['week','이번주'],['month','이번달'],['custom','직접입력']].map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" onclick="_timePresetQ='${k}';renderContent()">${l}</button>`).join('')}
-  </div>
-  ${_timePresetQ==='custom'?`<div class="date-row">
-    <input type="date" value="${_timeFrom}" onchange="_timeFrom=this.value;renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit">
+  const presets=[['today','오늘'],['week','이번주'],['month','이번달'],['custom','직접입력']];
+  const presetHTML=presets.map(([k,l])=>`<button class="ptab${_timePresetQ===k?' on':''}" onclick="_timePresetQ='${k}';_queryMode='time';renderContent()">${l}</button>`).join('');
+
+  const matterSel=`<select onchange="_tqMatter=this.value;_queryMode='time';renderContent()" style="width:100%;padding:9px 11px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;margin-bottom:8px;-webkit-appearance:none">
+    <option value="all">전체 Matter</option>
+    ${D.matters.map(m=>`<option value="${m.id}"${selMatter===m.id?' selected':''}>${m.name}</option>`).join('')}
+  </select>`;
+
+  const customHTML=_timePresetQ==='custom'?`<div class="date-row">
+    <input type="date" id="tqFrom" value="${_timeFrom||''}" style="flex:1;padding:9px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit">
     <span style="color:var(--text3);padding:0 6px">~</span>
-    <input type="date" value="${_timeTo}" onchange="_timeTo=this.value;renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit">
-  </div>`:''}
-  <!-- Total -->
-  <div class="qr-total">
-    <span class="qrt-label">총 시간</span>
-    <span class="qrt-value">${hhmm(total)}</span>
-    <span class="qrt-count">${rows.length}건</span>
-    <button class="qr-export" onclick="exportTimeQ('${from}','${to}')">📥 내보내기</button>
-  </div>
-  <!-- Results -->
-  <div class="qr-list">
-    ${rows.length===0?`<div class="empty-state">기록 없음</div>`:
-    rows.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{name:'?',type:'time-b'};const mt=MTYPE[m.type||'time-b'];
-      return`<div class="qr-item" onclick="_selectedEntryId='${e.id}';curLayer='entry_detail';renderContent()">
+    <input type="date" id="tqTo" value="${_timeTo||''}" style="flex:1;padding:9px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit">
+    <button onclick="_timeFrom=document.getElementById('tqFrom').value;_timeTo=document.getElementById('tqTo').value;renderContent()" style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">조회</button>
+  </div>`:'';
+
+  const rowsHTML=rows.length===0?'<div class="empty-state">기록 없음</div>'
+    :rows.map(e=>{
+      const m=D.matters.find(x=>x.id===e.matterId)||{name:'?',type:'time-b'};
+      const mt=MTYPE[m.type||'time-b'];
+      return `<div class="qr-item" onclick="_selectedEntryId='${e.id}';curLayer='entry_detail';renderContent()">
         <span class="qri-date">${fmtDF(e.date)}</span>
         <span class="qri-name">${m.name}</span>
         <span class="qri-time" style="color:${mt.color}">${hhmm(e.minutes)}</span>
         <span class="qri-arr">›</span>
-      </div>`;}).join('')}
+      </div>`;}).join('');
+
+  return`<div class="query-results">
+  <div class="preset-tabs">${presetHTML}</div>
+  ${customHTML}
+  ${matterSel}
+  <div style="display:flex;gap:8px;margin-bottom:10px">
+    <div style="flex:1;background:var(--gl);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:var(--g);font-weight:600">총 시간</div><div style="font-size:20px;font-weight:800;color:var(--g)">${hhmm(total)}</div></div>
+    <div style="flex:1;background:var(--bl);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:var(--b);font-weight:600">청구 가능</div><div style="font-size:20px;font-weight:800;color:var(--b)">${hhmm(billM)}</div></div>
+    <div style="flex:1;background:var(--grayl);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:var(--gray);font-weight:600">기록 수</div><div style="font-size:20px;font-weight:800;color:var(--gray)">${rows.length}건</div></div>
   </div>
+  <div style="display:flex;justify-content:flex-end;margin-bottom:8px">
+    <button onclick="exportTimeQ('${from}','${to}')" style="background:var(--bl);border:none;border-radius:20px;padding:5px 12px;font-size:12px;color:var(--b);font-weight:600;cursor:pointer">📥 내보내기</button>
+  </div>
+  <div class="qr-list">${rowsHTML}</div>
 </div>`;}
 
-/* Entry detail layer */
 function renderEntryDetailLayer(){
   const e=D.entries.find(x=>x.id===_selectedEntryId);
   if(!e)return`<div class="empty-state">기록을 찾을 수 없습니다</div>`;
@@ -1450,14 +1506,110 @@ function handleBack(){
 function toggleStar(mid,e){if(e)e.stopPropagation();const m=D.matters.find(x=>x.id===mid);if(!m)return;m.starred=!m.starred;cloudSave('matter',m);renderContent();}
 
 function renderAchievement(){
-  return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">🏆</div><div>업적 관리</div><div style="font-size:12px;margin-top:8px">더보기 → 업적 관리에서 이용하세요</div></div>`;}
+  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
+  const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
+  const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
+  const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
+    .reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  const sortedTiers=[...incentiveTiers].sort((a,b)=>b.threshold-a.threshold);
+  const tier=sortedTiers.find(t=>payKRW>=t.threshold)||{rate:0};
+  const incentive=Math.round(payKRW*(tier.rate||0)/100);
+
+  const matterRows=activeM.sort((a,b)=>retainerKRW(b)-retainerKRW(a)).map(m=>{
+    const mt=MTYPE[m.type||'time-b'];
+    const rb=getRetainerBase(m);
+    const payK=paymentKRW(m);
+    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';curLayer='matter_detail';renderContent()">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
+        ${m.client?`<div style="font-size:11px;color:var(--text3)">${m.client}</div>`:''}
+      </div>
+      <div style="text-align:right;flex-shrink:0">
+        <div style="font-size:13px;font-weight:700;color:${mt.color}">${fmtM(rb.amount||0,rb.currency||'KRW')}</div>
+        <div style="font-size:10px;color:var(--text3)">입금 ${fmtK(payK)}</div>
+      </div>
+      <span style="font-size:16px;color:var(--text3);opacity:.4">›</span>
+    </div>`;}).join('');
+
+  return`<div style="padding:14px 14px 80px">
+  <div style="font-size:16px;font-weight:800;margin-bottom:12px">🏆 업적 관리</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+    <div style="background:var(--ol);border-radius:12px;padding:14px;grid-column:1/-1">
+      <div style="font-size:11px;color:var(--o);font-weight:600">수임액 업적 (올해)</div>
+      <div style="font-size:28px;font-weight:800;color:var(--o)">${fmtK(retKRW)}</div>
+    </div>
+    <div style="background:var(--tl);border-radius:12px;padding:14px;grid-column:1/-1">
+      <div style="font-size:11px;color:var(--t);font-weight:600">입금액 업적 (올해)</div>
+      <div style="font-size:28px;font-weight:800;color:var(--t)">${fmtK(payKRW)}</div>
+      ${retKRW>payKRW?`<div style="font-size:12px;color:var(--text3);margin-top:4px">미입금 ≈${fmtK(retKRW-payKRW)}</div>`:''}
+    </div>
+    ${contKRW>0?`<div style="background:var(--ol);border-radius:12px;padding:14px;grid-column:1/-1">
+      <div style="font-size:11px;color:var(--o);font-weight:600">성공보수 예정 (업적 별도)</div>
+      <div style="font-size:28px;font-weight:800;color:var(--o)">${fmtK(contKRW)}</div>
+    </div>`:''}
+    <div style="background:var(--pl);border-radius:12px;padding:14px;grid-column:1/-1">
+      <div style="font-size:11px;color:var(--p);font-weight:600">인센티브 예상 (${tier.rate||0}%)</div>
+      <div style="font-size:28px;font-weight:800;color:var(--p)">${fmtK(incentive)}</div>
+    </div>
+  </div>
+  <div style="font-size:12px;font-weight:700;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Matter별 수임액</div>
+  <div class="qr-list" style="margin-bottom:14px">${matterRows}</div>
+  <div style="text-align:center">
+    <button onclick="openExportModal()" style="background:var(--bl);border:none;border-radius:20px;padding:8px 20px;font-size:13px;color:var(--b);font-weight:600;cursor:pointer">📥 내보내기</button>
+  </div>
+</div>`;}
+
 function renderFailed(){return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">❌</div><div>수임 실패 분석</div></div>`;}
-function renderReport(){return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">📈</div><div>리포트</div></div>`;}
-function startTimer(matterId){
-  if(timerObj){if(!confirm('현재 타이머를 종료하고 새로 시작하시겠습니까?'))return;stopTimer();}
-  timerObj={matterId,startMs:Date.now()};
-  renderTimerBanner();
+function renderReport(){
+  const now=new Date();const yr=now.getFullYear();
+  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
+  const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
+  const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
+  const s=statsNow();
+  // Monthly hours for last 6 months
+  const months=[];
+  for(let i=5;i>=0;i--){
+    const d=new Date(now.getFullYear(),now.getMonth()-i,1);
+    const ym=d.getFullYear()+'-'+(String(d.getMonth()+1).padStart(2,'0'));
+    const mins=D.entries.filter(e=>e.date.startsWith(ym)).reduce((a,e)=>a+e.minutes,0);
+    months.push({label:(d.getMonth()+1)+'월',mins});
+  }
+  const maxMins=Math.max(...months.map(m=>m.mins),1);
+  return '<div style="padding:14px 14px 80px">'
+    +'<div style="font-size:16px;font-weight:800;margin-bottom:12px">📈 리포트</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">'
+    +'<div style="background:var(--ol);border-radius:12px;padding:12px"><div style="font-size:11px;color:var(--o);font-weight:600">수임액 (올해)</div><div style="font-size:22px;font-weight:800;color:var(--o)">'+fmtK(retKRW)+'</div></div>'
+    +'<div style="background:var(--tl);border-radius:12px;padding:12px"><div style="font-size:11px;color:var(--t);font-weight:600">입금액 (올해)</div><div style="font-size:22px;font-weight:800;color:var(--t)">'+fmtK(payKRW)+'</div></div>'
+    +'<div style="background:var(--gl);border-radius:12px;padding:12px"><div style="font-size:11px;color:var(--g);font-weight:600">이번달 시간</div><div style="font-size:22px;font-weight:800;color:var(--g)">'+hhmm(s.month)+'</div></div>'
+    +'<div style="background:var(--bl);border-radius:12px;padding:12px"><div style="font-size:11px;color:var(--b);font-weight:600">이번주 시간</div><div style="font-size:22px;font-weight:800;color:var(--b)">'+hhmm(s.week)+'</div></div>'
+    +'</div>'
+    +'<div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06)">'
+    +'<div style="font-size:12px;font-weight:700;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em">월별 시간 (최근 6개월)</div>'
+    +'<div style="display:flex;align-items:flex-end;gap:6px;height:90px">'
+    +months.map(m=>{
+      const h=maxMins>0?Math.round((m.mins/maxMins)*80):0;
+      return '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;height:100%;justify-content:flex-end">'
+        +'<div style="font-size:9px;color:var(--g);font-weight:700">'+(m.mins>0?hhmm(m.mins):'')+'</div>'
+        +'<div style="width:100%;background:var(--g);border-radius:3px 3px 0 0;height:'+h+'px;min-height:'+(m.mins>0?2:0)+'px"></div>'
+        +'<div style="font-size:10px;color:var(--text3)">'+m.label+'</div>'
+        +'</div>';
+    }).join('')
+    +'</div>'
+    +'</div>'
+    +'<div style="margin-top:10px">'
+    +'<div style="font-size:12px;font-weight:700;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Matter별 시간</div>'
+    +D.matters.filter(m=>D.entries.some(e=>e.matterId===m.id)).map(m=>{
+      const mins=D.entries.filter(e=>e.matterId===m.id).reduce((a,e)=>a+e.minutes,0);
+      const mt=MTYPE[m.type||'time-b'];
+      return '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border)">'
+        +'<div style="flex:1;font-size:13px">'+m.name+'</div>'
+        +'<div style="font-size:13px;font-weight:700;color:'+mt.color+'">'+hhmm(mins)+'</div>'
+        +'</div>';
+    }).sort((a,b)=>b.localeCompare(a)).join('')
+    +'</div>'
+    +'</div>';
 }
+
 
 function stopTimer(){
   if(!timerObj)return;
@@ -1821,6 +1973,9 @@ function saveSettings(){
 window.addEventListener('resize',()=>renderAll());
 init();
 
+
+window.addEventListener("resize",()=>renderAll());
+init();
 
 window.addEventListener("resize",()=>renderAll());
 init();
