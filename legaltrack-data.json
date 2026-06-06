@@ -151,6 +151,14 @@
   ],
   "entries": [
     {
+      "id": "mq20rkf6984ya",
+      "matterId": "mq20qil2xsxww",
+      "date": "2026-06-03",
+      "minutes": 60,
+      "description": "상해법인청산 관련 세무법인 지시 및 주간보고서 작성",
+      "billable": true
+    },
+    {
       "id": "mq20navxoh9kk",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-06-01",
