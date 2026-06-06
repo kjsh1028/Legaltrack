@@ -49,7 +49,7 @@
       "name": "마케팅 / business building/office",
       "client": "",
       "type": "biz-b",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -62,7 +62,18 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null
     },
     {
       "id": "mq20ej2g25wzu",
