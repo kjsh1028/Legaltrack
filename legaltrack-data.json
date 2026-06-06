@@ -130,6 +130,14 @@
   ],
   "entries": [
     {
+      "id": "mq20it3dxqb8y",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-04",
+      "minutes": 108,
+      "description": "인지정밀 본사에 정부협상 경과 보고서 작성",
+      "billable": true
+    },
+    {
       "id": "mq20d5vhk1wnl",
       "matterId": "mq20cokbokti9",
       "date": "2026-06-01",
