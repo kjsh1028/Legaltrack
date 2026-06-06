@@ -1,27 +1,5 @@
 {
-  "matters": [
-    {
-      "id": "mq0ykht10fdie",
-      "code": "새 연습",
-      "name": "새 연습",
-      "client": "",
-      "type": "fixed-f",
-      "status": "active",
-      "retainer_amount": null,
-      "retainer_cur": "KRW",
-      "rate": null,
-      "rate_cur": "KRW",
-      "cap_amount": null,
-      "estimated_amount": null,
-      "cap_cur": "KRW",
-      "achievement_type": "solo",
-      "collab_team": "",
-      "my_ratio": 100,
-      "billed_amount": null,
-      "billed_cur": "KRW",
-      "starred": false
-    }
-  ],
+  "matters": [],
   "entries": [],
   "payments": []
 }
