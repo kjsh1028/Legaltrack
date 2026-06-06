@@ -46,6 +46,14 @@
   ],
   "entries": [
     {
+      "id": "mq2068taonwut",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-06-04",
+      "minutes": 60,
+      "description": "자문제안서 작성 및 고객 소통",
+      "billable": true
+    },
+    {
       "id": "mq1w6co5ffbjs",
       "matterId": "mq1w5upv8k38z",
       "date": "2026-06-05",
