@@ -495,7 +495,6 @@ function renderDash(){
     <div class="ach-box-val">${fmtK(retActiveKRW)}</div>
     ${renderCurPills(retByCur,true)}
     ${retProspectKRW>0?`<div class="ach-box-sub" style="color:var(--orange);margin-top:3px">진행중 예상 +${fmtK(retProspectKRW)}</div>`:''}
-    ${totalContingencyKRW()>0?`<div class="ach-box-sub" style="color:var(--gold);margin-top:3px;font-weight:700">🎯 성공보수 예정 +${fmtK(totalContingencyKRW())} (별도)</div>`:''}
   </div>
   <div class="ach-box payment">
     <div class="ach-box-ttl">💰 입금액 업적 (입금일 환율)</div>
@@ -504,6 +503,23 @@ function renderDash(){
     ${retActiveKRW>payActiveKRW?`<div class="ach-box-sub" style="color:var(--orange);margin-top:3px">미입금 ≈${fmtK(retActiveKRW-payActiveKRW)}</div>`:''}
   </div>
 </div>
+${(()=>{
+  const cM=D.matters.filter(m=>m.contingency_amount&&parseFloat(m.contingency_amount)>0&&!['failed','internal'].includes(m.status));
+  if(!cM.length)return'';
+  const tot=cM.reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  return '<div style="background:linear-gradient(135deg,#FFFBEA,#FFF3CD);border:2px solid var(--gold);border-radius:14px;padding:14px 16px;margin-bottom:10px">'
+    +'<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px">'
+    +'<div><div style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">🎯 성공보수 예정 합계 (업적 별도)</div>'
+    +'<div style="font-size:24px;font-weight:800;color:var(--gold)">'+fmtK(tot)+'</div>'
+    +'<div style="font-size:11px;color:var(--text3);margin-top:3px">✓ 달성 후 💰 입금 등록 시 업적에 자동 반영</div></div>'
+    +'<div style="display:flex;flex-direction:column;gap:5px;flex:1;min-width:0">'
+    +cM.map(m=>'<div style="background:rgba(255,255,255,.8);border-radius:9px;padding:7px 10px;font-size:12px;border:1px solid #FFE082">'
+      +'<div style="font-weight:700;color:var(--text2)">['+m.code+'] '+m.name+'</div>'
+      +'<div style="color:var(--gold);font-weight:700;margin-top:2px">'+fmtM(m.contingency_amount,m.retainer_cur||'KRW')
+      +(m.contingency_condition?'<span style="color:var(--text3);font-weight:400"> · '+m.contingency_condition.slice(0,30)+(m.contingency_condition.length>30?'…':'')+'</span>':'')
+      +'</div></div>').join('')
+    +'</div></div></div>';
+})()}
 
 <!-- Responsive layout: 3-col desktop, 1-col mobile -->
 <div class="dash-grid">
@@ -1146,12 +1162,58 @@ function setMType(k,cls){
 function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
 function onAT(sel){const bf=document.getElementById('billedF');if(bf)bf.style.display=sel.value==='team-referral'?'':'none';}
 function saveMatter(eid){
-  const code=(document.getElementById('mc')?.value||'').trim().toUpperCase();const name=(document.getElementById('mn')?.value||'').trim();
-  if(!code)return alert('코드를 입력하세요');if(!name)return alert('Matter 명을 입력하세요');
+  const code=(document.getElementById('mc')?.value||'').trim().toUpperCase();
+  const name=(document.getElementById('mn')?.value||'').trim();
+  if(!code)return alert('코드를 입력하세요');
+  if(!name)return alert('Matter 명을 입력하세요');
   const mtype=document.getElementById('mtype')?.value||'time-b';
-  const m={id:eid||gid(),code,name,client:(document.getElementById('mcl')?.value||'').trim(),type:mtype,status:document.getElementById('mstatus')?.value||'active',retainer_amount:mtype==='fixed-f'?getRaw('mra')||null:null,retainer_cur:document.getElementById('mrc')?.value||'KRW',rate:mtype==='time-b'?getRaw('mr')||null:null,rate_cur:document.getElementById('mrc2')?.value||'KRW',cap_amount:mtype==='time-b'?getRaw('mcap')||null:null,estimated_amount:mtype==='time-b'?getRaw('mest')||null:null,cap_cur:document.getElementById('mcapcur')?.value||'KRW',achievement_type:document.getElementById('matype')?.value||'solo',collab_team:(document.getElementById('mteam')?.value||'').trim(),my_ratio:parseFloat(document.getElementById('mratio')?.value)||100,billed_amount:getRaw('mba')||null,billed_cur:document.getElementById('mbc')?.value||'KRW',starred:eid?(D.matters.find(x=>x.id===eid)?.starred||false):false};
-  if(eid)D.matters=D.matters.map(x=>x.id===eid?{...x,...m}:x);else D.matters.push(m);
-  cloudSave('matter',m);closeModal();if(!eid)curTab=1;renderAll();}
+  const prev=eid?D.matters.find(x=>x.id===eid):{};
+  const g=id=>document.getElementById(id);
+  const m={
+    id:eid||gid(),
+    code,name,
+    client:(g('mcl')?.value||'').trim(),
+    type:mtype,
+    status:g('mstatus')?.value||'active',
+    // Fixed Fee
+    retainer_amount:mtype==='fixed-f'?getRaw('mra')||null:null,
+    retainer_cur:mtype==='fixed-f'?g('mrc')?.value||'KRW':
+                 mtype==='litigation'?g('m_lit_cur')?.value||'KRW':
+                 mtype==='retainer'?g('m_ret_cur')?.value||'KRW':'KRW',
+    // Time Billing
+    rate:mtype==='time-b'?getRaw('mr')||null:null,
+    rate_cur:g('mrc2')?.value||'KRW',
+    cap_amount:mtype==='time-b'?getRaw('mcap')||null:null,
+    estimated_amount:mtype==='time-b'?getRaw('mest')||null:null,
+    cap_cur:g('mcapcur')?.value||'KRW',
+    // 연간 자문
+    ret_total:mtype==='retainer'?getRaw('m_ret_total')||null:null,
+    ret_cur:mtype==='retainer'?g('m_ret_cur')?.value||'KRW':null,
+    monthly_hours:mtype==='retainer'?parseFloat(g('m_monthly_h')?.value)||null:null,
+    overage_rate:mtype==='retainer'?getRaw('m_overage_r')||null:null,
+    ret_start:mtype==='retainer'?g('m_ret_start')?.value||null:null,
+    ret_end:mtype==='retainer'?g('m_ret_end')?.value||null:null,
+    // 소송
+    lit_retainer:mtype==='litigation'?getRaw('m_lit_retainer')||null:null,
+    lit_balance:mtype==='litigation'?getRaw('m_lit_balance')||null:null,
+    lit_mode:mtype==='litigation'?g('m_lit_mode')?.value||'fixed':null,
+    // 성공보수 (소송/Time Billing/Fixed Fee 공통)
+    contingency_amount:mtype==='litigation'?getRaw('m_contingency')||null:
+                       (getRaw('m_contingency2')||null),
+    contingency_condition:mtype==='litigation'?(g('m_contingency_cond')?.value||'').trim():
+                          (g('m_contingency_cond2')?.value||'').trim()||null,
+    // 업적 유형
+    achievement_type:g('matype')?.value||'solo',
+    collab_team:(g('mteam')?.value||'').trim(),
+    my_ratio:parseFloat(g('mratio')?.value)||100,
+    billed_amount:getRaw('mba')||null,
+    billed_cur:g('mbc')?.value||'KRW',
+    starred:prev?.starred||false
+  };
+  if(eid)D.matters=D.matters.map(x=>x.id===eid?{...x,...m}:x);
+  else D.matters.push(m);
+  cloudSave('matter',m);closeModal();if(!eid)curTab=1;renderAll();
+}
 
 /* ── Payment Modal ── */
 function openPaymentModal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;document.getElementById('modalArea').innerHTML=`
