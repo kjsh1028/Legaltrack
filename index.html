@@ -2344,7 +2344,9 @@ function saveMatter(eid){
     my_ratio:parseFloat(g('mratio')?.value)||100,
     billed_amount:getRaw('mba')||null,
     billed_cur:g('mbc')?.value||'KRW',
-    starred:prev?.starred||false
+    starred:prev?.starred||false,
+    driveLink:(document.getElementById('mdrivelink')?.value||'').trim(),
+    driveLinkLabel:(document.getElementById('mdrivelabel')?.value||'').trim()
   };
   if(eid)D.matters=D.matters.map(x=>x.id===eid?{...x,...m}:x);
   else D.matters.push(m);
