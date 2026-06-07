@@ -1987,8 +1987,8 @@ async function scanBusinessCard(){
       if(result.error) throw new Error('API: '+result.error.message);
 
       const text = result.content?.[0]?.text||'{}';
-      const clean = text.replace(/```json
-?|```/g,'').trim();
+      const clean = text.replace(/```[^`]*```/g,'').replace(/`/g,'').trim();
+
       const info = JSON.parse(clean);
 
       const setVal=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
