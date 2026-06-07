@@ -701,7 +701,7 @@ let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
 let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all', _mqSearch='';
 let _timePresetQ='month', _timeFrom='', _timeTo='';
-let _prevLayer=null, _prevTab=0; // 이전 레이어 추적
+let _prevLayer=null, _prevTab=0, _prevMatterId=null; // 이전 레이어 추적
 let _selectedMatterId=null, _selectedEntryId=null;
 
 /* ════════════════════════════════════════════
@@ -913,7 +913,12 @@ function renderMatterDetailLayer(){
   <!-- Info rows -->
   <div class="info-section">
     ${m.code?irow('코드',m.code):''}
-    ${m.client?irow('의뢰인',m.client):''}
+    ${m.client?irow('의뢰인',(()=>{
+      const cl=(D.clients||[]).find(c=>c.name===m.client||m.client?.includes(c.name));
+      return cl
+        ?`<span onclick="_selClientId='${cl.id}';_prevLayer='matter_detail';_prevMatterId=m.id;curLayer='client_detail';_queryMode='clients';renderContent()" style="color:var(--b);font-weight:600;cursor:pointer;border-bottom:1px solid var(--bl)">${m.client} ›</span>`
+        :(m.client||'');
+    })()):''}}
     ${rb.amount?irow('수임액',`<b style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</b>${rb.currency!=='KRW'?' ≈'+fmtK(retK):''}`):''}
     ${m.type==='litigation'?`
       ${m.lit_retainer?irow('착수금',fmtM(m.lit_retainer,m.retainer_cur||'KRW')):''}
@@ -949,6 +954,25 @@ function renderMatterDetailLayer(){
       <span style="font-size:13px;color:var(--text3);margin-left:4px">✏️</span>
     </div>`).join('')}
   </div>`:''}
+  <!-- 같은 의뢰인 다른 사건 -->
+  ${(()=>{
+    if(!m.client)return'';
+    const others=D.matters.filter(x=>x.id!==m.id&&x.client&&(x.client===m.client||x.client.includes(m.client)||m.client.includes(x.client)));
+    if(!others.length)return'';
+    return`<div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin:10px 0 6px">${m.client} 관련 사건 ${others.length}건</div>
+    <div class="entry-list" style="margin-bottom:10px">${others.map(o=>{
+      const mt2=MTYPE[o.type||'time-b'];
+      const rb2=getRetainerBase(o);
+      const mst2=MSTATUS[o.status||'active'];
+      return`<div class="entry-row" onclick="_selectedMatterId='${o.id}';renderContent()" style="cursor:pointer">
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:600">${o.name}</div>
+          <div style="font-size:11px;color:var(--text3)">${mst2.label} · ${o.code}</div>
+        </div>
+        ${rb2.amount?`<span style="font-size:12px;font-weight:700;color:${mt2.color}">${fmtM(rb2.amount,rb2.currency)}</span>`:''}
+        <span style="font-size:16px;color:var(--border);margin-left:4px">›</span>
+      </div>`;}).join('')}</div>`;
+  })()}
   <!-- Action buttons -->
   <div class="action-row">
     <button class="act-btn act-primary" onclick="closeModal();openEntryModal('${m.id}')">＋ 시간기록</button>
@@ -1849,9 +1873,10 @@ function handleBack(){
   if(curLayer==='matter_detail'){
     if(_prevLayer==='matters_list'||_prevLayer==='active_list'){
       curLayer=_prevLayer;_prevLayer=null;
-      // curTab=0 유지, _queryMode=null 유지
+    } else if(_prevLayer==='client_detail'){
+      // 고객사에서 진입 → 고객사 상세로 복귀
+      curLayer='client_detail';_prevLayer=null;_queryMode='clients';
     } else {
-      // 조회에서 진입 → 조회 결과로 (curLayer=null, _queryMode 유지)
       curLayer=null;
     }
   } else if(curLayer==='entry_detail'){
