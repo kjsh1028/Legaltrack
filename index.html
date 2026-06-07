@@ -709,6 +709,7 @@ let _curQueryTab='time', _timePreset='month';
 let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all', _mqSearch='';
 let _timePresetQ='month', _timeFrom='', _timeTo='';
 let _prevLayer=null, _prevTab=0, _prevMatterId=null; // 이전 레이어 추적
+let _clientTab='clients'; // 'clients' | 'contacts'
 let _selectedMatterId=null, _selectedEntryId=null;
 
 /* ════════════════════════════════════════════
@@ -1068,7 +1069,7 @@ function renderQueryPage(){
   if(_queryMode==='money') return renderMoneyResults();
   if(_queryMode==='matters') return renderMattersQuery();
   if(_queryMode==='clients') return renderClientsPage();
-  if(_queryMode==='contacts') return renderContactsPage();
+  if(_queryMode==='contacts'){_clientTab='contacts';_queryMode='clients';return renderClientsPage();}
   const items=[
     {ico:'⏱',l:'시간 조회',m:'time',extra:'month'},
     {ico:'📁',l:'사건 조회',m:'matters',extra:''},
@@ -1309,18 +1310,46 @@ function renderClientsPage(){
   if(curLayer==='contact_detail') return renderContactDetail(null);
   if(curLayer==='client_detail') return renderClientDetail();
   if(curLayer==='client_edit') return renderClientEdit();
-  const clients=(D.clients||[]).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
-  const q=document.getElementById('cli_q')?.value?.toLowerCase()||'';
-  const filtered=q?clients.filter(c=>c.name.toLowerCase().includes(q)||c.industry?.toLowerCase().includes(q)):clients;
-  return`<div class="list-wrap" style="padding-top:8px">
-  <div style="display:flex;gap:8px;margin-bottom:10px">
-    <input id="cli_q" placeholder="고객사 검색..." value="${q}"
-      oninput="document.getElementById('clientList').innerHTML=renderClientListItems(this.value)"
-      style="flex:1;padding:10px 13px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:var(--white)">
-    <button onclick="openClientModal()" style="padding:10px 16px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">＋ 추가</button>
-  </div>
-  <div id="clientList">${renderClientListItems(q)}</div>
-</div>`;}
+
+  const tab=_clientTab||'clients';
+  const isClients=tab==='clients';
+
+  // Tab bar
+  const tabBar=`<div style="display:flex;gap:0;margin-bottom:12px;background:var(--grayl);border-radius:12px;padding:3px">
+    <button onclick="_clientTab='clients';renderContent()" style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:${isClients?'var(--white)':'transparent'};color:${isClients?'var(--g2)':'var(--text3)'};box-shadow:${isClients?'0 1px 4px rgba(0,0,0,.1)':'none'};transition:all .15s">
+      🏢 고객사 ${(D.clients||[]).length>0?'('+D.clients.length+')':''}
+    </button>
+    <button onclick="_clientTab='contacts';renderContent()" style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:${!isClients?'var(--white)':'transparent'};color:${!isClients?'var(--b)':'var(--text3)'};box-shadow:${!isClients?'0 1px 4px rgba(0,0,0,.1)':'none'};transition:all .15s">
+      👤 명함 ${(D.contacts||[]).length>0?'('+(D.contacts||[]).length+')':''}
+    </button>
+  </div>`;
+
+  if(isClients){
+    const q=document.getElementById('cli_q')?.value||'';
+    return`<div class="list-wrap" style="padding-top:8px">
+    ${tabBar}
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <input id="cli_q" placeholder="고객사 검색..." value="${q}"
+        oninput="document.getElementById('clientList').innerHTML=renderClientListItems(this.value)"
+        style="flex:1;padding:10px 13px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:var(--white)">
+      <button onclick="openClientModal()" style="padding:10px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit">＋ 추가</button>
+    </div>
+    <div id="clientList">${renderClientListItems(q)}</div>
+    </div>`;
+  } else {
+    const q=document.getElementById('ct_q')?.value||'';
+    return`<div class="list-wrap" style="padding-top:8px">
+    ${tabBar}
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <input id="ct_q" placeholder="이름·회사·직함 검색..." value="${q}"
+        oninput="document.getElementById('contactList').innerHTML=renderContactListItems(this.value)"
+        style="flex:1;padding:10px 13px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:var(--white)">
+      <button onclick="openContactModal()" style="padding:10px 14px;background:var(--b);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit">＋ 추가</button>
+    </div>
+    <div id="contactList">${renderContactListItems(q)}</div>
+    </div>`;
+  }
+}
 
 function renderClientListItems(q){
   const clients=(D.clients||[]).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
@@ -1415,6 +1444,9 @@ function renderClientDetail(){
 
 /* ── 명함 목록 ── */
 function renderContactsPage(){
+  // Redirect to tabbed client/contact page
+  _clientTab='contacts';_queryMode='clients';
+  return renderClientsPage();
   if(curLayer==='contact_detail') return renderContactDetail(null);
   const all=(D.contacts||[]).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const q=document.getElementById('ct_q')?.value?.toLowerCase()||'';
