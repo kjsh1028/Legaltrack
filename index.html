@@ -43,19 +43,18 @@ html,body{height:100%;background:var(--bg);
 
 /* ── Header ── */
 .app-header{
-  background:var(--white);
-  border-bottom:1px solid var(--border);
+  background:var(--g);
   padding:52px 20px 12px;
   flex-shrink:0;
 }
 @media(min-width:768px){.app-header{padding:14px 24px;display:flex;align-items:center;gap:12px}}
 .hdr-top{display:flex;align-items:center;gap:10px}
-.hdr-logo{font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.4px}
-.hdr-date{font-size:12px;color:var(--text3);margin-left:auto;font-weight:500}
-.hdr-gear{background:var(--grayl);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;margin-left:8px;flex-shrink:0}
-.hdr-sync{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:4px;margin-top:6px}
+.hdr-logo{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.4px}
+.hdr-date{font-size:12px;color:rgba(255,255,255,.75);margin-left:auto;font-weight:500}
+.hdr-gear{background:rgba(255,255,255,.2);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;margin-left:8px;flex-shrink:0}
+.hdr-sync{font-size:11px;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:4px;margin-top:6px}
 @media(min-width:768px){.hdr-sync{margin-top:0;margin-left:auto}}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);flex-shrink:0}
 .dot.ok{background:#36B37E}
 
 /* ── Desktop nav ── */
@@ -183,13 +182,13 @@ html,body{height:100%;background:var(--bg);
   color:var(--text);
 }
 /* color accent on number */
-.kpi-o .kpi-num{color:#D97706}
-.kpi-g .kpi-num{color:#059669}
-.kpi-gold .kpi-num{color:#D97706}
-.kpi-teal .kpi-num{color:#0891B2}
-.kpi-r .kpi-num{color:#DC2626}
-.kpi-b .kpi-num,.kpi-blue .kpi-num{color:#2563EB}
-.kpi-p .kpi-num{color:#7C3AED}
+.kpi-o .kpi-lbl,.kpi-o .kpi-num{color:#D97706}
+.kpi-g .kpi-lbl,.kpi-g .kpi-num{color:#059669}
+.kpi-gold .kpi-lbl,.kpi-gold .kpi-num{color:#D97706}
+.kpi-teal .kpi-lbl,.kpi-teal .kpi-num{color:#0891B2}
+.kpi-r .kpi-lbl,.kpi-r .kpi-num{color:#DC2626}
+.kpi-b .kpi-lbl,.kpi-b .kpi-num,.kpi-blue .kpi-num{color:#2563EB}
+.kpi-p .kpi-lbl,.kpi-p .kpi-num{color:#7C3AED}
 @media(min-width:500px){.kpi-num{font-size:28px}}
 
 /* Legacy compat */
