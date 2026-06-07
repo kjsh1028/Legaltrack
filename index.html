@@ -507,6 +507,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -1210,10 +1211,12 @@ function renderMoneyResults(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
   const tabs=[['retainer','🏆 수임액'],['payment','💰 입금액'],['contingency','🎯 성공보수']];
   const moneyTabBtns=tabs.map(([k,l])=>`<button class="ptab${_moneyType===k?' on':''}" onclick="_moneyType='${k}';renderContent()">${l}</button>`).join('');
+  const moneyQ=(document.getElementById('money_q')?.value||'').toLowerCase();
   let items=[], total=0, totalLabel='';
 
   if(_moneyType==='retainer'){
     items=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+    if(moneyQ)items=items.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ));
     total=items.reduce((a,m)=>a+retainerKRW(m),0);totalLabel='수임액 합계';
   }else if(_moneyType==='payment'){
     items=D.matters.filter(m=>paymentKRW(m)>0);
@@ -1232,6 +1235,10 @@ function renderMoneyResults(){
     <span class="qrt-count">${items.length}건</span>
     <button class="qr-export" onclick="exportMoneyQ()">📥 내보내기</button>
   </div>
+  <!-- Search -->
+  <input id="money_q" placeholder="이름·의뢰인 검색..." value=""
+    oninput="renderContent()"
+    style="width:100%;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff;margin-bottom:8px;-webkit-appearance:none">
   <!-- Results -->
   <div class="qr-list">
     ${items.length===0?`<div class="empty-state">항목 없음</div>`:
@@ -2312,6 +2319,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
