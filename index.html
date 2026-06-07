@@ -1298,6 +1298,7 @@ let _selClientId=null, _selContactId=null;
 
 /* ── 고객사 목록 ── */
 function renderClientsPage(){
+  if(curLayer==='matter_detail') return renderMatterDetailLayer();
   if(curLayer==='contact_detail') return renderContactDetail(null);
   if(curLayer==='client_detail') return renderClientDetail();
   if(curLayer==='client_edit') return renderClientEdit();
