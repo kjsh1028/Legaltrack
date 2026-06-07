@@ -412,19 +412,6 @@
   ],
   "clients": [
     {
-      "id": "mq2grmdjpn7p8",
-      "name": "인지",
-      "fullname": "인지 디스플레이",
-      "industry": "제조",
-      "country": "한국",
-      "status": "active",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
       "id": "mq3d54ixt9qj2",
       "name": "남성정밀",
       "fullname": "남성정밀 주식회사",
@@ -435,6 +422,19 @@
       "website": "",
       "address": "",
       "note": "쿤산 자회사 매각",
+      "meetings": []
+    },
+    {
+      "id": "mq2grmdjpn7p8",
+      "name": "인지",
+      "fullname": "인지 디스플레이",
+      "industry": "제조",
+      "country": "한국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
       "meetings": []
     }
   ],
@@ -474,5 +474,19 @@
       "note": "쿤산 자회사 매각"
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "id": "mq3d8zxid9nvm",
+      "title": "박태연에게 전화 수임 상황 확인하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-06-09",
+      "matterId": "mq3d3wrswz09o",
+      "note": "",
+      "link": "",
+      "linkLabel": "회사 자료",
+      "done": false,
+      "doneAt": null
+    }
+  ]
 }
