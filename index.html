@@ -1987,9 +1987,16 @@ async function scanBusinessCard(){
       if(result.error) throw new Error('API: '+result.error.message);
 
       const text = result.content?.[0]?.text||'{}';
-      const clean = text.replace(/```[^`]*```/g,'').replace(/`/g,'').trim();
-
-      const info = JSON.parse(clean);
+      let info={};
+      try{
+        const m=text.match(/[{][\s\S]*[}]/);
+        info=JSON.parse(m?m[0]:text.trim());
+      }catch(pe){
+        const ex=k=>{const r=text.match(new RegExp('"'+k+'"\\s*:\\s*"([^"]*)"'));return r?r[1]:'';};
+        info={name:ex('name'),title:ex('title'),dept:ex('dept'),company:ex('company'),
+              mobile:ex('mobile'),tel:ex('tel'),email:ex('email'),
+              wechat:ex('wechat'),kakao:ex('kakao'),address:ex('address')};
+      }
 
       const setVal=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
       setVal('ct_name',info.name);
