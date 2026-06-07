@@ -492,6 +492,7 @@ html,body{height:100%;background:var(--bg);
 </div>
 <div id="modalArea"></div>
 <
+
 script>
 
 
@@ -2389,28 +2390,35 @@ function processBackupFile(file){const st=document.getElementById('restoreStatus
 
 /* ── Settings ── */
 function openSettings(){
-  document.getElementById('modalArea').innerHTML='<div class="mbg" onclick="if(event.target===this)closeModal()"><div class="msh" style="max-width:440px"><div class="mhdl"></div><div class="mttl">&#9881;&#65039; 설정</div>'
-    +'<div class="cttl" style="margin-bottom:7px">환율 (자동 조회)</div>'
-    +'<div class="ibox" id="rateStatus">환율 조회 중...</div>'
-    +'<div class="field-row"><div class="field"><label>USD &#8594; KRW</label><input id="cfgUsd" value="'+CFG.usdKrw+'" type="number" placeholder="1380"></div>'
-    +'<div class="field"><label>CNY &#8594; KRW</label><input id="cfgCny" value="'+CFG.cnyKrw+'" type="number" placeholder="190"></div></div>'
-    +'<div class="hint" style="margin-bottom:12px">수임액: 오늘 환율 | 입금: 입금일 환율 별도 적용</div>'
-    +'<div class="cttl" style="margin-bottom:7px">인센티브 구간 설정</div>'
-    +'<div class="ibox" style="margin-bottom:8px">입금액 기준 업적으로 인센티브를 계산합니다. 구간별 요율(%)을 입력하세요.</div>'
-    +'<div id="tierInputs">'+renderTierInputs()+'</div>'
-    +'<div style="display:flex;gap:7px;margin-bottom:12px"><button onclick="addTier()" style="flex:1;padding:7px;border:1.5px dashed var(--border);border-radius:9px;background:none;cursor:pointer;font-size:12px;color:var(--text3)">+ 구간 추가</button></div>'
-    +'<div class="cttl" style="margin-bottom:7px">🐙 GitHub 동기화 (중국에서 사용 가능)</div>'
-    +'<div class="ibox" style="background:var(--green-l);color:var(--green)">✅ 중국에서도 작동합니다! GitHub Token을 입력하면 모든 기기에서 동기화됩니다.</div>'
-    +'<div class="field"><label>GitHub Token</label><input id="ghToken" value="'+(CFG.ghToken||'')+'" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>'
-    +'<div class="hint" style="margin-bottom:12px">github.com → Settings → Developer settings → Personal access tokens → Tokens (classic)</div>'
-    +'<div class="cttl" style="margin-bottom:7px">Supabase 동기화 (한국/해외)</div>'
-    +'<div class="ibox">연결하면 모든 기기에서 자동 동기화</div>'
-    +'<div class="field"><label>Project URL</label><input id="sbUrl" value="'+(CFG.supaUrl||'')+'" placeholder="https://xxxx.supabase.co"></div>'
-    +'<div class="field"><label>Anon Key</label><input id="sbKey" value="'+(CFG.supaKey||'')+'" placeholder="eyJhbGci..."></div>'
-    +'<button class="savebtn" onclick="saveSettings()">저장</button>'
-    +(CFG.supaUrl?'<button class="cancelbtn" style="color:var(--red)" onclick="if(confirm(&quot;연결 해제?&quot;)){CFG.supaUrl=&quot;&quot;;CFG.supaKey=&quot;&quot;;saveCFG();closeModal();renderAll();}">Supabase 연결 해제</button>':'')
-    +'<button class="cancelbtn" onclick="closeModal()">취소</button>'
-    +'</div></div>';
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh" style="max-width:440px"><div class="mhdl"></div>
+<div class="mttl">⚙️ 설정</div>
+<div class="cttl" style="margin-bottom:7px">환율 (자동 조회)</div>
+<div class="ibox" id="rateStatus">환율 조회 중...</div>
+<div class="field-row">
+  <div class="field"><label>USD → KRW</label><input id="cfgUsd" value="${CFG.usdKrw}" type="number" placeholder="1380"></div>
+  <div class="field"><label>CNY → KRW</label><input id="cfgCny" value="${CFG.cnyKrw}" type="number" placeholder="190"></div>
+</div>
+<div class="hint" style="margin-bottom:12px">수임액: 오늘 환율 | 입금: 입금일 환율 별도 적용</div>
+<div class="cttl" style="margin-bottom:7px">인센티브 구간 설정</div>
+<div class="ibox" style="margin-bottom:8px">입금액 기준 업적으로 인센티브를 계산합니다. 구간별 요율(%)을 입력하세요.</div>
+<div id="tierInputs">${renderTierInputs()}</div>
+<div style="display:flex;gap:7px;margin-bottom:12px">
+  <button onclick="addTier()" style="flex:1;padding:7px;border:1.5px dashed var(--border);border-radius:9px;background:none;cursor:pointer;font-size:12px;color:var(--text3)">+ 구간 추가</button>
+</div>
+<div class="cttl" style="margin-bottom:7px">🐙 GitHub 동기화 (중국에서 사용 가능)</div>
+<div class="gbox">✅ 중국에서도 작동합니다! GitHub Token을 입력하면 모든 기기에서 동기화됩니다.</div>
+<div class="field"><label>GitHub Token</label><input id="ghToken" value="${CFG.ghToken||''}" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>
+<div class="hint" style="margin-bottom:12px">github.com → Settings → Developer settings → Personal access tokens → Tokens (classic)</div>
+<div class="cttl" style="margin-bottom:7px">☁️ Supabase 동기화 (한국/해외)</div>
+<div class="ibox">연결하면 모든 기기에서 자동 동기화</div>
+<div class="field"><label>Project URL</label><input id="sbUrl" value="${CFG.supaUrl||''}" placeholder="https://xxxx.supabase.co"></div>
+<div class="field"><label>Anon Key</label><input id="sbKey" value="${CFG.supaKey||''}" placeholder="eyJhbGci..."></div>
+<button class="savebtn" onclick="saveSettings()">저장</button>
+${CFG.supaUrl?'<button class="cancelbtn" style="color:var(--r)" onclick="if(confirm(\'연결 해제?\')){CFG.supaUrl=\'\';CFG.supaKey=\'\';saveCFG();closeModal();renderAll();}">Supabase 연결 해제</button>':''}
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+</div></div>`;
   fetchLiveRates().then(function(ok){
     var el=document.getElementById('rateStatus');if(!el)return;
     if(ok){el.textContent='✓ USD '+CFG.usdKrw+'원 · CNY '+CFG.cnyKrw+'원';el.style.background='var(--green-l)';el.style.color='var(--green)';}
@@ -2483,31 +2491,9 @@ document.addEventListener('change', function(e) {
   else if(el.dataset.mqtype){_mqType=el.value;renderContent();}
 }, false);
 
-/* ── Global event delegation ── v7 ── */
-document.addEventListener('click', function(e) {
-  let el = e.target;
-  for(let i=0; i<8 && el && el!==document.body; i++, el=el.parentElement){
-    const d = el.dataset;
-    if(!d) continue;
-    if(d.qmode!==undefined){
-      _queryMode=d.qmode;
-      if(d.qmode==='time'){_timePresetQ=d.qextra||'month';}
-      else if(d.qmode==='money'){_moneyType=d.qextra||'retainer';}
-      renderContent(); return;
-    }
-    if(d.preset!==undefined){setTimePreset(d.preset); return;}
-    if(d.moneytype!==undefined){_moneyType=d.moneytype;renderContent(); return;}
-    if(d.applytime!==undefined){applyCustomTime(); return;}
-  }
-}, false);
-document.addEventListener('change', function(e) {
-  const d = e.target.dataset;
-  if(d.tqmatter){_tqMatter=e.target.value;_queryMode='time';renderContent();}
-  else if(d.mqstatus){_mqStatus=e.target.value;renderContent();}
-  else if(d.mqtype){_mqType=e.target.value;renderContent();}
-}, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
