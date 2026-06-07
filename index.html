@@ -1971,7 +1971,9 @@ async function scanBusinessCard(){
         })
       });
 
+      // Debug: show status and raw response
       const rawText = await resp.text();
+      alert('DEBUG\nStatus: '+resp.status+'\nLength: '+rawText.length+'\nBody: '+rawText.slice(0,200));
 
       if(!resp.ok){
         throw new Error('API 오류 '+resp.status+': '+rawText.slice(0,300));
@@ -1981,7 +1983,7 @@ async function scanBusinessCard(){
       if(result.error) throw new Error('API: '+result.error.message);
 
       const text = (result.content&&result.content[0]&&result.content[0].text)||'';
-      if(!text) throw new Error('AI 응답이 비어있습니다.');
+      if(!text) throw new Error('AI 응답이 비어있습니다. result='+JSON.stringify(result).slice(0,200));
 
       // Extract JSON from response
       let info = {};
@@ -1990,7 +1992,7 @@ async function scanBusinessCard(){
       if(jsonStart>=0 && jsonEnd>jsonStart){
         info = JSON.parse(text.slice(jsonStart, jsonEnd+1));
       } else {
-        throw new Error('JSON 형식을 찾을 수 없음: '+text.slice(0,100));
+        throw new Error('JSON 없음. text='+text.slice(0,200));
       }
 
       const sv=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
