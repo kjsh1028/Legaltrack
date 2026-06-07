@@ -91,18 +91,19 @@ html,body{height:100%;background:var(--bg);
 
 /* ── Bottom nav ── */
 .tabbar{
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-top:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  border-top:2.5px solid var(--g);
   display:flex;padding-bottom:max(env(safe-area-inset-bottom),6px);
   flex-shrink:0;position:relative;z-index:50;
+  box-shadow:0 -1px 0 rgba(0,0,0,.04);
 }
 @media(min-width:768px){.tabbar{display:none}}
 .tb{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 0 0;cursor:pointer;border:none;background:none;gap:3px;font-family:inherit;position:relative;z-index:51}
-.tb-i{font-size:22px;line-height:1}
-.tb-l{font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.01em}
+.tb-i{font-size:22px;line-height:1;transition:transform .15s}
+.tb-l{font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.01em;transition:color .15s}
 .tb.on .tb-l{color:var(--g);font-weight:700}
-.tb.on .tb-i{filter:none}
+.tb.on .tb-i{transform:scale(1.15)}
+.tb.on::before{content:'';position:absolute;top:-2.5px;left:20%;right:20%;height:2.5px;background:var(--g);border-radius:0 0 3px 3px}
 .fab-wrap{flex:0 0 72px;display:flex;flex-direction:column;align-items:center;padding:0;cursor:pointer;background:none;font-family:inherit;position:relative;z-index:10}
 .fab{
   width:50px;height:50px;border-radius:50%;
@@ -815,7 +816,6 @@ function renderDash(){
 
   const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
   const now=new Date();
-  const greeting=now.getHours()<12?'좋은 아침입니다':'좋은 하루입니다';
 
   const cards=[
     {l:'수임 진행중', v:prospectM.length+'건', c:'kpi-o', fn:"curLayer='matters_list';renderContent()"},
@@ -831,7 +831,7 @@ function renderDash(){
   return`<div class="dash-wrap">
 <div class="dash-header">
   <div class="dash-header-title">안녕하세요 👋</div>
-  <div class="dash-header-sub">${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 · ${greeting}</div>
+  <div class="dash-header-sub">오늘도 건강하고 즐거운 하루 🌿</div>
 </div>
 <div class="dash-kpi">
 ${cards.map(k=>`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
