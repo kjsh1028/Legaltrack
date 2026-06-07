@@ -949,6 +949,14 @@ function renderMatterDetailLayer(){
     ${pays.length>0?irow('입금',Object.entries(payByCur).map(([c,a])=>fmtM(a,c)).join(' + ')+(Object.keys(payByCur).some(c=>c!=='KRW')?' ≈'+fmtK(payK):'')):''}
     ${prog?`<div class="info-row"><span class="info-lbl">입금 진행</span><div style="flex:1"><div style="background:var(--border);border-radius:2px;height:4px;overflow:hidden"><div style="width:${prog.pct}%;height:100%;background:var(--t);border-radius:2px"></div></div><span style="font-size:11px;color:var(--text3);margin-top:2px;display:block">${prog.pct}%</span></div></div>`:''}
   </div>
+  ${m.driveLink?`<a href="${m.driveLink}" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--bl);border:1px solid #BFDBFE;border-radius:12px;padding:13px 16px;margin-bottom:10px;text-decoration:none">
+    <span style="font-size:22px">📁</span>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:14px;font-weight:700;color:var(--b)">${m.driveLinkLabel||'구글 드라이브 열기'}</div>
+      <div style="font-size:11px;color:var(--b);opacity:.7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.driveLink}</div>
+    </div>
+    <span style="font-size:16px;color:var(--b)">›</span>
+  </a>`:''}
   <!-- Recent entries -->
   ${entries.length>0?`<div class="section-title">최근 시간 기록</div>
   <div class="entry-list">
