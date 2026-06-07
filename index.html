@@ -512,7 +512,7 @@ html,body{height:100%;background:var(--bg);
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
-let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
+let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[]};
 let curTab=0,timerObj=null,timerIv=null;
 let dashExpand={prospect:false,active:false,closed:false};
 // Achievement period filter
@@ -652,6 +652,7 @@ async function ghLoad(){
     D.payments=mergeById(D.payments||[], decoded.payments||[]);
     D.clients=mergeById(D.clients||[], decoded.clients||[]);
     D.contacts=mergeById(D.contacts||[], decoded.contacts||[]);
+    D.todos=mergeById(D.todos||[], decoded.todos||[]);
     D._ghSha=r.sha;
     localSave();
     
@@ -679,7 +680,7 @@ async function ghSave(){
   showSync('sy','GitHub 저장 중...');
   try{
     // Always use current D state at time of save
-    const saveData={matters:[...D.matters],entries:[...D.entries],payments:[...D.payments],clients:[...(D.clients||[])],contacts:[...(D.contacts||[])]};
+    const saveData={matters:[...D.matters],entries:[...D.entries],payments:[...D.payments],clients:[...(D.clients||[])],contacts:[...(D.contacts||[])],todos:[...(D.todos||[])]};
     const jsonStr=JSON.stringify(saveData,null,2);
     const bytes=new TextEncoder().encode(jsonStr);
     const binStr=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
@@ -760,7 +761,7 @@ function renderContent(){
   const showSub=!!(curLayer)||(_queryMode&&_queryMode!==null);
   if(msh)msh.style.display=showSub?'flex':'none';
   // Page title
-  const titles={0:'대시보드',1:'Matters',2:'조회'};
+  const titles={0:'대시보드',1:'Matters',2:'조회',3:'업적',4:'실패분석',5:'리포트',6:'할일'};
   const pt=document.getElementById('pageTitle');
   const titleStr=curLayer==='matters_list'?'진행중 Matters':
     curLayer==='active_list'?'수임 완료':
@@ -781,6 +782,7 @@ function renderContent(){
   else if(curTab===3)c.innerHTML=renderAchievement();
   else if(curTab===4)c.innerHTML=renderFailed();
   else if(curTab===5)c.innerHTML=renderReport();
+  else if(curTab===6)c.innerHTML=renderTodos();
   else c.innerHTML=renderDash();
   // Add swipe-back on content
   setupSwipeBack(c);
@@ -824,7 +826,7 @@ function renderDash(){
     {l:'입금액', v:fmt(payKRW), c:'kpi-teal', fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
     {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'없음', c:'kpi-r', fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
     {l:'고객 관리', v:clientCount+'개', c:'kpi-b', fn:"goTab(2);_queryMode='clients';renderContent()"},
-    {l:'이번 주', v:hhmm(s.week), c:'kpi-p', fn:"goTab(2);_queryMode='time';_timePresetQ='week';renderContent()"},
+    {l:'할 일', v:(()=>{const n=(D.todos||[]).filter(t=>!t.done).length;return n+'건';})(), c:'kpi-p', fn:'goTab(6);renderContent()'},
     {l:'이번 달', v:hhmm(s.month), c:'kpi-b', fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
   ];
 
@@ -1646,6 +1648,197 @@ function reactivate(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>
 
 
 /* ── Dashboard ── */
+
+/* ═══════════════════════════════════════════
+   TODO MANAGEMENT
+═══════════════════════════════════════════ */
+
+function renderTodos(){
+  if(!D.todos)D.todos=[];
+  const filter=typeof _todoFilter!=='undefined'?_todoFilter:'all'; // all|yulchon|personal
+  const showDone=typeof _todoDone!=='undefined'?_todoDone:false;
+
+  let items=D.todos.filter(t=>showDone?t.done:!t.done);
+  if(filter==='yulchon') items=items.filter(t=>t.cat==='yulchon');
+  if(filter==='personal') items=items.filter(t=>t.cat==='personal');
+
+  // Sort: urgent first, then by due date
+  items.sort((a,b)=>{
+    const pa={high:0,normal:1,low:2}[a.priority||'normal'];
+    const pb={high:0,normal:1,low:2}[b.priority||'normal'];
+    if(pa!==pb)return pa-pb;
+    if(a.due&&b.due)return a.due.localeCompare(b.due);
+    if(a.due)return -1; if(b.due)return 1;
+    return 0;
+  });
+
+  const urgentCount=D.todos.filter(t=>!t.done&&t.due&&diffDays(t.due)<=2).length;
+
+  return`<div style="padding:10px 14px 90px">
+  <!-- 헤더 + 추가 버튼 -->
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+    <div style="flex:1">
+      <div style="font-size:16px;font-weight:800;color:var(--text)">할 일</div>
+      <div style="font-size:12px;color:var(--text3)">${D.todos.filter(t=>!t.done).length}건 진행중${urgentCount>0?` · <span style="color:var(--r);font-weight:700">⚠️ ${urgentCount}건 긴급</span>`:''}
+      </div>
+    </div>
+    <button onclick="openTodoModal()" style="padding:9px 16px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">＋ 추가</button>
+  </div>
+
+  <!-- 필터 탭 -->
+  <div style="display:flex;gap:6px;margin-bottom:10px">
+    ${[['all','전체'],['yulchon','🏛️ 율촌'],['personal','👤 개인']].map(([k,l])=>
+      `<button onclick="_todoFilter='${k}';renderContent()" 
+        style="padding:7px 14px;border-radius:20px;border:1.5px solid ${filter===k?'var(--g)':'var(--border)'};background:${filter===k?'var(--gl)':'#fff'};color:${filter===k?'var(--g2)':'var(--text3)'};font-size:13px;font-weight:${filter===k?'700':'500'};cursor:pointer;font-family:inherit">${l}</button>`
+    ).join('')}
+    <button onclick="_todoDone=!_todoDone;renderContent()" 
+      style="margin-left:auto;padding:7px 12px;border-radius:20px;border:1.5px solid var(--border);background:${showDone?'var(--grayl)':'#fff'};color:var(--text3);font-size:12px;font-weight:500;cursor:pointer;font-family:inherit">
+      ${showDone?'진행중 보기':'완료 보기'}
+    </button>
+  </div>
+
+  <!-- 할일 목록 -->
+  ${items.length===0
+    ?`<div class="empty-state">✅<br>${showDone?'완료된 할일 없음':'할일이 없습니다'}</div>`
+    :items.map(t=>renderTodoItem(t)).join('')
+  }
+</div>`;}
+
+function diffDays(due){
+  if(!due)return 999;
+  const now=new Date();now.setHours(0,0,0,0);
+  const d=new Date(due);d.setHours(0,0,0,0);
+  return Math.round((d-now)/(1000*60*60*24));
+}
+
+function dueBadge(due){
+  if(!due)return '';
+  const d=diffDays(due);
+  let txt='',color='';
+  if(d<0){txt=`D+${Math.abs(d)} 초과`;color='var(--r)';}
+  else if(d===0){txt='D-Day';color='var(--r)';}
+  else if(d<=2){txt=`D-${d}`;color='var(--o)';}
+  else{txt=`D-${d}`;color='var(--text3)';}
+  return`<span style="font-size:11px;font-weight:700;color:${color}">${txt}</span>`;
+}
+
+function renderTodoItem(t){
+  const m=t.matterId?D.matters.find(x=>x.id===t.matterId):null;
+  const pColor={high:'var(--r)',normal:'var(--b)',low:'var(--text3)'}[t.priority||'normal'];
+  const pLabel={high:'높음',normal:'보통',low:'낮음'}[t.priority||'normal'];
+  const isOverdue=t.due&&diffDays(t.due)<0&&!t.done;
+
+  return`<div style="background:#fff;border-radius:14px;padding:14px;margin-bottom:8px;box-shadow:var(--shadow);border:1px solid ${isOverdue?'var(--r)':'var(--border)'};${isOverdue?'border-left:3px solid var(--r)':''}">
+  <div style="display:flex;align-items:flex-start;gap:10px">
+    <!-- 체크박스 -->
+    <button onclick="toggleTodoDone('${t.id}')" style="width:24px;height:24px;border-radius:50%;border:2px solid ${t.done?'var(--g)':'var(--border)'};background:${t.done?'var(--g)':'transparent'};flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-top:1px">
+      ${t.done?'<span style="color:#fff;font-size:12px">✓</span>':''}
+    </button>
+    <!-- 내용 -->
+    <div style="flex:1;min-width:0">
+      <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px;${t.done?'text-decoration:line-through;opacity:.5':''}">${t.title}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:${t.note||t.link?'6px':'0'}">
+        <span style="font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;background:${t.cat==='yulchon'?'var(--gl)':'var(--bl)'};color:${t.cat==='yulchon'?'var(--g2)':'var(--b)'}">
+          ${t.cat==='yulchon'?'🏛️ 율촌':'👤 개인'}
+        </span>
+        ${m?`<span style="font-size:11px;color:var(--text3);background:var(--grayl);padding:2px 8px;border-radius:10px">${m.code}</span>`:''}
+        <span style="font-size:11px;font-weight:600;color:${pColor}">●  ${pLabel}</span>
+        ${t.due?dueBadge(t.due):''}
+      </div>
+      ${t.note?`<div style="font-size:12px;color:var(--text3);line-height:1.5;margin-bottom:4px">${t.note}</div>`:''}
+      ${t.link?`<a href="${t.link}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--b);font-weight:600;text-decoration:none;background:var(--bl);padding:4px 10px;border-radius:8px">
+        📎 ${t.linkLabel||'파일/링크 열기'}
+      </a>`:''}
+    </div>
+    <!-- 액션 버튼 -->
+    <button onclick="openTodoModal('${t.id}')" style="background:none;border:none;cursor:pointer;font-size:16px;padding:2px;color:var(--text3)">✏️</button>
+  </div>
+</div>`;}
+
+function toggleTodoDone(id){
+  const t=(D.todos||[]).find(x=>x.id===id);
+  if(!t)return;
+  t.done=!t.done;
+  t.doneAt=t.done?today():null;
+  cloudSave('todo',t);
+  renderContent();
+}
+
+let _todoFilter='all', _todoDone=false;
+
+function openTodoModal(editId){
+  const em=editId?(D.todos||[]).find(x=>x.id===editId):null;
+  const matterOpts=D.matters.filter(m=>m.status!=='failed')
+    .map(m=>`<option value="${m.id}"${em?.matterId===m.id?' selected':''}>[${m.code}] ${m.name}</option>`).join('');
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh" style="max-width:500px"><div class="mhdl"></div>
+<div class="mttl">${em?'할일 수정':'할일 추가'}</div>
+<div class="field"><label>제목 *</label><input id="td_title" value="${em?.title||''}" placeholder="할일 제목을 입력하세요"></div>
+<div class="field-row">
+  <div class="field"><label>카테고리</label>
+    <select id="td_cat" onchange="document.getElementById('td_mrow').style.display=this.value==='yulchon'?'block':'none'">
+      <option value="yulchon" ${(!em||em.cat==='yulchon')?'selected':''}>🏛️ 율촌 업무</option>
+      <option value="personal" ${em?.cat==='personal'?'selected':''}>👤 개인</option>
+    </select>
+  </div>
+  <div class="field"><label>우선순위</label>
+    <select id="td_pri">
+      <option value="high" ${em?.priority==='high'?'selected':''}>⚠️ 높음</option>
+      <option value="normal" ${(!em||em.priority==='normal')?'selected':''}>• 보통</option>
+      <option value="low" ${em?.priority==='low'?'selected':''}>↓ 낮음</option>
+    </select>
+  </div>
+</div>
+<div class="field"><label>마감일</label><input id="td_due" type="date" value="${em?.due||''}"></div>
+<div id="td_mrow" style="display:${(!em||em.cat==='yulchon')?'block':'none'}">
+  <div class="field"><label>연결 Matter (선택)</label>
+    <select id="td_matter">
+      <option value="">— Matter 연결 안함 —</option>
+      ${matterOpts}
+    </select>
+  </div>
+</div>
+<div class="field"><label>메모</label><textarea id="td_note" rows="2" placeholder="상세 내용, 액션아이템 등">${em?.note||''}</textarea></div>
+<div class="field"><label>📎 구글 드라이브 / 파일 링크</label>
+  <input id="td_link" value="${em?.link||''}" placeholder="https://drive.google.com/..." type="url">
+</div>
+<div class="field"><label>링크 표시 이름</label>
+  <input id="td_linklabel" value="${em?.linkLabel||''}" placeholder="예: 계약서 초안, 회의록 등">
+</div>
+${em?`<div class="field">
+  <label>완료 여부</label>
+  <div class="crow"><input type="checkbox" id="td_done" ${em.done?'checked':''}><label for="td_done">완료됨 ${em.doneAt?'('+fmtDF(em.doneAt)+')':''}</label></div>
+</div>`:''}
+<button class="savebtn" onclick="saveTodo('${editId||''}')">저장</button>
+${em?`<button class="savebtn red" style="margin-top:6px" onclick="if(confirm('삭제?')){D.todos=D.todos.filter(x=>x.id!=='${editId}');cloudSave('todo',{id:'${editId}'},'del');closeModal();renderContent();}">🗑️ 삭제</button>`:''}
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+</div></div>`;}
+
+function saveTodo(eid){
+  const title=(document.getElementById('td_title')?.value||'').trim();
+  if(!title)return alert('제목을 입력하세요');
+  const cat=document.getElementById('td_cat')?.value||'yulchon';
+  const t={
+    id:eid||gid(),
+    title,
+    cat,
+    priority:document.getElementById('td_pri')?.value||'normal',
+    due:document.getElementById('td_due')?.value||'',
+    matterId:cat==='yulchon'?(document.getElementById('td_matter')?.value||''):'',
+    note:(document.getElementById('td_note')?.value||'').trim(),
+    link:(document.getElementById('td_link')?.value||'').trim(),
+    linkLabel:(document.getElementById('td_linklabel')?.value||'').trim(),
+    done:document.getElementById('td_done')?.checked||false,
+    doneAt:document.getElementById('td_done')?.checked?(eid?(D.todos||[]).find(x=>x.id===eid)?.doneAt||today():today()):null,
+  };
+  if(!D.todos)D.todos=[];
+  if(eid)D.todos=D.todos.map(x=>x.id===eid?t:x);
+  else D.todos.push(t);
+  cloudSave('todo',t);
+  closeModal();
+  renderContent();
+}
 
 function closeModal(){
   const ma=document.getElementById('modalArea');
