@@ -519,7 +519,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
+let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[]};
 let curTab=0,timerObj=null,timerIv=null;
 let dashExpand={prospect:false,active:false,closed:false};
@@ -1482,8 +1482,8 @@ function renderContactListItems(q){
         <div class="li-name">${ct.name}</div>
         <div class="li-meta">${ct.company||client?.name||'회사 미기재'}${ct.title?' · '+ct.title:''}</div>
       </div>
-      <div class="li-right">
-        ${ct.tags?.length?`<span class="dtag o" style="font-size:9px">${ct.tags[0]}</span>`:''}
+      <div class="li-right" style="display:flex;align-items:center;gap:8px">
+        ${(ct.mobile||ct.tel)?`<button onclick="event.stopPropagation();callContact(${JSON.stringify({id:ct.id,name:ct.name,title:ct.title,company:ct.company,mobile:ct.mobile||'',tel:ct.tel||''}).replace(/"/g,'&quot;')})" style="background:var(--gl);border:none;border-radius:20px;padding:5px 10px;font-size:12px;color:var(--g2);font-weight:700;cursor:pointer;font-family:inherit">📞</button>`:''}
         <div class="li-arr">›</div>
       </div>
     </div>`;}).join('');}
@@ -1512,8 +1512,8 @@ function renderContactDetail(ctId){
     ${ct.title?irow('직함',ct.title):''}
     ${ct.dept?irow('부서',ct.dept):''}
     ${ct.email?irow('이메일',`<a href="mailto:${ct.email}" style="color:var(--b)">${ct.email}</a>`):''}
-    ${ct.mobile?irow('휴대폰',ct.mobile):''}
-    ${ct.tel?irow('직통',ct.tel):''}
+    ${ct.mobile?irow('휴대폰',`<span style="display:flex;align-items:center;justify-content:space-between">${ct.mobile}<a href="tel:${ct.mobile.replace(/\s/g,'')}" onclick="event.stopPropagation()" style="background:var(--gl);color:var(--g2);padding:4px 12px;border-radius:16px;font-size:12px;font-weight:700;text-decoration:none;flex-shrink:0;margin-left:8px">📞 전화</a></span>`):''}
+    ${ct.tel?irow('직통',`<span style="display:flex;align-items:center;justify-content:space-between">${ct.tel}<a href="tel:${ct.tel.replace(/\s/g,'')}" onclick="event.stopPropagation()" style="background:var(--gl);color:var(--g2);padding:4px 12px;border-radius:16px;font-size:12px;font-weight:700;text-decoration:none;flex-shrink:0;margin-left:8px">📞 전화</a></span>`):''}
     ${ct.wechat?irow('WeChat',ct.wechat):''}
     ${ct.kakao?irow('카카오톡',ct.kakao):''}
     ${ct.address?irow('주소',ct.address):''}
@@ -1580,7 +1580,10 @@ function openContactModal(clientId,editId){
   const clientOpts=(D.clients||[]).map(c=>`<option value="${c.id}" ${(em?.clientId||clientId)===c.id?'selected':''}>${c.name}</option>`).join('');
   document.getElementById('modalArea').innerHTML=`<div class="mbg" onclick="if(event.target===this)closeModal()">
 <div class="msh" style="max-width:500px"><div class="mhdl"></div>
-<div class="mttl">${em?'담당자 수정':'명함 / 담당자 추가'}</div>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div class="mttl" style="margin-bottom:0">${em?'담당자 수정':'명함 / 담당자 추가'}</div>
+  ${!em?`<button id="scanCardBtn" onclick="scanBusinessCard()" style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;flex-shrink:0">📷 명함 스캔</button>`:''}
+</div>
 <div class="field"><label>이름 *</label><input id="ct_name" value="${em?.name||''}" placeholder="홍길동"></div>
 <div class="field-row">
   <div class="field"><label>직함</label><input id="ct_title" value="${em?.title||''}" placeholder="부장·이사·CEO"></div>
@@ -1922,6 +1925,125 @@ function saveTodo(eid){
 }
 
 function setClientTab(tab){_clientTab=tab;renderContent();}
+
+/* ═══ 명함 스캔 (AI) ═══ */
+async function scanBusinessCard(){
+  if(!CFG.anthropicKey){
+    alert('설정(⚙️)에서 Anthropic API Key를 먼저 입력해주세요.');
+    return;
+  }
+  // Create file input for camera
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.capture = 'environment';
+  input.onchange = async (e) => {
+    const file = e.target.files[0];
+    if(!file) return;
+    
+    // Show loading
+    const scanBtn = document.getElementById('scanCardBtn');
+    if(scanBtn){ scanBtn.textContent='⏳ 인식 중...'; scanBtn.disabled=true; }
+    
+    try {
+      // Convert to base64
+      const base64 = await new Promise((res,rej)=>{
+        const r = new FileReader();
+        r.onload = ()=>res(r.result.split(',')[1]);
+        r.onerror = rej;
+        r.readAsDataURL(file);
+      });
+      
+      // Call Claude API
+      const resp = await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'x-api-key':CFG.anthropicKey,
+          'anthropic-version':'2023-06-01'
+        },
+        body:JSON.stringify({
+          model:'claude-opus-4-5',
+          max_tokens:1000,
+          messages:[{
+            role:'user',
+            content:[
+              {type:'image',source:{type:'base64',media_type:file.type||'image/jpeg',data:base64}},
+              {type:'text',text:`이 명함에서 다음 정보를 추출해서 JSON으로만 답하세요 (설명 없이 JSON만):
+{"name":"이름","title":"직함","dept":"부서","company":"회사명","mobile":"휴대폰(중국번호면 +86 포함)","tel":"직통전화","email":"이메일","wechat":"위챗ID","kakao":"카카오톡ID","address":"주소"}
+없는 항목은 빈 문자열로. 전화번호는 국가코드 포함해서.`}
+            ]
+          }]
+        })
+      });
+      
+      const data = await resp.json();
+      const text = data.content?.[0]?.text||'{}';
+      const clean = text.replace(/```json|```/g,'').trim();
+      const info = JSON.parse(clean);
+      
+      // Fill form fields
+      if(info.name) document.getElementById('ct_name').value=info.name;
+      if(info.title) document.getElementById('ct_title').value=info.title;
+      if(info.dept) document.getElementById('ct_dept').value=info.dept;
+      if(info.company) document.getElementById('ct_company').value=info.company;
+      if(info.mobile) document.getElementById('ct_mobile').value=info.mobile;
+      if(info.tel) document.getElementById('ct_tel').value=info.tel;
+      if(info.email) document.getElementById('ct_email').value=info.email;
+      if(info.wechat) document.getElementById('ct_wechat').value=info.wechat;
+      if(info.kakao) document.getElementById('ct_kakao').value=info.kakao;
+      if(info.address) document.getElementById('ct_addr').value=info.address;
+      
+      if(scanBtn){ scanBtn.textContent='✅ 인식 완료!'; scanBtn.disabled=false; }
+      setTimeout(()=>{ if(scanBtn) scanBtn.textContent='📷 명함 스캔'; },2000);
+      
+    } catch(err){
+      console.error(err);
+      alert('인식 실패: '+err.message);
+      if(scanBtn){ scanBtn.textContent='📷 명함 스캔'; scanBtn.disabled=false; }
+    }
+  };
+  input.click();
+}
+
+/* ═══ 전화 걸기 ═══ */
+function callContact(ct){
+  const nums = [];
+  if(ct.mobile) nums.push({label:`📱 휴대폰`, num:ct.mobile});
+  if(ct.tel) nums.push({label:`📞 직통`, num:ct.tel});
+  
+  if(nums.length === 0){
+    alert('등록된 전화번호가 없습니다.');
+    return;
+  }
+  if(nums.length === 1){
+    window.location.href = 'tel:'+nums[0].num.replace(/\s/g,'');
+    return;
+  }
+  // Show selection modal
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh" style="max-width:360px;padding-bottom:24px">
+<div class="mhdl"></div>
+<div style="text-align:center;padding:8px 0 16px">
+  <div style="font-size:32px;margin-bottom:8px">📞</div>
+  <div style="font-size:17px;font-weight:800">${ct.name}</div>
+  <div style="font-size:13px;color:var(--text3)">${ct.title||''} ${ct.company||''}</div>
+</div>
+${nums.map(n=>`
+<a href="tel:${n.num.replace(/\s/g,'')}" onclick="closeModal()"
+  style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--gl);border-radius:12px;text-decoration:none;margin-bottom:8px;cursor:pointer">
+  <span style="font-size:22px">${n.label.split(' ')[0]}</span>
+  <div style="flex:1">
+    <div style="font-size:13px;font-weight:600;color:var(--g2)">${n.label.split(' ')[1]}</div>
+    <div style="font-size:16px;font-weight:700;color:var(--text)">${n.num}</div>
+  </div>
+  <span style="color:var(--g);font-size:18px">›</span>
+</a>`).join('')}
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+</div></div>`;
+}
+
 
 function closeModal(){
   const ma=document.getElementById('modalArea');
@@ -2694,6 +2816,10 @@ function openSettings(){
 <div style="display:flex;gap:7px;margin-bottom:12px">
   <button onclick="addTier()" style="flex:1;padding:7px;border:1.5px dashed var(--border);border-radius:9px;background:none;cursor:pointer;font-size:12px;color:var(--text3)">+ 구간 추가</button>
 </div>
+<div class="cttl" style="margin-bottom:7px">🤖 AI 명함 스캔 (Claude API)</div>
+<div class="ibox">명함 사진을 AI로 자동 인식합니다. Anthropic API Key를 입력하세요.</div>
+<div class="field"><label>Anthropic API Key</label><input id="cfgAnthropicKey" value="${CFG.anthropicKey||''}" placeholder="sk-ant-..."></div>
+<div class="hint" style="margin-bottom:12px">console.anthropic.com → API Keys에서 발급</div>
 <div class="cttl" style="margin-bottom:7px">🐙 GitHub 동기화 (중국에서 사용 가능)</div>
 <div class="gbox">✅ 중국에서도 작동합니다! GitHub Token을 입력하면 모든 기기에서 동기화됩니다.</div>
 <div class="field"><label>GitHub Token</label><input id="ghToken" value="${CFG.ghToken||''}" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>
@@ -2739,6 +2865,7 @@ function saveSettings(){
   CFG.usdKrw=parseFloat(document.getElementById('cfgUsd').value)||1380;
   CFG.cnyKrw=parseFloat(document.getElementById('cfgCny').value)||190;
   CFG.ghToken=(document.getElementById('ghToken')?.value||'').trim();
+  CFG.anthropicKey=(document.getElementById('cfgAnthropicKey')?.value||'').trim();
   CFG.supaUrl=(document.getElementById('sbUrl').value||'').trim().replace(/\/$/,'');
   CFG.supaKey=(document.getElementById('sbKey').value||'').trim();saveCFG();closeModal();
   if(CFG.ghToken){ghLoad().then(()=>renderAll());}
