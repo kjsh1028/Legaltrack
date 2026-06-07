@@ -308,14 +308,6 @@
       "billable": true
     },
     {
-      "id": "mq20navxoh9kk",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-01",
-      "minutes": 30,
-      "description": "중국팀 주간회의",
-      "billable": true
-    },
-    {
       "id": "mq20it3dxqb8y",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-04",
