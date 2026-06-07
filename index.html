@@ -918,7 +918,7 @@ function renderMatterDetailLayer(){
       return cl
         ?`<span onclick="_selClientId='${cl.id}';_prevLayer='matter_detail';_prevMatterId=m.id;curLayer='client_detail';_queryMode='clients';renderContent()" style="color:var(--b);font-weight:600;cursor:pointer;border-bottom:1px solid var(--bl)">${m.client} ›</span>`
         :(m.client||'');
-    })()):''}}
+    })()):''}
     ${rb.amount?irow('수임액',`<b style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</b>${rb.currency!=='KRW'?' ≈'+fmtK(retK):''}`):''}
     ${m.type==='litigation'?`
       ${m.lit_retainer?irow('착수금',fmtM(m.lit_retainer,m.retainer_cur||'KRW')):''}
