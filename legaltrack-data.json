@@ -487,6 +487,19 @@
       "linkLabel": "회사 자료",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mq3dhoww0lp1r",
+      "title": "모다모다 청산 절차 진행",
+      "cat": "personal",
+      "priority": "normal",
+      "due": "2026-07-07",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ]
 }
