@@ -1317,10 +1317,10 @@ function renderClientsPage(){
 
   // Tab bar
   const tabBar=`<div style="display:flex;gap:0;margin-bottom:12px;background:var(--grayl);border-radius:12px;padding:3px">
-    <button onclick="_clientTab='clients';renderContent()" style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:${isClients?'var(--white)':'transparent'};color:${isClients?'var(--g2)':'var(--text3)'};box-shadow:${isClients?'0 1px 4px rgba(0,0,0,.1)':'none'};transition:all .15s">
+    <button onclick="setClientTab('clients')" style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:${isClients?'var(--white)':'transparent'};color:${isClients?'var(--g2)':'var(--text3)'};box-shadow:${isClients?'0 1px 4px rgba(0,0,0,.1)':'none'};transition:all .15s">
       🏢 고객사 ${(D.clients||[]).length>0?'('+D.clients.length+')':''}
     </button>
-    <button onclick="_clientTab='contacts';renderContent()" style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:${!isClients?'var(--white)':'transparent'};color:${!isClients?'var(--b)':'var(--text3)'};box-shadow:${!isClients?'0 1px 4px rgba(0,0,0,.1)':'none'};transition:all .15s">
+    <button onclick="setClientTab('contacts')" style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:${!isClients?'var(--white)':'transparent'};color:${!isClients?'var(--b)':'var(--text3)'};box-shadow:${!isClients?'0 1px 4px rgba(0,0,0,.1)':'none'};transition:all .15s">
       👤 명함 ${(D.contacts||[]).length>0?'('+(D.contacts||[]).length+')':''}
     </button>
   </div>`;
@@ -1445,10 +1445,10 @@ function renderClientDetail(){
 
 /* ── 명함 목록 ── */
 function renderContactsPage(){
+  if(curLayer==='contact_detail') return renderContactDetail(null);
   // Redirect to tabbed client/contact page
   _clientTab='contacts';_queryMode='clients';
   return renderClientsPage();
-  if(curLayer==='contact_detail') return renderContactDetail(null);
   const all=(D.contacts||[]).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const q=document.getElementById('ct_q')?.value?.toLowerCase()||'';
   const filtered=q?all.filter(c=>c.name?.toLowerCase().includes(q)||(c.company||'').toLowerCase().includes(q)||(c.title||'').toLowerCase().includes(q)):all;
@@ -1912,6 +1912,8 @@ function saveTodo(eid){
   closeModal();
   renderContent();
 }
+
+function setClientTab(tab){_clientTab=tab;renderContent();}
 
 function closeModal(){
   const ma=document.getElementById('modalArea');
