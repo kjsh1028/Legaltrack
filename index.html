@@ -1929,7 +1929,7 @@ function setClientTab(tab){_clientTab=tab;renderContent();}
 /* ═══ 명함 스캔 (AI) ═══ */
 async function scanBusinessCard(){
   if(!CFG.anthropicKey){
-    alert('설정(⚙️)에서 Anthropic API Key를 먼저 입력해주세요.\n\n현재 저장된 키: '+(CFG.anthropicKey?'있음':'없음'));
+    alert('설정(⚙️)에서 Anthropic API Key를 먼저 입력해주세요.');
     return;
   }
   const input = document.createElement('input');
@@ -1940,77 +1940,67 @@ async function scanBusinessCard(){
     const file = e.target.files[0];
     if(!file) return;
     const scanBtn = document.getElementById('scanCardBtn');
-    if(scanBtn){ scanBtn.textContent='⏳ 인식 중...'; scanBtn.disabled=true; }
+    if(scanBtn){scanBtn.textContent='⏳ 인식 중...';scanBtn.disabled=true;}
     try {
-      // Convert to base64
       const b64 = await new Promise((res,rej)=>{
         const r = new FileReader();
         r.onload = ()=>res(r.result.split(',')[1]);
         r.onerror = rej;
         r.readAsDataURL(file);
       });
-      const mediaType = file.type&&file.type.startsWith('image/')?file.type:'image/jpeg';
+      const mediaType = (file.type&&file.type.startsWith('image/'))?file.type:'image/jpeg';
 
-      // Call Anthropic API with browser CORS header
-      let resp;
-      try {
-        resp = await fetch('https://api.anthropic.com/v1/messages',{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json',
-            'x-api-key':CFG.anthropicKey,
-            'anthropic-version':'2023-06-01',
-            'anthropic-dangerous-direct-browser-access':'true'
-          },
-          body:JSON.stringify({
-            model:'claude-haiku-4-5',
-            max_tokens:800,
-            messages:[{
-              role:'user',
-              content:[
-                {type:'image',source:{type:'base64',media_type:mediaType,data:b64}},
-                {type:'text',text:'이 명함 이미지에서 정보를 추출하여 JSON만 반환하세요(설명없이): {"name":"","title":"","dept":"","company":"","mobile":"","tel":"","email":"","wechat":"","kakao":"","address":""}'}
-              ]
-            }]
-          })
-        });
-      } catch(fetchErr){
-        throw new Error('네트워크 오류: '+fetchErr.message+'\n\nVPN이 켜져 있는지 확인하세요.');
-      }
+      const resp = await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'x-api-key':CFG.anthropicKey,
+          'anthropic-version':'2023-06-01',
+          'anthropic-dangerous-direct-browser-access':'true'
+        },
+        body:JSON.stringify({
+          model:'claude-haiku-4-5-20251001',
+          max_tokens:1024,
+          messages:[{
+            role:'user',
+            content:[
+              {type:'image',source:{type:'base64',media_type:mediaType,data:b64}},
+              {type:'text',text:'Extract business card info. Reply with ONLY valid JSON, no explanation: {"name":"","title":"","dept":"","company":"","mobile":"","tel":"","email":"","wechat":"","kakao":"","address":""}'}
+            ]
+          }]
+        })
+      });
+
+      const rawText = await resp.text();
 
       if(!resp.ok){
-        const errBody = await resp.text();
-        throw new Error('API 오류 '+resp.status+': '+errBody.slice(0,200));
+        throw new Error('API 오류 '+resp.status+': '+rawText.slice(0,300));
       }
 
-      const result = await resp.json();
+      const result = JSON.parse(rawText);
       if(result.error) throw new Error('API: '+result.error.message);
 
-      const text = result.content?.[0]?.text||'{}';
-      let info={};
-      try{
-        const m=text.match(/[{][\s\S]*[}]/);
-        info=JSON.parse(m?m[0]:text.trim());
-      }catch(pe){
-        const ex=k=>{const r=text.match(new RegExp('"'+k+'"\\s*:\\s*"([^"]*)"'));return r?r[1]:'';};
-        info={name:ex('name'),title:ex('title'),dept:ex('dept'),company:ex('company'),
-              mobile:ex('mobile'),tel:ex('tel'),email:ex('email'),
-              wechat:ex('wechat'),kakao:ex('kakao'),address:ex('address')};
+      const text = (result.content&&result.content[0]&&result.content[0].text)||'';
+      if(!text) throw new Error('AI 응답이 비어있습니다.');
+
+      // Extract JSON from response
+      let info = {};
+      const jsonStart = text.indexOf('{');
+      const jsonEnd = text.lastIndexOf('}');
+      if(jsonStart>=0 && jsonEnd>jsonStart){
+        info = JSON.parse(text.slice(jsonStart, jsonEnd+1));
+      } else {
+        throw new Error('JSON 형식을 찾을 수 없음: '+text.slice(0,100));
       }
 
-      const setVal=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
-      setVal('ct_name',info.name);
-      setVal('ct_title',info.title);
-      setVal('ct_dept',info.dept);
-      setVal('ct_company',info.company);
-      setVal('ct_mobile',info.mobile);
-      setVal('ct_tel',info.tel);
-      setVal('ct_email',info.email);
-      setVal('ct_wechat',info.wechat);
-      setVal('ct_kakao',info.kakao);
-      setVal('ct_addr',info.address);
+      const sv=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
+      sv('ct_name',info.name); sv('ct_title',info.title);
+      sv('ct_dept',info.dept); sv('ct_company',info.company);
+      sv('ct_mobile',info.mobile); sv('ct_tel',info.tel);
+      sv('ct_email',info.email); sv('ct_wechat',info.wechat);
+      sv('ct_kakao',info.kakao); sv('ct_addr',info.address);
 
-      if(scanBtn){scanBtn.textContent='✅ 완료!';scanBtn.disabled=false;}
+      if(scanBtn){scanBtn.textContent='✅ 인식 완료!';scanBtn.disabled=false;}
       setTimeout(()=>{if(scanBtn)scanBtn.textContent='📷 명함 스캔';},2500);
 
     } catch(err){
