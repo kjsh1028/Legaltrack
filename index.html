@@ -508,6 +508,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -1168,7 +1169,7 @@ function renderTimeResults(){
     <div class="tqs gray"><div class="tqs-l">기록 수</div><div class="tqs-v">${rows.length}건</div></div>
   </div>
   <div style="display:flex;justify-content:flex-end;margin-bottom:8px">
-    <button onclick="exportTimeQ('${from}','${to}')" class="export-btn">📥 내보내기</button>
+    <button onclick="exportTimeXLSX('${from}','${to}')" class="export-btn">📊 Excel 저장</button>
   </div>
   <div class="qr-list">${rowsHTML}</div>
 </div>`;}
@@ -1606,10 +1607,9 @@ function openMobMenu(){
   const html='<div class="mbg" onclick="if(event.target===this)closeModal()">'
     +'<div class="msh" style="max-width:360px"><div class="mhdl"></div>'
     +'<div class="mttl">더보기</div>'
-    +'<button class="mob-menu-btn" onclick="closeModal();goTab(1)">📁 Matters 목록</button>'
     +'<button class="mob-menu-btn" onclick="closeModal();goTab(3)">🏆 업적 관리</button>'
     +'<button class="mob-menu-btn" onclick="closeModal();goTab(4)">❌ 수임 실패 분석</button>'
-    +'<button class="mob-menu-btn" onclick="closeModal();openExportModal()">📥 내보내기</button>'
+    +'<button class="mob-menu-btn" style="background:var(--gl);color:var(--g);font-weight:700;border-color:var(--g)" onclick="closeModal();exportIncentiveXLSX()">📊 인센티브 리포트 Excel</button>'
     +'<button class="mob-menu-btn" onclick="closeModal();openBackupModal()" style="color:var(--g);font-weight:700">💾 백업 / 복원</button>'
     +'<button class="mob-menu-btn" onclick="closeModal();openSettings()">⚙️ 설정</button>'
     +'<button class="cancelbtn" onclick="closeModal()">닫기</button>'
@@ -1731,8 +1731,8 @@ function renderAchievement(){
   </div>
   <div style="font-size:12px;font-weight:700;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Matter별 수임액</div>
   <div class="qr-list" style="margin-bottom:14px">${matterRows}</div>
-  <div style="text-align:center">
-    <button onclick="openExportModal()" style="background:var(--bl);border:none;border-radius:20px;padding:8px 20px;font-size:13px;color:var(--b);font-weight:600;cursor:pointer">📥 내보내기</button>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <button onclick="exportIncentiveXLSX()" style="background:var(--g);border:none;border-radius:20px;padding:10px 22px;font-size:14px;color:#fff;font-weight:700;cursor:pointer">📊 인센티브 리포트 Excel</button>
   </div>
 </div>`;}
 
@@ -2175,6 +2175,139 @@ function doExport(mode){
   const data=rows.map(e=>{const m=D.matters.find(x=>x.id===e.matterId)||{};const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];const at=ATYPE[m.achievement_type||'solo'];const rb=getRetainerBase(m);return[e.date,m.code||'',m.name||'',mt.label,mst.label,m.client||'',e.description||e.description||e.desc||'',e.minutes,(e.minutes/60).toFixed(2),e.billable?'Y':'N',rb.amount||'',rb.currency||'KRW',toKRW(rb.amount||0,rb.currency)||'',retainerKRW(m)||'',paymentKRW(m)||'',at.label,m.collab_team||'',m.my_ratio||100];});
   exportCSV([hdr,...data],`LegalTrack_전체_${from||'all'}_${to||'all'}.csv`);}
 function exportFailedCSV(){const failed=D.matters.filter(m=>m.status==='failed');if(!failed.length)return alert('실패 항목이 없습니다');const hdr=['코드','Matter명','의뢰인','유형','실패일','사유분류','상세사유','경쟁로펌','대응메모','수임금액(원래화폐)','수임통화','수임KRW'];const data=failed.map(m=>{const rb=getRetainerBase(m);return[m.code,m.name,m.client||'',MTYPE[m.type||'time-b'].label,m.failed_date||'',m.fail_category||'',m.fail_reason||'',m.fail_competitor||'',m.fail_memo||'',rb.amount||'',rb.currency||'KRW',toKRW(rb.amount||0,rb.currency)||''];});exportCSV([hdr,...data],`LegalTrack_수임실패분석_${today()}.csv`);}
+/* ═══════════════════════════════
+   EXCEL EXPORT FUNCTIONS
+═══════════════════════════════ */
+
+// 공통: 배열 데이터로 xlsx 시트 생성
+function makeSheet(data){
+  return XLSX.utils.aoa_to_sheet(data);
+}
+
+// 시트 헤더 스타일 (bold)
+function styleHeader(ws, colCount){
+  for(let c=0;c<colCount;c++){
+    const cell=ws[XLSX.utils.encode_cell({r:0,c})];
+    if(cell)cell.s={font:{bold:true},fill:{fgColor:{rgb:'D6E4BC'}},alignment:{horizontal:'center'}};
+  }
+}
+
+// 컬럼 너비 자동 설정
+function autoWidth(ws, data){
+  const cols=data[0].map((_,i)=>({wch:Math.max(...data.map(r=>String(r[i]||'').length),10)}));
+  ws['!cols']=cols;
+}
+
+// 인센티브 리포트 Excel (3시트)
+function exportIncentiveXLSX(){
+  const wb=XLSX.utils.book_new();
+  const yr=new Date().getFullYear();
+
+  // ── 시트1: 수임·입금 현황 ──
+  const activeM=D.matters.filter(m=>['active','closed','prospect'].includes(m.status));
+  const hdr1=['코드','Matter명','유형','상태','의뢰인','수임금액','수임통화','수임KRW','입금KRW','미입금KRW','입금진행률'];
+  const rows1=activeM.map(m=>{
+    const rb=getRetainerBase(m);
+    const ret=retainerKRW(m);
+    const pay=paymentKRW(m);
+    const mt=MTYPE[m.type||'time-b'];
+    const mst=MSTATUS[m.status||'active'];
+    const unpaid=Math.max(0,ret-pay);
+    const pct=ret>0?Math.round(pay/ret*100):0;
+    return[m.code,m.name,mt.label,mst.label,m.client||'',rb.amount||0,rb.currency||'KRW',ret,pay,unpaid,pct+'%'];
+  });
+  const retTotal=activeM.reduce((a,m)=>a+retainerKRW(m),0);
+  const payTotal=activeM.reduce((a,m)=>a+paymentKRW(m),0);
+  rows1.push(['합계','','','','','','',retTotal,payTotal,Math.max(0,retTotal-payTotal),'']);
+  const ws1=XLSX.utils.aoa_to_sheet([hdr1,...rows1]);
+  ws1['!cols']=hdr1.map((_,i)=>({wch:[10,28,10,10,16,12,8,14,14,14,8][i]||12}));
+  XLSX.utils.book_append_sheet(wb,ws1,'수임·입금 현황');
+
+  // ── 시트2: 성공보수 현황 ──
+  const contM=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status));
+  const hdr2=['코드','Matter명','상태','의뢰인','성공보수금액','통화','성공보수KRW','조건'];
+  const rows2=contM.map(m=>{
+    const amt=parseFloat(m.contingency_amount||0);
+    const krw=toKRW(amt,m.retainer_cur||'KRW');
+    return[m.code,m.name,MSTATUS[m.status||'active'].label,m.client||'',amt,m.retainer_cur||'KRW',krw,m.contingency_note||''];
+  });
+  const contTotal=contM.reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);
+  rows2.push(['합계','','','','','',contTotal,'']);
+  const ws2=XLSX.utils.aoa_to_sheet([hdr2,...rows2]);
+  ws2['!cols']=hdr2.map((_,i)=>({wch:[10,28,10,14,14,8,14,24][i]||12}));
+  XLSX.utils.book_append_sheet(wb,ws2,'성공보수');
+
+  // ── 시트3: 시간 기록 요약 ──
+  const entries=[...D.entries].sort((a,b)=>a.date.localeCompare(b.date));
+  const hdr3=['날짜','코드','Matter명','의뢰인','업무내용','소요(분)','소요(시간)','청구가능'];
+  const rows3=entries.map(e=>{
+    const m=D.matters.find(x=>x.id===e.matterId)||{};
+    return[e.date,m.code||'',m.name||'',m.client||'',e.description||e.desc||'',e.minutes,+(e.minutes/60).toFixed(2),e.billable?'Y':'N'];
+  });
+  const totalMins=entries.reduce((a,e)=>a+e.minutes,0);
+  const billMins=entries.filter(e=>e.billable).reduce((a,e)=>a+e.minutes,0);
+  rows3.push(['합계','','','','',totalMins,+(totalMins/60).toFixed(2),'']);
+  rows3.push(['청구가능 합계','','','','',billMins,+(billMins/60).toFixed(2),'Y']);
+  const ws3=XLSX.utils.aoa_to_sheet([hdr3,...rows3]);
+  ws3['!cols']=[{wch:12},{wch:10},{wch:28},{wch:14},{wch:36},{wch:8},{wch:10},{wch:8}];
+  XLSX.utils.book_append_sheet(wb,ws3,'시간 기록');
+
+  XLSX.writeFile(wb,`LegalTrack_인센티브리포트_${today()}.xlsx`);
+  alert('✅ 인센티브 리포트 Excel 저장 완료!');
+}
+
+// 수임액/입금액 Excel 내보내기 (조회 화면용)
+function exportMoneyXLSX(){
+  const wb=XLSX.utils.book_new();
+  let matters=[];
+  let sheetName='';
+  if(_moneyType==='retainer'){
+    matters=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+    sheetName='수임액';
+  } else if(_moneyType==='payment'){
+    matters=D.matters.filter(m=>paymentKRW(m)>0);
+    sheetName='입금액';
+  } else {
+    matters=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status));
+    sheetName='성공보수';
+  }
+  const hdr=['코드','Matter명','상태','의뢰인','금액','통화','KRW환산'];
+  const rows=matters.map(m=>{
+    const rb=getRetainerBase(m);
+    const mst=MSTATUS[m.status||'active'];
+    const krw=_moneyType==='payment'?paymentKRW(m):_moneyType==='contingency'?toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'):retainerKRW(m);
+    const amt=_moneyType==='payment'?paymentKRW(m):_moneyType==='contingency'?parseFloat(m.contingency_amount||0):rb.amount||0;
+    const cur=_moneyType==='payment'?'KRW':_moneyType==='contingency'?(m.retainer_cur||'KRW'):rb.currency||'KRW';
+    return[m.code,m.name,mst.label,m.client||'',amt,cur,krw];
+  });
+  const ws=XLSX.utils.aoa_to_sheet([hdr,...rows]);
+  ws['!cols']=[{wch:10},{wch:28},{wch:10},{wch:16},{wch:14},{wch:8},{wch:16}];
+  XLSX.utils.book_append_sheet(wb,ws,sheetName);
+  XLSX.writeFile(wb,`LegalTrack_${sheetName}_${today()}.xlsx`);
+}
+
+// 시간 조회 Excel 내보내기
+function exportTimeXLSX(from,to){
+  const wb=XLSX.utils.book_new();
+  let rows=[...D.entries];
+  const selM=typeof _tqMatter!=='undefined'?_tqMatter:'all';
+  if(selM!=='all')rows=rows.filter(e=>e.matterId===selM);
+  if(from)rows=rows.filter(e=>e.date>=from);
+  if(to)rows=rows.filter(e=>e.date<=to);
+  rows.sort((a,b)=>a.date.localeCompare(b.date));
+  const hdr=['날짜','코드','Matter명','의뢰인','업무내용','소요(분)','소요(시간)','청구가능'];
+  const data=rows.map(e=>{
+    const m=D.matters.find(x=>x.id===e.matterId)||{};
+    return[e.date,m.code||'',m.name||'',m.client||'',e.description||e.desc||'',e.minutes,+(e.minutes/60).toFixed(2),e.billable?'Y':'N'];
+  });
+  const tot=rows.reduce((a,e)=>a+e.minutes,0);
+  data.push(['합계','','','','',tot,+(tot/60).toFixed(2),'']);
+  const ws=XLSX.utils.aoa_to_sheet([hdr,...data]);
+  ws['!cols']=[{wch:12},{wch:10},{wch:28},{wch:14},{wch:36},{wch:8},{wch:10},{wch:8}];
+  XLSX.utils.book_append_sheet(wb,ws,'시간기록');
+  XLSX.writeFile(wb,`LegalTrack_시간기록_${from||'all'}_${to||'all'}.xlsx`);
+}
+
 function exportCSV(data,fname){const csv='\uFEFF'+data.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);closeModal();}
 
 /* ── Backup ── */
@@ -2319,6 +2452,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
