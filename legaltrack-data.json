@@ -159,7 +159,9 @@
       "lit_balance": null,
       "lit_mode": null,
       "contingency_amount": 130000,
-      "contingency_condition": "법인매각 성공, 매각대금의 2.5% 의 1/3"
+      "contingency_condition": "법인매각 성공, 매각대금의 2.5% 의 1/3",
+      "driveLink": "https://drive.google.com/drive/folders/1Izcf4hB3REeAt5U70j6l6OZaIU_PVKb2",
+      "driveLinkLabel": ""
     },
     {
       "id": "mq20lebejr8qp",
