@@ -359,7 +359,7 @@
       "name": "목원 자회사 설립",
       "client": "목원 그룹",
       "type": "fixed-f",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
