@@ -506,6 +506,7 @@ html,body{height:100%;background:var(--bg);
 
 
 
+
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main'};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[]};
@@ -694,7 +695,7 @@ async function ghSave(){
 /* ── Layer state ── */
 let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
-let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all';
+let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all', _mqSearch='';
 let _timePresetQ='month', _timeFrom='', _timeTo='';
 let _prevLayer=null, _prevTab=0; // 이전 레이어 추적
 let _selectedMatterId=null, _selectedEntryId=null;
@@ -845,13 +846,30 @@ function renderMattersList(statusKey){
     prospect:D.matters.filter(m=>m.status==='prospect'),
     active:D.matters.filter(m=>['active','closed'].includes(m.status)),
   };
-  const items=statusMap[statusKey]||[];
-  const label=statusKey==='prospect'?'수임 진행중':'수임 완료';
-  return`<div class="list-wrap">
-  ${items.length===0?`<div class="empty-state">📁<br>항목 없음</div>`:
-  items.map(m=>{
+  const allItems=statusMap[statusKey]||[];
+  const q=(document.getElementById('ml_q')?.value||'').toLowerCase();
+  const items=q?allItems.filter(m=>m.name.toLowerCase().includes(q)||(m.client||'').toLowerCase().includes(q)||(m.code||'').toLowerCase().includes(q)):allItems;
+  return`<div class="list-wrap" style="padding-top:8px">
+  <div style="display:flex;gap:8px;margin-bottom:10px">
+    <input id="ml_q" placeholder="이름·의뢰인·코드 검색..." value="${q}"
+      oninput="document.getElementById('mlList').innerHTML=renderMLItems('${statusKey}',this.value)"
+      style="flex:1;padding:10px 13px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:var(--white)">
+    <button onclick="openMatterModal()" style="padding:10px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit">＋ 추가</button>
+  </div>
+  <div id="mlList">${renderMLItems(statusKey,q)}</div>
+</div>`;}
+
+function renderMLItems(statusKey,q){
+  const statusMap={
+    prospect:D.matters.filter(m=>m.status==='prospect'),
+    active:D.matters.filter(m=>['active','closed'].includes(m.status)),
+  };
+  const allItems=statusMap[statusKey]||[];
+  const sq=(q||'').toLowerCase();
+  const items=sq?allItems.filter(m=>m.name.toLowerCase().includes(sq)||(m.client||'').toLowerCase().includes(sq)||(m.code||'').toLowerCase().includes(sq)):allItems;
+  if(items.length===0) return`<div class="empty-state">📁<br>${sq?'검색 결과 없음':'항목 없음'}</div>`;
+  return items.map(m=>{
     const rb=getRetainerBase(m);
-    const retK=retainerKRW(m);
     const mt=MTYPE[m.type||'time-b'];
     return`<div class="list-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div class="li-body">
@@ -862,9 +880,7 @@ function renderMattersList(statusKey){
         ${rb.amount?`<div class="li-amt" style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</div>`:'<div class="li-amt" style="color:var(--text3)">—</div>'}
         <div class="li-arr">›</div>
       </div>
-    </div>`;}).join('')}
-  <button class="fab-btn" onclick="openMatterModal()">＋ 새 Matter</button>
-</div>`;}
+    </div>`;}).join('');}
 
 /* Layer: Matter 상세 */
 function renderMatterDetailLayer(){
@@ -1035,17 +1051,19 @@ function renderQueryPage(){
 
 function renderMattersQuery(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
-  const statusF=(typeof _mqStatus!=='undefined'?_mqStatus:'all');
-  const typeF=(typeof _mqType!=='undefined'?_mqType:'all');
+  const statusF=_mqStatus||'all';
+  const typeF=_mqType||'all';
+  const q=(document.getElementById('mq_q')?.value||'').toLowerCase();
   let items=D.matters.filter(m=>m.status!=='failed');
   if(statusF!=='all')items=items.filter(m=>m.status===statusF);
   if(typeF!=='all')items=items.filter(m=>m.type===typeF);
+  if(q)items=items.filter(m=>m.name.toLowerCase().includes(q)||(m.client||'').toLowerCase().includes(q)||(m.code||'').toLowerCase().includes(q));
   items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
-  const statusSel=`<select onchange="_mqStatus=this.value;renderContent()" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
+  const statusSel=`<select data-mqstatus="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 상태</option>
     ${[['prospect','수임 진행중'],['active','수임 완료'],['closed','클로징'],['internal','비빌링']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
   </select>`;
-  const typeSel=`<select onchange="_mqType=this.value;renderContent()" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
+  const typeSel=`<select data-mqtype="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 유형</option>
     ${Object.entries(MTYPE).map(([k,v])=>`<option value="${k}"${typeF===k?' selected':''}>${v.ico} ${v.label}</option>`).join('')}
   </select>`;
@@ -1053,7 +1071,7 @@ function renderMattersQuery(){
     const mt=MTYPE[m.type||'time-b'];
     const rb=getRetainerBase(m);
     const mst=MSTATUS[m.status||'active'];
-    return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
+    return`<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div style="flex:1;min-width:0">
         <div class="qri-name">${m.name}</div>
         <div style="font-size:11px;color:var(--text3)">${mst.label}${m.client?' · '+m.client:''}</div>
@@ -1062,10 +1080,17 @@ function renderMattersQuery(){
       <span class="qri-arr">›</span>
     </div>`;}).join('');
   return`<div class="query-results">
-  <div style="display:flex;gap:6px;margin-bottom:8px">${statusSel}${typeSel}</div>
-  <div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-align:right">${items.length}건</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px">
+    <input id="mq_q" placeholder="이름·의뢰인·코드 검색..." value="${q}"
+      oninput="_mqSearch=this.value;renderContent()"
+      style="flex:1;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff">
+    <button onclick="openMatterModal()" style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">＋</button>
+  </div>
+  <div style="display:flex;gap:6px;margin-bottom:10px">${statusSel}${typeSel}</div>
+  <div style="font-size:12px;color:var(--text3);margin-bottom:8px">${items.length}건</div>
   <div class="qr-list">${items.length===0?'<div class="empty-state">항목 없음</div>':rows}</div>
-  </div>`;}
+</div>`;}
+
 
 function setTimePreset(k){_timePresetQ=k;_queryMode='time';renderContent();}
 function applyCustomTime(){
@@ -2287,6 +2312,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
