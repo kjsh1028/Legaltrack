@@ -1892,7 +1892,12 @@ function handleBack(){
   } else if(curLayer==='contact_detail'){
     curLayer=_selClientId?'client_detail':null;
   } else if(curLayer==='client_detail'){
-    curLayer=null; // _queryMode='clients' 유지
+    if(_prevLayer==='matter_detail'&&_prevMatterId){
+      _selectedMatterId=_prevMatterId;
+      curLayer='matter_detail';_prevLayer=null;_prevMatterId=null;
+    } else {
+      curLayer=null;
+    }
   } else if(curLayer==='matters_list'){
     curLayer=null; // 홈 대시보드로
   } else if(curLayer==='active_list'){
