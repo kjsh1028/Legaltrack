@@ -2273,6 +2273,12 @@ function openMatterModal(editId){
     <div class="cur-row"><div class="field"><label>실제 빌링</label><input id="mba" value="${em?.billed_amount?Number(em.billed_amount).toLocaleString():''}" placeholder="실제 빌링 금액" oninput="numInput(this)" inputmode="numeric"></div><div class="field cs"><label>통화</label><select id="mbc"><option value="KRW">₩ KRW</option><option value="USD">$ USD</option><option value="CNY">¥ CNY</option></select></div></div>
   </div>
 </div>
+<div class="field"><label>📎 구글 드라이브 링크</label>
+  <input id="mdrivelink" value="${em?.driveLink||''}" placeholder="https://drive.google.com/..." type="url">
+</div>
+<div class="field"><label>링크 표시 이름</label>
+  <input id="mdrivelabel" value="${em?.driveLinkLabel||''}" placeholder="예: 사건 폴더, 계약서, 의견서 등">
+</div>
 <button class="savebtn" onclick="saveMatter('${editId||''}')">저장</button>
 <button class="cancelbtn" onclick="closeModal()">취소</button>
 </div></div>`;}
