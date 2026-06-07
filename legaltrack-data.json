@@ -292,6 +292,14 @@
   ],
   "entries": [
     {
+      "id": "mq38bfqlhxla7",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-06-01",
+      "minutes": 30,
+      "description": "중국팀 주간회의",
+      "billable": true
+    },
+    {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-05",
