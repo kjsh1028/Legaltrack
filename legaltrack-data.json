@@ -350,16 +350,6 @@
   ],
   "payments": [
     {
-      "id": "mq2gm94hsvzaf",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
-      "note": "일부 잔금"
-    },
-    {
       "id": "mq2glry4736rd",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-06",
