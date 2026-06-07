@@ -776,7 +776,12 @@ function renderContent(){
     titles[curTab]||'LegalTrack';
   if(pt)pt.textContent=titleStr;
   if(mst)mst.textContent=titleStr;
-  if(curTab===0)c.innerHTML=renderDash();
+  // Cross-tab layer routing
+  if(curLayer==='client_detail'||curLayer==='contact_detail'){
+    c.innerHTML=renderClientsPage();
+  } else if(curLayer==='matter_detail'&&curTab!==0&&curTab!==2){
+    c.innerHTML=renderMatterDetailLayer();
+  } else if(curTab===0)c.innerHTML=renderDash();
   else if(curTab===1)c.innerHTML=renderMattersPage();
   else if(curTab===2)c.innerHTML=renderQueryPage();
   else if(curTab===3)c.innerHTML=renderAchievement();
