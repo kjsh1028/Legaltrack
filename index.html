@@ -491,7 +491,8 @@ html,body{height:100%;background:var(--bg);
   </div>
 </div>
 <div id="modalArea"></div>
-<script>
+<
+script>
 
 
 
@@ -1684,6 +1685,7 @@ function handleBack(){
 function toggleStar(mid,e){if(e)e.stopPropagation();const m=D.matters.find(x=>x.id===mid);if(!m)return;m.starred=!m.starred;cloudSave('matter',m);renderContent();}
 
 function renderAchievement(){
+  const q=(document.getElementById('ach_q')?.value||'').toLowerCase();
   const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
   const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
   const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
@@ -1693,48 +1695,62 @@ function renderAchievement(){
   const tier=sortedTiers.find(t=>payKRW>=t.threshold)||{rate:0};
   const incentive=Math.round(payKRW*(tier.rate||0)/100);
 
-  const matterRows=activeM.sort((a,b)=>retainerKRW(b)-retainerKRW(a)).map(m=>{
+  // 검색 필터 적용
+  const filteredM=q?activeM.filter(m=>m.name.toLowerCase().includes(q)||(m.client||'').toLowerCase().includes(q)):activeM;
+  const sortedM=filteredM.sort((a,b)=>retainerKRW(b)-retainerKRW(a));
+
+  const matterRows=sortedM.map(m=>{
     const mt=MTYPE[m.type||'time-b'];
     const rb=getRetainerBase(m);
     const payK=paymentKRW(m);
     return `<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
+        <div style="font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
         ${m.client?`<div style="font-size:11px;color:var(--text3)">${m.client}</div>`:''}
       </div>
-      <div style="text-align:right;flex-shrink:0">
+      <div style="text-align:right;flex-shrink:0;margin-right:6px">
         <div style="font-size:13px;font-weight:700;color:${mt.color}">${fmtM(rb.amount||0,rb.currency||'KRW')}</div>
         <div style="font-size:10px;color:var(--text3)">입금 ${fmtK(payK)}</div>
       </div>
-      <span style="font-size:16px;color:var(--text3);opacity:.4">›</span>
+      <span style="font-size:16px;color:var(--border)">›</span>
     </div>`;}).join('');
 
-  return`<div style="padding:14px 14px 80px">
-  <div style="font-size:16px;font-weight:800;margin-bottom:12px">🏆 업적 관리</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
-    <div style="background:var(--ol);border-radius:12px;padding:14px;grid-column:1/-1">
-      <div style="font-size:11px;color:var(--o);font-weight:600">수임액 업적 (올해)</div>
-      <div style="font-size:28px;font-weight:800;color:var(--o)">${fmtK(retKRW)}</div>
+  return`<div style="padding:10px 14px 90px">
+  <!-- 검색 + 내보내기 -->
+  <div style="display:flex;gap:8px;margin-bottom:12px">
+    <input id="ach_q" placeholder="이름·의뢰인 검색..." value="${q}"
+      oninput="renderContent()"
+      style="flex:1;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff;-webkit-appearance:none">
+    <button onclick="exportIncentiveXLSX()"
+      style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0">
+      📊 Excel
+    </button>
+  </div>
+
+  <!-- 업적 요약 카드 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+    <div style="background:var(--ol);border-radius:12px;padding:12px;grid-column:1/-1">
+      <div style="font-size:10px;color:var(--o);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">수임액 업적</div>
+      <div style="font-size:26px;font-weight:800;color:var(--o)">${fmtK(retKRW)}</div>
     </div>
-    <div style="background:var(--tl);border-radius:12px;padding:14px;grid-column:1/-1">
-      <div style="font-size:11px;color:var(--t);font-weight:600">입금액 업적 (올해)</div>
-      <div style="font-size:28px;font-weight:800;color:var(--t)">${fmtK(payKRW)}</div>
-      ${retKRW>payKRW?`<div style="font-size:12px;color:var(--text3);margin-top:4px">미입금 ≈${fmtK(retKRW-payKRW)}</div>`:''}
+    <div style="background:var(--tl);border-radius:12px;padding:12px;grid-column:1/-1">
+      <div style="font-size:10px;color:var(--t);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">입금액 업적</div>
+      <div style="font-size:26px;font-weight:800;color:var(--t)">${fmtK(payKRW)}</div>
+      ${retKRW>payKRW?`<div style="font-size:11px;color:var(--text3);margin-top:3px">미입금 ≈ ${fmtK(retKRW-payKRW)}</div>`:''}
     </div>
-    ${contKRW>0?`<div style="background:var(--ol);border-radius:12px;padding:14px;grid-column:1/-1">
-      <div style="font-size:11px;color:var(--o);font-weight:600">성공보수 예정 (업적 별도)</div>
-      <div style="font-size:28px;font-weight:800;color:var(--o)">${fmtK(contKRW)}</div>
+    ${contKRW>0?`<div style="background:var(--rl);border-radius:12px;padding:12px;grid-column:1/-1">
+      <div style="font-size:10px;color:var(--r);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">성공보수 예정 (업적 별도)</div>
+      <div style="font-size:26px;font-weight:800;color:var(--r)">${fmtK(contKRW)}</div>
     </div>`:''}
-    <div style="background:var(--pl);border-radius:12px;padding:14px;grid-column:1/-1">
-      <div style="font-size:11px;color:var(--p);font-weight:600">인센티브 예상 (${tier.rate||0}%)</div>
-      <div style="font-size:28px;font-weight:800;color:var(--p)">${fmtK(incentive)}</div>
+    <div style="background:var(--pl);border-radius:12px;padding:12px;grid-column:1/-1">
+      <div style="font-size:10px;color:var(--p);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">인센티브 예상 (${tier.rate||0}%)</div>
+      <div style="font-size:26px;font-weight:800;color:var(--p)">${fmtK(incentive)}</div>
     </div>
   </div>
-  <div style="font-size:12px;font-weight:700;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Matter별 수임액</div>
-  <div class="qr-list" style="margin-bottom:14px">${matterRows}</div>
-  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-    <button onclick="exportIncentiveXLSX()" style="background:var(--g);border:none;border-radius:20px;padding:10px 22px;font-size:14px;color:#fff;font-weight:700;cursor:pointer">📊 인센티브 리포트 Excel</button>
-  </div>
+
+  <!-- Matter별 목록 -->
+  <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Matter별 수임액 ${filteredM.length}건</div>
+  <div class="qr-list">${matterRows||'<div class="empty-state">항목 없음</div>'}</div>
 </div>`;}
 
 function renderFailed(){return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">❌</div><div>수임 실패 분석</div></div>`;}
@@ -2199,6 +2215,26 @@ function autoWidth(ws, data){
   ws['!cols']=cols;
 }
 
+// 다운로드 미리보기 모달
+function showDownloadModal(url,fname,title,details){
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh" style="max-width:420px">
+<div class="mhdl"></div>
+<div style="text-align:center;padding:8px 0 12px">
+  <div style="font-size:40px;margin-bottom:10px">📊</div>
+  <div style="font-size:17px;font-weight:800;margin-bottom:6px">${title}</div>
+  <div style="font-size:12px;color:var(--text3);margin-bottom:4px">${fname}</div>
+  ${details.map(d=>'<div style="font-size:12px;color:var(--text3)">'+d+'</div>').join('')}
+</div>
+<a href="${url}" download="${fname}" onclick="setTimeout(()=>{URL.revokeObjectURL('${url}');closeModal();},1000)"
+  style="display:block;width:100%;padding:14px;background:var(--g);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;text-decoration:none;box-sizing:border-box">
+  📥 다운로드
+</a>
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+</div></div>`;
+}
+
 // 인센티브 리포트 Excel (3시트)
 function exportIncentiveXLSX(){
   const wb=XLSX.utils.book_new();
@@ -2253,8 +2289,16 @@ function exportIncentiveXLSX(){
   ws3['!cols']=[{wch:12},{wch:10},{wch:28},{wch:14},{wch:36},{wch:8},{wch:10},{wch:8}];
   XLSX.utils.book_append_sheet(wb,ws3,'시간 기록');
 
-  XLSX.writeFile(wb,`LegalTrack_인센티브리포트_${today()}.xlsx`);
-  alert('✅ 인센티브 리포트 Excel 저장 완료!');
+  // Show download modal
+  const fname=`LegalTrack_인센티브리포트_${today()}.xlsx`;
+  const wbout=XLSX.write(wb,{bookType:'xlsx',type:'array'});
+  const blob=new Blob([wbout],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const url=URL.createObjectURL(blob);
+  showDownloadModal(url,fname,'📊 인센티브 리포트',[
+    '시트1: 수임·입금 현황 ('+D.matters.filter(m=>["active","closed","prospect"].includes(m.status)).length+'건)',
+    '시트2: 성공보수 현황',
+    '시트3: 시간 기록 전체'
+  ]);
 }
 
 // 수임액/입금액 Excel 내보내기 (조회 화면용)
@@ -2284,7 +2328,11 @@ function exportMoneyXLSX(){
   const ws=XLSX.utils.aoa_to_sheet([hdr,...rows]);
   ws['!cols']=[{wch:10},{wch:28},{wch:10},{wch:16},{wch:14},{wch:8},{wch:16}];
   XLSX.utils.book_append_sheet(wb,ws,sheetName);
-  XLSX.writeFile(wb,`LegalTrack_${sheetName}_${today()}.xlsx`);
+  const fname=`LegalTrack_${sheetName}_${today()}.xlsx`;
+  const wbout=XLSX.write(wb,{bookType:'xlsx',type:'array'});
+  const blob=new Blob([wbout],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const url=URL.createObjectURL(blob);
+  showDownloadModal(url,fname,'📊 '+sheetName,[matters.length+'건']);
 }
 
 // 시간 조회 Excel 내보내기
@@ -2306,7 +2354,14 @@ function exportTimeXLSX(from,to){
   const ws=XLSX.utils.aoa_to_sheet([hdr,...data]);
   ws['!cols']=[{wch:12},{wch:10},{wch:28},{wch:14},{wch:36},{wch:8},{wch:10},{wch:8}];
   XLSX.utils.book_append_sheet(wb,ws,'시간기록');
-  XLSX.writeFile(wb,`LegalTrack_시간기록_${from||'all'}_${to||'all'}.xlsx`);
+  const fname=`LegalTrack_시간기록_${from||'all'}_${to||'all'}.xlsx`;
+  const wbout=XLSX.write(wb,{bookType:'xlsx',type:'array'});
+  const blob=new Blob([wbout],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const url=URL.createObjectURL(blob);
+  showDownloadModal(url,fname,'⏱ 시간 기록',[
+    '총 '+rows.length+'건의 시간 기록',
+    '합계 '+hhmm(rows.reduce((a,e)=>a+e.minutes,0))
+  ]);
 }
 
 function exportCSV(data,fname){const csv='\uFEFF'+data.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);closeModal();}
@@ -2453,6 +2508,7 @@ document.addEventListener('change', function(e) {
 }, false);
 window.addEventListener('resize',()=>renderAll());
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+
 
 
 
