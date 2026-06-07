@@ -423,6 +423,19 @@
       "address": "",
       "note": "",
       "meetings": []
+    },
+    {
+      "id": "mq3d54ixt9qj2",
+      "name": "남성정밀",
+      "fullname": "남성정밀 주식회사",
+      "industry": "제조",
+      "country": "한국",
+      "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "쿤산 자회사 매각",
+      "meetings": []
     }
   ],
   "contacts": [
