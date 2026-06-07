@@ -454,8 +454,8 @@ html,body{height:100%;background:var(--bg);
       <button class="dn-btn" id="dn6" onclick="goTab(6)">✅ 할 일</button>
       <div style="height:1px;background:var(--border);margin:6px 10px"></div>
       <button class="dn-btn" onclick="openEntryModal()">＋ 시간기록</button>
-      <button class="dn-btn" onclick="_queryMode='clients';goTab(2)">🏢 고객사</button>
-      <button class="dn-btn" onclick="_queryMode='contacts';goTab(2)">👤 명함</button>
+      <button class="dn-btn" onclick="curTab=2;_queryMode='clients';_clientTab='clients';curLayer=null;renderAll()">🏢 고객사</button>
+      <button class="dn-btn" onclick="curTab=2;_queryMode='clients';_clientTab='contacts';curLayer=null;renderAll()">👤 명함</button>
       <div style="height:1px;background:var(--border);margin:6px 10px"></div>
       <button class="dn-btn" onclick="exportIncentiveXLSX()">📊 인센티브 Excel</button>
       <button class="dn-btn" onclick="openBackupModal()">💾 백업/복원</button>
