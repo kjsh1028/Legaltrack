@@ -1372,10 +1372,13 @@ function renderClientDetail(){
   </div>`).join('')}</div>`}
   <!-- 관련 Matter -->
   ${matters.length>0?`<div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 6px">관련 사건 ${matters.length}건</div>
-  <div class="entry-list" style="margin-bottom:10px">${matters.map(m=>{const rb=getRetainerBase(m);const mt=MTYPE[m.type||'time-b'];return`<div class="entry-row" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
-    <span style="font-size:12px;color:${mt.color};flex-shrink:0;width:70px">${m.code}</span>
-    <span style="flex:1;font-size:13px">${m.name}</span>
-    ${rb.amount?`<span style="font-size:12px;font-weight:700;color:${mt.color}">${fmtM(rb.amount,rb.currency)}</span>`:''}
+  <div class="qr-list" style="margin-bottom:10px">${matters.map(m=>{const rb=getRetainerBase(m);const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];return`<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer='client_detail';curLayer='matter_detail';renderContent()">
+    <div style="flex:1;min-width:0">
+      <div style="font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">${mst.label} · ${m.code}</div>
+    </div>
+    ${rb.amount?`<span style="font-size:13px;font-weight:700;color:${mt.color};flex-shrink:0;margin-right:4px">${fmtM(rb.amount,rb.currency)}</span>`:''}
+    <span style="font-size:16px;color:var(--border);flex-shrink:0">›</span>
   </div>`;}).join('')}</div>`:''}
   <!-- 미팅 기록 -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin:10px 0 6px">
