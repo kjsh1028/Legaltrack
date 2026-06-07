@@ -1515,7 +1515,7 @@ function renderContactDetail(ctId){
     ${ct.mobile?irow('휴대폰',ct.mobile):''}
     ${ct.tel?irow('직통',ct.tel):''}
     ${ct.wechat?irow('WeChat',ct.wechat):''}
-    ${ct.linkedin?irow('LinkedIn',ct.linkedin):''}
+    ${ct.kakao?irow('카카오톡',ct.kakao):''}
     ${ct.address?irow('주소',ct.address):''}
     ${ct.met_date?irow('첫 만남',fmtDF(ct.met_date)):''}
     ${ct.note?irow('메모',ct.note):''}
@@ -1598,7 +1598,7 @@ function openContactModal(clientId,editId){
 </div>
 <div class="field-row">
   <div class="field"><label>WeChat ID</label><input id="ct_wechat" value="${em?.wechat||''}" placeholder="WeChat ID"></div>
-  <div class="field"><label>LinkedIn</label><input id="ct_linkedin" value="${em?.linkedin||''}" placeholder="LinkedIn URL"></div>
+  <div class="field"><label>카카오톡 ID</label><input id="ct_kakao" value="${em?.kakao||''}" placeholder="카카오톡 ID"></div>
 </div>
 <div class="field"><label>첫 만남 날짜</label><input id="ct_met" type="date" value="${em?.met_date||today()}"></div>
 <div class="field"><label>태그 (쉼표 구분)</label><input id="ct_tags" value="${em?.tags?.join(',')||''}" placeholder="잠재고객,핵심,M&A"></div>
@@ -1622,7 +1622,7 @@ function saveContact(eid){
     mobile:(document.getElementById('ct_mobile')?.value||'').trim(),
     tel:(document.getElementById('ct_tel')?.value||'').trim(),
     wechat:(document.getElementById('ct_wechat')?.value||'').trim(),
-    linkedin:(document.getElementById('ct_linkedin')?.value||'').trim(),
+    kakao:(document.getElementById('ct_kakao')?.value||'').trim(),
     met_date:document.getElementById('ct_met')?.value||today(),
     address:(document.getElementById('ct_addr')?.value||'').trim(),
     tags:tagsRaw?tagsRaw.split(',').map(t=>t.trim()).filter(Boolean):[],
