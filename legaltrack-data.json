@@ -485,8 +485,8 @@
       "note": "",
       "link": "",
       "linkLabel": "회사 자료",
-      "done": true,
-      "doneAt": "2026-06-07"
+      "done": false,
+      "doneAt": null
     }
   ]
 }
