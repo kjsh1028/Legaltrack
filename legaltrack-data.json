@@ -292,14 +292,6 @@
   ],
   "entries": [
     {
-      "id": "mq38bfqlhxla7",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-06-01",
-      "minutes": 30,
-      "description": "중국팀 주간회의",
-      "billable": true
-    },
-    {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-05",
@@ -313,6 +305,14 @@
       "date": "2026-06-03",
       "minutes": 60,
       "description": "상해법인청산 관련 세무법인 지시 및 주간보고서 작성",
+      "billable": true
+    },
+    {
+      "id": "mq20navxoh9kk",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-01",
+      "minutes": 30,
+      "description": "중국팀 주간회의",
       "billable": true
     },
     {
@@ -346,9 +346,38 @@
       "minutes": 60,
       "description": "일정관리표와 관련 문서 초안 작성",
       "billable": true
+    },
+    {
+      "id": "mq38bfqlhxla7",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-06-01",
+      "minutes": 30,
+      "description": "중국팀 주간회의",
+      "billable": true
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "id": "mq2gm94hsvzaf",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": "일부 잔금"
+    },
+    {
+      "id": "mq2glry4736rd",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": ""
+    }
+  ],
   "clients": [
     {
       "id": "mq2grmdjpn7p8",
