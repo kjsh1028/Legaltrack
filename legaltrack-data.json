@@ -854,6 +854,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mq4p8parntiqv",
+      "title": "진이신 뉴스 레터 검토",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "https://docs.google.com/document/d/1vkalb35ITPfDDreX9i8eUn5C5Z_DUD5w/edit?usp=drivesdk&ouid=110000574387133527525&rtpof=true&sd=true",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ]
 }
