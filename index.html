@@ -469,7 +469,7 @@ html,body{height:100%;background:var(--bg);
           <button class="back-btn" id="backBtn" onclick="handleBack()">‹ 뒤로</button>
           <div class="page-title" id="pageTitle">대시보드</div>
         </div>
-        <div class="page-actions">
+        <div class="page-actions" id="pageActions">
           <button class="act-btn act-primary" style="padding:8px 16px;font-size:13px;border-radius:8px" onclick="openEntryModal()">＋ 시간기록</button>
         </div>
       </div>
@@ -785,6 +785,9 @@ function renderContent(){
     titles[curTab]||'LegalTrack';
   if(pt)pt.textContent=titleStr;
   if(mst)mst.textContent=titleStr;
+  // Hide 시간기록 button on matter list layers
+  const pa=document.getElementById('pageActions');
+  if(pa){const hideLayers=['matters_list','active_list'];pa.style.display=hideLayers.includes(curLayer)?'none':'flex';}
   // Cross-tab layer routing
   if(curLayer==='client_detail'||curLayer==='contact_detail'){
     c.innerHTML=renderClientsPage();
