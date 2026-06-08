@@ -466,6 +466,16 @@
       "rate_on_date": 226,
       "krw_amount": 11300000,
       "note": "일부 잔금"
+    },
+    {
+      "id": "mq2glry4736rd",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": ""
     }
   ],
   "clients": [
@@ -480,19 +490,6 @@
       "website": "",
       "address": "",
       "note": "쿤산 자회사 매각",
-      "meetings": []
-    },
-    {
-      "id": "mq3qar2fp3ho2",
-      "name": "목원 그룹",
-      "fullname": "",
-      "industry": "농업",
-      "country": "중국",
-      "status": "prospect",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
       "meetings": []
     },
     {
@@ -520,9 +517,39 @@
       "address": "",
       "note": "",
       "meetings": []
+    },
+    {
+      "id": "mq3qar2fp3ho2",
+      "name": "목원 그룹",
+      "fullname": "",
+      "industry": "농업",
+      "country": "중국",
+      "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
     }
   ],
   "contacts": [
+    {
+      "id": "mq2xz367kcub1",
+      "name": "최규승",
+      "title": "상무",
+      "dept": "",
+      "company": "인지정밀",
+      "clientId": "mq2grmdjpn7p8",
+      "email": "error9820@inzi.co.kr",
+      "mobile": "+821072497352",
+      "tel": "",
+      "wechat": "",
+      "linkedin": "",
+      "met_date": "2026-06-06",
+      "address": "경기도 과천시 뒷골목 12-3 3 층",
+      "tags": [],
+      "note": ""
+    },
     {
       "id": "mq3d7az27rk27",
       "name": "박태연",
@@ -571,23 +598,6 @@
       "linkedin": "",
       "met_date": "2026-06-07",
       "address": "",
-      "tags": [],
-      "note": ""
-    },
-    {
-      "id": "mq2xz367kcub1",
-      "name": "최규승",
-      "title": "상무",
-      "dept": "",
-      "company": "인지정밀",
-      "clientId": "mq2grmdjpn7p8",
-      "email": "error9820@inzi.co.kr",
-      "mobile": "+821072497352",
-      "tel": "",
-      "wechat": "",
-      "linkedin": "",
-      "met_date": "2026-06-06",
-      "address": "경기도 과천시 뒷골목 12-3 3 층",
       "tags": [],
       "note": ""
     }
@@ -680,6 +690,19 @@
       "matterId": "",
       "note": "형님이 생각하는 운영 방식에 대해서 좀 더 정확하게 알아 보기",
       "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
+    },
+    {
+      "id": "mq4lqawvheelq",
+      "title": "서울대 AI 컨퍼런스 홍보",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq20ac8bqbt35",
+      "note": "서울대 임용 교수 AI 컨퍼런스 홍보",
+      "link": "2026-Home - Seoul AI Policy Conference - https://first.dpmice.com/onsite/registration/insert.do?event=SAIPCON2026",
       "linkLabel": "",
       "done": false,
       "doneAt": null
