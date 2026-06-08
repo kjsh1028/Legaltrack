@@ -839,9 +839,7 @@ function renderDash(){
   const cards=[
     {l:'수임 진행중', v:prospectM.length+'건', c:'kpi-o', fn:"curLayer='matters_list';renderContent()"},
     {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length+'건', c:'kpi-g', fn:"curLayer='active_list';renderContent()"},
-    {l:'수임액', v:fmt(retKRW), c:'kpi-gold', fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()"},
-    {l:'입금액', v:fmt(payKRW), c:'kpi-teal', fn:"goTab(2);_queryMode='money';_moneyType='payment';renderContent()"},
-    {l:'성공보수 예정', v:contKRW>0?fmt(contKRW):'없음', c:'kpi-r', fn:contKRW>0?"goTab(2);_queryMode='money';_moneyType='contingency';renderContent()":''},
+    {l:'업적', v:fmt(retKRW), c:'kpi-gold', fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()", sub:fmt(payKRW), sub2:contKRW>0?fmt(contKRW):null},
     {l:'고객 관리', v:clientCount+'개', c:'kpi-b', fn:"goTab(2);_queryMode='clients';renderContent()"},
     {l:'할 일', v:(()=>{const n=(D.todos||[]).filter(t=>!t.done).length;return n+'건';})(), c:'kpi-p', fn:'goTab(6);renderContent()'},
     {l:'이번 달', v:hhmm(s.month), c:'kpi-b', fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
@@ -853,7 +851,23 @@ function renderDash(){
   <div class="dash-header-sub">즐거운 하루 되세요 🌿</div>
 </div>
 <div class="dash-kpi">
-${cards.map(k=>`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
+${cards.map(k=>k.sub!==undefined?`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}  style="grid-column:span 2">
+  <div class="kpi-lbl">${k.l}</div>
+  <div style="display:flex;gap:16px;align-items:flex-end;margin-top:6px">
+    <div>
+      <div style="font-size:10px;color:var(--text3);margin-bottom:2px">수임액</div>
+      <div class="kpi-num" style="font-size:22px">${k.v}</div>
+    </div>
+    <div>
+      <div style="font-size:10px;color:var(--text3);margin-bottom:2px">입금액</div>
+      <div class="kpi-num" style="font-size:22px;color:#0891B2">${k.sub}</div>
+    </div>
+    ${k.sub2?`<div>
+      <div style="font-size:10px;color:var(--text3);margin-bottom:2px">성공보수</div>
+      <div class="kpi-num" style="font-size:22px;color:#DC2626">${k.sub2}</div>
+    </div>`:''}
+  </div>
+</div>`:`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
   <div class="kpi-lbl">${k.l}</div>
   <div class="kpi-num">${k.v}</div>
 </div>`).join('')}
