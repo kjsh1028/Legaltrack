@@ -1744,6 +1744,7 @@ function renderTodos(){
 
   let items=D.todos.filter(t=>showDone?t.done:!t.done);
   if(filter==='yulchon') items=items.filter(t=>t.cat==='yulchon');
+  if(filter==='sales') items=items.filter(t=>t.cat==='sales');
   if(filter==='personal') items=items.filter(t=>t.cat==='personal');
 
   // Sort: urgent first, then by due date
