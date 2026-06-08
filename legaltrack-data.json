@@ -800,8 +800,8 @@
       "note": "서울대 임용 교수 AI 컨퍼런스 홍보\n2026-Home - Seoul AI Policy Conference - https://first.dpmice.com/onsite/registration/insert.do?event=SAIPCON2026",
       "link": "https://www.saipcon.com/",
       "linkLabel": "",
-      "done": true,
-      "doneAt": "2026-06-08"
+      "done": false,
+      "doneAt": null
     },
     {
       "id": "mq4m3p0n6eje8",
