@@ -778,6 +778,9 @@ function renderContent(){
     curLayer==='entry_detail'?'기록 상세':
     curLayer==='client_detail'?'고객사 상세':
     curLayer==='contact_detail'?'명함 상세':
+    curLayer==='dash_money'?'금액 조회':
+    curLayer==='dash_clients'?'고객사 관리':
+    curLayer==='dash_time'?'시간 조회':
     _queryMode==='time'?'시간 조회':
     _queryMode==='money'?'금액 조회':
     _queryMode==='clients'?'고객사 관리':
@@ -787,7 +790,7 @@ function renderContent(){
   if(mst)mst.textContent=titleStr;
   // Hide 시간기록 button on matter list layers
   const pa=document.getElementById('pageActions');
-  if(pa){const hideLayers=['matters_list','active_list'];pa.style.display=hideLayers.includes(curLayer)?'none':'flex';}
+  if(pa){const hideLayers=['matters_list','active_list','dash_money','dash_clients','dash_time'];pa.style.display=hideLayers.includes(curLayer)?'none':'flex';}
   // Cross-tab layer routing
   if(curLayer==='client_detail'||curLayer==='contact_detail'){
     c.innerHTML=renderClientsPage();
@@ -832,6 +835,9 @@ function renderDash(){
   if(curLayer==='matters_list') return renderMattersList('prospect');
   if(curLayer==='active_list') return renderMattersList('active');
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
+  if(curLayer==='dash_money') return renderMoneyResults();
+  if(curLayer==='dash_clients') return renderClientsPage();
+  if(curLayer==='dash_time') return renderTimeResults();
 
   const fmt=v=>v>=100000000?(v/100000000).toFixed(1)+'억':v>=10000?Math.round(v/10000).toLocaleString()+'만':fmtK(v);
   const now=new Date();
@@ -839,10 +845,10 @@ function renderDash(){
   const cards=[
     {l:'수임 진행중', v:prospectM.length+'건', c:'kpi-o', fn:"curLayer='matters_list';renderContent()"},
     {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length+'건', c:'kpi-g', fn:"curLayer='active_list';renderContent()"},
-    {l:'업적', v:fmt(retKRW), c:'kpi-gold', fn:"goTab(2);_queryMode='money';_moneyType='retainer';renderContent()", sub:fmt(payKRW), sub2:contKRW>0?fmt(contKRW):null},
-    {l:'고객 관리', v:clientCount+'개', c:'kpi-b', fn:"goTab(2);_queryMode='clients';renderContent()"},
+    {l:'업적', v:fmt(retKRW), c:'kpi-gold', fn:"_queryMode='money';_moneyType='retainer';curLayer='dash_money';renderContent()", sub:fmt(payKRW), sub2:contKRW>0?fmt(contKRW):null},
+    {l:'고객 관리', v:clientCount+'개', c:'kpi-b', fn:"_queryMode='clients';_clientTab='clients';curLayer='dash_clients';renderContent()"},
     {l:'할 일', v:(()=>{const n=(D.todos||[]).filter(t=>!t.done).length;return n+'건';})(), c:'kpi-p', fn:'goTab(6);renderContent()'},
-    {l:'이번 달', v:hhmm(s.month), c:'kpi-b', fn:"goTab(2);_queryMode='time';_timePresetQ='month';renderContent()"},
+    {l:'이번 달', v:hhmm(s.month), c:'kpi-b', fn:"_queryMode='time';_timePresetQ='month';curLayer='dash_time';renderContent()"},
   ];
 
   return`<div class="dash-wrap">
@@ -2128,6 +2134,8 @@ function handleBack(){
     curLayer=null; // 홈 대시보드로
   } else if(curLayer==='active_list'){
     curLayer=null; // 홈 대시보드로
+  } else if(curLayer==='dash_money'||curLayer==='dash_clients'||curLayer==='dash_time'){
+    curLayer=null;_queryMode=null; // 홈 대시보드로
   } else if(curLayer===null && _queryMode){
     // 조회 결과에서 → 조회 선택 화면
     _queryMode=null;
