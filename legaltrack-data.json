@@ -71,7 +71,7 @@
       "name": "마케팅",
       "client": "율촌",
       "type": "biz-b",
-      "status": "prospect",
+      "status": "active",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -95,7 +95,9 @@
       "lit_balance": null,
       "lit_mode": null,
       "contingency_amount": null,
-      "contingency_condition": null
+      "contingency_condition": null,
+      "driveLink": "",
+      "driveLinkLabel": ""
     },
     {
       "id": "mq20ej2g25wzu",
