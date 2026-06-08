@@ -835,6 +835,7 @@ function renderDash(){
   if(curLayer==='matters_list') return renderMattersList('prospect');
   if(curLayer==='active_list') return renderMattersList('active');
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
+  if(curLayer==='entry_detail') return renderEntryDetailLayer();
   if(curLayer==='dash_money') return renderMoneyResults();
   if(curLayer==='dash_clients') return renderClientsPage();
   if(curLayer==='dash_time') return renderTimeResults();
@@ -2120,7 +2121,9 @@ function handleBack(){
       curLayer=null;
     }
   } else if(curLayer==='entry_detail'){
-    curLayer=null; // _queryMode='time' 유지
+    // dash_time에서 진입했으면 dash_time으로 복귀
+    if(curTab===0){curLayer='dash_time';}
+    else{curLayer=null;} // _queryMode='time' 유지
   } else if(curLayer==='contact_detail'){
     curLayer=_selClientId?'client_detail':null;
   } else if(curLayer==='client_detail'){
