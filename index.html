@@ -127,17 +127,18 @@ html,body{height:100%;background:var(--bg);
   height:100%;display:flex;flex-direction:column;overflow:hidden;
 }
 .dash-header{
-  padding:18px 18px 10px;
+  padding:14px 16px 8px;
   flex-shrink:0;
 }
 .dash-header-title{
-  font-size:22px;font-weight:800;color:var(--text);
+  font-size:20px;font-weight:800;color:var(--text);
   letter-spacing:-.5px;margin-bottom:2px;
 }
-.dash-header-sub{font-size:13px;color:var(--text3);font-weight:400}
+.dash-header-sub{font-size:12px;color:var(--text3);font-weight:400}
 .dash-kpi{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:10px;padding:0 14px 14px;
+  gap:10px;padding:0 12px 12px;
+  flex:1;
 }
 @media(min-width:500px){.dash-kpi{grid-template-columns:repeat(4,1fr)}}
 
@@ -145,14 +146,14 @@ html,body{height:100%;background:var(--bg);
 .kpi-item{
   background:var(--white);
   border-radius:16px;
-  padding:13px 14px 13px;
+  padding:14px 16px;
   display:flex;flex-direction:column;
   justify-content:space-between;
   box-shadow:var(--shadow);
   border:1px solid var(--border);
   overflow:hidden;position:relative;
   transition:transform .12s,box-shadow .12s;
-  height:110px;box-sizing:border-box;
+  min-height:0;
 }
 .kpi-item.kpi-tap{cursor:pointer}
 .kpi-item.kpi-tap:active{transform:scale(.96);box-shadow:none}
@@ -171,10 +172,9 @@ html,body{height:100%;background:var(--bg);
 .kpi-p::before{--accent:#8B5CF6}
 
 .kpi-lbl{
-  font-size:14px;font-weight:700;
+  font-size:13px;font-weight:700;
   color:var(--text2);
   letter-spacing:.01em;line-height:1.2;
-  margin-bottom:0;margin-top:0;
 }
 .kpi-num{
   font-size:clamp(22px,5.5vw,30px);
@@ -853,21 +853,23 @@ function renderDash(){
 <div class="dash-kpi">
 ${cards.map(k=>k.sub!==undefined?`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}">
   <div class="kpi-lbl">${k.l}</div>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;padding-top:2px">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
-      <span style="font-size:16px;font-weight:800;color:#D97706;letter-spacing:-.02em">${k.v}</span>
-      <span style="font-size:10px;color:var(--text3);font-weight:600">수임액</span>
+  <div style="display:flex;flex-direction:column;justify-content:space-evenly;flex:1;padding-top:6px;gap:0">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:11px;color:var(--text3);font-weight:600">수임액</span>
+      <span style="font-size:18px;font-weight:800;color:#D97706;letter-spacing:-.02em">${k.v}</span>
     </div>
-    <div style="width:1px;height:32px;background:var(--border);opacity:.5;margin-bottom:4px"></div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
-      <span style="font-size:16px;font-weight:800;color:#0891B2;letter-spacing:-.02em">${k.sub}</span>
-      <span style="font-size:10px;color:var(--text3);font-weight:600">입금액</span>
+    <div style="height:1px;background:var(--border);opacity:.4"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:11px;color:var(--text3);font-weight:600">입금액</span>
+      <span style="font-size:18px;font-weight:800;color:#0891B2;letter-spacing:-.02em">${k.sub}</span>
     </div>
-    <div style="width:1px;height:32px;background:var(--border);opacity:.5;margin-bottom:4px"></div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
-      <span style="font-size:16px;font-weight:800;color:#DC2626;letter-spacing:-.02em">${k.sub2||'—'}</span>
-      <span style="font-size:10px;color:var(--text3);font-weight:600">성공보수</span>
+    <div style="height:1px;background:var(--border);opacity:.4"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:11px;color:var(--text3);font-weight:600">성공보수</span>
+      <span style="font-size:18px;font-weight:800;color:#DC2626;letter-spacing:-.02em">${k.sub2||'—'}</span>
     </div>
+  </div>
+</div>`''}
   </div>
 </div>`:`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
   <div class="kpi-lbl">${k.l}</div>
