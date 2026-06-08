@@ -392,6 +392,14 @@
   ],
   "entries": [
     {
+      "id": "mq4lwelvdp2v2",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-08",
+      "minutes": 24,
+      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
+      "billable": true
+    },
+    {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-05",
