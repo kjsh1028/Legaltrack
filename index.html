@@ -1067,10 +1067,10 @@ function renderMattersPage(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
   const all=D.matters.filter(m=>m.status!=='failed');
   const byStatus={
+    internal:all.filter(m=>m.status==='internal'),
     prospect:all.filter(m=>m.status==='prospect'),
     active:all.filter(m=>m.status==='active'),
     closed:all.filter(m=>m.status==='closed'),
-    internal:all.filter(m=>m.status==='internal'),
   };
   const statusLabels={prospect:'🔵 수임 진행중',active:'✅ 수임 완료',closed:'🔒 클로징',internal:'🏢 비빌링'};
   const statusColors={prospect:'var(--o)',active:'var(--g)',closed:'var(--t)',internal:'var(--gray)'};
