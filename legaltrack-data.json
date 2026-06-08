@@ -430,30 +430,6 @@
   ],
   "entries": [
     {
-      "id": "mq4mezbriaoud",
-      "matterId": "mq4lxl561un1a",
-      "date": "2026-06-08",
-      "minutes": 12,
-      "description": "김계향 변호사와 사건 수임 논의",
-      "billable": true
-    },
-    {
-      "id": "mq4m6g94pi4q8",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-08",
-      "minutes": 24,
-      "description": "잠재적 인수자 소개 및 회사 파악",
-      "billable": true
-    },
-    {
-      "id": "mq4lwelvdp2v2",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-08",
-      "minutes": 36,
-      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
-      "billable": true
-    },
-    {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-05",
@@ -516,6 +492,30 @@
       "minutes": 30,
       "description": "중국팀 주간회의",
       "billable": true
+    },
+    {
+      "id": "mq4m6g94pi4q8",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-08",
+      "minutes": 24,
+      "description": "잠재적 인수자 소개 및 회사 파악",
+      "billable": true
+    },
+    {
+      "id": "mq4lwelvdp2v2",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
+      "billable": true
+    },
+    {
+      "id": "mq4mezbriaoud",
+      "matterId": "mq4lxl561un1a",
+      "date": "2026-06-08",
+      "minutes": 12,
+      "description": "김계향 변호사와 사건 수임 논의",
+      "billable": true
     }
   ],
   "payments": [
@@ -555,6 +555,19 @@
       "meetings": []
     },
     {
+      "id": "mq3qar2fp3ho2",
+      "name": "목원 그룹",
+      "fullname": "",
+      "industry": "농업",
+      "country": "중국",
+      "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
       "id": "mq2grmdjpn7p8",
       "name": "인지정밀",
       "fullname": "인지 디스플레이",
@@ -579,39 +592,9 @@
       "address": "",
       "note": "",
       "meetings": []
-    },
-    {
-      "id": "mq3qar2fp3ho2",
-      "name": "목원 그룹",
-      "fullname": "",
-      "industry": "농업",
-      "country": "중국",
-      "status": "prospect",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
     }
   ],
   "contacts": [
-    {
-      "id": "mq2xz367kcub1",
-      "name": "최규승",
-      "title": "상무",
-      "dept": "",
-      "company": "인지정밀",
-      "clientId": "mq2grmdjpn7p8",
-      "email": "error9820@inzi.co.kr",
-      "mobile": "+821072497352",
-      "tel": "",
-      "wechat": "",
-      "linkedin": "",
-      "met_date": "2026-06-06",
-      "address": "경기도 과천시 뒷골목 12-3 3 층",
-      "tags": [],
-      "note": ""
-    },
     {
       "id": "mq3d7az27rk27",
       "name": "박태연",
@@ -660,6 +643,23 @@
       "linkedin": "",
       "met_date": "2026-06-07",
       "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mq2xz367kcub1",
+      "name": "최규승",
+      "title": "상무",
+      "dept": "",
+      "company": "인지정밀",
+      "clientId": "mq2grmdjpn7p8",
+      "email": "error9820@inzi.co.kr",
+      "mobile": "+821072497352",
+      "tel": "",
+      "wechat": "",
+      "linkedin": "",
+      "met_date": "2026-06-06",
+      "address": "경기도 과천시 뒷골목 12-3 3 층",
       "tags": [],
       "note": ""
     }
@@ -720,11 +720,11 @@
     {
       "id": "mq3tnod64hjb5",
       "title": "상해 로펌 미팅 하기",
-      "cat": "yulchon",
+      "cat": "sales",
       "priority": "normal",
       "due": "",
-      "matterId": "mq33mk2e2x560",
-      "note": "",
+      "matterId": "",
+      "note": "보고서 검토",
       "link": "",
       "linkLabel": "",
       "done": false,
