@@ -1771,7 +1771,7 @@ function renderTodos(){
 
   <!-- 필터 탭 -->
   <div style="display:flex;gap:6px;margin-bottom:10px">
-    ${[['all','전체'],['yulchon','🏛️ 율촌'],['personal','👤 개인']].map(([k,l])=>
+    ${[['all','전체'],['yulchon','🏛️ 율촌'],['sales','📢 영업'],['personal','👤 개인']].map(([k,l])=>
       `<button onclick="_todoFilter='${k}';renderContent()" 
         style="padding:7px 14px;border-radius:20px;border:1.5px solid ${filter===k?'var(--g)':'var(--border)'};background:${filter===k?'var(--gl)':'#fff'};color:${filter===k?'var(--g2)':'var(--text3)'};font-size:13px;font-weight:${filter===k?'700':'500'};cursor:pointer;font-family:inherit">${l}</button>`
     ).join('')}
@@ -1822,8 +1822,8 @@ function renderTodoItem(t){
     <div style="flex:1;min-width:0">
       <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px;${t.done?'text-decoration:line-through;opacity:.5':''}">${t.title}</div>
       <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:${t.note||t.link?'6px':'0'}">
-        <span style="font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;background:${t.cat==='yulchon'?'var(--gl)':'var(--bl)'};color:${t.cat==='yulchon'?'var(--g2)':'var(--b)'}">
-          ${t.cat==='yulchon'?'🏛️ 율촌':'👤 개인'}
+        <span style="font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;background:${t.cat==='yulchon'?'var(--gl)':t.cat==='sales'?'var(--ol)':'var(--bl)'};color:${t.cat==='yulchon'?'var(--g2)':t.cat==='sales'?'var(--o)':'var(--b)'}">
+          ${t.cat==='yulchon'?'🏛️ 율촌':t.cat==='sales'?'📢 영업':'👤 개인'}
         </span>
         ${m?`<span style="font-size:11px;color:var(--text3);background:var(--grayl);padding:2px 8px;border-radius:10px">${m.code}</span>`:''}
         <span style="font-size:11px;font-weight:600;color:${pColor}">●  ${pLabel}</span>
@@ -1863,6 +1863,7 @@ function openTodoModal(editId){
   <div class="field"><label>카테고리</label>
     <select id="td_cat" onchange="document.getElementById('td_mrow').style.display=this.value==='yulchon'?'block':'none'">
       <option value="yulchon" ${(!em||em.cat==='yulchon')?'selected':''}>🏛️ 율촌 업무</option>
+      <option value="sales" ${em?.cat==='sales'?'selected':''}>📢 영업</option>
       <option value="personal" ${em?.cat==='personal'?'selected':''}>👤 개인</option>
     </select>
   </div>
@@ -1875,7 +1876,7 @@ function openTodoModal(editId){
   </div>
 </div>
 <div class="field"><label>마감일</label><input id="td_due" type="date" value="${em?.due||''}"></div>
-<div id="td_mrow" style="display:${(!em||em.cat==='yulchon')?'block':'none'}">
+<div id="td_mrow" style="display:${(em?.cat==='yulchon'||!em)?'block':'none'}">
   <div class="field"><label>연결 Matter (선택)</label>
     <select id="td_matter">
       <option value="">— Matter 연결 안함 —</option>
