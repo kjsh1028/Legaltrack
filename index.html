@@ -964,15 +964,35 @@ function renderMatterDetailLayer(){
     </div>
     <span style="font-size:16px;color:var(--b)">›</span>
   </a>`:''}
-  <!-- Recent entries -->
-  ${entries.length>0?`<div class="section-title">최근 시간 기록</div>
+  <!-- Time entries (all) -->
+  ${entries.length>0?`<div class="section-title">시간 기록</div>
   <div class="entry-list">
-    ${entries.slice(0,5).map(e=>`<div class="entry-row" onclick="editEntry('${e.id}')">
+    ${entries.map(e=>`<div class="entry-row" onclick="editEntry('${e.id}')">
       <span class="er-date">${fmtDF(e.date)}</span>
       <span class="er-desc">${e.description||e.desc||'—'}</span>
       <span class="er-time">${hhmm(e.minutes)}</span>
     </div>`).join('')}
   </div>`:''}
+  <!-- Linked todos -->
+  ${(()=>{
+    const mTodos=(D.todos||[]).filter(t=>t.matterId===m.id);
+    if(!mTodos.length) return '';
+    const pending=mTodos.filter(t=>!t.done);
+    const done=mTodos.filter(t=>t.done);
+    return`<div class="section-title">할 일</div>
+    <div class="entry-list">
+      ${pending.map(t=>`<div class="entry-row" onclick="openTodoModal('${t.id}')" style="cursor:pointer">
+        <span style="font-size:16px;margin-right:4px">⬜</span>
+        <span class="er-desc" style="flex:1">${t.title}</span>
+        ${t.due?`<span class="er-time" style="color:${diffDays(t.due)<=0?'var(--r)':diffDays(t.due)<=2?'var(--o)':'var(--text3)'}">${dueBadge(t.due)}</span>`:''}
+      </div>`).join('')}
+      ${done.map(t=>`<div class="entry-row" onclick="openTodoModal('${t.id}')" style="cursor:pointer;opacity:.55">
+        <span style="font-size:16px;margin-right:4px">✅</span>
+        <span class="er-desc" style="flex:1;text-decoration:line-through">${t.title}</span>
+        ${t.doneAt?`<span class="er-time" style="color:var(--text3)">${fmtDF(t.doneAt)}</span>`:''}
+      </div>`).join('')}
+    </div>`;
+  })()}
   <!-- Recent payments -->
   ${pays.length>0?`<div class="section-title">입금 내역</div>
   <div class="entry-list">
