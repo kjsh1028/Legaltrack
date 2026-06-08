@@ -670,6 +670,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mq4h4h8epsnnj",
+      "title": "강병환 회사 운영방안",
+      "cat": "personal",
+      "priority": "normal",
+      "due": "",
+      "matterId": "",
+      "note": "형님이 생각하는 운영 방식에 대해서 좀 더 정확하게 알아 보기",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ]
 }
