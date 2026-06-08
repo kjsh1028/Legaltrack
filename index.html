@@ -863,13 +863,15 @@ ${cards.map(k=>`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclic
 /* Layer: Matter 목록 (진행중/완료) */
 function renderMattersList(statusKey){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
-  const statusMap={
-    prospect:D.matters.filter(m=>m.status==='prospect'),
-    active:D.matters.filter(m=>['active','closed'].includes(m.status)),
-  };
-  const allItems=statusMap[statusKey]||[];
   const q=(document.getElementById('ml_q')?.value||'').toLowerCase();
-  const items=q?allItems.filter(m=>m.name.toLowerCase().includes(q)||(m.client||'').toLowerCase().includes(q)||(m.code||'').toLowerCase().includes(q)):allItems;
+  const subFilter=statusKey==='active'?_activeSubFilter:null;
+  const subFilterTabs=statusKey==='active'?`
+  <div style="display:flex;gap:6px;margin-bottom:10px">
+    ${[['active','✅ 수임 완료'],['closed','🔒 클로징']].map(([k,l])=>
+      `<button onclick="_activeSubFilter='${k}';renderContent()"
+        style="padding:7px 16px;border-radius:20px;border:1.5px solid ${_activeSubFilter===k?'var(--g)':'var(--border)'};background:${_activeSubFilter===k?'var(--gl)':'#fff'};color:${_activeSubFilter===k?'var(--g2)':'var(--text3)'};font-size:13px;font-weight:${_activeSubFilter===k?'700':'500'};cursor:pointer;font-family:inherit">${l}</button>`
+    ).join('')}
+  </div>`:'';
   return`<div class="list-wrap" style="padding-top:8px">
   <div style="display:flex;gap:8px;margin-bottom:10px">
     <input id="ml_q" placeholder="이름·의뢰인·코드 검색..." value="${q}"
@@ -877,13 +879,14 @@ function renderMattersList(statusKey){
       style="flex:1;padding:10px 13px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:var(--white)">
     <button onclick="openMatterModal()" style="padding:10px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit">＋ 추가</button>
   </div>
+  ${subFilterTabs}
   <div id="mlList">${renderMLItems(statusKey,q)}</div>
 </div>`;}
 
 function renderMLItems(statusKey,q){
   const statusMap={
     prospect:D.matters.filter(m=>m.status==='prospect'),
-    active:D.matters.filter(m=>['active','closed'].includes(m.status)),
+    active:D.matters.filter(m=>statusKey==='active'?m.status===_activeSubFilter:['active','closed'].includes(m.status)),
   };
   const allItems=statusMap[statusKey]||[];
   const sq=(q||'').toLowerCase();
@@ -1853,6 +1856,7 @@ function toggleTodoDone(id){
 }
 
 let _todoFilter='all', _todoDone=false;
+let _activeSubFilter='active'; // 'active'|'closed'
 
 function openTodoModal(editId){
   const em=editId?(D.todos||[]).find(x=>x.id===editId):null;
