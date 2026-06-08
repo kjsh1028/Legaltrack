@@ -269,7 +269,7 @@
       "name": "율촌",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "internal",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -293,7 +293,9 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "driveLink": "",
+      "driveLinkLabel": ""
     },
     {
       "id": "mq3d3wrswz09o",
