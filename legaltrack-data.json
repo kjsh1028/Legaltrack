@@ -430,6 +430,14 @@
   ],
   "entries": [
     {
+      "id": "mq4mezbriaoud",
+      "matterId": "mq4lxl561un1a",
+      "date": "2026-06-08",
+      "minutes": 12,
+      "description": "김계향 변호사와 사건 수임 논의",
+      "billable": true
+    },
+    {
       "id": "mq4m6g94pi4q8",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-08",
