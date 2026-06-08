@@ -39,7 +39,7 @@
       "name": "Brooks 지분변경/노동계약",
       "client": "Brooks Sports",
       "type": "fixed-f",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": 12000,
       "retainer_cur": "USD",
       "rate": null,
