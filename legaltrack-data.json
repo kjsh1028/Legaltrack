@@ -464,6 +464,14 @@
   ],
   "entries": [
     {
+      "id": "mq59cx61m9lfi",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "법인 설립 관련 자료 수정 검토",
+      "billable": true
+    },
+    {
       "id": "mq4r1pva3h88e",
       "matterId": "mq20lebejr8qp",
       "date": "2026-06-08",
