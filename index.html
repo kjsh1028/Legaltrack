@@ -153,6 +153,7 @@ html,body{height:100%;background:var(--bg);
   border:1px solid var(--border);
   overflow:hidden;position:relative;
   transition:transform .12s,box-shadow .12s;
+  min-height:120px;
 }
 .kpi-item.kpi-tap{cursor:pointer}
 .kpi-item.kpi-tap:active{transform:scale(.96);box-shadow:none}
@@ -853,20 +854,20 @@ function renderDash(){
 <div class="dash-kpi">
 ${cards.map(k=>k.sub!==undefined?`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}">
   <div class="kpi-lbl">${k.l}</div>
-  <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
+  <div style="display:flex;flex-direction:column;gap:4px;margin-top:2px">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <span style="font-size:9px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em">수임액</span>
-      <span class="kpi-num" style="font-size:16px">${k.v}</span>
+      <span style="font-size:9px;color:var(--text3);font-weight:600;letter-spacing:.03em">수임액</span>
+      <span style="font-size:14px;font-weight:800;color:#D97706;letter-spacing:-.01em">${k.v}</span>
     </div>
-    <div style="height:1px;background:var(--border);opacity:.5"></div>
+    <div style="height:1px;background:var(--border);opacity:.4"></div>
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <span style="font-size:9px;color:#0891B2;font-weight:600;text-transform:uppercase;letter-spacing:.04em">입금액</span>
-      <span style="font-size:16px;font-weight:800;color:#0891B2;letter-spacing:-.01em">${k.sub}</span>
+      <span style="font-size:9px;color:var(--text3);font-weight:600;letter-spacing:.03em">입금액</span>
+      <span style="font-size:14px;font-weight:800;color:#0891B2;letter-spacing:-.01em">${k.sub}</span>
     </div>
-    ${k.sub2?`<div style="height:1px;background:var(--border);opacity:.5"></div>
+    ${k.sub2?`<div style="height:1px;background:var(--border);opacity:.4"></div>
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <span style="font-size:9px;color:#DC2626;font-weight:600;text-transform:uppercase;letter-spacing:.04em">성공보수</span>
-      <span style="font-size:16px;font-weight:800;color:#DC2626;letter-spacing:-.01em">${k.sub2}</span>
+      <span style="font-size:9px;color:var(--text3);font-weight:600;letter-spacing:.03em">성공보수</span>
+      <span style="font-size:14px;font-weight:800;color:#DC2626;letter-spacing:-.01em">${k.sub2}</span>
     </div>`:''}
   </div>
 </div>`:`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':''}" ${k.fn?`onclick="${k.fn}"`:''}>
