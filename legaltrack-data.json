@@ -464,6 +464,14 @@
   ],
   "entries": [
     {
+      "id": "mq4r1pva3h88e",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-06-08",
+      "minutes": 18,
+      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
+      "billable": true
+    },
+    {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-05",
