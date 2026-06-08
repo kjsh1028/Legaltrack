@@ -40,7 +40,7 @@
       "client": "Brooks Sports",
       "type": "fixed-f",
       "status": "active",
-      "retainer_amount": 12000000,
+      "retainer_amount": 12000,
       "retainer_cur": "USD",
       "rate": null,
       "rate_cur": "KRW",
@@ -63,7 +63,9 @@
       "lit_balance": null,
       "lit_mode": null,
       "contingency_amount": null,
-      "contingency_condition": null
+      "contingency_condition": null,
+      "driveLink": "",
+      "driveLinkLabel": ""
     },
     {
       "id": "mq20ac8bqbt35",
