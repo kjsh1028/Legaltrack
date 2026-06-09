@@ -2603,19 +2603,9 @@ function editPayment(pid, mid){
 <div class="conv" id="epConv">${p.currency!=='KRW'&&p.krw_amount?'≈ '+fmtK(p.krw_amount):''}</div>
 <div class="field"><label>메모</label><input id="epNote" value="${p.note||''}" placeholder="메모 (선택)"></div>
 <button class="savebtn" onclick="saveEditPayment('${pid}','${mid}')">수정 저장</button>
-<button class="savebtn red" style="margin-top:6px" onclick="deletePayment('${pid}','${mid}')">🗑️ 삭제</button>
+<button class="savebtn red" style="margin-top:6px" onclick="delPayment('${pid}');closeModal()">🗑️ 삭제</button>
 <button class="cancelbtn" onclick="closeModal()">취소</button>
 </div></div>`;
-}
-
-function deletePayment(pid, mid){
-  if(!confirm('이 입금 기록을 삭제하시겠습니까?'))return;
-  D.payments=D.payments.filter(x=>x.id!==pid);
-  cloudSave('payment',{id:pid},'del');
-  closeModal();
-  curLayer='matter_detail';
-  _prevMatterId=mid;
-  renderContent();
 }
 
 function updEditPayKRW(){
