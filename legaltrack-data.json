@@ -462,9 +462,75 @@
       "starred": false,
       "driveLink": "",
       "driveLinkLabel": ""
+    },
+    {
+      "id": "mq682ysy3qq32",
+      "code": "DACHENG/GEN/부옥물산 JV설립(기업결합신고)",
+      "name": "부옥물산 JV설립(기업결합신고)",
+      "client": "世辉 律师事务所/대성",
+      "type": "time-b",
+      "status": "active",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": 180000,
+      "estimated_amount": 180000,
+      "cap_cur": "CNY",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "china-collab",
+      "collab_team": "",
+      "my_ratio": 50,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": "",
+      "driveLinkLabel": ""
     }
   ],
   "entries": [
+    {
+      "id": "mq63t3f2oz3nb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
+      "billable": true
+    },
+    {
+      "id": "mq63rb4od5scn",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-09",
+      "minutes": 42,
+      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "billable": true
+    },
+    {
+      "id": "mq59cx61m9lfi",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "법인 설립 관련 자료 수정 검토",
+      "billable": true
+    },
+    {
+      "id": "mq4r1pva3h88e",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-06-08",
+      "minutes": 42,
+      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
+      "billable": true
+    },
     {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
@@ -530,14 +596,6 @@
       "billable": true
     },
     {
-      "id": "mq4mezbriaoud",
-      "matterId": "mq4lxl561un1a",
-      "date": "2026-06-08",
-      "minutes": 12,
-      "description": "김계향 변호사와 사건 수임 논의",
-      "billable": true
-    },
-    {
       "id": "mq4m6g94pi4q8",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-08",
@@ -554,35 +612,11 @@
       "billable": true
     },
     {
-      "id": "mq63t3f2oz3nb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-09",
-      "minutes": 30,
-      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
-      "billable": true
-    },
-    {
-      "id": "mq63rb4od5scn",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-09",
-      "minutes": 42,
-      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
-      "billable": true
-    },
-    {
-      "id": "mq59cx61m9lfi",
-      "matterId": "mq1w5upv8k38z",
+      "id": "mq4mezbriaoud",
+      "matterId": "mq4lxl561un1a",
       "date": "2026-06-08",
-      "minutes": 36,
-      "description": "법인 설립 관련 자료 수정 검토",
-      "billable": true
-    },
-    {
-      "id": "mq4r1pva3h88e",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-06-08",
-      "minutes": 42,
-      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
+      "minutes": 12,
+      "description": "김계향 변호사와 사건 수임 논의",
       "billable": true
     }
   ],
@@ -610,19 +644,6 @@
   ],
   "clients": [
     {
-      "id": "mq2grmdjpn7p8",
-      "name": "인지정밀",
-      "fullname": "인지 디스플레이",
-      "industry": "제조",
-      "country": "한국",
-      "status": "active",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
       "id": "mq3d54ixt9qj2",
       "name": "남성정밀",
       "fullname": "남성정밀 주식회사",
@@ -633,19 +654,6 @@
       "website": "",
       "address": "",
       "note": "쿤산 자회사 매각",
-      "meetings": []
-    },
-    {
-      "id": "mq3fbf82qahr6",
-      "name": "파트라",
-      "fullname": "파트라 주식회사",
-      "industry": "제조",
-      "country": "한국",
-      "status": "prospect",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
       "meetings": []
     },
     {
@@ -660,26 +668,35 @@
       "address": "",
       "note": "",
       "meetings": []
+    },
+    {
+      "id": "mq2grmdjpn7p8",
+      "name": "인지정밀",
+      "fullname": "인지 디스플레이",
+      "industry": "제조",
+      "country": "한국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
+      "id": "mq3fbf82qahr6",
+      "name": "파트라",
+      "fullname": "파트라 주식회사",
+      "industry": "제조",
+      "country": "한국",
+      "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
     }
   ],
   "contacts": [
-    {
-      "id": "mq2xz367kcub1",
-      "name": "최규승",
-      "title": "상무",
-      "dept": "",
-      "company": "인지정밀",
-      "clientId": "mq2grmdjpn7p8",
-      "email": "error9820@inzi.co.kr",
-      "mobile": "+821072497352",
-      "tel": "",
-      "wechat": "",
-      "linkedin": "",
-      "met_date": "2026-06-06",
-      "address": "경기도 과천시 뒷골목 12-3 3 층",
-      "tags": [],
-      "note": ""
-    },
     {
       "id": "mq3d7az27rk27",
       "name": "박태연",
@@ -728,6 +745,23 @@
       "linkedin": "",
       "met_date": "2026-06-07",
       "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mq2xz367kcub1",
+      "name": "최규승",
+      "title": "상무",
+      "dept": "",
+      "company": "인지정밀",
+      "clientId": "mq2grmdjpn7p8",
+      "email": "error9820@inzi.co.kr",
+      "mobile": "+821072497352",
+      "tel": "",
+      "wechat": "",
+      "linkedin": "",
+      "met_date": "2026-06-06",
+      "address": "경기도 과천시 뒷골목 12-3 3 층",
       "tags": [],
       "note": ""
     }
@@ -851,19 +885,6 @@
       "doneAt": "2026-06-08"
     },
     {
-      "id": "mq4m4ji8k99qf",
-      "title": "중국 유학생 성추행 사건 파악하기",
-      "cat": "yulchon",
-      "priority": "normal",
-      "due": "",
-      "matterId": "mq4lxl561un1a",
-      "note": "",
-      "link": "",
-      "linkLabel": "",
-      "done": false,
-      "doneAt": null
-    },
-    {
       "id": "mq4mpoqexg8jg",
       "title": "파트라 청도 법원 출장 보고서 쓰기",
       "cat": "yulchon",
@@ -974,6 +995,19 @@
       "priority": "normal",
       "due": "",
       "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
+    },
+    {
+      "id": "mq4m4ji8k99qf",
+      "title": "중국 유학생 성추행 사건 파악하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq4lxl561un1a",
       "note": "",
       "link": "",
       "linkLabel": "",
