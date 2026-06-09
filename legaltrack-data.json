@@ -504,6 +504,14 @@
   ],
   "entries": [
     {
+      "id": "mq691w02k757w",
+      "matterId": "mq20ej2g25wzu",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "우 변호사와 전화 회의를 하고 고객 상황에 대해 논의. 수임 노력함",
+      "billable": false
+    },
+    {
       "id": "mq211mf9034lf",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-05",
