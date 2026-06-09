@@ -466,6 +466,14 @@
   ],
   "entries": [
     {
+      "id": "mq63t3f2oz3nb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
+      "billable": true
+    },
+    {
       "id": "mq63rb4od5scn",
       "matterId": "mq20urwkdcwfj",
       "date": "2026-06-09",
