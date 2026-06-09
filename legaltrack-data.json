@@ -466,6 +466,14 @@
   ],
   "entries": [
     {
+      "id": "mq63rb4od5scn",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-09",
+      "minutes": 42,
+      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "billable": true
+    },
+    {
       "id": "mq59cx61m9lfi",
       "matterId": "mq1w5upv8k38z",
       "date": "2026-06-08",
