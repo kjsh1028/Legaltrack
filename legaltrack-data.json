@@ -201,7 +201,11 @@
       "lit_balance": null,
       "lit_mode": null,
       "contingency_amount": null,
-      "contingency_condition": null
+      "contingency_condition": null,
+      "driveLink": "",
+      "driveLinkLabel": "",
+      "clientId": null,
+      "contactId": null
     },
     {
       "id": "mq20qil2xsxww",
@@ -1067,6 +1071,18 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    }
+  ],
+  "expenses": [
+    {
+      "id": "mq6ddvo7bsubl",
+      "matterId": "mq20lebejr8qp",
+      "vendor": "세무법인",
+      "amount": 50000,
+      "currency": "CNY",
+      "krw_amount": 11450000,
+      "note": "청산 세무 자문",
+      "paidDate": null
     }
   ]
 }
