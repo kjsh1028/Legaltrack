@@ -924,6 +924,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mq60qpougsvnc",
+      "title": "청도 한국 문화 관광 교류회 참석",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-07-01",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ]
 }
