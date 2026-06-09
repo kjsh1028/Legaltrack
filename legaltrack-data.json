@@ -937,6 +937,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mq60rsomp6m52",
+      "title": "청도 한국 문화 교류회",
+      "cat": "sales",
+      "priority": "normal",
+      "due": "2026-07-01",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ]
 }
