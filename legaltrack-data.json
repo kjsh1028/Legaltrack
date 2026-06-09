@@ -504,12 +504,36 @@
   ],
   "entries": [
     {
-      "id": "mq691w02k757w",
-      "matterId": "mq20ej2g25wzu",
+      "id": "mq63t3f2oz3nb",
+      "matterId": "mq20ac8bqbt35",
       "date": "2026-06-09",
       "minutes": 30,
-      "description": "우 변호사와 전화 회의를 하고 고객 상황에 대해 논의. 수임 노력함",
-      "billable": false
+      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
+      "billable": true
+    },
+    {
+      "id": "mq63rb4od5scn",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-09",
+      "minutes": 42,
+      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "billable": true
+    },
+    {
+      "id": "mq59cx61m9lfi",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "법인 설립 관련 자료 수정 검토",
+      "billable": true
+    },
+    {
+      "id": "mq4r1pva3h88e",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-06-08",
+      "minutes": 42,
+      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
+      "billable": true
     },
     {
       "id": "mq211mf9034lf",
@@ -576,14 +600,6 @@
       "billable": true
     },
     {
-      "id": "mq4mezbriaoud",
-      "matterId": "mq4lxl561un1a",
-      "date": "2026-06-08",
-      "minutes": 12,
-      "description": "김계향 변호사와 사건 수임 논의",
-      "billable": true
-    },
-    {
       "id": "mq4m6g94pi4q8",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-08",
@@ -600,39 +616,163 @@
       "billable": true
     },
     {
-      "id": "mq63t3f2oz3nb",
-      "matterId": "mq20ac8bqbt35",
+      "id": "mq4mezbriaoud",
+      "matterId": "mq4lxl561un1a",
+      "date": "2026-06-08",
+      "minutes": 12,
+      "description": "김계향 변호사와 사건 수임 논의",
+      "billable": true
+    },
+    {
+      "id": "mq691w02k757w",
+      "matterId": "mq20ej2g25wzu",
       "date": "2026-06-09",
       "minutes": 30,
-      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
-      "billable": true
-    },
-    {
-      "id": "mq63rb4od5scn",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-09",
-      "minutes": 42,
-      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
-      "billable": true
-    },
-    {
-      "id": "mq59cx61m9lfi",
-      "matterId": "mq1w5upv8k38z",
-      "date": "2026-06-08",
-      "minutes": 36,
-      "description": "법인 설립 관련 자료 수정 검토",
-      "billable": true
-    },
-    {
-      "id": "mq4r1pva3h88e",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-06-08",
-      "minutes": 42,
-      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
-      "billable": true
+      "description": "우 변호사와 전화 회의를 하고 고객 상황에 대해 논의. 수임 노력함",
+      "billable": false
     }
   ],
   "payments": [
+    {
+      "id": "mq69ebtsworp4",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수그"
+    },
+    {
+      "id": "mq69di8b8tp78",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69dhwv8py22",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69cwpk0090d",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bv2f6o8gv",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bsbsaauji",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69brxu54t0j",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69brckk7bye",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bnbahbp3o",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bn4d31fhe",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bmjhz598l",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bk5z5pi3j",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bjbw5gn98",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69bfbkb2mvm",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-12-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
     {
       "id": "mq2gm94hsvzaf",
       "matterId": "mq20hw066a9x0",
@@ -669,19 +809,6 @@
       "meetings": []
     },
     {
-      "id": "mq68okj1cjjmr",
-      "name": "대성법무법인",
-      "fullname": "대성법무법인",
-      "industry": "변호사",
-      "country": "중국",
-      "status": "active",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
       "id": "mq3qar2fp3ho2",
       "name": "목원 그룹",
       "fullname": "",
@@ -714,6 +841,19 @@
       "industry": "제조",
       "country": "한국",
       "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
+      "id": "mq68okj1cjjmr",
+      "name": "대성법무법인",
+      "fullname": "대성법무법인",
+      "industry": "변호사",
+      "country": "중국",
+      "status": "active",
       "phone": "",
       "website": "",
       "address": "",
@@ -929,19 +1069,6 @@
       "doneAt": "2026-06-08"
     },
     {
-      "id": "mq4m4ji8k99qf",
-      "title": "중국 유학생 성추행 사건 파악하기",
-      "cat": "yulchon",
-      "priority": "normal",
-      "due": "",
-      "matterId": "mq4lxl561un1a",
-      "note": "",
-      "link": "",
-      "linkLabel": "",
-      "done": false,
-      "doneAt": null
-    },
-    {
       "id": "mq4mpoqexg8jg",
       "title": "파트라 청도 법원 출장 보고서 쓰기",
       "cat": "yulchon",
@@ -1057,6 +1184,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-09"
+    },
+    {
+      "id": "mq4m4ji8k99qf",
+      "title": "중국 유학생 성추행 사건 파악하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq4lxl561un1a",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ]
 }
