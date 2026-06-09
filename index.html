@@ -523,6 +523,8 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
+const APP_VERSION='2026060902';
+const APP_VERSION='2026060902';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -775,19 +777,6 @@ function applyUpdate(){
     } else {
       location.reload(true);
     }
-  }
-}
-async function checkForUpdate(){
-  try{
-    const r=await fetch('https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/index.html?_='+Date.now());
-    const html=await r.text();
-    const m=html.match(/APP_VERSION='(\d+)'/);
-    if(m&&m[1]>APP_VERSION){const b=document.getElementById('updateBanner');if(b)b.style.display='block';}
-  }catch(e){}
-}
-function applyUpdate(){
-  if(confirm('앱을 업데이트하시겠습니까?')){
-    if('caches'in window){caches.keys().then(ks=>Promise.all(ks.map(k=>caches.delete(k)))).then(()=>location.reload(true));}else{location.reload(true);}
   }
 }
 
