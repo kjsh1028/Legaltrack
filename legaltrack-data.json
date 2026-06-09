@@ -504,30 +504,6 @@
   ],
   "entries": [
     {
-      "id": "mq63t3f2oz3nb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-09",
-      "minutes": 30,
-      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
-      "billable": true
-    },
-    {
-      "id": "mq63rb4od5scn",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-09",
-      "minutes": 42,
-      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
-      "billable": true
-    },
-    {
-      "id": "mq59cx61m9lfi",
-      "matterId": "mq1w5upv8k38z",
-      "date": "2026-06-08",
-      "minutes": 36,
-      "description": "법인 설립 관련 자료 수정 검토",
-      "billable": true
-    },
-    {
       "id": "mq4r1pva3h88e",
       "matterId": "mq20lebejr8qp",
       "date": "2026-06-08",
@@ -624,6 +600,30 @@
       "billable": true
     },
     {
+      "id": "mq63t3f2oz3nb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
+      "billable": true
+    },
+    {
+      "id": "mq63rb4od5scn",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-09",
+      "minutes": 42,
+      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "billable": true
+    },
+    {
+      "id": "mq59cx61m9lfi",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "법인 설립 관련 자료 수정 검토",
+      "billable": true
+    },
+    {
       "id": "mq691w02k757w",
       "matterId": "mq20ej2g25wzu",
       "date": "2026-06-09",
@@ -634,7 +634,7 @@
   ],
   "payments": [
     {
-      "id": "mq69n9gobd5yp",
+      "id": "mq69o49sk4w5h",
       "matterId": "mq20lebejr8qp",
       "date": "2026-01-09",
       "amount": 50000,
@@ -644,7 +644,7 @@
       "note": "착수금"
     },
     {
-      "id": "mq69n99zp7kgt",
+      "id": "mq69g0k8cl73z",
       "matterId": "mq20lebejr8qp",
       "date": "2026-01-09",
       "amount": 50000,
@@ -654,7 +654,7 @@
       "note": "착수금"
     },
     {
-      "id": "mq69n8zcykhb4",
+      "id": "mq69g0epyxirz",
       "matterId": "mq20lebejr8qp",
       "date": "2026-01-09",
       "amount": 50000,
@@ -664,7 +664,7 @@
       "note": "착수금"
     },
     {
-      "id": "mq69n86l1chlj",
+      "id": "mq69fzm0j6uvg",
       "matterId": "mq20lebejr8qp",
       "date": "2026-01-09",
       "amount": 50000,
@@ -674,33 +674,63 @@
       "note": "착수금"
     },
     {
-      "id": "mq69grdygyjls",
+      "id": "mq69f9dpkiliz",
       "matterId": "mq20lebejr8qp",
-      "date": "2026-06-09",
+      "date": "2026-01-09",
       "amount": 50000,
       "currency": "CNY",
       "rate_on_date": 200,
       "krw_amount": 10000000,
-      "note": ""
+      "note": "착수금"
     },
     {
-      "id": "mq69gr3awya70",
+      "id": "mq69f9859wzv6",
       "matterId": "mq20lebejr8qp",
-      "date": "2026-06-09",
+      "date": "2026-01-09",
       "amount": 50000,
       "currency": "CNY",
       "rate_on_date": 200,
       "krw_amount": 10000000,
-      "note": ""
+      "note": "착수금"
     },
     {
-      "id": "mq69gq7a4igz4",
+      "id": "mq69f8u96ttqt",
       "matterId": "mq20lebejr8qp",
-      "date": "2026-06-09",
+      "date": "2026-01-09",
       "amount": 50000,
       "currency": "CNY",
       "rate_on_date": 200,
       "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69f7w0atbtm",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq2gm94hsvzaf",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": "일부 잔금"
+    },
+    {
+      "id": "mq2glry4736rd",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
       "note": ""
     },
     {
@@ -914,94 +944,74 @@
       "note": "착수금"
     },
     {
-      "id": "mq2gm94hsvzaf",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
+      "id": "mq69n9gobd5yp",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
       "amount": 50000,
       "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
-      "note": "일부 잔금"
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
     },
     {
-      "id": "mq2glry4736rd",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
+      "id": "mq69n99zp7kgt",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
       "amount": 50000,
       "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69n8zcykhb4",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69n86l1chlj",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mq69grdygyjls",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-06-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
       "note": ""
     },
     {
-      "id": "mq69g0k8cl73z",
+      "id": "mq69gr3awya70",
       "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
+      "date": "2026-06-09",
       "amount": 50000,
       "currency": "CNY",
       "rate_on_date": 200,
       "krw_amount": 10000000,
-      "note": "착수금"
+      "note": ""
     },
     {
-      "id": "mq69g0epyxirz",
+      "id": "mq69gq7a4igz4",
       "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
+      "date": "2026-06-09",
       "amount": 50000,
       "currency": "CNY",
       "rate_on_date": 200,
       "krw_amount": 10000000,
-      "note": "착수금"
-    },
-    {
-      "id": "mq69fzm0j6uvg",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 200,
-      "krw_amount": 10000000,
-      "note": "착수금"
-    },
-    {
-      "id": "mq69f9dpkiliz",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 200,
-      "krw_amount": 10000000,
-      "note": "착수금"
-    },
-    {
-      "id": "mq69f9859wzv6",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 200,
-      "krw_amount": 10000000,
-      "note": "착수금"
-    },
-    {
-      "id": "mq69f8u96ttqt",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 200,
-      "krw_amount": 10000000,
-      "note": "착수금"
-    },
-    {
-      "id": "mq69f7w0atbtm",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 200,
-      "krw_amount": 10000000,
-      "note": "착수금"
+      "note": ""
     }
   ],
   "clients": [
