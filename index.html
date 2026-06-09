@@ -524,7 +524,6 @@ html,body{height:100%;background:var(--bg);
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 const APP_VERSION='2026060902';
-const APP_VERSION='2026060902';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -753,9 +752,8 @@ async function init(){
   if(CFG.ghToken)await ghLoad();
   else if(CFG.supaUrl)await syncCloud();
   fetchLiveRates().then(ok=>{if(ok)renderAll();});
-  setTimeout(checkForUpdate,3000);
   renderAll();
-  setTimeout(checkForUpdate, 2000); // Check for updates in background
+  setTimeout(checkForUpdate,3000);
 }
 
 async function checkForUpdate(){
