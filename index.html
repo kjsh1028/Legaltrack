@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="app-version" content="2026061001">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,6 +84,7 @@ html,body{height:100%;background:var(--bg);
 .tlbl{font-size:12px;color:var(--g2);font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ttime{font-family:monospace;font-size:13px;font-weight:700;color:var(--g2)}
 .tstop{background:var(--g);color:#fff;border:none;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+#updateBanner{flex-shrink:0}
 .syncbar{background:var(--bl);border-bottom:1px solid #B3D4FF;padding:5px 16px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--b);flex-shrink:0}
 .sdot{width:6px;height:6px;border-radius:50%;background:var(--text3);flex-shrink:0}
 .sdot.ok{background:var(--g)}.sdot.err{background:var(--r)}
@@ -485,6 +487,8 @@ html,body{height:100%;background:var(--bg);
         <button class="tstop" onclick="stopTimer()">■ 정지</button>
       </div>
       <div id="syncBar" style="display:none" class="syncbar"><div class="sdot" id="syncDot"></div><span id="syncTxt"></span></div>
+      <div id="updateBanner" onclick="applyUpdate()" style="display:none;background:#1d4ed8;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;text-align:center">🔄 새 버전이 있습니다 — 탭하여 업데이트</div>
+      <div id="updateBanner" style="display:none;background:#1d4ed8;color:#fff;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;text-align:center" onclick="applyUpdate()">🔄 새 버전이 있습니다 — 탭하여 업데이트</div>
       <!-- Main content -->
       <div id="content"></div>
     </div>
@@ -747,7 +751,44 @@ async function init(){
   if(CFG.ghToken)await ghLoad();
   else if(CFG.supaUrl)await syncCloud();
   fetchLiveRates().then(ok=>{if(ok)renderAll();});
+  setTimeout(checkForUpdate,3000);
   renderAll();
+  setTimeout(checkForUpdate, 2000); // Check for updates in background
+}
+
+async function checkForUpdate(){
+  try{
+    const r=await fetch('https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/index.html?_='+Date.now());
+    const html=await r.text();
+    const m=html.match(/APP_VERSION='(\d+)'/);
+    if(m&&m[1]>APP_VERSION){
+      const banner=document.getElementById('updateBanner');
+      if(banner)banner.style.display='block';
+    }
+  }catch(e){}
+}
+function applyUpdate(){
+  if(confirm('앱을 업데이트하시겠습니까? 현재 화면이 새로고침됩니다.')){
+    // Clear all caches then reload
+    if('caches' in window){
+      caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>location.reload(true));
+    } else {
+      location.reload(true);
+    }
+  }
+}
+async function checkForUpdate(){
+  try{
+    const r=await fetch('https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/index.html?_='+Date.now());
+    const html=await r.text();
+    const m=html.match(/APP_VERSION='(\d+)'/);
+    if(m&&m[1]>APP_VERSION){const b=document.getElementById('updateBanner');if(b)b.style.display='block';}
+  }catch(e){}
+}
+function applyUpdate(){
+  if(confirm('앱을 업데이트하시겠습니까?')){
+    if('caches'in window){caches.keys().then(ks=>Promise.all(ks.map(k=>caches.delete(k)))).then(()=>location.reload(true));}else{location.reload(true);}
+  }
 }
 
 function renderAll(){
@@ -2543,33 +2584,6 @@ function openMatterModal(editId){
 <div class="field"><label>링크 표시 이름</label>
   <input id="mdrivelabel" value="${em?.driveLinkLabel||''}" placeholder="예: 사건 폴더, 계약서, 의견서 등">
 </div>
-<div style="border-top:1px solid var(--border);margin:14px 0 12px"></div>
-<div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:10px">💸 외부 비용 예정</div>
-<div class="ibox" style="margin-bottom:10px;font-size:12px">외부 자문사·협력사에게 지급할 예정 비용을 미리 등록하세요. Matter 상세에서 실제 지급 처리가 가능합니다.</div>
-<div id="mExpList">
-  ${(()=>{
-    const exps=(D.expenses||[]).filter(e=>e.matterId===(editId||'__none__'));
-    if(!exps.length)return'<div style="font-size:12px;color:var(--text3);text-align:center;padding:10px 0">등록된 외부 비용 없음</div>';
-    return exps.map(e=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg);border-radius:8px;margin-bottom:6px">
-      <div style="flex:1;font-size:13px"><b>${e.vendor}</b> · ${fmtM(e.amount,e.currency||'KRW')}<span style="font-size:11px;color:${e.paidDate?'var(--g2)':'var(--r)'};margin-left:6px">${e.paidDate?'✓지급':'미지급'}</span></div>
-      <div style="font-size:11px;color:var(--text3)">${e.note||''}</div>
-    </div>`).join('');
-  })()}
-</div>
-<div style="background:var(--bg);border-radius:10px;padding:12px;margin-bottom:8px">
-  <div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px">+ 외부 비용 추가</div>
-  <div class="field" style="margin-bottom:8px"><label>협력사 / 외부기관</label><input id="newExpVendor" placeholder="세무법인 XX, 번역회사 등"></div>
-  <div class="cur-row" style="margin-bottom:8px">
-    <div class="field"><label>예정 금액</label><input id="newExpAmt" placeholder="50,000" oninput="numInput(this)" inputmode="numeric"></div>
-    <div class="field cs"><label>통화</label><select id="newExpCur">
-      <option value="KRW">₩ KRW</option>
-      <option value="CNY">¥ CNY</option>
-      <option value="USD">$ USD</option>
-    </select></div>
-  </div>
-  <div class="field" style="margin-bottom:8px"><label>메모</label><input id="newExpNote" placeholder="법인청산 세무처리 위탁 등"></div>
-  <button onclick="addExpenseFromModal('${editId||''}')" style="width:100%;padding:9px;background:var(--g);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">+ 추가</button>
-</div>
 <button class="savebtn" onclick="saveMatter('${editId||''}')">저장</button>
 <button class="cancelbtn" onclick="closeModal()">취소</button>
 </div></div>`;}
@@ -2719,26 +2733,6 @@ function openPaymentModal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)retur
 </div></div>`;const pr=document.getElementById('prate');if(pr)pr.value=CFG.usdKrw;}
 function onPCur(){const cur=document.getElementById('pcur').value;document.getElementById('rateRow').style.display=cur!=='KRW'?'block':'none';const rl=document.getElementById('rLbl');if(rl)rl.textContent=cur==='USD'?'입금일 환율 (원/달러)':'입금일 환율 (원/위안)';document.getElementById('prate').value=cur==='USD'?CFG.usdKrw:CFG.cnyKrw;updPayKRW();}
 function updPayKRW(){const amt=getRaw('pamt'),cur=document.getElementById('pcur')?.value||'KRW';const rate=parseFloat(document.getElementById('prate')?.value)||0;const el=document.getElementById('pconv');if(!el||!amt)return;if(cur==='KRW'){el.textContent='';return;}const ur=rate||(cur==='USD'?CFG.usdKrw:CFG.cnyKrw);el.textContent=`→ KRW ≈ ${fmtK(amt*ur)} (${ur}원/${cur==='USD'?'달러':'위안'})`;}
-function addExpenseFromModal(mid){
-  const vendor=(document.getElementById('newExpVendor')?.value||'').trim();
-  const amt=getRaw('newExpAmt');
-  if(!vendor||!amt)return alert('협력사와 금액을 입력하세요');
-  const cur=document.getElementById('newExpCur')?.value||'KRW';
-  const note=(document.getElementById('newExpNote')?.value||'').trim();
-  const exp={id:gid(),matterId:mid,vendor,amount:amt,currency:cur,krw_amount:toKRW(amt,cur),note,paidDate:null};
-  if(!D.expenses)D.expenses=[];
-  D.expenses.unshift(exp);
-  localSave();
-  // Refresh expense list in modal
-  const exps=D.expenses.filter(e=>e.matterId===mid);
-  const el=document.getElementById('mExpList');
-  if(el)el.innerHTML=exps.map(e=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg);border-radius:8px;margin-bottom:6px">
-    <div style="flex:1;font-size:13px"><b>${e.vendor}</b> · ${fmtM(e.amount,e.currency||'KRW')}<span style="font-size:11px;color:var(--r);margin-left:6px">미지급</span></div>
-    <div style="font-size:11px;color:var(--text3)">${e.note||''}</div>
-  </div>`).join('');
-  // Clear inputs
-  ['newExpVendor','newExpAmt','newExpNote'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-}
 function openExpenseModal(mid, eid){
   const m=D.matters.find(x=>x.id===mid);
   if(!m)return;
