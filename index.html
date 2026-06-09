@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026060902';
+const APP_VERSION='2026060903';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2571,6 +2571,30 @@ function openMatterModal(editId){
 <div class="field"><label>링크 표시 이름</label>
   <input id="mdrivelabel" value="${em?.driveLinkLabel||''}" placeholder="예: 사건 폴더, 계약서, 의견서 등">
 </div>
+<div style="border-top:1px solid var(--border);margin:14px 0 12px"></div>
+<div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:8px">💸 외부 비용 예정</div>
+<div class="ibox" style="font-size:12px;margin-bottom:10px">외부 자문사·협력사에게 지급할 예정 비용을 미리 등록하세요.</div>
+<div id="mExpList">${(()=>{
+  const exps=(D.expenses||[]).filter(e=>e.matterId===(editId||'__none__'));
+  if(!exps.length)return'<div style="font-size:12px;color:var(--text3);text-align:center;padding:8px 0">등록된 외부 비용 없음</div>';
+  return exps.map(e=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg);border-radius:8px;margin-bottom:6px">
+    <div style="flex:1;font-size:13px"><b>${e.vendor}</b> · ${fmtM(e.amount,e.currency||'KRW')}<span style="font-size:11px;color:${e.paidDate?'var(--g2)':'var(--r)'};margin-left:6px">${e.paidDate?'✓지급':'미지급'}</span></div>
+    <div style="font-size:11px;color:var(--text3)">${e.note||''}</div>
+  </div>`).join('');
+})()}</div>
+<div style="background:var(--bg);border-radius:10px;padding:12px;margin-bottom:10px">
+  <div class="field" style="margin-bottom:8px"><label>협력사 / 외부기관</label><input id="newExpVendor" placeholder="세무법인 XX, 번역회사 등"></div>
+  <div class="cur-row" style="margin-bottom:8px">
+    <div class="field"><label>예정 금액</label><input id="newExpAmt" placeholder="50,000" oninput="numInput(this)" inputmode="numeric"></div>
+    <div class="field cs"><label>통화</label><select id="newExpCur">
+      <option value="KRW">₩ KRW</option>
+      <option value="CNY">¥ CNY</option>
+      <option value="USD">$ USD</option>
+    </select></div>
+  </div>
+  <div class="field" style="margin-bottom:8px"><label>메모</label><input id="newExpNote" placeholder="법인청산 세무처리 위탁 등"></div>
+  <button onclick="addExpenseFromModal('${editId||''}')" style="width:100%;padding:9px;background:var(--g);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">+ 추가</button>
+</div>
 <button class="savebtn" onclick="saveMatter('${editId||''}')">저장</button>
 <button class="cancelbtn" onclick="closeModal()">취소</button>
 </div></div>`;}
@@ -2720,6 +2744,24 @@ function openPaymentModal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)retur
 </div></div>`;const pr=document.getElementById('prate');if(pr)pr.value=CFG.usdKrw;}
 function onPCur(){const cur=document.getElementById('pcur').value;document.getElementById('rateRow').style.display=cur!=='KRW'?'block':'none';const rl=document.getElementById('rLbl');if(rl)rl.textContent=cur==='USD'?'입금일 환율 (원/달러)':'입금일 환율 (원/위안)';document.getElementById('prate').value=cur==='USD'?CFG.usdKrw:CFG.cnyKrw;updPayKRW();}
 function updPayKRW(){const amt=getRaw('pamt'),cur=document.getElementById('pcur')?.value||'KRW';const rate=parseFloat(document.getElementById('prate')?.value)||0;const el=document.getElementById('pconv');if(!el||!amt)return;if(cur==='KRW'){el.textContent='';return;}const ur=rate||(cur==='USD'?CFG.usdKrw:CFG.cnyKrw);el.textContent=`→ KRW ≈ ${fmtK(amt*ur)} (${ur}원/${cur==='USD'?'달러':'위안'})`;}
+function addExpenseFromModal(mid){
+  const vendor=(document.getElementById('newExpVendor')?.value||'').trim();
+  const amt=getRaw('newExpAmt');
+  if(!vendor||!amt)return alert('협력사와 금액을 입력하세요');
+  const cur=document.getElementById('newExpCur')?.value||'KRW';
+  const note=(document.getElementById('newExpNote')?.value||'').trim();
+  const exp={id:gid(),matterId:mid,vendor,amount:amt,currency:cur,krw_amount:toKRW(amt,cur),note,paidDate:null};
+  if(!D.expenses)D.expenses=[];
+  D.expenses.unshift(exp);
+  localSave();
+  const exps=D.expenses.filter(e=>e.matterId===mid);
+  const el=document.getElementById('mExpList');
+  if(el)el.innerHTML=exps.map(e=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg);border-radius:8px;margin-bottom:6px">
+    <div style="flex:1;font-size:13px"><b>${e.vendor}</b> · ${fmtM(e.amount,e.currency||'KRW')}<span style="font-size:11px;color:${e.paidDate?'var(--g2)':'var(--r)'};margin-left:6px">${e.paidDate?'✓지급':'미지급'}</span></div>
+    <div style="font-size:11px;color:var(--text3)">${e.note||''}</div>
+  </div>`).join('');
+  ['newExpVendor','newExpAmt','newExpNote'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
 function openExpenseModal(mid, eid){
   const m=D.matters.find(x=>x.id===mid);
   if(!m)return;
