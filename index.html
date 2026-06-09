@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026060903';
+const APP_VERSION='2026060904';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1389,10 +1389,10 @@ function exportTimeQ(from,to){
 /* ── 금액 조회 결과 ── */
 function renderMoneyResults(){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
-  const tabs=[['retainer','🏆 수임액'],['payment','💰 입금액'],['contingency','🎯 성공보수']];
+  const tabs=[['retainer','🏆 수임액'],['payment','💰 입금액'],['contingency','🎯 성공보수'],['expense','💸 외부비용'],['netprofit','📊 순수익']];
   const moneyTabBtns=tabs.map(([k,l])=>`<button class="ptab${_moneyType===k?' on':''}" onclick="_moneyType='${k}';renderContent()">${l}</button>`).join('');
   const moneyQ=(document.getElementById('money_q')?.value||'').toLowerCase();
-  let items=[], total=0, totalLabel='';
+  let items=[], total=0, totalLabel='', totalColor='var(--gold)';
 
   if(_moneyType==='retainer'){
     items=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
@@ -1400,18 +1400,50 @@ function renderMoneyResults(){
     total=items.reduce((a,m)=>a+retainerKRW(m),0);totalLabel='수임액 합계';
   }else if(_moneyType==='payment'){
     items=D.matters.filter(m=>paymentKRW(m)>0);
-    total=items.reduce((a,m)=>a+paymentKRW(m),0);totalLabel='입금액 합계';
-  }else{
+    if(moneyQ)items=items.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ));
+    total=items.reduce((a,m)=>a+paymentKRW(m),0);totalLabel='입금액 합계';totalColor='var(--t)';
+  }else if(_moneyType==='contingency'){
     items=D.matters.filter(m=>m.contingency_amount&&parseFloat(m.contingency_amount)>0&&!['failed','internal'].includes(m.status));
-    total=items.reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);totalLabel='성공보수 예정 합계';
+    if(moneyQ)items=items.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ));
+    total=items.reduce((a,m)=>a+toKRW(parseFloat(m.contingency_amount||0),m.retainer_cur||'KRW'),0);totalLabel='성공보수 예정 합계';totalColor='var(--r)';
+  }else if(_moneyType==='expense'){
+    // 외부비용 - group by matter
+    const expMatters=D.matters.filter(m=>(D.expenses||[]).some(e=>e.matterId===m.id));
+    items=moneyQ?expMatters.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ)):expMatters;
+    total=(D.expenses||[]).reduce((a,e)=>a+(e.krw_amount||toKRW(e.amount||0,e.currency||'KRW')),0);
+    totalLabel='외부비용 합계';totalColor='var(--r)';
+  }else{ // netprofit
+    items=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+    if(moneyQ)items=items.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ));
+    const totalRet=items.reduce((a,m)=>a+retainerKRW(m),0);
+    const totalExp=(D.expenses||[]).filter(e=>items.some(m=>m.id===e.matterId)).reduce((a,e)=>a+(e.krw_amount||toKRW(e.amount||0,e.currency||'KRW')),0);
+    total=totalRet-totalExp;totalLabel='순수익 합계';totalColor='var(--g2)';
   }
 
+  // Summary bar for netprofit
+  const summaryBar=_moneyType==='netprofit'?`
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">
+    <div style="background:#fff;border-radius:10px;padding:10px;text-align:center;border:1px solid var(--border)">
+      <div style="font-size:10px;color:var(--text3);margin-bottom:3px">수임액</div>
+      <div style="font-size:15px;font-weight:800;color:var(--gold)">${fmtK(items.reduce((a,m)=>a+retainerKRW(m),0))}</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:10px;text-align:center;border:1px solid var(--border)">
+      <div style="font-size:10px;color:var(--text3);margin-bottom:3px">외부비용</div>
+      <div style="font-size:15px;font-weight:800;color:var(--r)">-${fmtK((D.expenses||[]).filter(e=>items.some(m=>m.id===e.matterId)).reduce((a,e)=>a+(e.krw_amount||toKRW(e.amount||0,e.currency||'KRW')),0))}</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:10px;text-align:center;border:1px solid var(--border)">
+      <div style="font-size:10px;color:var(--text3);margin-bottom:3px">순수익</div>
+      <div style="font-size:15px;font-weight:800;color:var(--g2)">${fmtK(total)}</div>
+    </div>
+  </div>`:'';
+
   return`<div class="query-results">
-  <div class="preset-tabs">${moneyTabBtns}</div>
+  <div class="preset-tabs" style="flex-wrap:wrap">${moneyTabBtns}</div>
+  ${summaryBar}
   <!-- Total -->
   <div class="qr-total">
     <span class="qrt-label">${totalLabel}</span>
-    <span class="qrt-value qrt-gold">${fmtK(total)}</span>
+    <span class="qrt-value" style="color:${totalColor}">${fmtK(total)}</span>
     <span class="qrt-count">${items.length}건</span>
     <button class="qr-export" onclick="exportMoneyQ()">📥 내보내기</button>
   </div>
@@ -1424,14 +1456,30 @@ function renderMoneyResults(){
     ${items.length===0?`<div class="empty-state">항목 없음</div>`:
     items.map(m=>{
       const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];
-      let amtDisplay='';
+      let amtDisplay='',subDisplay='';
       if(_moneyType==='retainer'){const rb=getRetainerBase(m);amtDisplay=rb.amount?fmtM(rb.amount,rb.currency):'—';}
       else if(_moneyType==='payment'){const pays=(D.payments||[]).filter(p=>p.matterId===m.id);const byCur={};pays.forEach(p=>{byCur[p.currency||'KRW']=(byCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});amtDisplay=Object.entries(byCur).map(([c,a])=>fmtM(a,c)).join('+');}
-      else{amtDisplay=fmtM(m.contingency_amount,m.retainer_cur||'KRW');}
+      else if(_moneyType==='contingency'){amtDisplay=fmtM(m.contingency_amount,m.retainer_cur||'KRW');}
+      else if(_moneyType==='expense'){
+        const exps=(D.expenses||[]).filter(e=>e.matterId===m.id);
+        const bc={};exps.forEach(e=>{bc[e.currency||'KRW']=(bc[e.currency||'KRW']||0)+parseFloat(e.amount||0);});
+        amtDisplay=Object.entries(bc).map(([c,a])=>fmtM(a,c)).join('+');
+        const unpaid=exps.filter(e=>!e.paidDate).length;
+        subDisplay=unpaid?`미지급 ${unpaid}건`:'전액 지급완료';
+      }else{ // netprofit
+        const rb=getRetainerBase(m);
+        const retKRW=retainerKRW(m);
+        const exps=(D.expenses||[]).filter(e=>e.matterId===m.id);
+        const expKRW=exps.reduce((a,e)=>a+(e.krw_amount||toKRW(e.amount||0,e.currency||'KRW')),0);
+        const net=retKRW-expKRW;
+        amtDisplay=fmtK(net);
+        subDisplay=exps.length?`외부비용 ${fmtK(expKRW)} 차감`:'외부비용 없음';
+      }
       return`<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
         <span class="qri-name">${m.name}</span>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
-          <span class="qri-time" style="color:${mt.color}">${amtDisplay}</span>
+          <span class="qri-time" style="color:${_moneyType==='expense'?'var(--r)':_moneyType==='netprofit'?'var(--g2)':mt.color}">${amtDisplay}</span>
+          ${subDisplay?`<span style="font-size:10px;color:var(--text3)">${subDisplay}</span>`:''}
           <span style="font-size:10px;color:var(--text3)">${mst.label}</span>
         </div>
         <span class="qri-arr">›</span>
