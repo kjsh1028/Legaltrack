@@ -634,6 +634,16 @@
   ],
   "payments": [
     {
+      "id": "mq6ag4wwz2px4",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-06-09",
+      "amount": 10000,
+      "currency": "KRW",
+      "rate_on_date": null,
+      "krw_amount": 10000,
+      "note": ""
+    },
+    {
       "id": "mq2gm94hsvzaf",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-06",
