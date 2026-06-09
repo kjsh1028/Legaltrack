@@ -963,6 +963,15 @@ function renderMatterDetailLayer(){
         ?`<span onclick="_selClientId='${cl.id}';_prevLayer='matter_detail';_prevMatterId='${m.id}';curLayer='client_detail';_queryMode='clients';renderContent()" style="color:var(--b);font-weight:600;cursor:pointer;border-bottom:1px solid var(--bl)">${m.client} ›</span>`
         :(m.client||'');
     })()):''}
+    ${(()=>{
+      const cl=(D.clients||[]).find(c=>c.id===m.clientId);
+      const ct=(D.contacts||[]).find(c=>c.id===m.contactId);
+      let rows='';
+      if(cl&&!m.client) rows+=irow('고객사',`<span onclick="_selClientId='${cl.id}';_prevLayer='matter_detail';_prevMatterId='${m.id}';curLayer='client_detail';_queryMode='clients';renderContent()" style="color:var(--b);font-weight:600;cursor:pointer;border-bottom:1px solid var(--bl)">${cl.name} ›</span>`);
+      else if(cl) rows+=irow('고객사',`<span onclick="_selClientId='${cl.id}';_prevLayer='matter_detail';_prevMatterId='${m.id}';curLayer='client_detail';_queryMode='clients';renderContent()" style="color:var(--b);font-weight:600;cursor:pointer;border-bottom:1px solid var(--bl)">${cl.name} ›</span>`);
+      if(ct) rows+=irow('담당자',`<span onclick="_selContactId='${ct.id}';_prevLayer='matter_detail';_prevMatterId='${m.id}';curLayer='contact_detail';renderContent()" style="color:var(--b);font-weight:600;cursor:pointer;border-bottom:1px solid var(--bl)">${ct.name}${ct.title?' · '+ct.title:''} ›</span>`);
+      return rows;
+    })()}
     ${rb.amount?irow('수임액',`<b style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</b>${rb.currency!=='KRW'?' ≈'+fmtK(retK):''}`):''}
     ${m.type==='litigation'?`
       ${m.lit_retainer?irow('착수금',fmtM(m.lit_retainer,m.retainer_cur||'KRW')):''}
@@ -2404,6 +2413,21 @@ function openMatterModal(editId){
 <div class="field"><label>Matter 코드 *</label><input id="mc" value="${em?.code||''}" placeholder="ABC-2025-01" oninput="this.value=this.value.toUpperCase()"></div>
 <div class="field"><label>Matter 명 *</label><input id="mn" value="${em?.name||''}" placeholder="ABC사 M&A 자문"></div>
 <div class="field"><label>의뢰인</label><input id="mcl" value="${em?.client||''}" placeholder="의뢰인 이름 또는 회사명"></div>
+<div class="field"><label>고객사 연결 (선택)</label>
+  <select id="m_clientId" onchange="updateContactDropdown(this.value)" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff">
+    <option value="">— 고객사 연결 안함 —</option>
+    ${(D.clients||[]).map(c=>`<option value="${c.id}" ${(em?.clientId||'')=== c.id?'selected':''}>${c.name}</option>`).join('')}
+  </select>
+</div>
+<div class="field"><label>담당자 연결 (선택)</label>
+  <select id="m_contactId" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff">
+    <option value="">— 담당자 연결 안함 —</option>
+    ${(()=>{
+      const cid=em?.clientId||'';
+      return (D.contacts||[]).filter(x=>!cid||x.clientId===cid).map(ct=>`<option value="${ct.id}" ${(em?.contactId||'')=== ct.id?'selected':''}>${ct.name}${ct.title?' ('+ct.title+')':''}</option>`).join('');
+    })()}
+  </select>
+</div>
 <div id="fixedRetF" style="${(em?.type||'time-b')==='fixed-f'?'':'display:none'}">
   <div class="cur-row"><div class="field"><label>수임 금액 (Fixed Fee)</label><input id="mra" value="${em?.retainer_amount?Number(em.retainer_amount).toLocaleString():''}" placeholder="10,000,000" oninput="numInput(this)" inputmode="numeric"></div><div class="field cs"><label>통화</label><select id="mrc"><option value="KRW" ${(em?.retainer_cur||'KRW')==='KRW'?'selected':''}>₩ KRW</option><option value="USD" ${em?.retainer_cur==='USD'?'selected':''}>$ USD</option><option value="CNY" ${em?.retainer_cur==='CNY'?'selected':''}>¥ CNY</option></select></div></div>
 </div>
@@ -2493,6 +2517,13 @@ function setMType(k,cls){
 }
 function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
 function onAT(sel){const bf=document.getElementById('billedF');if(bf)bf.style.display=sel.value==='team-referral'?'':'none';}
+function updateContactDropdown(clientId){
+  const sel=document.getElementById('m_contactId');
+  if(!sel)return;
+  const contacts=(D.contacts||[]).filter(x=>!clientId||x.clientId===clientId);
+  sel.innerHTML='<option value="">— 담당자 연결 안함 —</option>'+
+    contacts.map(ct=>`<option value="${ct.id}">${ct.name}${ct.title?' ('+ct.title+')':''}</option>`).join('');
+}
 function saveMatter(eid){
   const code=(document.getElementById('mc')?.value||'').trim().toUpperCase();
   const name=(document.getElementById('mn')?.value||'').trim();
@@ -2542,7 +2573,9 @@ function saveMatter(eid){
     billed_cur:g('mbc')?.value||'KRW',
     starred:prev?.starred||false,
     driveLink:(document.getElementById('mdrivelink')?.value||'').trim(),
-    driveLinkLabel:(document.getElementById('mdrivelabel')?.value||'').trim()
+    driveLinkLabel:(document.getElementById('mdrivelabel')?.value||'').trim(),
+    clientId:g('m_clientId')?.value||null,
+    contactId:g('m_contactId')?.value||null
   };
   if(eid)D.matters=D.matters.map(x=>x.id===eid?{...x,...m}:x);
   else D.matters.push(m);
