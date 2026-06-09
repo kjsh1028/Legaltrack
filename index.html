@@ -520,7 +520,7 @@ html,body{height:100%;background:var(--bg);
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
-let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[]};
+let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
 let dashExpand={prospect:false,active:false,closed:false};
 // Achievement period filter
@@ -620,7 +620,7 @@ async function cloudSave(type,obj,action='upsert'){
   localSave();
   if(CFG.ghToken){ghSave();return;}
   // client/contact are local-only for Supabase (no table) - just localSave above is enough
-  if(['client','contact'].includes(type))return;
+  if(['client','contact','expense'].includes(type)){localSave();return;}
   if(!CFG.supaUrl)return;showSync('sy','저장 중...');try{const t={matter:'lt_matters',entry:'lt_entries',payment:'lt_payments'}[type];if(action==='del')await sbFetch(t+'?id=eq.'+obj.id,{method:'DELETE',prefer:'return=minimal'});else await sbFetch(t,{method:'POST',body:JSON.stringify(obj),prefer:'resolution=merge-duplicates,return=representation'});showSync('ok','✓ 저장됨');}catch(e){showSync('err','저장 실패');}}
 
 /* ── GitHub Sync ── */
@@ -648,6 +648,7 @@ async function forceGhSync(){
     D.clients=data.clients||[];
     D.contacts=data.contacts||[];
     D.todos=data.todos||[];
+    D.expenses=data.expenses||[];
     D._ghSha=r.sha;
     localSave();
     showSync('ok','✓ 동기화 완료');
@@ -685,6 +686,7 @@ async function ghLoad(){
     D.clients=mergeById(D.clients||[], decoded.clients||[]);
     D.contacts=mergeById(D.contacts||[], decoded.contacts||[]);
     D.todos=mergeById(D.todos||[], decoded.todos||[]);
+    D.expenses=mergeById(D.expenses||[], decoded.expenses||[]);
     D._ghSha=r.sha;
     localSave();
     
@@ -712,7 +714,7 @@ async function ghSave(){
   showSync('sy','GitHub 저장 중...');
   try{
     // Always use current D state at time of save
-    const saveData={matters:[...D.matters],entries:[...D.entries],payments:[...D.payments],clients:[...(D.clients||[])],contacts:[...(D.contacts||[])],todos:[...(D.todos||[])]};
+    const saveData={matters:[...D.matters],entries:[...D.entries],payments:[...D.payments],clients:[...(D.clients||[])],contacts:[...(D.contacts||[])],todos:[...(D.todos||[])],expenses:[...(D.expenses||[])]};
     const jsonStr=JSON.stringify(saveData,null,2);
     const bytes=new TextEncoder().encode(jsonStr);
     const binStr=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
@@ -997,6 +999,7 @@ function renderMatterDetailLayer(){
       return rows;
     })()}
     ${rb.amount?irow('수임액',`<b style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</b>${rb.currency!=='KRW'?' ≈'+fmtK(retK):''}`):''}
+    ${(()=>{const ex=(D.expenses||[]).filter(e=>e.matterId===m.id);if(!ex.length)return'';const bc={};ex.forEach(e=>{bc[e.currency||'KRW']=(bc[e.currency||'KRW']||0)+parseFloat(e.amount||0);});return irow('외부비용',`<span style="color:var(--r)">-${Object.entries(bc).map(([c,a])=>fmtM(a,c)).join('+')}</span>`);})()}
     ${m.type==='litigation'?`
       ${m.lit_retainer?irow('착수금',fmtM(m.lit_retainer,m.retainer_cur||'KRW')):''}
       ${m.lit_balance?irow('잔금',fmtM(m.lit_balance,m.retainer_cur||'KRW')):''}
@@ -1059,6 +1062,22 @@ function renderMatterDetailLayer(){
       <span style="font-size:13px;color:var(--text3);margin-left:4px">✏️</span>
     </div>`).join('')}
   </div>`:''}
+  <!-- 외부 비용 목록 -->
+  ${(()=>{
+    const exps=(D.expenses||[]).filter(e=>e.matterId===m.id);
+    if(!exps.length)return'';
+    const unpaid=exps.filter(e=>!e.paidDate);
+    return`<div class="section-title">외부 비용</div>
+    <div class="entry-list">
+      ${exps.map(e=>`<div class="entry-row" style="cursor:pointer" onclick="openExpenseModal('${m.id}','${e.id}')">
+        <span class="er-date" style="min-width:60px">${e.vendor||'—'}</span>
+        <span class="er-desc">${e.note||'—'}</span>
+        <span class="er-time" style="color:${e.paidDate?'var(--text3)':'var(--r)'}">${fmtM(e.amount,e.currency||'KRW')}</span>
+        <span style="font-size:10px;margin-left:4px;padding:2px 6px;border-radius:8px;background:${e.paidDate?'#dcfce7':'#fee2e2'};color:${e.paidDate?'var(--g2)':'var(--r)'}">${e.paidDate?'지급완료':'미지급'}</span>
+      </div>`).join('')}
+    </div>
+    ${unpaid.length?`<div style="font-size:12px;color:var(--r);font-weight:600;margin-bottom:8px">⚠️ 미지급 ${unpaid.length}건</div>`:''}`;
+  })()}
   <!-- 같은 의뢰인 다른 사건 -->
   ${(()=>{
     if(!m.client)return'';
@@ -1082,6 +1101,7 @@ function renderMatterDetailLayer(){
   <div class="action-row">
     <button class="act-btn act-primary" onclick="closeModal();openEntryModal('${m.id}')">＋ 시간기록</button>
     <button class="act-btn act-teal" onclick="openPaymentModal('${m.id}')">💰 입금</button>
+    <button class="act-btn" style="color:var(--r);border-color:#fca5a5" onclick="openExpenseModal('${m.id}')">💸 외부비용</button>
     <button class="act-btn" onclick="closeModal();openMatterModal('${m.id}')">✏️ 수정</button>
     <button class="act-btn" onclick="toggleStar('${m.id}',event)">${m.starred?'★ 해제':'☆ 중요'}</button>
   </div>
@@ -2672,6 +2692,65 @@ function openPaymentModal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)retur
 </div></div>`;const pr=document.getElementById('prate');if(pr)pr.value=CFG.usdKrw;}
 function onPCur(){const cur=document.getElementById('pcur').value;document.getElementById('rateRow').style.display=cur!=='KRW'?'block':'none';const rl=document.getElementById('rLbl');if(rl)rl.textContent=cur==='USD'?'입금일 환율 (원/달러)':'입금일 환율 (원/위안)';document.getElementById('prate').value=cur==='USD'?CFG.usdKrw:CFG.cnyKrw;updPayKRW();}
 function updPayKRW(){const amt=getRaw('pamt'),cur=document.getElementById('pcur')?.value||'KRW';const rate=parseFloat(document.getElementById('prate')?.value)||0;const el=document.getElementById('pconv');if(!el||!amt)return;if(cur==='KRW'){el.textContent='';return;}const ur=rate||(cur==='USD'?CFG.usdKrw:CFG.cnyKrw);el.textContent=`→ KRW ≈ ${fmtK(amt*ur)} (${ur}원/${cur==='USD'?'달러':'위안'})`;}
+function openExpenseModal(mid, eid){
+  const m=D.matters.find(x=>x.id===mid);
+  if(!m)return;
+  const em=eid?(D.expenses||[]).find(x=>x.id===eid):null;
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh" style="max-width:440px"><div class="mhdl"></div>
+<div class="mttl">💸 외부 비용 ${em?'수정':'등록'}</div>
+<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:11px">[${m.code}] ${m.name}</div>
+<div class="field"><label>협력사 / 외부기관 *</label><input id="exVendor" value="${em?.vendor||''}" placeholder="세무법인 XX, 번역회사 등"></div>
+<div class="cur-row">
+  <div class="field"><label>금액 *</label><input id="exAmt" value="${em?.amount||''}" placeholder="50,000" oninput="numInput(this)" inputmode="numeric"></div>
+  <div class="field cs"><label>통화</label><select id="exCur">
+    <option value="KRW" ${(em?.currency||'KRW')==='KRW'?'selected':''}>₩ KRW</option>
+    <option value="USD" ${em?.currency==='USD'?'selected':''}>$ USD</option>
+    <option value="CNY" ${em?.currency==='CNY'?'selected':''}>¥ CNY</option>
+  </select></div>
+</div>
+<div class="field"><label>메모</label><input id="exNote" value="${em?.note||''}" placeholder="법인청산 세무처리 위탁 등"></div>
+<div class="field"><label>지급일 (지급 완료 시 입력)</label><input id="exPaidDate" type="date" value="${em?.paidDate||''}"></div>
+<button class="savebtn" onclick="saveExpense('${mid}','${eid||''}')">저장</button>
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+${em?`<div style="text-align:right;margin-top:8px"><button onclick="deleteExpense('${eid}','${mid}')" style="background:none;border:1px solid var(--border);color:var(--text3);font-size:12px;cursor:pointer;padding:5px 12px;border-radius:8px;font-family:inherit">🗑️ 삭제</button></div>`:''}
+</div></div>`;
+}
+
+function saveExpense(mid, eid){
+  const vendor=(document.getElementById('exVendor')?.value||'').trim();
+  const amt=getRaw('exAmt');
+  if(!vendor||!amt)return alert('협력사와 금액을 입력하세요');
+  const cur=document.getElementById('exCur')?.value||'KRW';
+  const paidDate=document.getElementById('exPaidDate')?.value||null;
+  const krw=toKRW(amt,cur);
+  const exp={
+    id:eid||gid(), matterId:mid,
+    vendor, amount:amt, currency:cur, krw_amount:krw,
+    note:(document.getElementById('exNote')?.value||'').trim(),
+    paidDate:paidDate||null
+  };
+  if(!D.expenses)D.expenses=[];
+  if(eid){D.expenses=D.expenses.map(x=>x.id===eid?exp:x);}
+  else{D.expenses.unshift(exp);}
+  cloudSave('expense',exp);
+  closeModal();
+  curLayer='matter_detail';
+  _prevMatterId=mid;
+  renderContent();
+}
+
+function deleteExpense(eid, mid){
+  if(!confirm('이 외부 비용을 삭제하시겠습니까?'))return;
+  D.expenses=(D.expenses||[]).filter(x=>x.id!==eid);
+  cloudSave('expense',{id:eid},'del');
+  closeModal();
+  curLayer='matter_detail';
+  _prevMatterId=mid;
+  renderContent();
+}
+
 function savePayment(mid){
   const amt=getRaw('pamt');
   const date=document.getElementById('pdate')?.value||'';
