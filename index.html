@@ -1948,8 +1948,10 @@ ${em?`<div class="field">
   <div class="crow"><input type="checkbox" id="td_done" ${em.done?'checked':''}><label for="td_done">완료됨 ${em.doneAt?'('+fmtDF(em.doneAt)+')':''}</label></div>
 </div>`:''}
 <button class="savebtn" onclick="saveTodo('${editId||''}')">저장</button>
-${em?`<button class="savebtn red" style="margin-top:6px" onclick="if(confirm('삭제?')){D.todos=D.todos.filter(x=>x.id!=='${editId}');cloudSave('todo',{id:'${editId}'},'del');closeModal();renderContent();}">🗑️ 삭제</button>`:''}
 <button class="cancelbtn" onclick="closeModal()">취소</button>
+${em?`<div style="text-align:center;margin-top:8px">
+  <button onclick="if(confirm('정말 삭제하시겠습니까?')){D.todos=D.todos.filter(x=>x.id!=='${editId}');cloudSave('todo',{id:'${editId}'},'del');closeModal();renderContent();}" style="background:none;border:none;color:var(--text3);font-size:13px;cursor:pointer;padding:6px 16px;font-family:inherit">🗑️ 삭제</button>
+</div>`:''}
 </div></div>`;}
 
 function saveTodo(eid){
