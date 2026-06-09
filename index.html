@@ -633,6 +633,30 @@ async function ghFetch(path, opts={}){
   if(!res.ok){const t=await res.text();throw new Error(t);}
   return res.json();
 }
+async function forceGhSync(){
+  if(!CFG.ghToken)return alert('GitHub 토큰이 설정되지 않았습니다');
+  if(!confirm('GitHub 데이터로 덮어씁니다. 로컬의 변경사항은 사라집니다. 계속하시겠습니까?'))return;
+  showSync('sy','GitHub에서 불러오는 중...');
+  try{
+    const r=await ghFetch('/contents/legaltrack-data.json');
+    const raw=atob(r.content.split('\n').join(''));
+    const bytes=new Uint8Array(raw.length).map((_,i)=>raw.charCodeAt(i));
+    const data=JSON.parse(new TextDecoder().decode(bytes));
+    D.matters=data.matters||[];
+    D.entries=data.entries||[];
+    D.payments=data.payments||[];
+    D.clients=data.clients||[];
+    D.contacts=data.contacts||[];
+    D.todos=data.todos||[];
+    D._ghSha=r.sha;
+    localSave();
+    showSync('ok','✓ 동기화 완료');
+    closeModal();
+    renderAll();
+  }catch(e){
+    showSync('err','동기화 실패: '+e.message.slice(0,30));
+  }
+}
 async function ghLoad(){
   if(!CFG.ghToken)return false;
   showSync('sy','GitHub 불러오는 중...');
@@ -2900,6 +2924,7 @@ function openBackupModal(){document.getElementById('modalArea').innerHTML=`
 <div class="ibox">백업 파일을 내려받아 보관하고, 업로드하면 모든 데이터가 자동 복원됩니다.<br>프로그램 업데이트 시 이 방법으로 데이터를 이전할 수 있습니다.</div>
 <div style="background:var(--bg);border-radius:9px;padding:9px 11px;margin-bottom:12px;font-size:12px;color:var(--text2)">📁 Matters: <b>${D.matters.length}건</b> &nbsp;|&nbsp; 🕐 기록: <b>${D.entries.length}건</b> &nbsp;|&nbsp; 💰 입금: <b>${(D.payments||[]).length}건</b></div>
 <button class="savebtn teal" onclick="doBackupDownload()" style="margin-bottom:10px">⬇️ 전체 데이터 백업 다운로드</button>
+${CFG.ghToken?`<button class="savebtn" onclick="forceGhSync()" style="margin-bottom:10px;background:#2563EB">☁️ GitHub 데이터로 강제 동기화</button>`:''}
 <div class="divider"></div>
 <div class="cttl" style="margin-bottom:7px">데이터 복원</div>
 <div class="dropzone" id="dz" onclick="document.getElementById('backupFile').click()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="handleDrop(event)">
