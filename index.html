@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026060904';
+const APP_VERSION='2026061001';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1235,14 +1235,14 @@ function renderMattersQuery(){
   const statusF=_mqStatus||'all';
   const typeF=_mqType||'all';
   const q=(document.getElementById('mq_q')?.value||'').toLowerCase();
-  let items=D.matters.filter(m=>m.status!=='failed');
-  if(statusF!=='all')items=items.filter(m=>m.status===statusF);
+  let items=statusF==='failed'?D.matters.filter(m=>m.status==='failed'):D.matters.filter(m=>m.status!=='failed');
+  if(statusF!=='all'&&statusF!=='failed')items=items.filter(m=>m.status===statusF);
   if(typeF!=='all')items=items.filter(m=>m.type===typeF);
   if(q)items=items.filter(m=>m.name.toLowerCase().includes(q)||(m.client||'').toLowerCase().includes(q)||(m.code||'').toLowerCase().includes(q));
   items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const statusSel=`<select data-mqstatus="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 상태</option>
-    ${[['prospect','수임 진행중'],['active','수임 완료'],['closed','클로징'],['internal','비빌링']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
+    ${[['prospect','수임 진행중'],['active','수임 완료'],['closed','클로징'],['internal','비빌링'],['failed','수임 실패']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
   </select>`;
   const typeSel=`<select data-mqtype="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 유형</option>
@@ -2243,6 +2243,7 @@ function closeModal(){
 
 function handleBack(){
   if(curLayer==='matter_detail'){
+    if(_prevLayer==='failed'){curTab=4;curLayer=null;_prevLayer=null;renderAll();return;}
     if(_prevLayer==='matters_list'||_prevLayer==='active_list'){
       curLayer=_prevLayer;_prevLayer=null;
     } else if(_prevLayer==='client_detail'){
@@ -2350,7 +2351,52 @@ function renderAchievement(){
   <div class="qr-list">${matterRows||'<div class="empty-state">항목 없음</div>'}</div>
 </div>`;}
 
-function renderFailed(){return`<div style="padding:16px;text-align:center;color:var(--text3)"><div style="font-size:32px;margin-bottom:8px">❌</div><div>수임 실패 분석</div></div>`;}
+function renderFailed(){
+  const failed=D.matters.filter(m=>m.status==='failed');
+  if(!failed.length)return`<div style="padding:40px 16px;text-align:center;color:var(--text3)">
+    <div style="font-size:48px;margin-bottom:12px">❌</div>
+    <div style="font-size:16px;font-weight:600;margin-bottom:6px">수임 실패 없음</div>
+    <div style="font-size:13px">수임 실패 확정된 사건이 없습니다</div>
+  </div>`;
+
+  // Category stats
+  const catCount={};
+  failed.forEach(m=>{const c=m.fail_category||'미분류';catCount[c]=(catCount[c]||0)+1;});
+  const catBars=Object.entries(catCount).sort((a,b)=>b[1]-a[1]).map(([c,n])=>
+    `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+      <div style="font-size:13px;width:90px;color:var(--text2);flex-shrink:0">${c}</div>
+      <div style="flex:1;background:var(--bg);border-radius:4px;height:18px;overflow:hidden">
+        <div style="height:100%;background:var(--r);border-radius:4px;width:${Math.round(n/failed.length*100)}%;opacity:.7"></div>
+      </div>
+      <div style="font-size:12px;color:var(--r);font-weight:700;width:30px;text-align:right">${n}건</div>
+    </div>`).join('');
+
+  const rows=failed.map(m=>`
+    <div style="background:#fff;border-radius:12px;padding:13px;margin-bottom:8px;border:1px solid var(--border);cursor:pointer"
+      onclick="_selectedMatterId='${m.id}';_prevLayer='failed';curLayer='matter_detail';renderContent()">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+        <div style="font-size:14px;font-weight:700;color:var(--text)">${m.name}</div>
+        <div style="font-size:11px;color:var(--text3)">${m.failed_date||m.fail_date||'—'}</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        ${m.fail_category?`<span style="font-size:11px;background:#fee2e2;color:var(--r);padding:2px 8px;border-radius:10px">${m.fail_category}</span>`:''}
+        ${m.client?`<span style="font-size:11px;color:var(--text3)">${m.client}</span>`:''}
+      </div>
+      ${m.fail_reason?`<div style="font-size:12px;color:var(--text3);margin-top:5px">${m.fail_reason}</div>`:''}
+      ${m.fail_competitor?`<div style="font-size:12px;color:var(--text3);margin-top:3px">경쟁사: ${m.fail_competitor}</div>`:''}
+    </div>`).join('');
+
+  return`<div style="padding:14px">
+    <div style="font-size:16px;font-weight:800;color:var(--text);margin-bottom:12px">❌ 수임 실패 분석</div>
+    <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid var(--border);margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+        <span style="font-size:13px;font-weight:700;color:var(--text2)">총 ${failed.length}건 실패</span>
+        <span style="font-size:12px;color:var(--text3)">${failed.length}건</span>
+      </div>
+      ${catBars}
+    </div>
+    ${rows}
+  </div>`;}
 function renderReport(){
   const now=new Date();const yr=now.getFullYear();
   const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
