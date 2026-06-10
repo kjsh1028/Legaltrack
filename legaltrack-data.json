@@ -549,6 +549,14 @@
   ],
   "entries": [
     {
+      "id": "mq81aw9mti47t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-10",
+      "minutes": 240,
+      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
+      "billable": false
+    },
+    {
       "id": "mq63t3f2oz3nb",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-06-09",
