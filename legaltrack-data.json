@@ -1151,6 +1151,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mq7twdy21fqzs",
+      "title": "인지 정밀 잠재 매수인 검토",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-06-11",
+      "matterId": "mq20hw066a9x0",
+      "note": "",
+      "link": "https://drive.google.com/drive/folders/1c353lryLm_RNkcwFmrv02rnEHSgZ53Cz",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
