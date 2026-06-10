@@ -549,6 +549,14 @@
   ],
   "entries": [
     {
+      "id": "mq81bwezhp2hp",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-10",
+      "minutes": 60,
+      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
+      "billable": true
+    },
+    {
       "id": "mq81aw9mti47t",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-06-10",
