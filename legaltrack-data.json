@@ -409,7 +409,7 @@
       "name": "중국 유학생 성추행 사건",
       "client": "김계향",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -435,7 +435,12 @@
       "billed_cur": "KRW",
       "starred": false,
       "driveLink": "",
-      "driveLinkLabel": ""
+      "driveLinkLabel": "",
+      "failed_date": "2026-06-10",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "이미 다른 로펌을 선택해서 진행",
+      "fail_competitor": "",
+      "fail_memo": "일단 기다림"
     },
     {
       "id": "mq4p0ubk74z8q",
