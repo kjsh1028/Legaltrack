@@ -545,9 +545,69 @@
       "driveLinkLabel": "",
       "clientId": null,
       "contactId": null
+    },
+    {
+      "id": "mq9a4i2vgud1u",
+      "code": "미정- 정림 건축 노동분쟁",
+      "name": "정림 건축 노동분쟁",
+      "client": "정림건축",
+      "type": "fixed-f",
+      "status": "active",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "team-referral",
+      "collab_team": "기업금융 서호원",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": "",
+      "driveLinkLabel": "",
+      "clientId": null,
+      "contactId": null
     }
   ],
   "entries": [
+    {
+      "id": "mq95w45m46a6w",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-11",
+      "minutes": 120,
+      "description": "DB 하이텍 김상옥 재무총감 식사",
+      "billable": false
+    },
+    {
+      "id": "mq81bwezhp2hp",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-10",
+      "minutes": 60,
+      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
+      "billable": true
+    },
+    {
+      "id": "mq81aw9mti47t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-10",
+      "minutes": 240,
+      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
+      "billable": false
+    },
     {
       "id": "mq63t3f2oz3nb",
       "matterId": "mq20ac8bqbt35",
@@ -675,30 +735,6 @@
       "minutes": 30,
       "description": "우 변호사와 전화 회의를 하고 고객 상황에 대해 논의. 수임 노력함",
       "billable": false
-    },
-    {
-      "id": "mq95w45m46a6w",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-11",
-      "minutes": 120,
-      "description": "DB 하이텍 김상옥 재무총감 식사",
-      "billable": false
-    },
-    {
-      "id": "mq81bwezhp2hp",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-10",
-      "minutes": 60,
-      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
-      "billable": true
-    },
-    {
-      "id": "mq81aw9mti47t",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-10",
-      "minutes": 240,
-      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
-      "billable": false
     }
   ],
   "payments": [
@@ -713,16 +749,6 @@
       "note": "일부 잔금"
     },
     {
-      "id": "mq2glry4736rd",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
-      "note": ""
-    },
-    {
       "id": "mq69n9n8mn1mq",
       "matterId": "mq20lebejr8qp",
       "date": "2026-01-09",
@@ -731,6 +757,16 @@
       "rate_on_date": 200,
       "krw_amount": 10000000,
       "note": "착수금"
+    },
+    {
+      "id": "mq2glry4736rd",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": ""
     }
   ],
   "clients": [
@@ -745,6 +781,19 @@
       "website": "",
       "address": "",
       "note": "쿤산 자회사 매각",
+      "meetings": []
+    },
+    {
+      "id": "mq68okj1cjjmr",
+      "name": "대성법무법인",
+      "fullname": "대성법무법인",
+      "industry": "변호사",
+      "country": "중국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
       "meetings": []
     },
     {
@@ -780,19 +829,6 @@
       "industry": "제조",
       "country": "한국",
       "status": "prospect",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
-      "id": "mq68okj1cjjmr",
-      "name": "대성법무법인",
-      "fullname": "대성법무법인",
-      "industry": "변호사",
-      "country": "중국",
-      "status": "active",
       "phone": "",
       "website": "",
       "address": "",
