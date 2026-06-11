@@ -549,6 +549,14 @@
   ],
   "entries": [
     {
+      "id": "mq95w45m46a6w",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-11",
+      "minutes": 120,
+      "description": "DB 하이텍 김상옥 재무총감 식사",
+      "billable": false
+    },
+    {
       "id": "mq81bwezhp2hp",
       "matterId": "mq20hw066a9x0",
       "date": "2026-06-10",
