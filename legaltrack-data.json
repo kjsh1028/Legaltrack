@@ -549,6 +549,14 @@
   ],
   "entries": [
     {
+      "id": "mq9jb605s6if2",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-11",
+      "minutes": 60,
+      "description": "중국 로퍼가 협의 가능성 논의 검토 및 정리",
+      "billable": true
+    },
+    {
       "id": "mq95w45m46a6w",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-06-11",
