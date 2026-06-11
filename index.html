@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026061001';
+const APP_VERSION='2026061002';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2691,7 +2691,21 @@ function openMatterModal(editId){
 </div>
 <button class="savebtn" onclick="saveMatter('${editId||''}')">저장</button>
 <button class="cancelbtn" onclick="closeModal()">취소</button>
+${editId?`<div style="text-align:right;margin-top:8px">
+  <button onclick="deleteMatter('${editId}')" style="background:none;border:1px solid var(--border);color:var(--text3);font-size:12px;cursor:pointer;padding:5px 12px;border-radius:8px;font-family:inherit">🗑️ 사건 삭제</button>
+</div>`:''}
 </div></div>`;}
+function deleteMatter(mid){
+  if(!confirm('이 사건을 삭제하시겠습니까?\n관련 시간기록, 입금내역, 외부비용도 함께 삭제됩니다.'))return;
+  D.matters=D.matters.filter(m=>m.id!==mid);
+  D.entries=(D.entries||[]).filter(e=>e.matterId!==mid);
+  D.payments=(D.payments||[]).filter(p=>p.matterId!==mid);
+  D.expenses=(D.expenses||[]).filter(e=>e.matterId!==mid);
+  cloudSave('matter',{id:mid},'del');
+  closeModal();
+  curLayer=null;
+  renderAll();
+}
 function setMType(k,cls){
   document.getElementById('mtype').value=k;
   ['time-b','fixed-f','litigation','retainer','biz-b','office-i'].forEach((t,i)=>{
