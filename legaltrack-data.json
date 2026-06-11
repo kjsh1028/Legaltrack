@@ -313,7 +313,7 @@
       "name": "남성정밀-쿤산 天星阀业 매각",
       "client": "남성정밀",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -337,7 +337,12 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "failed_date": "2026-06-11",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "법무법인 태평양 하고도 논의를 하는 것 같아",
+      "fail_competitor": "태평양",
+      "fail_memo": "3 개월 후 상황 파악"
     },
     {
       "id": "mq3f9yjhmupdy",
