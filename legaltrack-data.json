@@ -603,7 +603,7 @@
       "date": "2026-06-12",
       "minutes": 90,
       "description": "법률 검토 및 법률 자문서 작성",
-      "billable": true
+      "billable": false
     },
     {
       "id": "mqawqbhqourk0",
