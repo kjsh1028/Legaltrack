@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026061002';
+const APP_VERSION='2026061201';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1693,7 +1693,13 @@ function renderContactDetail(ctId){
     ${ct.email?irow('이메일',`<a href="mailto:${ct.email}" style="color:var(--b)">${ct.email}</a>`):''}
     ${ct.mobile?irow('휴대폰',`<span style="display:flex;align-items:center;justify-content:space-between">${ct.mobile}<a href="tel:${ct.mobile.replace(/\s/g,'')}" onclick="event.stopPropagation()" style="background:var(--gl);color:var(--g2);padding:4px 12px;border-radius:16px;font-size:12px;font-weight:700;text-decoration:none;flex-shrink:0;margin-left:8px">📞 전화</a></span>`):''}
     ${ct.tel?irow('직통',`<span style="display:flex;align-items:center;justify-content:space-between">${ct.tel}<a href="tel:${ct.tel.replace(/\s/g,'')}" onclick="event.stopPropagation()" style="background:var(--gl);color:var(--g2);padding:4px 12px;border-radius:16px;font-size:12px;font-weight:700;text-decoration:none;flex-shrink:0;margin-left:8px">📞 전화</a></span>`):''}
-    ${ct.wechat?irow('WeChat',ct.wechat):''}
+    ${ct.wechat?irow('WeChat',`<span style="display:flex;align-items:center;gap:8px">
+      <span>${ct.wechat}</span>
+      <a href="weixin://dl/chat?${ct.wechat}" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#07C160;color:#fff;border-radius:12px;font-size:12px;font-weight:600;text-decoration:none">
+        <span>💬</span><span>WeChat</span>
+      </a>
+    </span>`):''}
+
     ${ct.kakao?irow('카카오톡',ct.kakao):''}
     ${ct.address?irow('주소',ct.address):''}
     ${ct.met_date?irow('첫 만남',fmtDF(ct.met_date)):''}
