@@ -593,7 +593,7 @@
       "name": "임청선 매수 자문",
       "client": "임창선 林清轩",
       "type": "fixed-f",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
