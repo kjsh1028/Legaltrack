@@ -590,6 +590,14 @@
   ],
   "entries": [
     {
+      "id": "mqawr2r3wdrkl",
+      "matterId": "mq20ej2g25wzu",
+      "date": "2026-06-12",
+      "minutes": 90,
+      "description": "법률 검토 및 법률 자문서 작성",
+      "billable": true
+    },
+    {
       "id": "mqawqbhqourk0",
       "matterId": "mq1w5upv8k38z",
       "date": "2026-06-12",
