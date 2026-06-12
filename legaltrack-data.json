@@ -1289,6 +1289,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mqa8ysn3eq546",
+      "title": "인지정밀 토지 구매시 투자 조항 검토",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq20hw066a9x0",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
