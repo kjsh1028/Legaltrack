@@ -1370,6 +1370,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-12"
+    },
+    {
+      "id": "mqbjybbpzy9ar",
+      "title": "깅석훈 강희철 신영수 연락",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
