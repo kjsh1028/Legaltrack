@@ -1429,6 +1429,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mqc42q9q540zm",
+      "title": "중국어 녹음 회의록 작성 프로그램 확인",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
