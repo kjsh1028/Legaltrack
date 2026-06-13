@@ -1442,6 +1442,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mqces2q9ia6aj",
+      "title": "개혁신당 탈퇴",
+      "cat": "personal",
+      "priority": "normal",
+      "due": "",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
