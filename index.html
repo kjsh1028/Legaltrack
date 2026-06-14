@@ -488,7 +488,6 @@ html,body{height:100%;background:var(--bg);
       </div>
       <div id="syncBar" style="display:none" class="syncbar"><div class="sdot" id="syncDot"></div><span id="syncTxt"></span></div>
       <div id="updateBanner" onclick="applyUpdate()" style="display:none;background:#1d4ed8;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;text-align:center">🔄 새 버전이 있습니다 — 탭하여 업데이트</div>
-      <div id="updateBanner" style="display:none;background:#1d4ed8;color:#fff;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;text-align:center" onclick="applyUpdate()">🔄 새 버전이 있습니다 — 탭하여 업데이트</div>
       <!-- Main content -->
       <div id="content"></div>
     </div>
@@ -523,7 +522,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026061202';
+const APP_VERSION='2026061406';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -766,6 +765,28 @@ async function checkForUpdate(){
       if(banner)banner.style.display='block';
     }
   }catch(e){}
+}
+async function checkAndUpdate(){
+  const btn=event.target;
+  btn.textContent='확인 중...';btn.disabled=true;
+  try{
+    const r=await fetch('https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/index.html?_='+Date.now());
+    const html=await r.text();
+    const m=html.match(/APP_VERSION='(\d+)'/);
+    if(m&&m[1]>APP_VERSION){
+      if(confirm(`새 버전(${m[1]})이 있습니다. 업데이트하시겠습니까?`)){
+        applyUpdate();
+      } else {
+        btn.textContent='🔄 업데이트 확인 및 적용';btn.disabled=false;
+      }
+    } else {
+      alert('최신 버전입니다 ✓');
+      btn.textContent='🔄 업데이트 확인 및 적용';btn.disabled=false;
+    }
+  }catch(e){
+    alert('확인 실패. 네트워크를 확인해주세요.');
+    btn.textContent='🔄 업데이트 확인 및 적용';btn.disabled=false;
+  }
 }
 function applyUpdate(){
   if(confirm('앱을 업데이트하시겠습니까? 현재 화면이 새로고침됩니다.')){
@@ -3230,6 +3251,11 @@ function openSettings(){
 <div class="ibox">연결하면 모든 기기에서 자동 동기화</div>
 <div class="field"><label>Project URL</label><input id="sbUrl" value="${CFG.supaUrl||''}" placeholder="https://xxxx.supabase.co"></div>
 <div class="field"><label>Anon Key</label><input id="sbKey" value="${CFG.supaKey||''}" placeholder="eyJhbGci..."></div>
+<div style="border-top:1px solid var(--border);margin:14px 0 12px"></div>
+<div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:8px">🔄 앱 업데이트</div>
+<div style="font-size:12px;color:var(--text3);margin-bottom:10px">현재 버전: ${APP_VERSION} · 최신 버전이 있으면 업데이트하세요</div>
+<button onclick="checkAndUpdate()" style="width:100%;padding:11px;background:#1d4ed8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:10px">🔄 업데이트 확인 및 적용</button>
+<div style="border-top:1px solid var(--border);margin:0 0 12px"></div>
 <button class="savebtn" onclick="saveSettings()">저장</button>
 ${CFG.supaUrl?'<button class="cancelbtn" style="color:var(--r)" onclick="if(confirm(\'연결 해제?\')){CFG.supaUrl=\'\';CFG.supaKey=\'\';saveCFG();closeModal();renderAll();}">Supabase 연결 해제</button>':''}
 <button class="cancelbtn" onclick="closeModal()">취소</button>
