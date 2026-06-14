@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026061401';
+const APP_VERSION='2026061202';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -563,7 +563,7 @@ function fmtD(d){if(!d)return'';const dt=new Date(d+'T00:00:00');return(dt.getMo
 function addCommas(v){return v.replace(/\D/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,',');}
 function numInput(el){el.value=addCommas(el.value);}
 function getRaw(id){return parseFloat((document.getElementById(id)?.value||'0').replace(/,/g,''))||0;}
-function statsNow(){const now=new Date(),ws=new Date(now);ws.setDate(now.getDate()-((now.getDay()-6+7)%7));ws.setHours(0,0,0,0);const ms=new Date(now.getFullYear(),now.getMonth(),1);return{today:D.entries.filter(e=>e.date===today()).reduce((s,e)=>s+e.minutes,0),week:D.entries.filter(e=>new Date(e.date+'T00:00:00')>=ws).reduce((s,e)=>s+e.minutes,0),month:D.entries.filter(e=>new Date(e.date+'T00:00:00')>=ms).reduce((s,e)=>s+e.minutes,0),total:D.entries.reduce((s,e)=>s+e.minutes,0)};}
+function statsNow(){const now=new Date(),ws=new Date(now);ws.setDate(now.getDate()-now.getDay());ws.setHours(0,0,0,0);const ms=new Date(now.getFullYear(),now.getMonth(),1);return{today:D.entries.filter(e=>e.date===today()).reduce((s,e)=>s+e.minutes,0),week:D.entries.filter(e=>new Date(e.date+'T00:00:00')>=ws).reduce((s,e)=>s+e.minutes,0),month:D.entries.filter(e=>new Date(e.date+'T00:00:00')>=ms).reduce((s,e)=>s+e.minutes,0),total:D.entries.reduce((s,e)=>s+e.minutes,0)};}
 async function fetchLiveRates(){try{const r=await fetch('https://open.er-api.com/v6/latest/KRW');const d=await r.json();if(d.rates?.USD){CFG.usdKrw=Math.round(1/d.rates.USD);CFG.cnyKrw=Math.round(1/d.rates.CNY);saveCFG();return true;}}catch(e){}try{const r=await fetch('https://api.exchangerate-api.com/v4/latest/KRW');const d=await r.json();if(d.rates?.USD){CFG.usdKrw=Math.round(1/d.rates.USD);CFG.cnyKrw=Math.round(1/d.rates.CNY);saveCFG();return true;}}catch(e){}return false;}
 const MTYPE={
   'time-b':{label:'Time Billing',ico:'⏱',cls:'time-b',tagCls:'g',color:'var(--green)'},
@@ -1290,9 +1290,7 @@ function renderTimeResults(){
   if(_timePresetQ==='today'){from=to=today();}
   else if(_timePresetQ==='week'){
     const ws=new Date(now);
-    // 토요일(6) 시작 ~ 금요일(5) 마감 기준
-    ws.setDate(now.getDate()-((now.getDay()-6+7)%7));
-    ws.setHours(0,0,0,0);
+    ws.setDate(now.getDate()-now.getDay()+1);
     from=ws.toISOString().slice(0,10);to=today();
   }
   else if(_timePresetQ==='month'){
