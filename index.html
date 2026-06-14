@@ -523,7 +523,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026061403';
+const APP_VERSION='2026061202';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1290,8 +1290,11 @@ function renderTimeResults(){
   if(_timePresetQ==='today'){from=to=today();}
   else if(_timePresetQ==='week'){
     const ws=new Date(now);
-    ws.setDate(now.getDate()-now.getDay()+1);
-    from=ws.toISOString().slice(0,10);to=today();
+    // 토요일(6) 시작: 일(0)→1일전, 월→2, ..., 금(5)→6일전, 토(6)→0일전
+    ws.setDate(now.getDate()-((now.getDay()+1)%7));
+    // toISOString은 UTC라 시간대 오류 발생 → 로컬 날짜 직접 계산
+    const y=ws.getFullYear(),m=String(ws.getMonth()+1).padStart(2,'0'),d=String(ws.getDate()).padStart(2,'0');
+    from=`${y}-${m}-${d}`;to=today();
   }
   else if(_timePresetQ==='month'){
     from=now.getFullYear()+'-'+(String(now.getMonth()+1).padStart(2,'0'))+'-01';
