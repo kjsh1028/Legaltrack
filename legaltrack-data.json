@@ -698,6 +698,14 @@
   ],
   "entries": [
     {
+      "id": "mqdid88nqqrw5",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-14",
+      "minutes": 60,
+      "description": "월요일 율촌 내부 미팅 사전 준비 및 쟁점 분석",
+      "billable": false
+    },
+    {
       "id": "mq9jb605s6if2",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-06-11",
