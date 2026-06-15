@@ -1072,6 +1072,11 @@ function renderMatterDetailLayer(){
     </div>
     <span style="font-size:16px;color:var(--b)">›</span>
   </a>`:''}
+  ${m.memo?`<div style="background:var(--bg2,#F8F9FA);border:1px solid var(--border);border-radius:12px;padding:13px 16px;margin-bottom:10px">
+    <div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:6px">📝 메모</div>
+    <div style="font-size:14px;color:var(--text1);white-space:pre-wrap;line-height:1.6">${m.memo}</div>
+  </div>`:''}
+
   <!-- Time entries (all) -->
   ${entries.length>0?`<div class="section-title">시간 기록</div>
   <div class="entry-list">
@@ -2689,6 +2694,9 @@ function openMatterModal(editId){
 <div class="field"><label>링크 표시 이름</label>
   <input id="mdrivelabel" value="${em?.driveLinkLabel||''}" placeholder="예: 사건 폴더, 계약서, 의견서 등">
 </div>
+<div class="field"><label>📝 메모</label>
+  <textarea id="mmemo" rows="3" placeholder="특이사항, 배경, 주의사항 등 자유롭게 메모">${em?.memo||''}</textarea>
+</div>
 <div style="border-top:1px solid var(--border);margin:14px 0 12px"></div>
 <div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:8px">💸 외부 비용 예정</div>
 <div class="ibox" style="font-size:12px;margin-bottom:10px">외부 자문사·협력사에게 지급할 예정 비용을 미리 등록하세요.</div>
@@ -2802,6 +2810,7 @@ function saveMatter(eid){
     starred:prev?.starred||false,
     driveLink:(document.getElementById('mdrivelink')?.value||'').trim(),
     driveLinkLabel:(document.getElementById('mdrivelabel')?.value||'').trim(),
+    memo:(document.getElementById('mmemo')?.value||'').trim(),
     clientId:g('m_clientId')?.value||null,
     contactId:g('m_contactId')?.value||null
   };
