@@ -726,10 +726,11 @@
       "billed_amount": null,
       "billed_cur": "KRW",
       "starred": false,
-      "driveLink": "",
+      "driveLink": "https://drive.google.com/drive/folders/1IXMcp3UrN7Hm8IafL61AcUj2ob0lBGnA",
       "driveLinkLabel": "",
       "clientId": "mqelsjk3ydxje",
-      "contactId": "mqeltn5w3qigk"
+      "contactId": "mqeltn5w3qigk",
+      "memo": ""
     }
   ],
   "entries": [
