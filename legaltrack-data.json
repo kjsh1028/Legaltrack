@@ -1030,19 +1030,6 @@
       "meetings": []
     },
     {
-      "id": "mq3fbf82qahr6",
-      "name": "파트라",
-      "fullname": "파트라 주식회사",
-      "industry": "제조",
-      "country": "한국",
-      "status": "prospect",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
       "id": "mqelsjk3ydxje",
       "name": "秦望环保",
       "fullname": "秦望环保",
@@ -1053,6 +1040,19 @@
       "website": "",
       "address": "",
       "note": "법인설립",
+      "meetings": []
+    },
+    {
+      "id": "mq3fbf82qahr6",
+      "name": "파트라",
+      "fullname": "파트라 주식회사",
+      "industry": "제조",
+      "country": "한국",
+      "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
       "meetings": []
     }
   ],
@@ -1143,6 +1143,23 @@
         "변호사"
       ],
       "note": "물품 구입 소송"
+    },
+    {
+      "id": "mqeltn5w3qigk",
+      "name": "샘 왕레이",
+      "title": "",
+      "dept": "",
+      "company": "",
+      "clientId": "mqelsjk3ydxje",
+      "email": "",
+      "mobile": "+86185 0164 3381",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-06-15",
+      "address": "",
+      "tags": [],
+      "note": ""
     }
   ],
   "todos": [
