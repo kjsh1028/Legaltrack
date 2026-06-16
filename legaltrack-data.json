@@ -1343,8 +1343,8 @@
       "note": "성공보수 2프로, 독점권 12개월, 우회금지 3년, 클로징 후 즉시, 착수금 필요",
       "link": "",
       "linkLabel": "",
-      "done": false,
-      "doneAt": null
+      "done": true,
+      "doneAt": "2026-06-16"
     },
     {
       "id": "mq59mrwb0tcmd",
