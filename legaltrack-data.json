@@ -1031,6 +1031,19 @@
       "meetings": []
     },
     {
+      "id": "mqg8p08x45lt9",
+      "name": "정밀건축",
+      "fullname": "정밀건축",
+      "industry": "건설",
+      "country": "한국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
       "id": "mqelsjk3ydxje",
       "name": "秦望环保",
       "fullname": "秦望环保",
@@ -1055,22 +1068,26 @@
       "address": "",
       "note": "",
       "meetings": []
-    },
-    {
-      "id": "mqg8p08x45lt9",
-      "name": "정밀건축",
-      "fullname": "정밀건축",
-      "industry": "건설",
-      "country": "한국",
-      "status": "active",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
     }
   ],
   "contacts": [
+    {
+      "id": "mqg8nxo26ytip",
+      "name": "권오빈",
+      "title": "변호사",
+      "dept": "준법경영실",
+      "company": "정밀건축",
+      "clientId": "mqg8p08x45lt9",
+      "email": "obin.kwon3@junglim.com",
+      "mobile": "+82 010 4497 7844",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-06-16",
+      "address": "",
+      "tags": [],
+      "note": ""
+    },
     {
       "id": "mq3d7az27rk27",
       "name": "박태연 감사한",
@@ -1174,23 +1191,6 @@
         "변호사"
       ],
       "note": "물품 구입 소송"
-    },
-    {
-      "id": "mqg8nxo26ytip",
-      "name": "권오빈",
-      "title": "변호사",
-      "dept": "준법경영실",
-      "company": "정밀건축",
-      "clientId": null,
-      "email": "obin.kwon3@junglim.com",
-      "mobile": "+82 010 4497 7844",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-06-16",
-      "address": "",
-      "tags": [],
-      "note": ""
     }
   ],
   "todos": [
