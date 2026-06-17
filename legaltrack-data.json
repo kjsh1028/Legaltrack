@@ -938,6 +938,16 @@
   ],
   "payments": [
     {
+      "id": "mqhkdfj8qndbl",
+      "matterId": "mqbzc2fexwrdg",
+      "date": "2026-06-17",
+      "amount": 20604,
+      "currency": "CNY",
+      "rate_on_date": 224,
+      "krw_amount": 4615296,
+      "note": "1차 착수금"
+    },
+    {
       "id": "mqbzdem94omuw",
       "matterId": "mqbzc2fexwrdg",
       "date": "2026-06-15",
