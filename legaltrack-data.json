@@ -1649,6 +1649,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-16"
+    },
+    {
+      "id": "mqhbs5fusocdx",
+      "title": "우 변호사와 연락해서 소송 수임 조건 논의",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-06-19",
+      "matterId": "mq20ej2g25wzu",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
