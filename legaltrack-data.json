@@ -941,10 +941,10 @@
       "id": "mqhkdfj8qndbl",
       "matterId": "mqbzc2fexwrdg",
       "date": "2026-06-17",
-      "amount": 20604,
-      "currency": "CNY",
-      "rate_on_date": 224,
-      "krw_amount": 4615296,
+      "amount": 3000,
+      "currency": "USD",
+      "rate_on_date": 1508,
+      "krw_amount": 4524000,
       "note": "1차 착수금"
     },
     {
