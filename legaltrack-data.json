@@ -736,6 +736,14 @@
   ],
   "entries": [
     {
+      "id": "mqj2b11p6uei2",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-18",
+      "minutes": 60,
+      "description": "정림건축과 내부 미팅",
+      "billable": true
+    },
+    {
       "id": "mqdid88nqqrw5",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-06-14",
