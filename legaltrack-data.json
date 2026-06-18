@@ -736,6 +736,14 @@
   ],
   "entries": [
     {
+      "id": "mqj2c9k41s41p",
+      "matterId": "mq20ej2g25wzu",
+      "date": "2026-06-17",
+      "minutes": 60,
+      "description": "대성 법무법인 이메일 내용에 대한 답변 작성 및 이메일",
+      "billable": false
+    },
+    {
       "id": "mqj2b11p6uei2",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-06-18",
