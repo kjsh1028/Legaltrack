@@ -736,6 +736,14 @@
   ],
   "entries": [
     {
+      "id": "mqkb74wji6mvz",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-18",
+      "minutes": 60,
+      "description": "이태은 변호사와 고객과 화상회의, 현재 쟁점과 대응방안 논의",
+      "billable": true
+    },
+    {
       "id": "mqkb5z7e58601",
       "matterId": "mqelrjr4iee53",
       "date": "2026-06-18",
