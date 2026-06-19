@@ -1709,6 +1709,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mqkllas30meuw",
+      "title": "매수인 협상 미팅",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "",
+      "matterId": "mq20hw066a9x0",
+      "note": "A사 — 苏州松尚食品（科技）有限公司\n\n\t•\t의향 매수가: 7,200만 ~ 7,600만 위안\n\t•\t(첨부 PPTX는 이 회사 소개 자료)\n\nB사 — 江苏帝亿格智能制造有限公司\n\n\t•\t연락처: 谢龙\n\t•\t주요 품목: 의료기기 / 의료 포장재\n\t•\t연간 생산액: 2억 위안\n\t•\t연간 납세액: 2,000만 위안",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
