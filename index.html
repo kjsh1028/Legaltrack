@@ -1389,7 +1389,7 @@ function renderEntryDetailLayer(){
   const mt=MTYPE[m.type||'time-b'];
   return`<div class="detail-wrap">
   <div class="detail-header">
-    <div class="detail-name">${m.name}</div>
+    <div class="detail-name" onclick="_selectedMatterId='${m.id}';_prevLayer='entry_detail';curLayer='matter_detail';renderContent()" style="cursor:pointer;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.4)">${m.name}</div>
     <div class="detail-meta"><span class="dtag ${mt.tagCls==='g'?'g':'o'}">${fmtDF(e.date)}</span><span class="dtag b">${hhmm(e.minutes)}</span>${e.billable?'<span class="dtag g">청구</span>':''}</div>
   </div>
   <div class="info-section">
