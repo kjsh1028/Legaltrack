@@ -1722,6 +1722,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mqkyuqhbs0qr4",
+      "title": "뉴스레터 보기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq20ac8bqbt35",
+      "note": "진이신 작성 초안",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
