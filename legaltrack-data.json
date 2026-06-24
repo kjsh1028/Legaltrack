@@ -1810,6 +1810,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-21"
+    },
+    {
+      "id": "mqrk8e1svvndx",
+      "title": "임세만 자료 메일 받아서 검토하기",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-06-26",
+      "matterId": "mqrjvi5a6jktt",
+      "note": "임세만 자료 검토, 수임 금액 확정",
+      "link": "https://drive.google.com/drive/folders/1sHm2_l_uZPBBTlMyoMEwrzMv5RJCDtvZ",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
