@@ -740,7 +740,7 @@
       "client": "QAI",
       "type": "fixed-f",
       "status": "prospect",
-      "retainer_amount": null,
+      "retainer_amount": 3000000,
       "retainer_cur": "KRW",
       "rate": null,
       "rate_cur": "KRW",
