@@ -1923,8 +1923,8 @@
       "note": "퇴직금 월급 에 대한 합의서",
       "link": "",
       "linkLabel": "",
-      "done": false,
-      "doneAt": null
+      "done": true,
+      "doneAt": "2026-06-29"
     }
   ],
   "expenses": [
