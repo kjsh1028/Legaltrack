@@ -40,7 +40,7 @@
     },
     {
       "id": "mq205p2ptqpyp",
-      "code": "미정-BROOKS/GEN/지분변경",
+      "code": "BROOKS/GEN/CLOSING",
       "name": "Brooks 지분변경/노동계약",
       "client": "Brooks Sports",
       "type": "fixed-f",
@@ -70,7 +70,10 @@
       "contingency_amount": null,
       "contingency_condition": null,
       "driveLink": "",
-      "driveLinkLabel": ""
+      "driveLinkLabel": "",
+      "memo": "",
+      "clientId": null,
+      "contactId": null
     },
     {
       "id": "mq20ac8bqbt35",
