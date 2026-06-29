@@ -529,7 +529,7 @@
       "name": "정림건축 노동분쟁",
       "client": "정림건축",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "active",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
