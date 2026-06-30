@@ -826,14 +826,6 @@
       "billable": false
     },
     {
-      "id": "mr1a0zz3vycon",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-01",
-      "minutes": 360,
-      "description": "청도 정부와 한국 정부, 기업 세미나 교류회 참석 및 중국 기업들 미팅",
-      "billable": true
-    },
-    {
       "id": "mqj2c9k41s41p",
       "matterId": "mq20ej2g25wzu",
       "date": "2026-06-17",
