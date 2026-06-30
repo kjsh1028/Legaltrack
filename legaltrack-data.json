@@ -818,75 +818,83 @@
   ],
   "entries": [
     {
-      "id": "mqkb74wji6mvz",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-18",
-      "minutes": 60,
-      "description": "이태은 변호사와 고객과 화상회의, 현재 쟁점과 대응방안 논의",
-      "billable": true
-    },
-    {
-      "id": "mqkb5z7e58601",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-06-18",
-      "minutes": 150,
-      "description": "친왕 그룹 이 회장과 미팅하고 저녁 식사",
-      "billable": false
-    },
-    {
-      "id": "mqawsm1rox4kp",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-12",
-      "minutes": 90,
-      "description": "DB 하이텍 김상옥 재무총감 회장님 보고 자료 작성",
-      "billable": false
-    },
-    {
-      "id": "mqawr2r3wdrkl",
+      "id": "mqj2c9k41s41p",
       "matterId": "mq20ej2g25wzu",
-      "date": "2026-06-12",
-      "minutes": 90,
-      "description": "법률 검토 및 법률 자문서 작성",
+      "date": "2026-06-17",
+      "minutes": 60,
+      "description": "대성 법무법인 이메일 내용에 대한 답변 작성 및 이메일",
       "billable": false
     },
     {
-      "id": "mqawqbhqourk0",
-      "matterId": "mq1w5upv8k38z",
-      "date": "2026-06-12",
-      "minutes": 84,
-      "description": "대성법무법인과 회의 및 비자 및 은행계좌 절차 자료 정리",
-      "billable": true
-    },
-    {
-      "id": "mqawpeovvcf28",
+      "id": "mqdid88nqqrw5",
       "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-12",
-      "minutes": 30,
-      "description": "율촌 내부 미팅 준비 자료 및 쟁점 법률 검토",
+      "date": "2026-06-14",
+      "minutes": 60,
+      "description": "월요일 율촌 내부 미팅 사전 준비 및 쟁점 분석",
+      "billable": false
+    },
+    {
+      "id": "mq9jb605s6if2",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-11",
+      "minutes": 60,
+      "description": "중국 로퍼가 협의 가능성 논의 검토 및 정리",
       "billable": true
     },
     {
-      "id": "mq4mezbriaoud",
-      "matterId": "mq4lxl561un1a",
-      "date": "2026-06-08",
-      "minutes": 12,
-      "description": "김계향 변호사와 사건 수임 논의",
-      "billable": true
+      "id": "mq95w45m46a6w",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-11",
+      "minutes": 120,
+      "description": "DB 하이텍 김상옥 재무총감 식사",
+      "billable": false
     },
     {
-      "id": "mq4m6g94pi4q8",
+      "id": "mq81bwezhp2hp",
       "matterId": "mq20hw066a9x0",
+      "date": "2026-06-10",
+      "minutes": 60,
+      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
+      "billable": true
+    },
+    {
+      "id": "mq81aw9mti47t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-10",
+      "minutes": 240,
+      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
+      "billable": false
+    },
+    {
+      "id": "mq63t3f2oz3nb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
+      "billable": true
+    },
+    {
+      "id": "mq63rb4od5scn",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-09",
+      "minutes": 42,
+      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "billable": true
+    },
+    {
+      "id": "mq59cx61m9lfi",
+      "matterId": "mq1w5upv8k38z",
       "date": "2026-06-08",
       "minutes": 36,
-      "description": "잠재적 인수자 소개 및 회사 파악",
+      "description": "법인 설립 관련 자료 수정 검토",
       "billable": true
     },
     {
-      "id": "mq4lwelvdp2v2",
-      "matterId": "mq20urwkdcwfj",
+      "id": "mq4r1pva3h88e",
+      "matterId": "mq20lebejr8qp",
       "date": "2026-06-08",
-      "minutes": 60,
-      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
+      "minutes": 42,
+      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
       "billable": true
     },
     {
@@ -954,51 +962,27 @@
       "billable": true
     },
     {
-      "id": "mq59cx61m9lfi",
-      "matterId": "mq1w5upv8k38z",
+      "id": "mq4m6g94pi4q8",
+      "matterId": "mq20hw066a9x0",
       "date": "2026-06-08",
       "minutes": 36,
-      "description": "법인 설립 관련 자료 수정 검토",
+      "description": "잠재적 인수자 소개 및 회사 파악",
       "billable": true
     },
     {
-      "id": "mq4r1pva3h88e",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-06-08",
-      "minutes": 42,
-      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
-      "billable": true
-    },
-    {
-      "id": "mq81bwezhp2hp",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-10",
-      "minutes": 60,
-      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
-      "billable": true
-    },
-    {
-      "id": "mq81aw9mti47t",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-10",
-      "minutes": 240,
-      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
-      "billable": false
-    },
-    {
-      "id": "mq63t3f2oz3nb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-09",
-      "minutes": 30,
-      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
-      "billable": true
-    },
-    {
-      "id": "mq63rb4od5scn",
+      "id": "mq4lwelvdp2v2",
       "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-09",
-      "minutes": 42,
-      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "date": "2026-06-08",
+      "minutes": 60,
+      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
+      "billable": true
+    },
+    {
+      "id": "mq4mezbriaoud",
+      "matterId": "mq4lxl561un1a",
+      "date": "2026-06-08",
+      "minutes": 12,
+      "description": "김계향 변호사와 사건 수임 논의",
       "billable": true
     },
     {
@@ -1010,27 +994,51 @@
       "billable": false
     },
     {
-      "id": "mq9jb605s6if2",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-11",
-      "minutes": 60,
-      "description": "중국 로퍼가 협의 가능성 논의 검토 및 정리",
-      "billable": true
-    },
-    {
-      "id": "mq95w45m46a6w",
+      "id": "mqawsm1rox4kp",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-11",
-      "minutes": 120,
-      "description": "DB 하이텍 김상옥 재무총감 식사",
+      "date": "2026-06-12",
+      "minutes": 90,
+      "description": "DB 하이텍 김상옥 재무총감 회장님 보고 자료 작성",
       "billable": false
     },
     {
-      "id": "mqj2c9k41s41p",
+      "id": "mqawr2r3wdrkl",
       "matterId": "mq20ej2g25wzu",
-      "date": "2026-06-17",
+      "date": "2026-06-12",
+      "minutes": 90,
+      "description": "법률 검토 및 법률 자문서 작성",
+      "billable": false
+    },
+    {
+      "id": "mqawqbhqourk0",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-12",
+      "minutes": 84,
+      "description": "대성법무법인과 회의 및 비자 및 은행계좌 절차 자료 정리",
+      "billable": true
+    },
+    {
+      "id": "mqawpeovvcf28",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-12",
+      "minutes": 30,
+      "description": "율촌 내부 미팅 준비 자료 및 쟁점 법률 검토",
+      "billable": true
+    },
+    {
+      "id": "mqkb74wji6mvz",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-18",
       "minutes": 60,
-      "description": "대성 법무법인 이메일 내용에 대한 답변 작성 및 이메일",
+      "description": "이태은 변호사와 고객과 화상회의, 현재 쟁점과 대응방안 논의",
+      "billable": true
+    },
+    {
+      "id": "mqkb5z7e58601",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-06-18",
+      "minutes": 150,
+      "description": "친왕 그룹 이 회장과 미팅하고 저녁 식사",
       "billable": false
     },
     {
@@ -1040,17 +1048,19 @@
       "minutes": 60,
       "description": "정림건축과 내부 미팅",
       "billable": true
-    },
-    {
-      "id": "mqdid88nqqrw5",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-14",
-      "minutes": 60,
-      "description": "월요일 율촌 내부 미팅 사전 준비 및 쟁점 분석",
-      "billable": false
     }
   ],
   "payments": [
+    {
+      "id": "mqhkdfj8qndbl",
+      "matterId": "mqbzc2fexwrdg",
+      "date": "2026-06-17",
+      "amount": 3000,
+      "currency": "USD",
+      "rate_on_date": 1508,
+      "krw_amount": 4524000,
+      "note": "1차 착수금"
+    },
     {
       "id": "mq2gm94hsvzaf",
       "matterId": "mq20hw066a9x0",
@@ -1060,16 +1070,6 @@
       "rate_on_date": 226,
       "krw_amount": 11300000,
       "note": "일부 잔금"
-    },
-    {
-      "id": "mq2glry4736rd",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
-      "note": ""
     },
     {
       "id": "mq69n9n8mn1mq",
@@ -1082,6 +1082,16 @@
       "note": "착수금"
     },
     {
+      "id": "mq2glry4736rd",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": ""
+    },
+    {
       "id": "mqbzdem94omuw",
       "matterId": "mqbzc2fexwrdg",
       "date": "2026-06-15",
@@ -1090,16 +1100,6 @@
       "rate_on_date": 1517,
       "krw_amount": 4551000,
       "note": "1 차 착수금"
-    },
-    {
-      "id": "mqhkdfj8qndbl",
-      "matterId": "mqbzc2fexwrdg",
-      "date": "2026-06-17",
-      "amount": 3000,
-      "currency": "USD",
-      "rate_on_date": 1508,
-      "krw_amount": 4524000,
-      "note": "1차 착수금"
     }
   ],
   "clients": [
@@ -1467,19 +1467,6 @@
       "doneAt": "2026-06-08"
     },
     {
-      "id": "mq4m4ji8k99qf",
-      "title": "중국 유학생 성추행 사건 파악하기",
-      "cat": "yulchon",
-      "priority": "normal",
-      "due": "",
-      "matterId": "mq4lxl561un1a",
-      "note": "",
-      "link": "",
-      "linkLabel": "",
-      "done": true,
-      "doneAt": "2026-06-10"
-    },
-    {
       "id": "mq4mpoqexg8jg",
       "title": "파트라 청도 법원 출장 보고서 쓰기",
       "cat": "yulchon",
@@ -1595,6 +1582,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-09"
+    },
+    {
+      "id": "mq4m4ji8k99qf",
+      "title": "중국 유학생 성추행 사건 파악하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq4lxl561un1a",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": true,
+      "doneAt": "2026-06-10"
     },
     {
       "id": "mq6lakwdossyr",
@@ -1918,8 +1918,8 @@
       "note": "",
       "link": "",
       "linkLabel": "",
-      "done": false,
-      "doneAt": null
+      "done": true,
+      "doneAt": "2026-06-30"
     },
     {
       "id": "mqxshft7gkvcr",
@@ -1937,16 +1937,6 @@
   ],
   "expenses": [
     {
-      "id": "mq6ddvo7bsubl",
-      "matterId": "mq20lebejr8qp",
-      "vendor": "세무법인",
-      "amount": 50000,
-      "currency": "CNY",
-      "krw_amount": 11450000,
-      "note": "청산 세무 자문",
-      "paidDate": null
-    },
-    {
       "id": "mqax65lcoerz4",
       "matterId": "",
       "vendor": "대성",
@@ -1954,6 +1944,16 @@
       "currency": "KRW",
       "krw_amount": 1,
       "note": "",
+      "paidDate": null
+    },
+    {
+      "id": "mq6ddvo7bsubl",
+      "matterId": "mq20lebejr8qp",
+      "vendor": "세무법인",
+      "amount": 50000,
+      "currency": "CNY",
+      "krw_amount": 11450000,
+      "note": "청산 세무 자문",
       "paidDate": null
     }
   ]
