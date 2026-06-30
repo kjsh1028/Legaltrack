@@ -818,6 +818,14 @@
   ],
   "entries": [
     {
+      "id": "mr1a1vrl2e6wp",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-01",
+      "minutes": 360,
+      "description": "청도 정보와 한국 정부, 그리고 중국 기업들 한중 교류회 참석 및 중국 기업들 미팅",
+      "billable": false
+    },
+    {
       "id": "mr1a0zz3vycon",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-01",
