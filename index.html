@@ -554,7 +554,7 @@ function renderCurPills(g,showTotal){
   return`<div class="cur-summary">${parts.join('')}</div>`;
 }
 function gid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
-function today(){return new Date().toISOString().slice(0,10);}
+function today(){const n=new Date();return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');}
 function hhmm(m){if(!m)return'0m';const h=Math.floor(m/60),mm=m%60;return h>0?(mm>0?h+'h '+mm+'m':h+'h'):mm+'m';}
 function parseMins(v){v=String(v||'').trim();if(!v)return 0;const hm=v.match(/^(\d+)[h:시간](\d*)m?$/i);if(hm)return parseInt(hm[1])*60+(parseInt(hm[2])||0);const f=parseFloat(v.replace(/,/g,''));if(!isNaN(f)&&f>0)return f<20?Math.round(f*60):Math.round(f);return 0;}
 function fmtDF(d){if(!d)return'';const dt=new Date(d+'T00:00:00');return dt.getFullYear()+'.'+(dt.getMonth()+1)+'.'+dt.getDate();}
