@@ -185,7 +185,7 @@
       "name": "나우코스-상해법인청산",
       "client": "나우코스",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 100000,
       "retainer_cur": "CNY",
       "rate": null,
@@ -213,7 +213,8 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "closed_date": "2026-07-02"
     },
     {
       "id": "mq20qil2xsxww",
