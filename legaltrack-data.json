@@ -749,7 +749,7 @@
       "name": "QAI 양자 이스라엘 영문 계약서 검토",
       "client": "QAI",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 3000000,
       "retainer_cur": "KRW",
       "rate": null,
@@ -778,7 +778,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mqrjxnxxt2xqh",
-      "contactId": "mqrjze9pgd7q2"
+      "contactId": "mqrjze9pgd7q2",
+      "closed_date": "2026-07-02"
     },
     {
       "id": "mqvkyvpmim9dx",
