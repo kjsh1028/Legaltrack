@@ -1949,6 +1949,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-29"
+    },
+    {
+      "id": "mr1o6s4u87mjs",
+      "title": "컨플릭트 체크 등 시스템 사용",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq33mk2e2x560",
+      "note": "",
+      "link": "https://docs.google.com/presentation/d/1qw4c5sVbMn05CPey5swPzagp_5iz5Srz/edit?usp=drivesdk&ouid=110000574387133527525&rtpof=true&sd=true",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
