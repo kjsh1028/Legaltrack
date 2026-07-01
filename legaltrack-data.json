@@ -222,7 +222,7 @@
       "name": "42dot-일상자문/6개월",
       "client": "포티투닷 42dot",
       "type": "retainer",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -248,7 +248,8 @@
       "contingency_amount": null,
       "contingency_condition": null,
       "driveLink": "https://drive.google.com/drive/folders/1DwOdrZa-ABL0LjbrjYxuczctRqpJRAfM",
-      "driveLinkLabel": ""
+      "driveLinkLabel": "",
+      "closed_date": "2026-07-02"
     },
     {
       "id": "mq20urwkdcwfj",
