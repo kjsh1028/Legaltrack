@@ -1069,6 +1069,16 @@
   ],
   "payments": [
     {
+      "id": "mr2nr4r36ad9s",
+      "matterId": "mq20qil2xsxww",
+      "date": "2026-11-02",
+      "amount": 12000000,
+      "currency": "KRW",
+      "rate_on_date": null,
+      "krw_amount": 12000000,
+      "note": "매달 200 만원"
+    },
+    {
       "id": "mr2nprfwwpwep",
       "matterId": "mq20lebejr8qp",
       "date": "2026-07-02",
