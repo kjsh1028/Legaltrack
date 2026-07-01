@@ -1068,6 +1068,16 @@
   ],
   "payments": [
     {
+      "id": "mr2nprfwwpwep",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-07-02",
+      "amount": 35000,
+      "currency": "CNY",
+      "rate_on_date": 227,
+      "krw_amount": 7945000,
+      "note": ""
+    },
+    {
       "id": "mqhkdfj8qndbl",
       "matterId": "mqbzc2fexwrdg",
       "date": "2026-06-17",
