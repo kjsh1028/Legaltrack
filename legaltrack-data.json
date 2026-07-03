@@ -858,6 +858,14 @@
   ],
   "entries": [
     {
+      "id": "mr5l55psg1fxc",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-03",
+      "minutes": 180,
+      "description": "전이데일리 비지와치 대표 조용만 뉴스핌 본부장 미팅",
+      "billable": true
+    },
+    {
       "id": "mr48hqnc2jkha",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-02",
