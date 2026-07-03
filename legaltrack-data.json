@@ -858,6 +858,14 @@
   ],
   "entries": [
     {
+      "id": "mr483n3nvpzjg",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-02",
+      "minutes": 60,
+      "description": "고객과 미팅 전반적 질의에 대한 답변",
+      "billable": true
+    },
+    {
       "id": "mr482wz7a2mz1",
       "matterId": "mq33mk2e2x560",
       "date": "2026-07-02",
