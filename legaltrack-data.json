@@ -858,6 +858,14 @@
   ],
   "entries": [
     {
+      "id": "mr482wz7a2mz1",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-02",
+      "minutes": 78,
+      "description": "박재현 변호사와 중국팀 운영 관련 회의",
+      "billable": true
+    },
+    {
       "id": "mr1a49tlveut1",
       "matterId": "mqrjvi5a6jktt",
       "date": "2026-07-01",
