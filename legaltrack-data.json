@@ -858,6 +858,14 @@
   ],
   "entries": [
     {
+      "id": "mr5l5o5kk9lka",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-03",
+      "minutes": 180,
+      "description": "전 한샘 임원들 미팅",
+      "billable": true
+    },
+    {
       "id": "mr5l55psg1fxc",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-03",
