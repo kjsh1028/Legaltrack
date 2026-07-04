@@ -604,7 +604,7 @@
       "name": "임청선 매수 자문",
       "client": "임창선 林清轩",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -632,7 +632,12 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-07-04",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "우리가 제시한 성공보수가 부담스러웠던거 같음",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mqbzc2fexwrdg",
