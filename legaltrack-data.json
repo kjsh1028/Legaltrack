@@ -863,6 +863,14 @@
   ],
   "entries": [
     {
+      "id": "mracl4cfeqy2q",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-07",
+      "minutes": 72,
+      "description": "고객과 화상 회의 및 내부 회의",
+      "billable": true
+    },
+    {
       "id": "mqkb74wji6mvz",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-06-18",
