@@ -1124,7 +1124,7 @@
       "date": "2026-07-03",
       "minutes": 180,
       "description": "전 한샘 임원들 미팅",
-      "billable": true
+      "billable": false
     },
     {
       "id": "mr5l55psg1fxc",
