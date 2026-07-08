@@ -937,6 +937,14 @@
   ],
   "entries": [
     {
+      "id": "mrcq744zys7jw",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-08",
+      "minutes": 120,
+      "description": "중국팀 변호사님들 면담",
+      "billable": false
+    },
+    {
       "id": "mrcq6jr55s4q3",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-08",
