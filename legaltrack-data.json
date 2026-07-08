@@ -2296,6 +2296,16 @@
   ],
   "expenses": [
     {
+      "id": "mrcn5vmn0thu1",
+      "matterId": "mrcn4opkchjjr",
+      "vendor": "세무법인",
+      "amount": 16000,
+      "currency": "CNY",
+      "krw_amount": 3600000,
+      "note": "대표처 설립",
+      "paidDate": null
+    },
+    {
       "id": "mqax65lcoerz4",
       "matterId": "",
       "vendor": "대성",
