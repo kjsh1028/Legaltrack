@@ -937,6 +937,14 @@
   ],
   "entries": [
     {
+      "id": "mrcq6jr55s4q3",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-08",
+      "minutes": 150,
+      "description": "피노바 파트너스 김상욱 미팅",
+      "billable": true
+    },
+    {
       "id": "mr5l5o5kk9lka",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-03",
