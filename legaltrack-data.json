@@ -937,6 +937,14 @@
   ],
   "entries": [
     {
+      "id": "mrcq7xgekmxmd",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-08",
+      "minutes": 30,
+      "description": "메모 검토 밑 출장 일정 조율",
+      "billable": true
+    },
+    {
       "id": "mrcq744zys7jw",
       "matterId": "mq33mk2e2x560",
       "date": "2026-07-08",
