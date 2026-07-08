@@ -2192,6 +2192,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mrc39srd0mcsh",
+      "title": "서원철 연락 식사",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "https://www.edaily.co.kr/News/Read?newsId=04024566645512552&mediaCodeNo=257&OutLnkChk=Y",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
