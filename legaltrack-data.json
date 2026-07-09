@@ -1485,6 +1485,19 @@
       "meetings": []
     },
     {
+      "id": "mrd1j5juo3ywl",
+      "name": "키움증권",
+      "fullname": "",
+      "industry": "",
+      "country": "",
+      "status": "prospect",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
       "id": "mq3fbf82qahr6",
       "name": "파트라",
       "fullname": "파트라 주식회사",
@@ -1503,19 +1516,6 @@
       "fullname": "QAI",
       "industry": "IT",
       "country": "한국",
-      "status": "prospect",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
-      "id": "mrd1j5juo3ywl",
-      "name": "키움증권",
-      "fullname": "",
-      "industry": "",
-      "country": "",
       "status": "prospect",
       "phone": "",
       "website": "",
@@ -1572,6 +1572,23 @@
       "wechat": "",
       "kakao": "",
       "met_date": "2026-06-15",
+      "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mrd1iqrizpu0p",
+      "name": "이상만",
+      "title": "팀장",
+      "dept": "부동산",
+      "company": "키움증권",
+      "clientId": "mrd1j5juo3ywl",
+      "email": "sm.lee@kiwoom.com",
+      "mobile": "+82-10-7189-6444",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-09",
       "address": "",
       "tags": [],
       "note": ""
@@ -1662,23 +1679,6 @@
         "변호사"
       ],
       "note": "물품 구입 소송"
-    },
-    {
-      "id": "mrd1iqrizpu0p",
-      "name": "이상만",
-      "title": "팀장",
-      "dept": "부동산",
-      "company": "키움증권",
-      "clientId": null,
-      "email": "",
-      "mobile": "+82-10-7189-6444",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-09",
-      "address": "",
-      "tags": [],
-      "note": ""
     }
   ],
   "todos": [
