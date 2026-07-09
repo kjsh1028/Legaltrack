@@ -908,7 +908,7 @@
       "name": "시몬느 중국 대표처 인니 공장",
       "client": "시몬느",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "active",
       "retainer_amount": 8400000,
       "retainer_cur": "KRW",
       "rate": null,
