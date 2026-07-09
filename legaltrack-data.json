@@ -866,7 +866,7 @@
       "name": "유도 삼각거래 세무",
       "client": "주식회사 유도",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -895,7 +895,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-07-09",
+      "fail_category": "예산 부족",
+      "fail_reason": "고객이 예산 부족",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mrcn4opkchjjr",
