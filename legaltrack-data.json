@@ -942,6 +942,14 @@
   ],
   "entries": [
     {
+      "id": "mrcwy19slmmsl",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-09",
+      "minutes": 150,
+      "description": "키움증권 부동산 본부장 이상민 미팅",
+      "billable": true
+    },
+    {
       "id": "mrcq7xgekmxmd",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-07-08",
