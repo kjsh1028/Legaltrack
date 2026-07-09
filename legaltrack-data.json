@@ -1564,6 +1564,23 @@
       "note": ""
     },
     {
+      "id": "mqrjze9pgd7q2",
+      "name": "임세만",
+      "title": "대표",
+      "dept": "",
+      "company": "QAI 양자 컴퓨터",
+      "clientId": "mqrjxnxxt2xqh",
+      "email": "",
+      "mobile": "+82 10 2402 1478",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-06-24",
+      "address": "",
+      "tags": [],
+      "note": "박순우가 투자한 회사 박순우가 소개"
+    },
+    {
       "id": "mq3fbpj95hynq",
       "name": "정연익",
       "title": "부장",
@@ -1634,21 +1651,21 @@
       "note": "물품 구입 소송"
     },
     {
-      "id": "mqrjze9pgd7q2",
-      "name": "임세만",
-      "title": "대표",
-      "dept": "",
-      "company": "QAI 양자 컴퓨터",
-      "clientId": "mqrjxnxxt2xqh",
+      "id": "mrd1iqrizpu0p",
+      "name": "이상만",
+      "title": "팀장",
+      "dept": "부동산",
+      "company": "키움증권",
+      "clientId": null,
       "email": "",
-      "mobile": "+82 10 2402 1478",
+      "mobile": "+82-10-7189-6444",
       "tel": "",
       "wechat": "",
       "kakao": "",
-      "met_date": "2026-06-24",
+      "met_date": "2026-07-09",
       "address": "",
       "tags": [],
-      "note": "박순우가 투자한 회사 박순우가 소개"
+      "note": ""
     }
   ],
   "todos": [
