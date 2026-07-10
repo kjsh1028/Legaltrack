@@ -979,6 +979,14 @@
   ],
   "entries": [
     {
+      "id": "mre7zezhf0jrt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-09",
+      "minutes": 60,
+      "description": "X costomer 상장회수 인수건 수임 논의",
+      "billable": true
+    },
+    {
       "id": "mre7wj3s563rb",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-09",
