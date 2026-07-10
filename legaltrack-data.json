@@ -979,6 +979,14 @@
   ],
   "entries": [
     {
+      "id": "mre7zz28pi9rb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-10",
+      "minutes": 60,
+      "description": "글로벌 데이터 권규식 대표 노동문제 수임 논의",
+      "billable": false
+    },
+    {
       "id": "mre7zezhf0jrt",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-09",
