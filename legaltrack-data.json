@@ -979,6 +979,14 @@
   ],
   "entries": [
     {
+      "id": "mre7wj3s563rb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-09",
+      "minutes": 120,
+      "description": "김앤장 김형동 고문 미팅",
+      "billable": true
+    },
+    {
       "id": "mrcwy19slmmsl",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-09",
