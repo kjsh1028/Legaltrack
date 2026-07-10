@@ -992,7 +992,7 @@
       "date": "2026-07-09",
       "minutes": 60,
       "description": "X costomer 상장회수 인수건 수임 논의",
-      "billable": true
+      "billable": false
     },
     {
       "id": "mre7wj3s563rb",
