@@ -1016,6 +1016,14 @@
   ],
   "entries": [
     {
+      "id": "mrerzoe9q7npl",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-10",
+      "minutes": 90,
+      "description": "서희경 변호사 시스템 사용 교육",
+      "billable": false
+    },
+    {
       "id": "mreryyddwlx3r",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-10",
