@@ -537,7 +537,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071113';
+const APP_VERSION='2026071104';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2555,15 +2555,27 @@ function openEntryModal(mid,prefillMins,editObj){
 <div class="msh"><div class="mhdl"></div>
 <div class="mttl">${editObj?'기록 수정':'시간 기록 추가'}</div>
 ${D.matters.filter(m=>m.status!=='failed').length===0?`<div class="wbox">⚠️ Matters 탭에서 먼저 추가해 주세요.</div>`:''}
+${recentMatters.length>0&&!editObj?`
+<div style="margin-bottom:10px">
+  <div style="font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.06em;margin-bottom:6px">최근 MATTER</div>
+  <div style="display:flex;flex-direction:column;gap:5px">
+    ${recentMatters.map(m=>{const mt=MTYPE[m.type||'time-b'];const sel=selMid===m.id;return `<button type="button" onclick="emSelect('${m.id}','${m.name.replace(/'/g,"\'")}');document.getElementById('emDropdown').style.display='none'" id="qm_${m.id}" style="display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:11px;border:2px solid ${sel?'var(--g)':'var(--border)'};background:${sel?'var(--gl)':'var(--white)'};cursor:pointer;font-family:inherit;text-align:left;width:100%"><span style="font-size:16px">${mt.ico}</span><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div><div style="font-size:11px;color:var(--text3)">${m.code}</div></div>${sel?'<span style="color:var(--g)">✓</span>':''}</button>`;}).join('')}
+  </div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+  <div style="flex:1;height:1px;background:var(--border)"></div>
+  <span style="font-size:11px;color:var(--text3)">또는 직접 선택</span>
+  <div style="flex:1;height:1px;background:var(--border)"></div>
+</div>`:''}
 <div class="field"><label>Matter *</label>
   <div style="position:relative">
-    <input id="emSearch" placeholder="🔍 Matter 검색 또는 스크롤..." autocomplete="off"
-      value="${(()=>{const m=D.matters.find(x=>x.id===selMid);return m?m.name:'';})()}"
+    <input id="emSearch" placeholder="🔍 검색 또는 탭하여 전체 목록..." autocomplete="off"
+      value=""
       oninput="emSearch(this.value)"
       onfocus="emSearchFocus()"
-      style="width:100%;padding:10px 12px;border:1.5px solid ${selMid?'var(--g)':'var(--border)'};border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
+      style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
     <input type="hidden" id="em" value="${selMid||''}">
-    <div id="emDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--g);border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.12);z-index:200;max-height:260px;overflow-y:auto;margin-top:3px">
+    <div id="emDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--g);border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.12);z-index:200;max-height:240px;overflow-y:auto;margin-top:3px">
     </div>
   </div>
 </div>
