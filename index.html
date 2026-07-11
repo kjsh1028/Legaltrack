@@ -522,7 +522,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026070102';
+const APP_VERSION='2026071101';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2088,10 +2088,15 @@ function openTodoModal(editId){
 <div class="field"><label>마감일</label><input id="td_due" type="date" value="${em?.due||''}"></div>
 <div id="td_mrow" style="display:${(em?.cat==='yulchon'||!em)?'block':'none'}">
   <div class="field"><label>연결 Matter (선택)</label>
-    <select id="td_matter">
-      <option value="">— Matter 연결 안함 —</option>
-      ${matterOpts}
-    </select>
+    <div style="position:relative">
+      <input id="td_matterSearch" placeholder="Matter 검색..." autocomplete="off"
+        value="${(()=>{const m=D.matters.find(x=>x.id===selMid);return m?'['+m.code+'] '+m.name:'';})()}"
+        oninput="entryMatterSearch(this.value)"
+        onfocus="entryMatterSearch(this.value)"
+        style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
+      <input type="hidden" id="td_matter" value="${selMid||''}">
+      <div id="td_matterDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;max-height:200px;overflow-y:auto"></div>
+    </div>
   </div>
 </div>
 <div class="field"><label>메모</label><textarea id="td_note" rows="2" placeholder="상세 내용, 액션아이템 등">${em?.note||''}</textarea></div>
@@ -2609,19 +2614,24 @@ function openMatterModal(editId){
 <div class="field"><label>Matter 명 *</label><input id="mn" value="${em?.name||''}" placeholder="ABC사 M&A 자문"></div>
 <div class="field"><label>의뢰인</label><input id="mcl" value="${em?.client||''}" placeholder="의뢰인 이름 또는 회사명"></div>
 <div class="field"><label>고객사 연결 (선택)</label>
-  <select id="m_clientId" onchange="updateContactDropdown(this.value)" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff">
-    <option value="">— 고객사 연결 안함 —</option>
-    ${(D.clients||[]).map(c=>`<option value="${c.id}" ${(em?.clientId||'')=== c.id?'selected':''}>${c.name}</option>`).join('')}
-  </select>
+  <div style="position:relative">
+    <input id="m_clientSearch" placeholder="검색 또는 직접입력..." autocomplete="off"
+      value="${(()=>{const c=(D.clients||[]).find(x=>x.id===(em?.clientId||''));return c?c.name:'';})()}"
+      oninput="mClientSearch(this.value)"
+      style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
+    <input type="hidden" id="m_clientId" value="${em?.clientId||''}">
+    <div id="m_clientDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;max-height:180px;overflow-y:auto"></div>
+  </div>
 </div>
 <div class="field"><label>담당자 연결 (선택)</label>
-  <select id="m_contactId" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff">
-    <option value="">— 담당자 연결 안함 —</option>
-    ${(()=>{
-      const cid=em?.clientId||'';
-      return (D.contacts||[]).filter(x=>!cid||x.clientId===cid).map(ct=>`<option value="${ct.id}" ${(em?.contactId||'')=== ct.id?'selected':''}>${ct.name}${ct.title?' ('+ct.title+')':''}</option>`).join('');
-    })()}
-  </select>
+  <div style="position:relative">
+    <input id="m_contactSearch" placeholder="검색 또는 직접입력..." autocomplete="off"
+      value="${(()=>{const c=(D.contacts||[]).find(x=>x.id===(em?.contactId||''));return c?c.name+(c.title?' ('+c.title+')':''):'';})()}"
+      oninput="mContactSearch(this.value)"
+      style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
+    <input type="hidden" id="m_contactId" value="${em?.contactId||''}">
+    <div id="m_contactDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;max-height:180px;overflow-y:auto"></div>
+  </div>
 </div>
 <div id="fixedRetF" style="${(em?.type||'time-b')==='fixed-f'?'':'display:none'}">
   <div class="cur-row"><div class="field"><label>수임 금액 (Fixed Fee)</label><input id="mra" value="${em?.retainer_amount?Number(em.retainer_amount).toLocaleString():''}" placeholder="10,000,000" oninput="numInput(this)" inputmode="numeric"></div><div class="field cs"><label>통화</label><select id="mrc"><option value="KRW" ${(em?.retainer_cur||'KRW')==='KRW'?'selected':''}>₩ KRW</option><option value="USD" ${em?.retainer_cur==='USD'?'selected':''}>$ USD</option><option value="CNY" ${em?.retainer_cur==='CNY'?'selected':''}>¥ CNY</option></select></div></div>
@@ -2753,6 +2763,113 @@ function setMType(k,cls){
 }
 function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
 function onAT(sel){const bf=document.getElementById('billedF');if(bf)bf.style.display=sel.value==='team-referral'?'':'none';}
+// ── 검색 콤보 헬퍼 ──
+function makeDropdownItem(label, sub, onclick, isAdd=false){
+  return `<div onclick="${onclick}" style="padding:10px 12px;cursor:pointer;border-bottom:1px solid var(--border);font-size:13px;display:flex;flex-direction:column;gap:2px;background:${isAdd?'#f0fdf4':'#fff'}" onmouseover="this.style.background='${isAdd?'#dcfce7':'#f5f5f5'}'" onmouseout="this.style.background='${isAdd?'#f0fdf4':'#fff'}'">
+    <span style="font-weight:${isAdd?'700':'500'};color:${isAdd?'var(--g2)':'var(--text)'}">${label}</span>
+    ${sub?`<span style="font-size:11px;color:var(--text3)">${sub}</span>`:''}
+  </div>`;
+}
+
+// Matter 모달 - 고객사 검색
+function mClientSearch(q){
+  const dd=document.getElementById('m_clientDropdown');
+  if(!dd)return;
+  const clients=D.clients||[];
+  const filtered=q?clients.filter(c=>c.name.toLowerCase().includes(q.toLowerCase())):clients;
+  let html='';
+  if(!q||q===''){
+    html+=makeDropdownItem('— 연결 안함 —','','document.getElementById("m_clientId").value="";document.getElementById("m_clientSearch").value="";document.getElementById("m_clientDropdown").style.display="none";updateContactDropdown("")');
+  }
+  filtered.slice(0,8).forEach(c=>{
+    html+=makeDropdownItem(c.name,'',`document.getElementById('m_clientId').value='${c.id}';document.getElementById('m_clientSearch').value='${c.name.replace(/'/g,"\'")}';document.getElementById('m_clientDropdown').style.display='none';updateContactDropdown('${c.id}')`);
+  });
+  if(q&&!clients.find(c=>c.name.toLowerCase()===q.toLowerCase())){
+    html+=makeDropdownItem('+ "'+q+'" 새 고객사로 추가','',`quickAddClient('${q.replace(/'/g,"\'")}')`,true);
+  }
+  dd.innerHTML=html;
+  dd.style.display=html?'block':'none';
+}
+
+function quickAddClient(name){
+  const c={id:gid(),name,contacts:[]};
+  if(!D.clients)D.clients=[];
+  D.clients.push(c);
+  localSave();
+  document.getElementById('m_clientId').value=c.id;
+  document.getElementById('m_clientSearch').value=name;
+  document.getElementById('m_clientDropdown').style.display='none';
+  updateContactDropdown(c.id);
+}
+
+// Matter 모달 - 담당자 검색
+function mContactSearch(q){
+  const dd=document.getElementById('m_contactDropdown');
+  if(!dd)return;
+  const cid=document.getElementById('m_clientId')?.value||'';
+  const contacts=(D.contacts||[]).filter(c=>!cid||c.clientId===cid);
+  const filtered=q?contacts.filter(c=>c.name.toLowerCase().includes(q.toLowerCase())):contacts;
+  let html='';
+  if(!q){
+    html+=makeDropdownItem('— 연결 안함 —','',`document.getElementById('m_contactId').value='';document.getElementById('m_contactSearch').value='';document.getElementById('m_contactDropdown').style.display='none'`);
+  }
+  filtered.slice(0,8).forEach(c=>{
+    const sub=c.title||c.company||'';
+    html+=makeDropdownItem(c.name,sub,`document.getElementById('m_contactId').value='${c.id}';document.getElementById('m_contactSearch').value='${(c.name+(c.title?' ('+c.title+')':'')).replace(/'/g,"\'")}';document.getElementById('m_contactDropdown').style.display='none'`);
+  });
+  if(q&&!contacts.find(c=>c.name.toLowerCase()===q.toLowerCase())){
+    const cid2=document.getElementById('m_clientId')?.value||'';
+    html+=makeDropdownItem('+ "'+q+'" 새 담당자로 추가',cid2?'현재 고객사에 추가':'',`quickAddContact('${q.replace(/'/g,"\'")}')`,true);
+  }
+  dd.innerHTML=html;
+  dd.style.display=html?'block':'none';
+}
+
+function quickAddContact(name){
+  const cid=document.getElementById('m_clientId')?.value||'';
+  const c={id:gid(),name,clientId:cid,title:'',company:''};
+  if(!D.contacts)D.contacts=[];
+  D.contacts.push(c);
+  localSave();
+  document.getElementById('m_contactId').value=c.id;
+  document.getElementById('m_contactSearch').value=name;
+  document.getElementById('m_contactDropdown').style.display='none';
+}
+
+// 시간입력 - Matter 검색
+function entryMatterSearch(q){
+  const dd=document.getElementById('td_matterDropdown');
+  if(!dd)return;
+  const matters=D.matters.filter(m=>m.status!=='failed');
+  const filtered=q?matters.filter(m=>m.name.toLowerCase().includes(q.toLowerCase())||(m.code||'').toLowerCase().includes(q.toLowerCase())||(m.client||'').toLowerCase().includes(q.toLowerCase())):matters;
+  let html='';
+  if(!q){
+    html+=makeDropdownItem('— Matter 연결 안함 —','',`document.getElementById('td_matter').value='';document.getElementById('td_matterSearch').value='';document.getElementById('td_matterDropdown').style.display='none'`);
+  }
+  filtered.slice(0,10).forEach(m=>{
+    html+=makeDropdownItem(m.name,m.code||'',`document.getElementById('td_matter').value='${m.id}';document.getElementById('td_matterSearch').value='[${(m.code||'').replace(/'/g,"\'")}] ${m.name.replace(/'/g,"\'")}';document.getElementById('td_matterDropdown').style.display='none'`);
+  });
+  dd.innerHTML=html||'<div style="padding:10px;font-size:13px;color:var(--text3)">검색 결과 없음</div>';
+  dd.style.display='block';
+}
+
+// 할일 - Matter 검색
+function todoMatterSearch(q){
+  const dd=document.getElementById('td_matterDropdown');
+  if(!dd)return;
+  const matters=D.matters.filter(m=>m.status!=='failed');
+  const filtered=q?matters.filter(m=>m.name.toLowerCase().includes(q.toLowerCase())||(m.code||'').toLowerCase().includes(q.toLowerCase())):matters;
+  let html='';
+  if(!q){
+    html+=makeDropdownItem('— Matter 연결 안함 —','',`document.getElementById('td_matter').value='';document.getElementById('td_matterSearch').value='';document.getElementById('td_matterDropdown').style.display='none'`);
+  }
+  filtered.slice(0,10).forEach(m=>{
+    html+=makeDropdownItem(m.name,m.code||'',`document.getElementById('td_matter').value='${m.id}';document.getElementById('td_matterSearch').value='[${(m.code||'').replace(/'/g,"\'")}] ${m.name.replace(/'/g,"\'")}';document.getElementById('td_matterDropdown').style.display='none'`);
+  });
+  dd.innerHTML=html||'<div style="padding:10px;font-size:13px;color:var(--text3)">검색 결과 없음</div>';
+  dd.style.display='block';
+}
+
 function updateContactDropdown(clientId){
   const sel=document.getElementById('m_contactId');
   if(!sel)return;
