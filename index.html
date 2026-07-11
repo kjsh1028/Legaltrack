@@ -432,6 +432,21 @@ html,body{height:100%;background:var(--bg);
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/Legaltrack/sw.js').then(reg=>{
+    reg.addEventListener('updatefound',()=>{
+      const nw=reg.installing;
+      nw.addEventListener('statechange',()=>{
+        if(nw.state==='installed'&&navigator.serviceWorker.controller){
+          const b=document.getElementById('updateBanner');
+          if(b)b.style.display='block';
+        }
+      });
+    });
+  });
+}
+</script>
 </head>
 <body>
 <div class="app">
@@ -522,7 +537,7 @@ html,body{height:100%;background:var(--bg);
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071101';
+const APP_VERSION='2026071102';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -789,12 +804,19 @@ async function checkAndUpdate(){
   }
 }
 function applyUpdate(){
-  if(confirm('앱을 업데이트하시겠습니까? 현재 화면이 새로고침됩니다.')){
-    // Clear all caches then reload
+  if(confirm('앱을 업데이트하시겠습니까?')){
+    if('serviceWorker' in navigator&&navigator.serviceWorker.controller){
+      // SW에 skipWaiting 요청 후 reload
+      navigator.serviceWorker.controller.postMessage('SKIP_WAITING');
+      navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload());
+    }
+    // 캐시 전체 삭제 후 강제 reload
     if('caches' in window){
-      caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>location.reload(true));
+      caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>{
+        location.href=location.pathname+'?v='+Date.now();
+      });
     } else {
-      location.reload(true);
+      location.href=location.pathname+'?v='+Date.now();
     }
   }
 }
