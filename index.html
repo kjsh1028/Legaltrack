@@ -537,7 +537,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071110';
+const APP_VERSION='2026071104';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2858,6 +2858,10 @@ function mClientSearch(q){
   });
   if(q&&!clients.find(c=>c.name.toLowerCase()===q.toLowerCase())){
     html+=makeDropdownItem('+ "'+q+'" 새 고객사 추가','이름·국가·업종 등 입력',`quickAddClient('${q.replace(/'/g,"\'")}')`,true);
+  } else if(!q){
+    html+=`<div onclick="quickAddClient('')" style="padding:10px 12px;cursor:pointer;border-top:1px solid #f0f0f0;display:flex;align-items:center;gap:8px;color:var(--g2);font-size:13px;font-weight:600;background:#f0fdf4" onmouseover="this.style.background='#dcfce7'" onmouseout="this.style.background='#f0fdf4'">
+      <span>✚</span><span>새 고객사 추가</span>
+    </div>`;
   }
   dd.innerHTML=html;
   dd.style.display=html?'block':'none';
