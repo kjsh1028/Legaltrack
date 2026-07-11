@@ -2877,22 +2877,11 @@ function mClientSearch(q){
   if(!dd)return;
   const clients=D.clients||[];
   const filtered=q?clients.filter(c=>c.name.toLowerCase().includes(q.toLowerCase())):clients;
-  let html='';
-  if(!q||q===''){
-    html+=makeDropdownItem('— 연결 안함 —','','document.getElementById("m_clientId").value="";document.getElementById("m_clientSearch").value="";document.getElementById("m_clientDropdown").style.display="none";updateContactDropdown("")');
-  }
-  filtered.slice(0,8).forEach(c=>{
-    html+=makeDropdownItem(c.name,'',`document.getElementById('m_clientId').value='${c.id}';document.getElementById('m_clientSearch').value='${c.name.replace(/'/g,"\'")}';document.getElementById('m_clientDropdown').style.display='none';updateContactDropdown('${c.id}')`);
-  });
-  if(q&&!clients.find(c=>c.name.toLowerCase()===q.toLowerCase())){
-    html+=makeDropdownItem('+ "'+q+'" 새 고객사 추가','이름·국가·업종 등 입력',`quickAddClient('${q.replace(/'/g,"\'")}')`,true);
-  } else if(!q){
-    html+=`<div onclick="quickAddClient('')" style="padding:10px 12px;cursor:pointer;border-top:1px solid #f0f0f0;display:flex;align-items:center;gap:8px;color:var(--g2);font-size:13px;font-weight:600;background:#f0fdf4" onmouseover="this.style.background='#dcfce7'" onmouseout="this.style.background='#f0fdf4'">
-      <span>✚</span><span>새 고객사 추가</span>
-    </div>`;
-  }
-  dd.innerHTML=html;
-  dd.style.display=html?'block':'none';
+  const addLabel=q?'+ "'+q+'" 새 고객사 추가':'✚ 새 고객사 추가';
+  let html=`<div onclick="quickAddClient('${q.replace(/'/g,"\'")}') " style="padding:10px 12px;cursor:pointer;border-bottom:2px solid #dcfce7;display:flex;align-items:center;gap:8px;color:var(--g2);font-size:13px;font-weight:700;background:#f0fdf4" onmouseover="this.style.background='#dcfce7'" onmouseout="this.style.background='#f0fdf4'"><span>✚</span><span>${addLabel}</span></div>`;
+  if(!q) html+=makeDropdownItem('— 연결 안함 —','','document.getElementById(\"m_clientId\").value=\"\";document.getElementById(\"m_clientSearch\").value=\"\";document.getElementById(\"m_clientDropdown\").style.display=\"none\";updateContactDropdown(\"\")');
+  filtered.slice(0,10).forEach(c=>{const n=c.name.replace(/'/g,"\'");html+=makeDropdownItem(c.name,'',`document.getElementById('m_clientId').value='${c.id}';document.getElementById('m_clientSearch').value='${n}';document.getElementById('m_clientDropdown').style.display='none';updateContactDropdown('${c.id}')`);});
+  dd.innerHTML=html;dd.style.display='block';
 }
 
 function quickAddClient(name){
@@ -2943,20 +2932,11 @@ function mContactSearch(q){
   const cid=document.getElementById('m_clientId')?.value||'';
   const contacts=(D.contacts||[]).filter(c=>!cid||c.clientId===cid);
   const filtered=q?contacts.filter(c=>c.name.toLowerCase().includes(q.toLowerCase())):contacts;
-  let html='';
-  if(!q){
-    html+=makeDropdownItem('— 연결 안함 —','',`document.getElementById('m_contactId').value='';document.getElementById('m_contactSearch').value='';document.getElementById('m_contactDropdown').style.display='none'`);
-  }
-  filtered.slice(0,8).forEach(c=>{
-    const sub=c.title||c.company||'';
-    html+=makeDropdownItem(c.name,sub,`document.getElementById('m_contactId').value='${c.id}';document.getElementById('m_contactSearch').value='${(c.name+(c.title?' ('+c.title+')':'')).replace(/'/g,"\'")}';document.getElementById('m_contactDropdown').style.display='none'`);
-  });
-  if(q&&!contacts.find(c=>c.name.toLowerCase()===q.toLowerCase())){
-    const cid2=document.getElementById('m_clientId')?.value||'';
-    html+=makeDropdownItem('+ "'+q+'" 새 담당자 추가','이름·직함·연락처 입력',`quickAddContact('${q.replace(/'/g,"\'")}')`,true);
-  }
-  dd.innerHTML=html;
-  dd.style.display=html?'block':'none';
+  const addLabel=q?'+ "'+q+'" 새 담당자 추가':'✚ 새 담당자 추가';
+  let html=`<div onclick="quickAddContact('${q.replace(/'/g,"\'")}') " style="padding:10px 12px;cursor:pointer;border-bottom:2px solid #dcfce7;display:flex;align-items:center;gap:8px;color:var(--g2);font-size:13px;font-weight:700;background:#f0fdf4" onmouseover="this.style.background='#dcfce7'" onmouseout="this.style.background='#f0fdf4'"><span>✚</span><span>${addLabel}</span></div>`;
+  if(!q) html+=makeDropdownItem('— 연결 안함 —','',`document.getElementById('m_contactId').value='';document.getElementById('m_contactSearch').value='';document.getElementById('m_contactDropdown').style.display='none'`);
+  filtered.slice(0,10).forEach(c=>{const sub=c.title||'';const n=(c.name+(c.title?' ('+c.title+')':'')).replace(/'/g,"\'");html+=makeDropdownItem(c.name,sub,`document.getElementById('m_contactId').value='${c.id}';document.getElementById('m_contactSearch').value='${n}';document.getElementById('m_contactDropdown').style.display='none'`);});
+  dd.innerHTML=html;dd.style.display='block';
 }
 
 function quickAddContact(name){
