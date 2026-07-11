@@ -1,4 +1,5 @@
-const CACHE_NAME = 'legaltrack-v2026071112';
+const CACHE_NAME = 'legaltrack-v2026071113';
+const ALWAYS_NETWORK = ['/Legaltrack/', '/Legaltrack/index.html', '/Legaltrack/sw.js'];
 
 self.addEventListener('install', e => {
   self.skipWaiting();
@@ -14,12 +15,13 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
-  // API 호출은 캐시하지 않음
   if (url.hostname === 'api.anthropic.com' || url.hostname === 'api.github.com') return;
-  // index.html은 항상 네트워크 우선
-  if (url.pathname.endsWith('/') || url.pathname.endsWith('index.html')) {
+  
+  // index.html과 sw.js는 항상 네트워크에서 (캐시 무시)
+  const path = url.pathname;
+  if (path.endsWith('/') || path.endsWith('index.html') || path.endsWith('sw.js')) {
     e.respondWith(
-      fetch(e.request).then(res => {
+      fetch(e.request, {cache: 'no-store'}).then(res => {
         const clone = res.clone();
         caches.open(CACHE_NAME).then(c => c.put(e.request, clone));
         return res;
@@ -27,7 +29,6 @@ self.addEventListener('fetch', e => {
     );
     return;
   }
-  // 나머지는 캐시 우선
   e.respondWith(
     caches.match(e.request).then(cached => cached || fetch(e.request).then(res => {
       const clone = res.clone();
@@ -37,7 +38,6 @@ self.addEventListener('fetch', e => {
   );
 });
 
-// 업데이트 메시지 수신 시 즉시 활성화
 self.addEventListener('message', e => {
   if (e.data === 'SKIP_WAITING') self.skipWaiting();
 });
