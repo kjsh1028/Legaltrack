@@ -537,7 +537,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071108';
+const APP_VERSION='2026071104';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2682,25 +2682,27 @@ function openMatterModal(editId){
 </div>
 <div class="field"><label>Matter 코드 *</label><input id="mc" value="${em?.code||''}" placeholder="ABC-2025-01" oninput="this.value=this.value.toUpperCase()"></div>
 <div class="field"><label>Matter 명 *</label><input id="mn" value="${em?.name||''}" placeholder="ABC사 M&A 자문"></div>
-<div class="field"><label>의뢰인</label><input id="mcl" value="${em?.client||''}" placeholder="의뢰인 이름 또는 회사명"></div>
-<div class="field"><label>고객사 연결 (선택)</label>
+<div class="field"><label>고객사 (의뢰인)</label>
   <div style="position:relative">
-    <input id="m_clientSearch" placeholder="검색 또는 직접입력..." autocomplete="off"
-      value="${(()=>{const c=(D.clients||[]).find(x=>x.id===(em?.clientId||''));return c?c.name:'';})()}"
+    <input id="m_clientSearch" placeholder="고객사 검색..." autocomplete="off"
+      value="${(()=>{const c=(D.clients||[]).find(x=>x.id===(em?.clientId||''));return c?c.name:(em?.client||'');})()}"
       oninput="mClientSearch(this.value)"
+      onfocus="mClientSearch(document.getElementById('m_clientSearch').value||'')"
       style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
     <input type="hidden" id="m_clientId" value="${em?.clientId||''}">
-    <div id="m_clientDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;max-height:180px;overflow-y:auto"></div>
+    <input type="hidden" id="mcl" value="${em?.client||''}">
+    <div id="m_clientDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--g);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.12);z-index:200;max-height:200px;overflow-y:auto"></div>
   </div>
 </div>
-<div class="field"><label>담당자 연결 (선택)</label>
+<div class="field"><label>담당자</label>
   <div style="position:relative">
-    <input id="m_contactSearch" placeholder="검색 또는 직접입력..." autocomplete="off"
+    <input id="m_contactSearch" placeholder="담당자 검색..." autocomplete="off"
       value="${(()=>{const c=(D.contacts||[]).find(x=>x.id===(em?.contactId||''));return c?c.name+(c.title?' ('+c.title+')':''):'';})()}"
       oninput="mContactSearch(this.value)"
+      onfocus="mContactSearch(document.getElementById('m_contactSearch').value||'')"
       style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
     <input type="hidden" id="m_contactId" value="${em?.contactId||''}">
-    <div id="m_contactDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;max-height:180px;overflow-y:auto"></div>
+    <div id="m_contactDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--g);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.12);z-index:200;max-height:200px;overflow-y:auto"></div>
   </div>
 </div>
 <div id="fixedRetF" style="${(em?.type||'time-b')==='fixed-f'?'':'display:none'}">
@@ -3021,7 +3023,7 @@ function saveMatter(eid){
   const m={
     id:eid||gid(),
     code,name,
-    client:(g('mcl')?.value||'').trim(),
+    client:(document.getElementById('m_clientSearch')?.value||document.getElementById('mcl')?.value||'').trim(),
     type:mtype,
     status:g('mstatus')?.value||'active',
     // Fixed Fee
