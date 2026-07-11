@@ -1,4 +1,4 @@
-const CACHE_NAME = 'legaltrack-v2026071111';
+const CACHE_NAME = 'legaltrack-v2026071112';
 
 self.addEventListener('install', e => {
   self.skipWaiting();
