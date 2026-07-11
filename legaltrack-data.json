@@ -1839,6 +1839,23 @@
       "address": "",
       "tags": [],
       "note": ""
+    },
+    {
+      "id": "mrfsaacm7hi6w",
+      "name": "김지유",
+      "title": "변호사",
+      "dept": "",
+      "company": "소셜에티켓",
+      "clientId": "mrfs72fq7nvjg",
+      "email": "jiyu_kim@socialetiquette.co.kr",
+      "mobile": "+82 01099259417",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-11",
+      "address": "서울특별시 마포구 월드컵북로 35 5층",
+      "tags": [],
+      "note": ""
     }
   ],
   "todos": [
