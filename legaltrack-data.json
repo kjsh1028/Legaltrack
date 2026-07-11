@@ -1012,6 +1012,43 @@
       "memo": "",
       "clientId": null,
       "contactId": "mrerwo2qpndpu"
+    },
+    {
+      "id": "mrfs3ni2hu73t",
+      "code": "소셜에티켓 중국법인설립",
+      "name": "소셜에티켓 중국법인설립",
+      "client": "소셜에티켓 김지유",
+      "type": "fixed-f",
+      "status": "active",
+      "retainer_amount": 8200000,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "team-referral",
+      "collab_team": "이승범",
+      "my_ratio": 50,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": "",
+      "driveLinkLabel": "",
+      "memo": "",
+      "clientId": null,
+      "contactId": null
     }
   ],
   "entries": [
@@ -2509,6 +2546,16 @@
     }
   ],
   "expenses": [
+    {
+      "id": "mrfs3lloqtaxi",
+      "matterId": "",
+      "vendor": "Biying 세무법인",
+      "amount": 16000,
+      "currency": "CNY",
+      "krw_amount": 3552000,
+      "note": "",
+      "paidDate": null
+    },
     {
       "id": "mrcn5vmn0thu1",
       "matterId": "mrcn4opkchjjr",
