@@ -537,7 +537,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071103';
+const APP_VERSION='2026071104';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2582,7 +2582,7 @@ ${D.matters.filter(m=>m.status!=='failed').length===0?`<div class="wbox">⚠️ 
 ${quickBtns}
 <div class="field"><label>Matter *</label>
   <div style="position:relative">
-    <input id="emSearch" placeholder="Matter 이름 또는 코드 검색..." autocomplete="off"
+    <input id="emSearch" placeholder="Matter 이름/코드 검색..." autocomplete="off"
       value="${(()=>{const m=D.matters.find(x=>x.id===selMid);return m?m.name:'';})()}"
       oninput="emSearch(this.value)"
       onfocus="emSearch(document.getElementById('emSearch')?.value||'')"
@@ -2607,14 +2607,10 @@ ${quickBtns}
 }
 
 function quickSelectMatter(mid){
-  // 빠른 선택: hidden input + search input 동기화
-  const hid=document.getElementById('em');
-  if(hid)hid.value=mid;
+  const hid=document.getElementById('em');if(hid)hid.value=mid;
   const m=D.matters.find(x=>x.id===mid);
-  const inp=document.getElementById('emSearch');
-  if(inp&&m)inp.value=m.name;
-  const sel=document.getElementById('em'); // backward compat
-  if(sel)sel.value=mid;
+  const inp=document.getElementById('emSearch');if(inp&&m)inp.value=m.name;
+  const sel=document.getElementById('em');if(sel)sel.value=mid;
   // 모든 quick 버튼 스타일 초기화
   document.querySelectorAll('[id^="qm_"]').forEach(btn=>{
     const isSelected=btn.id==='qm_'+mid;
@@ -2631,6 +2627,43 @@ function quickSelectMatter(mid){
 function onMC(sel){updateMH(sel.value);}
 function updateMH(mid){const el=document.getElementById('mhint');if(!el)return;const m=D.matters.find(x=>x.id===mid);if(!m){el.innerHTML='';return;}const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];el.innerHTML=`<div style="font-size:11px;margin-bottom:9px;padding:6px 10px;border-radius:9px;background:var(--bg)"><span class="tag ${mt.tagCls}" style="margin-right:5px">${mt.ico} ${mt.label}</span><span class="tag ${mst.tagCls}">${mst.label}</span></div>`;}
 function updConv(){const m=parseMins(document.getElementById('et')?.value);const el=document.getElementById('conv');if(el)el.textContent=m>0?'→ '+hhmm(m):'';}
+function emSearch(q){
+  const dd=document.getElementById('emDropdown');if(!dd)return;
+  const matters=D.matters.filter(m=>m.status!=='failed');
+  const filtered=q?matters.filter(m=>
+    m.name.toLowerCase().includes(q.toLowerCase())||
+    (m.code||'').toLowerCase().includes(q.toLowerCase())||
+    (m.client||'').toLowerCase().includes(q.toLowerCase())
+  ):matters;
+  const curId=document.getElementById('em')?.value||'';
+  let html=filtered.slice(0,12).map(m=>{
+    const mt=MTYPE[m.type||'time-b']||{ico:'📁'};
+    const sel=curId===m.id;
+    const name=m.name.replace(/'/g,"\'");
+    return `<div onclick="emSelect('${m.id}','${name}')"
+      style="padding:10px 12px;cursor:pointer;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:10px;background:${sel?'#f0fdf4':'#fff'}"
+      onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='${sel?'#f0fdf4':'#fff'}'">
+      <span style="font-size:15px">${mt.ico}</span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
+        <div style="font-size:11px;color:var(--text3)">${m.code||''}${m.client?' · '+m.client:''}</div>
+      </div>${sel?'<span style="color:var(--g)">✓</span>':''}
+    </div>`;
+  }).join('');
+  if(!filtered.length)html='<div style="padding:14px;font-size:13px;color:var(--text3);text-align:center">검색 결과 없음</div>';
+  dd.innerHTML=html;dd.style.display='block';
+}
+function emSelect(mid,name){
+  const hid=document.getElementById('em');if(hid)hid.value=mid;
+  const inp=document.getElementById('emSearch');if(inp)inp.value=name;
+  const dd=document.getElementById('emDropdown');if(dd)dd.style.display='none';
+  updateMH(mid);
+  document.querySelectorAll('[id^="qm_"]').forEach(btn=>{
+    const sel=btn.id==='qm_'+mid;
+    btn.style.borderColor=sel?'var(--g)':'var(--border)';
+    btn.style.background=sel?'var(--gl)':'var(--white)';
+  });
+}
 function saveEntry(eid){const mins=parseMins(document.getElementById('et').value);const mid=document.getElementById('em').value;if(!mid)return alert('Matter를 선택하세요');if(!mins)return alert('시간을 입력하세요\n예: 1.5 / 1:30 / 90');const e={id:eid||gid(),matterId:mid,date:document.getElementById('ed').value,minutes:mins,description:document.getElementById('edesc').value.trim(),billable:document.getElementById('ebill').checked};if(eid)D.entries=D.entries.map(x=>x.id===eid?e:x);else D.entries.unshift(e);cloudSave('entry',e);closeModal();renderAll();if(curTab===2)setTimeout(applyF,100);}
 
 /* ── Matter Modal ── */
@@ -2874,50 +2907,6 @@ function quickAddContact(name){
 }
 
 // 시간입력 - Matter 검색
-function emSearch(q){
-  const dd=document.getElementById('emDropdown');
-  if(!dd)return;
-  const matters=D.matters.filter(m=>m.status!=='failed');
-  const filtered=q
-    ?matters.filter(m=>m.name.toLowerCase().includes(q.toLowerCase())||(m.code||'').toLowerCase().includes(q.toLowerCase())||(m.client||'').toLowerCase().includes(q.toLowerCase()))
-    :matters;
-  let html='';
-  filtered.slice(0,12).forEach(m=>{
-    const mt=MTYPE[m.type||'time-b']||{ico:'📁'};
-    const isSelected=document.getElementById('em')?.value===m.id;
-    html+=`<div onclick="emSelect('${m.id}','${m.name.replace(/'/g,"\'")}')"
-      style="padding:10px 12px;cursor:pointer;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:10px;background:${isSelected?'#f0fdf4':'#fff'}"
-      onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='${isSelected?'#f0fdf4':'#fff'}'">
-      <span style="font-size:15px">${mt.ico}</span>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
-        <div style="font-size:11px;color:var(--text3)">${m.code||''}${m.client?' · '+m.client:''}</div>
-      </div>
-      ${isSelected?'<span style="color:var(--g);font-size:13px">✓</span>':''}
-    </div>`;
-  });
-  if(!filtered.length){
-    html='<div style="padding:14px;font-size:13px;color:var(--text3);text-align:center">검색 결과 없음</div>';
-  }
-  dd.innerHTML=html;
-  dd.style.display='block';
-}
-
-function emSelect(mid,name){
-  document.getElementById('em').value=mid;
-  const inp=document.getElementById('emSearch');
-  if(inp)inp.value=name;
-  const dd=document.getElementById('emDropdown');
-  if(dd)dd.style.display='none';
-  updateMH(mid);
-  // Update quick buttons
-  document.querySelectorAll('[id^="qm_"]').forEach(btn=>{
-    const sel=btn.id==='qm_'+mid;
-    btn.style.borderColor=sel?'var(--g)':'var(--border)';
-    btn.style.background=sel?'var(--gl)':'var(--white)';
-  });
-}
-
 function entryMatterSearch(q){
   const dd=document.getElementById('td_matterDropdown');
   if(!dd)return;
@@ -3557,26 +3546,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 
 
-</script>
-<script>
-document.addEventListener('click',function(e){
-  if(!e.target.closest('#emDropdown')&&!e.target.matches('#emSearch')){
-    const dd=document.getElementById('emDropdown');
-    if(dd)dd.style.display='none';
-  }
-  if(!e.target.closest('#m_clientDropdown')&&!e.target.matches('#m_clientSearch')){
-    const dd=document.getElementById('m_clientDropdown');
-    if(dd)dd.style.display='none';
-  }
-  if(!e.target.closest('#m_contactDropdown')&&!e.target.matches('#m_contactSearch')){
-    const dd=document.getElementById('m_contactDropdown');
-    if(dd)dd.style.display='none';
-  }
-  if(!e.target.closest('#td_matterDropdown')&&!e.target.matches('#td_matterSearch')){
-    const dd=document.getElementById('td_matterDropdown');
-    if(dd)dd.style.display='none';
-  }
-});
 </script>
 </body>
 </html>
