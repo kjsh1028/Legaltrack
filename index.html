@@ -537,7 +537,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071102';
+const APP_VERSION='2026071103';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -2580,7 +2580,17 @@ function openEntryModal(mid,prefillMins,editObj){
 <div class="mttl">${editObj?'기록 수정':'시간 기록 추가'}</div>
 ${D.matters.filter(m=>m.status!=='failed').length===0?`<div class="wbox">⚠️ Matters 탭에서 먼저 추가해 주세요.</div>`:''}
 ${quickBtns}
-<div class="field"><label>Matter *</label><select id="em" onchange="onMC(this)">${opts||'<option value="">—없음—</option>'}</select></div>
+<div class="field"><label>Matter *</label>
+  <div style="position:relative">
+    <input id="emSearch" placeholder="Matter 이름 또는 코드 검색..." autocomplete="off"
+      value="${(()=>{const m=D.matters.find(x=>x.id===selMid);return m?m.name:'';})()}"
+      oninput="emSearch(this.value)"
+      onfocus="emSearch(document.getElementById('emSearch')?.value||'')"
+      style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
+    <input type="hidden" id="em" value="${selMid||''}">
+    <div id="emDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--g);border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.12);z-index:200;max-height:220px;overflow-y:auto;margin-top:3px"></div>
+  </div>
+</div>
 <div id="mhint"></div>
 <div class="field"><label>날짜 *</label><input id="ed" type="date" value="${editObj?.date||today()}"></div>
 <div class="field"><label>소요 시간 *</label><input id="et" placeholder="1.5 / 1:30 / 90" value="${defT}" oninput="updConv()" inputmode="decimal">
@@ -2597,8 +2607,13 @@ ${quickBtns}
 }
 
 function quickSelectMatter(mid){
-  // 빠른 선택: 드롭다운 동기화 + 버튼 하이라이트
-  const sel=document.getElementById('em');
+  // 빠른 선택: hidden input + search input 동기화
+  const hid=document.getElementById('em');
+  if(hid)hid.value=mid;
+  const m=D.matters.find(x=>x.id===mid);
+  const inp=document.getElementById('emSearch');
+  if(inp&&m)inp.value=m.name;
+  const sel=document.getElementById('em'); // backward compat
   if(sel)sel.value=mid;
   // 모든 quick 버튼 스타일 초기화
   document.querySelectorAll('[id^="qm_"]').forEach(btn=>{
@@ -2859,6 +2874,50 @@ function quickAddContact(name){
 }
 
 // 시간입력 - Matter 검색
+function emSearch(q){
+  const dd=document.getElementById('emDropdown');
+  if(!dd)return;
+  const matters=D.matters.filter(m=>m.status!=='failed');
+  const filtered=q
+    ?matters.filter(m=>m.name.toLowerCase().includes(q.toLowerCase())||(m.code||'').toLowerCase().includes(q.toLowerCase())||(m.client||'').toLowerCase().includes(q.toLowerCase()))
+    :matters;
+  let html='';
+  filtered.slice(0,12).forEach(m=>{
+    const mt=MTYPE[m.type||'time-b']||{ico:'📁'};
+    const isSelected=document.getElementById('em')?.value===m.id;
+    html+=`<div onclick="emSelect('${m.id}','${m.name.replace(/'/g,"\'")}')"
+      style="padding:10px 12px;cursor:pointer;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:10px;background:${isSelected?'#f0fdf4':'#fff'}"
+      onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='${isSelected?'#f0fdf4':'#fff'}'">
+      <span style="font-size:15px">${mt.ico}</span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.name}</div>
+        <div style="font-size:11px;color:var(--text3)">${m.code||''}${m.client?' · '+m.client:''}</div>
+      </div>
+      ${isSelected?'<span style="color:var(--g);font-size:13px">✓</span>':''}
+    </div>`;
+  });
+  if(!filtered.length){
+    html='<div style="padding:14px;font-size:13px;color:var(--text3);text-align:center">검색 결과 없음</div>';
+  }
+  dd.innerHTML=html;
+  dd.style.display='block';
+}
+
+function emSelect(mid,name){
+  document.getElementById('em').value=mid;
+  const inp=document.getElementById('emSearch');
+  if(inp)inp.value=name;
+  const dd=document.getElementById('emDropdown');
+  if(dd)dd.style.display='none';
+  updateMH(mid);
+  // Update quick buttons
+  document.querySelectorAll('[id^="qm_"]').forEach(btn=>{
+    const sel=btn.id==='qm_'+mid;
+    btn.style.borderColor=sel?'var(--g)':'var(--border)';
+    btn.style.background=sel?'var(--gl)':'var(--white)';
+  });
+}
+
 function entryMatterSearch(q){
   const dd=document.getElementById('td_matterDropdown');
   if(!dd)return;
@@ -3498,6 +3557,26 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 
 
+</script>
+<script>
+document.addEventListener('click',function(e){
+  if(!e.target.closest('#emDropdown')&&!e.target.matches('#emSearch')){
+    const dd=document.getElementById('emDropdown');
+    if(dd)dd.style.display='none';
+  }
+  if(!e.target.closest('#m_clientDropdown')&&!e.target.matches('#m_clientSearch')){
+    const dd=document.getElementById('m_clientDropdown');
+    if(dd)dd.style.display='none';
+  }
+  if(!e.target.closest('#m_contactDropdown')&&!e.target.matches('#m_contactSearch')){
+    const dd=document.getElementById('m_contactDropdown');
+    if(dd)dd.style.display='none';
+  }
+  if(!e.target.closest('#td_matterDropdown')&&!e.target.matches('#td_matterSearch')){
+    const dd=document.getElementById('td_matterDropdown');
+    if(dd)dd.style.display='none';
+  }
+});
 </script>
 </body>
 </html>
