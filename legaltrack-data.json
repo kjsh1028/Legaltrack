@@ -1053,6 +1053,14 @@
   ],
   "entries": [
     {
+      "id": "mrhdwbzpk7wtl",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-12",
+      "minutes": 360,
+      "description": "관련 당사자 면담 위에 중국 출장",
+      "billable": true
+    },
+    {
       "id": "mrhdvu48ogtko",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-12",
