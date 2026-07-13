@@ -2112,11 +2112,11 @@ function openTodoModal(editId){
   <div class="field"><label>연결 Matter (선택)</label>
     <div style="position:relative">
       <input id="td_matterSearch" placeholder="Matter 검색..." autocomplete="off"
-        value="${(()=>{const m=D.matters.find(x=>x.id===selMid);return m?'['+m.code+'] '+m.name:'';})()}"
-        oninput="entryMatterSearch(this.value)"
-        onfocus="entryMatterSearch(this.value)"
+        value="${(()=>{const mid=em?.matterId||'';const m=D.matters.find(x=>x.id===mid);return m?'['+m.code+'] '+m.name:'';})()}"
+        oninput="todoMatterSearch(this.value)"
+        onfocus="todoMatterSearch(document.getElementById('td_matterSearch')?.value||'')"
         style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;box-sizing:border-box">
-      <input type="hidden" id="td_matter" value="${selMid||''}">
+      <input type="hidden" id="td_matter" value="${em?.matterId||''}">
       <div id="td_matterDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;max-height:200px;overflow-y:auto"></div>
     </div>
   </div>
