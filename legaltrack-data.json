@@ -2644,6 +2644,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mriq64fvk5drk",
+      "title": "박수민 미팅",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-07-15",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
