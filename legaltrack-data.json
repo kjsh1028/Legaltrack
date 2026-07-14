@@ -1090,6 +1090,14 @@
   ],
   "entries": [
     {
+      "id": "mrjzjtozs3jfg",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-14",
+      "minutes": 60,
+      "description": "케이지어이 인수 관련 고객 수임 상담",
+      "billable": false
+    },
+    {
       "id": "mrjziant28nlh",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-07-14",
