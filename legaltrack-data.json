@@ -1090,6 +1090,14 @@
   ],
   "entries": [
     {
+      "id": "mrjziant28nlh",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-14",
+      "minutes": 240,
+      "description": "츌장후 한국 복귀",
+      "billable": true
+    },
+    {
       "id": "mrizhvt2t8v5z",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-13",
