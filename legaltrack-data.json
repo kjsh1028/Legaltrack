@@ -1706,6 +1706,19 @@
       "meetings": []
     },
     {
+      "id": "mrfs72fq7nvjg",
+      "name": "소셜에티켓",
+      "fullname": "소셜에티켓",
+      "industry": "의류 제조 유통",
+      "country": "한국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
       "id": "mq2grmdjpn7p8",
       "name": "인지정밀",
       "fullname": "인지 디스플레이",
@@ -1784,19 +1797,6 @@
       "meetings": []
     },
     {
-      "id": "mrfs72fq7nvjg",
-      "name": "소셜에티켓",
-      "fullname": "소셜에티켓",
-      "industry": "의류 제조 유통",
-      "country": "한국",
-      "status": "active",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
       "id": "mrheu3wmnj3z7",
       "name": "TSJ 티에스제이 황동우 임세만",
       "country": "한국",
@@ -1820,6 +1820,23 @@
       "kakao": "",
       "met_date": "2026-06-16",
       "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mrfsaacm7hi6w",
+      "name": "김지유",
+      "title": "변호사",
+      "dept": "",
+      "company": "소셜에티켓",
+      "clientId": "mrfs72fq7nvjg",
+      "email": "jiyu_kim@socialetiquette.co.kr",
+      "mobile": "+82 01099259417",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-11",
+      "address": "서울특별시 마포구 월드컵북로 35 5층",
       "tags": [],
       "note": ""
     },
@@ -1853,6 +1870,23 @@
       "wechat": "",
       "kakao": "",
       "met_date": "2026-06-15",
+      "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mrerwo2qpndpu",
+      "name": "王广梅",
+      "title": "법무팀",
+      "dept": "",
+      "company": "西安诺瓦星云",
+      "clientId": null,
+      "email": "wanggm@novastar.tech",
+      "mobile": "",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-10",
       "address": "",
       "tags": [],
       "note": ""
@@ -1943,6 +1977,16 @@
       "note": ""
     },
     {
+      "id": "mrhevwxxw2k9k",
+      "name": "황동우",
+      "clientId": "mrheu3wmnj3z7",
+      "title": "대표",
+      "mobile": "+82010-2300-0635",
+      "email": "hwang@tsj-holdings.com",
+      "wechat": "",
+      "company": "TSJ 티에스제이 황동우 임세만"
+    },
+    {
       "id": "mq68nojlhjgx4",
       "name": "吴学励",
       "title": "변호사",
@@ -1962,48 +2006,21 @@
       "note": "물품 구입 소송"
     },
     {
-      "id": "mrerwo2qpndpu",
-      "name": "王广梅",
-      "title": "법무팀",
+      "id": "mrk23pjiepb6z",
+      "name": "김계향",
+      "title": "변호사",
       "dept": "",
-      "company": "西安诺瓦星云",
-      "clientId": null,
-      "email": "wanggm@novastar.tech",
-      "mobile": "",
+      "company": "대성법무법인",
+      "clientId": "mq68okj1cjjmr",
+      "email": "guixiang.jin@dentons.cn",
+      "mobile": "+86 135 8581 7750",
       "tel": "",
       "wechat": "",
       "kakao": "",
-      "met_date": "2026-07-10",
+      "met_date": "2026-07-14",
       "address": "",
       "tags": [],
       "note": ""
-    },
-    {
-      "id": "mrfsaacm7hi6w",
-      "name": "김지유",
-      "title": "변호사",
-      "dept": "",
-      "company": "소셜에티켓",
-      "clientId": "mrfs72fq7nvjg",
-      "email": "jiyu_kim@socialetiquette.co.kr",
-      "mobile": "+82 01099259417",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-11",
-      "address": "서울특별시 마포구 월드컵북로 35 5층",
-      "tags": [],
-      "note": ""
-    },
-    {
-      "id": "mrhevwxxw2k9k",
-      "name": "황동우",
-      "clientId": "mrheu3wmnj3z7",
-      "title": "대표",
-      "mobile": "+82010-2300-0635",
-      "email": "hwang@tsj-holdings.com",
-      "wechat": "",
-      "company": "TSJ 티에스제이 황동우 임세만"
     }
   ],
   "todos": [
