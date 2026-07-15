@@ -1790,6 +1790,19 @@
       "meetings": []
     },
     {
+      "id": "mrmpq7vup24av",
+      "name": "시몬느",
+      "fullname": "",
+      "industry": "",
+      "country": "",
+      "status": "active",
+      "phone": "",
+      "website": "http://www.simone.co.kr/",
+      "address": "279, Gyeongsu-daero (Gocheon-dong), Uiwang-si, Gyeonggi-do, Korea",
+      "note": "이수연 고객",
+      "meetings": []
+    },
+    {
       "id": "mq2grmdjpn7p8",
       "name": "인지정밀",
       "fullname": "인지 디스플레이",
@@ -1874,19 +1887,6 @@
       "industry": "IT",
       "note": "임세만 소개",
       "contacts": []
-    },
-    {
-      "id": "mrmpq7vup24av",
-      "name": "시몬느",
-      "fullname": "",
-      "industry": "",
-      "country": "",
-      "status": "active",
-      "phone": "",
-      "website": "http://www.simone.co.kr/",
-      "address": "279, Gyeongsu-daero (Gocheon-dong), Uiwang-si, Gyeonggi-do, Korea",
-      "note": "이수연 고객",
-      "meetings": []
     }
   ],
   "contacts": [
@@ -2003,6 +2003,23 @@
       "note": ""
     },
     {
+      "id": "mrmpouq3725k8",
+      "name": "유대봉",
+      "title": "팀장",
+      "dept": "법무팀",
+      "company": "시몬느",
+      "clientId": "mrmpq7vup24av",
+      "email": "mailto:cabin@simone.co.kr",
+      "mobile": "+82-10-8701-3936",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-16",
+      "address": "",
+      "tags": [],
+      "note": "동관대표처 설립. 이수연 변호사 고객"
+    },
+    {
       "id": "mrd1iqrizpu0p",
       "name": "이상만",
       "title": "팀장",
@@ -2115,23 +2132,6 @@
         "변호사"
       ],
       "note": "물품 구입 소송"
-    },
-    {
-      "id": "mrmpouq3725k8",
-      "name": "유대봉",
-      "title": "팀장",
-      "dept": "법무팀",
-      "company": "시몬느",
-      "clientId": null,
-      "email": "mailto:cabin@simone.co.kr",
-      "mobile": "+82-10-8701-3936",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-16",
-      "address": "",
-      "tags": [],
-      "note": "동관대표처 설립. 이수연 변호사 고객"
     }
   ],
   "todos": [
