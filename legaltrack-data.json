@@ -1090,11 +1090,11 @@
     {
       "id": "mrk20ngsyg541",
       "code": "[임시]DACHENG/GEN/한국대표처 설립",
-      "name": "대성 한국 대표처 설림",
+      "name": "대성 한국 대표처 설립",
       "client": "대성법무법인",
       "type": "fixed-f",
       "status": "prospect",
-      "retainer_amount": null,
+      "retainer_amount": 10000000,
       "retainer_cur": "KRW",
       "rate": null,
       "rate_cur": "KRW",
