@@ -1769,6 +1769,14 @@
       "meetings": []
     },
     {
+      "id": "mrm504m89kp4d",
+      "name": "삼성물산",
+      "country": "한국",
+      "industry": "부동산",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mrfs72fq7nvjg",
       "name": "소셜에티켓",
       "fullname": "소셜에티켓",
@@ -1866,14 +1874,6 @@
       "industry": "IT",
       "note": "임세만 소개",
       "contacts": []
-    },
-    {
-      "id": "mrm504m89kp4d",
-      "name": "삼성물산",
-      "country": "한국",
-      "industry": "부동산",
-      "note": "",
-      "contacts": []
     }
   ],
   "contacts": [
@@ -1893,6 +1893,33 @@
       "address": "",
       "tags": [],
       "note": ""
+    },
+    {
+      "id": "mrk23pjiepb6z",
+      "name": "김계향",
+      "title": "변호사",
+      "dept": "",
+      "company": "대성법무법인",
+      "clientId": "mq68okj1cjjmr",
+      "email": "guixiang.jin@dentons.cn",
+      "mobile": "+86 135 8581 7750",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-14",
+      "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mrm527otr1v1h",
+      "name": "김우남",
+      "clientId": "mrm504m89kp4d",
+      "title": "법무팀",
+      "mobile": "+821035006983",
+      "email": "jaeeon.lee@samsung.com",
+      "wechat": "",
+      "company": "삼성물산"
     },
     {
       "id": "mrfsaacm7hi6w",
@@ -2077,31 +2104,21 @@
       "note": "물품 구입 소송"
     },
     {
-      "id": "mrk23pjiepb6z",
-      "name": "김계향",
-      "title": "변호사",
-      "dept": "",
-      "company": "대성법무법인",
-      "clientId": "mq68okj1cjjmr",
-      "email": "guixiang.jin@dentons.cn",
-      "mobile": "+86 135 8581 7750",
+      "id": "mrmpouq3725k8",
+      "name": "유대봉",
+      "title": "팀장",
+      "dept": "법무팀",
+      "company": "시몬느",
+      "clientId": null,
+      "email": "mailto:cabin@simone.co.kr",
+      "mobile": "+82-10-8701-3936",
       "tel": "",
       "wechat": "",
       "kakao": "",
-      "met_date": "2026-07-14",
+      "met_date": "2026-07-16",
       "address": "",
       "tags": [],
-      "note": ""
-    },
-    {
-      "id": "mrm527otr1v1h",
-      "name": "김우남",
-      "clientId": "mrm504m89kp4d",
-      "title": "법무팀",
-      "mobile": "+821035006983",
-      "email": "jaeeon.lee@samsung.com",
-      "wechat": "",
-      "company": "삼성물산"
+      "note": "동관대표처 설립. 이수연 변호사 고객"
     }
   ],
   "todos": [
