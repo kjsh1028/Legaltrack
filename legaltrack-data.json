@@ -1127,6 +1127,14 @@
   ],
   "entries": [
     {
+      "id": "mrlc9dgayczwe",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-14",
+      "minutes": 90,
+      "description": "지평 변호사들 미팅",
+      "billable": false
+    },
+    {
       "id": "mrjzkskwozhnz",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-13",
