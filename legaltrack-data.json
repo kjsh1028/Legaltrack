@@ -1127,6 +1127,14 @@
   ],
   "entries": [
     {
+      "id": "mrloqp56irdo5",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-15",
+      "minutes": 210,
+      "description": "율촌 내부 교육",
+      "billable": false
+    },
+    {
       "id": "mrlc9dgayczwe",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-14",
