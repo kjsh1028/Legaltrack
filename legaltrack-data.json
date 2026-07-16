@@ -2171,6 +2171,16 @@
         "변호사"
       ],
       "note": "물품 구입 소송"
+    },
+    {
+      "id": "mrn15d9noepml",
+      "name": "김남호",
+      "clientId": "mrn14be61nvmb",
+      "title": "",
+      "mobile": "+82 10-9976-0648",
+      "email": "",
+      "wechat": "",
+      "company": "디오"
     }
   ],
   "todos": [
