@@ -1098,7 +1098,7 @@
       "name": "대성 한국 대표처 설립",
       "client": "대성법무법인",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "active",
       "retainer_amount": 10000000,
       "retainer_cur": "KRW",
       "rate": null,
