@@ -1164,6 +1164,14 @@
   ],
   "entries": [
     {
+      "id": "mrmx8krs8xe81",
+      "matterId": "mq4p0ubk74z8q",
+      "date": "2026-07-16",
+      "minutes": 30,
+      "description": "세무법인 진행 상황 파악후 보고 이메일 작성",
+      "billable": false
+    },
+    {
       "id": "mrmx7gyj4e72c",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-15",
