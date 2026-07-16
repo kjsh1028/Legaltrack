@@ -115,7 +115,7 @@
       "name": "심천 대성- bluetop 구매대금소송",
       "client": "대성 심천 사무소",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -143,7 +143,12 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "clientId": "mq68okj1cjjmr",
-      "contactId": "mq68nojlhjgx4"
+      "contactId": "mq68nojlhjgx4",
+      "failed_date": "2026-07-16",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "정확한 이유는 모름",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mq20hw066a9x0",
