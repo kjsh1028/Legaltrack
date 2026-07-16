@@ -532,9 +532,9 @@
     },
     {
       "id": "mq7sygz2qvulp",
-      "code": "[임시]정림건축종합건축사사무소/GEN/우시법인",
+      "code": "정림건축종합건축사사무소/GEN/우시법인",
       "name": "정림건축 노동분쟁",
-      "client": "정림건축",
+      "client": "정밀건축",
       "type": "fixed-f",
       "status": "active",
       "retainer_amount": null,
