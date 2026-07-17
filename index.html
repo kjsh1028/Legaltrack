@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071104';
+const APP_VERSION='2026071701';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -3250,25 +3250,14 @@ function renderCardPage(){
   let items=[...(D.cardExpenses||[])].sort((a,b)=>b.date.localeCompare(a.date));
   if(from)items=items.filter(e=>e.date>=from);
   if(to)items=items.filter(e=>e.date<=to);
-
   const total=items.reduce((s,e)=>s+toKRW(e.amount,e.currency||'KRW'),0);
   const byCat={};items.forEach(e=>{byCat[e.category||'기타']=(byCat[e.category||'기타']||0)+toKRW(e.amount,e.currency||'KRW');});
   const catSummary=Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([c,v])=>
     `<span style="font-size:12px;background:var(--bg);padding:3px 8px;border-radius:8px;color:var(--text2)">${c} ${fmtK(v)}</span>`
   ).join('');
-
   const presets=[['week','이번주'],['month','이번달'],['custom','직접입력']];
-  const presetBtns=presets.map(([k,l])=>
-    `<button class="ptab${_cardPreset===k?' on':''}" onclick="_cardPreset='${k}';renderContent()">${l}</button>`
-  ).join('');
-
-  const customRow=_cardPreset==='custom'?`
-  <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center">
-    <input id="card_from" type="date" value="${from}" onchange="renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit">
-    <span style="color:var(--text3)">~</span>
-    <input id="card_to" type="date" value="${to}" onchange="renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit">
-  </div>`:'';
-
+  const presetBtns=presets.map(([k,l])=>`<button class="ptab${_cardPreset===k?' on':''}" onclick="_cardPreset='${k}';renderContent()">${l}</button>`).join('');
+  const customRow=_cardPreset==='custom'?`<div style="display:flex;gap:8px;margin-bottom:10px;align-items:center"><input id="card_from" type="date" value="${from}" onchange="renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit"><span style="color:var(--text3)">~</span><input id="card_to" type="date" value="${to}" onchange="renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit"></div>`:'';
   const rows=items.map(e=>{
     const m=D.matters.find(x=>x.id===e.matterId);
     const attendees=(e.attendees||[]).join(', ');
@@ -3285,16 +3274,12 @@ function renderCardPage(){
       </div>
     </div>`;
   }).join('');
-
   return`<div class="query-results">
   <div class="preset-tabs">${presetBtns}</div>
   ${customRow}
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-    <div>
-      <div style="font-size:22px;font-weight:800;color:var(--b)">${fmtK(total)}</div>
-      <div style="font-size:12px;color:var(--text3);margin-top:2px">${items.length}건</div>
-    </div>
-    <button onclick="exportCardExcel()" style="padding:7px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px">📥 Excel</button>
+    <div><div style="font-size:22px;font-weight:800;color:var(--b)">${fmtK(total)}</div><div style="font-size:12px;color:var(--text3);margin-top:2px">${items.length}건</div></div>
+    <button onclick="exportCardExcel()" style="padding:7px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">📥 Excel</button>
   </div>
   ${catSummary?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">${catSummary}</div>`:''}
   <button onclick="openCardModal()" style="width:100%;padding:11px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:10px">+ 지출 등록</button>
@@ -3319,24 +3304,20 @@ function openCardModal(eid){
     <option value="USD" ${em?.currency==='USD'?'selected':''}>$ USD</option>
   </select></div>
 </div>
-<div class="field"><label>카테고리</label><select id="ce_cat">
-  ${cats.map(c=>`<option value="${c}" ${(em?.category||'식사')===c?'selected':''}>${c}</option>`).join('')}
-</select></div>
+<div class="field"><label>카테고리</label><select id="ce_cat">${cats.map(c=>`<option value="${c}" ${(em?.category||'식사')===c?'selected':''}>${c}</option>`).join('')}</select></div>
 <div class="field"><label>내용/목적 *</label><input id="ce_content" value="${em?.content||''}" placeholder="점심 식사, 택시 이동 등"></div>
 <div class="field"><label>동석자</label>
   <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap" id="ce_attendee_tags">
-    ${attendeeList.map(a=>`<span style="display:inline-flex;align-items:center;gap:4px;background:var(--gl);color:var(--g2);padding:4px 10px;border-radius:20px;font-size:13px">${a}<button onclick="removeAttendee('${a.replace(/'/g,"\'")}')" style="background:none;border:none;cursor:pointer;color:var(--g2);padding:0;font-size:14px;line-height:1">×</button></span>`).join('')}
+    ${attendeeList.map(a=>`<span style="display:inline-flex;align-items:center;gap:4px;background:var(--gl);color:var(--g2);padding:4px 10px;border-radius:20px;font-size:13px">${a}<button onclick="removeAttendee('${a.replace(/'/g,"\'")}') " style="background:none;border:none;cursor:pointer;color:var(--g2);padding:0;font-size:14px">×</button></span>`).join('')}
   </div>
   <div style="display:flex;gap:6px">
-    <input id="ce_attendee_input" placeholder="이름 입력 후 추가" style="flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit"
-      onkeydown="if(event.key==='Enter'){event.preventDefault();addAttendee();}">
+    <input id="ce_attendee_input" placeholder="이름 입력 후 추가" style="flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit" onkeydown="if(event.key==='Enter'){event.preventDefault();addAttendee();}">
     <button onclick="addAttendee()" style="padding:8px 12px;background:var(--g);color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit">추가</button>
   </div>
 </div>
 <div class="field"><label>연결 Matter (선택)</label>
   <select id="ce_matter" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit">
-    <option value="">— 연결 안함 —</option>
-    ${matterOpts}
+    <option value="">— 연결 안함 —</option>${matterOpts}
   </select>
 </div>
 <button class="savebtn" onclick="saveCardExpense('${eid||''}')">저장</button>
@@ -3348,77 +3329,49 @@ ${em?`<div style="text-align:right;margin-top:8px"><button onclick="deleteCardEx
 
 function addAttendee(){
   const inp=document.getElementById('ce_attendee_input');
-  const name=(inp?.value||'').trim();
-  if(!name)return;
+  const name=(inp?.value||'').trim();if(!name)return;
   if(!window._ceAttendees)window._ceAttendees=[];
   if(window._ceAttendees.includes(name))return;
-  window._ceAttendees.push(name);
-  inp.value='';
-  refreshAttendeeTags();
+  window._ceAttendees.push(name);inp.value='';refreshAttendeeTags();
 }
-
 function removeAttendee(name){
-  window._ceAttendees=(window._ceAttendees||[]).filter(a=>a!==name);
-  refreshAttendeeTags();
+  window._ceAttendees=(window._ceAttendees||[]).filter(a=>a!==name);refreshAttendeeTags();
 }
-
 function refreshAttendeeTags(){
-  const el=document.getElementById('ce_attendee_tags');
-  if(!el)return;
+  const el=document.getElementById('ce_attendee_tags');if(!el)return;
   el.innerHTML=(window._ceAttendees||[]).map(a=>
-    `<span style="display:inline-flex;align-items:center;gap:4px;background:var(--gl);color:var(--g2);padding:4px 10px;border-radius:20px;font-size:13px">${a}<button onclick="removeAttendee('${a.replace(/'/g,"\'")}') " style="background:none;border:none;cursor:pointer;color:var(--g2);padding:0;font-size:14px;line-height:1">×</button></span>`
+    `<span style="display:inline-flex;align-items:center;gap:4px;background:var(--gl);color:var(--g2);padding:4px 10px;border-radius:20px;font-size:13px">${a}<button onclick="removeAttendee('${a.replace(/'/g,"\'")}') " style="background:none;border:none;cursor:pointer;color:var(--g2);padding:0;font-size:14px">×</button></span>`
   ).join('');
 }
-
 function saveCardExpense(eid){
   const date=document.getElementById('ce_date')?.value||today();
   const amt=getRaw('ce_amt');
   const content=(document.getElementById('ce_content')?.value||'').trim();
   if(!amt||!content)return alert('금액과 내용을 입력하세요');
-  const exp={
-    id:eid||gid(),
-    date,
-    amount:amt,
-    currency:document.getElementById('ce_cur')?.value||'KRW',
-    category:document.getElementById('ce_cat')?.value||'기타',
-    content,
-    attendees:[...(window._ceAttendees||[])],
-    matterId:document.getElementById('ce_matter')?.value||null,
-  };
+  const exp={id:eid||gid(),date,amount:amt,currency:document.getElementById('ce_cur')?.value||'KRW',category:document.getElementById('ce_cat')?.value||'기타',content,attendees:[...(window._ceAttendees||[])],matterId:document.getElementById('ce_matter')?.value||null};
   if(!D.cardExpenses)D.cardExpenses=[];
-  if(eid){D.cardExpenses=D.cardExpenses.map(x=>x.id===eid?exp:x);}
-  else{D.cardExpenses.unshift(exp);}
-  cloudSave('cardExpense',exp);
-  closeModal();
-  renderContent();
+  if(eid){D.cardExpenses=D.cardExpenses.map(x=>x.id===eid?exp:x);}else{D.cardExpenses.unshift(exp);}
+  cloudSave('cardExpense',exp);closeModal();renderContent();
 }
-
 function deleteCardExpense(eid){
   if(!confirm('이 지출을 삭제하시겠습니까?'))return;
   D.cardExpenses=(D.cardExpenses||[]).filter(x=>x.id!==eid);
-  cloudSave('cardExpense',{id:eid},'del');
-  closeModal();
-  renderContent();
+  cloudSave('cardExpense',{id:eid},'del');closeModal();renderContent();
 }
-
 function exportCardExcel(){
-  const now=new Date();
-  let from='',to='';
+  const now=new Date();let from='',to='';
   if(_cardPreset==='week'){const ws=new Date(now);ws.setDate(now.getDate()-((now.getDay()+1)%7));from=ws.getFullYear()+'-'+String(ws.getMonth()+1).padStart(2,'0')+'-'+String(ws.getDate()).padStart(2,'0');to=today();}
   else if(_cardPreset==='month'){from=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-01';to=today();}
   else{from=document.getElementById('card_from')?.value||'';to=document.getElementById('card_to')?.value||'';}
   let items=[...(D.cardExpenses||[])].sort((a,b)=>b.date.localeCompare(a.date));
-  if(from)items=items.filter(e=>e.date>=from);
-  if(to)items=items.filter(e=>e.date<=to);
+  if(from)items=items.filter(e=>e.date>=from);if(to)items=items.filter(e=>e.date<=to);
+  const esc=s=>'"'+(s||'').replace(/"/g,'""')+'"';
   const header='날짜,금액,통화,카테고리,내용,동석자,연결 Matter';
-  const rows=items.map(e=>{
-    const m=D.matters.find(x=>x.id===e.matterId);
-    return [e.date,e.amount,e.currency||'KRW',e.category||'',`"${(e.content||'').replace(/"/g,'""')}"`,`"${(e.attendees||[]).join(', ')}"`,`"${m?m.name:''}"`].join(',');
-  });
-  const csv=String.fromCharCode(0xFEFF)+header+'\n'+rows.join('\n');
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download=`법인카드_${from||'전체'}_${to||''}.csv`;
+  const rows=items.map(e=>{const m=D.matters.find(x=>x.id===e.matterId);return[e.date,e.amount,e.currency||'KRW',e.category||'',esc(e.content||''),esc((e.attendees||[]).join(', ')),esc(m?m.name:'')].join(',');});
+  const bom=String.fromCharCode(0xFEFF);
+  const csv=bom+header+'\n'+rows.join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='법인카드_'+( from||'전체')+'_'+(to||'')+'.csv';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
 }
 
