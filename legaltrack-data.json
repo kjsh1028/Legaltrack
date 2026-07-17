@@ -1206,6 +1206,14 @@
   ],
   "entries": [
     {
+      "id": "mroahniuxki5r",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-16",
+      "minutes": 120,
+      "description": "킹앤우드 이석호 변호사 미팅",
+      "billable": false
+    },
+    {
       "id": "mroafp7dimx6j",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-16",
