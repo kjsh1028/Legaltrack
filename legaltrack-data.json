@@ -797,7 +797,7 @@
       "name": "上海商霖华通- 노동계약서",
       "client": "上海商霖华通- 대성",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": 50000,
       "retainer_cur": "CNY",
       "rate": null,
@@ -826,7 +826,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-07-17",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "노무사 통해서 함",
+      "fail_competitor": "노무사",
+      "fail_memo": ""
     },
     {
       "id": "mr47kyynzzuej",
