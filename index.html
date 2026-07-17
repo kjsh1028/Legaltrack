@@ -471,6 +471,7 @@ if('serviceWorker' in navigator){
       <button class="dn-btn" id="dn6" onclick="goTab(6)">✅ 할 일</button>
       <div style="height:1px;background:var(--border);margin:6px 10px"></div>
       <button class="dn-btn" onclick="openEntryModal()">＋ 시간기록</button>
+      <button class="dn-btn" onclick="curTab=2;_queryMode='card';curLayer=null;renderAll()">💳 법인카드</button>
       <button class="dn-btn" onclick="curTab=2;_queryMode='clients';_clientTab='clients';curLayer=null;renderAll()">🏢 고객사</button>
       <button class="dn-btn" onclick="curTab=2;_queryMode='clients';_clientTab='contacts';curLayer=null;renderAll()">👤 명함</button>
       <div style="height:1px;background:var(--border);margin:6px 10px"></div>
@@ -539,7 +540,7 @@ if('serviceWorker' in navigator){
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
 const APP_VERSION='2026071104';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
-let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[]};
+let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
 let dashExpand={prospect:false,active:false,closed:false};
 // Achievement period filter
@@ -639,7 +640,7 @@ async function cloudSave(type,obj,action='upsert'){
   localSave();
   if(CFG.ghToken){ghSave();return;}
   // client/contact are local-only for Supabase (no table) - just localSave above is enough
-  if(['client','contact','expense'].includes(type)){localSave();return;}
+  if(['client','contact','expense','cardExpense'].includes(type)){localSave();return;}
   if(!CFG.supaUrl)return;showSync('sy','저장 중...');try{const t={matter:'lt_matters',entry:'lt_entries',payment:'lt_payments'}[type];if(action==='del')await sbFetch(t+'?id=eq.'+obj.id,{method:'DELETE',prefer:'return=minimal'});else await sbFetch(t,{method:'POST',body:JSON.stringify(obj),prefer:'resolution=merge-duplicates,return=representation'});showSync('ok','✓ 저장됨');}catch(e){showSync('err','저장 실패');}}
 
 /* ── GitHub Sync ── */
@@ -668,6 +669,7 @@ async function forceGhSync(){
     D.contacts=data.contacts||[];
     D.todos=data.todos||[];
     D.expenses=data.expenses||[];
+    D.cardExpenses=data.cardExpenses||[];
     D._ghSha=r.sha;
     localSave();
     showSync('ok','✓ 동기화 완료');
@@ -706,6 +708,7 @@ async function ghLoad(){
     D.contacts=mergeById(D.contacts||[], decoded.contacts||[]);
     D.todos=mergeById(D.todos||[], decoded.todos||[]);
     D.expenses=mergeById(D.expenses||[], decoded.expenses||[]);
+    D.cardExpenses=mergeById(D.cardExpenses||[], decoded.cardExpenses||[]);
     D._ghSha=r.sha;
     localSave();
     
@@ -733,7 +736,7 @@ async function ghSave(){
   showSync('sy','GitHub 저장 중...');
   try{
     // Always use current D state at time of save
-    const saveData={matters:[...D.matters],entries:[...D.entries],payments:[...D.payments],clients:[...(D.clients||[])],contacts:[...(D.contacts||[])],todos:[...(D.todos||[])],expenses:[...(D.expenses||[])]};
+    const saveData={matters:[...D.matters],entries:[...D.entries],payments:[...D.payments],clients:[...(D.clients||[])],contacts:[...(D.contacts||[])],todos:[...(D.todos||[])],expenses:[...(D.expenses||[])],cardExpenses:[...(D.cardExpenses||[])]};
     const jsonStr=JSON.stringify(saveData,null,2);
     const bytes=new TextEncoder().encode(jsonStr);
     const binStr=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
@@ -881,13 +884,14 @@ function renderContent(){
     _queryMode==='time'?'시간 조회':
     _queryMode==='money'?'금액 조회':
     _queryMode==='clients'?'고객사 관리':
+    _queryMode==='card'?'💳 법인카드':
     _queryMode==='contacts'?'명함 관리':
     titles[curTab]||'LegalTrack';
   if(pt)pt.textContent=titleStr;
   if(mst)mst.textContent=titleStr;
   // Hide 시간기록 button on matter list layers
   const pa=document.getElementById('pageActions');
-  if(pa){const hideLayers=['matters_list','active_list','dash_money','dash_clients','dash_time'];pa.style.display=hideLayers.includes(curLayer)?'none':'flex';}
+  if(pa){const hideLayers=['matters_list','active_list','dash_money','dash_clients','dash_time','card'];pa.style.display=hideLayers.includes(curLayer)?'none':'flex';}
   // Cross-tab layer routing
   if(curLayer==='client_detail'||curLayer==='contact_detail'){
     c.innerHTML=renderClientsPage();
@@ -1257,6 +1261,7 @@ function renderQueryPage(){
   if(_queryMode==='money') return renderMoneyResults();
   if(_queryMode==='matters') return renderMattersQuery();
   if(_queryMode==='clients') return renderClientsPage();
+  if(_queryMode==='card') return renderCardPage();
   if(_queryMode==='contacts'){_clientTab='contacts';_queryMode='clients';return renderClientsPage();}
   const items=[
     {ico:'⏱',l:'시간 조회',m:'time',extra:'month'},
@@ -1264,6 +1269,7 @@ function renderQueryPage(){
     {ico:'🏆',l:'수임액',m:'money',extra:'retainer'},
     {ico:'💰',l:'입금액',m:'money',extra:'payment'},
     {ico:'🎯',l:'성공보수',m:'money',extra:'contingency'},
+    {ico:'💳',l:'법인카드',m:'card',extra:''},
     {ico:'🏢',l:'고객사',m:'clients',extra:''},
     {ico:'👤',l:'명함',m:'contacts',extra:''},
   ];
@@ -3224,6 +3230,196 @@ function deleteExpense(eid, mid){
   curLayer='matter_detail';
   _prevMatterId=mid;
   renderContent();
+}
+
+// ── 법인카드 지출 ──
+let _cardPreset='month';
+
+function renderCardPage(){
+  const now=new Date();
+  let from='',to='';
+  if(_cardPreset==='week'){
+    const ws=new Date(now);ws.setDate(now.getDate()-((now.getDay()+1)%7));
+    from=ws.getFullYear()+'-'+String(ws.getMonth()+1).padStart(2,'0')+'-'+String(ws.getDate()).padStart(2,'0');to=today();
+  } else if(_cardPreset==='month'){
+    from=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-01';to=today();
+  } else if(_cardPreset==='custom'){
+    from=document.getElementById('card_from')?.value||'';
+    to=document.getElementById('card_to')?.value||'';
+  }
+  let items=[...(D.cardExpenses||[])].sort((a,b)=>b.date.localeCompare(a.date));
+  if(from)items=items.filter(e=>e.date>=from);
+  if(to)items=items.filter(e=>e.date<=to);
+
+  const total=items.reduce((s,e)=>s+toKRW(e.amount,e.currency||'KRW'),0);
+  const byCat={};items.forEach(e=>{byCat[e.category||'기타']=(byCat[e.category||'기타']||0)+toKRW(e.amount,e.currency||'KRW');});
+  const catSummary=Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([c,v])=>
+    `<span style="font-size:12px;background:var(--bg);padding:3px 8px;border-radius:8px;color:var(--text2)">${c} ${fmtK(v)}</span>`
+  ).join('');
+
+  const presets=[['week','이번주'],['month','이번달'],['custom','직접입력']];
+  const presetBtns=presets.map(([k,l])=>
+    `<button class="ptab${_cardPreset===k?' on':''}" onclick="_cardPreset='${k}';renderContent()">${l}</button>`
+  ).join('');
+
+  const customRow=_cardPreset==='custom'?`
+  <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center">
+    <input id="card_from" type="date" value="${from}" onchange="renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit">
+    <span style="color:var(--text3)">~</span>
+    <input id="card_to" type="date" value="${to}" onchange="renderContent()" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit">
+  </div>`:'';
+
+  const rows=items.map(e=>{
+    const m=D.matters.find(x=>x.id===e.matterId);
+    const attendees=(e.attendees||[]).join(', ');
+    return`<div onclick="openCardModal('${e.id}')" style="background:#fff;border-radius:12px;padding:13px;margin-bottom:8px;border:1px solid var(--border);cursor:pointer">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+        <div style="font-size:14px;font-weight:600;color:var(--text);flex:1">${e.content||'—'}</div>
+        <div style="font-size:15px;font-weight:800;color:var(--b);margin-left:8px">${fmtM(e.amount,e.currency||'KRW')}</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+        <span style="font-size:11px;color:var(--text3)">${e.date}</span>
+        <span style="font-size:11px;background:#e0f2fe;color:#0369a1;padding:2px 7px;border-radius:8px">${e.category||'기타'}</span>
+        ${m?`<span style="font-size:11px;color:var(--text3)">${m.name}</span>`:''}
+        ${attendees?`<span style="font-size:11px;color:var(--text3)">👥 ${attendees}</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  return`<div class="query-results">
+  <div class="preset-tabs">${presetBtns}</div>
+  ${customRow}
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <div>
+      <div style="font-size:22px;font-weight:800;color:var(--b)">${fmtK(total)}</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:2px">${items.length}건</div>
+    </div>
+    <button onclick="exportCardExcel()" style="padding:7px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px">📥 Excel</button>
+  </div>
+  ${catSummary?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">${catSummary}</div>`:''}
+  <button onclick="openCardModal()" style="width:100%;padding:11px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:10px">+ 지출 등록</button>
+  ${rows||'<div class="empty-state">이 기간 지출 없음</div>'}
+</div>`;}
+
+function openCardModal(eid){
+  const em=eid?(D.cardExpenses||[]).find(x=>x.id===eid):null;
+  const cats=['식사','교통','숙박','접대','기타'];
+  const matterOpts=D.matters.filter(m=>m.status!=='failed').map(m=>`<option value="${m.id}" ${em?.matterId===m.id?'selected':''}>${m.name}</option>`).join('');
+  const attendeeList=(em?.attendees||[]);
+  document.getElementById('modalArea').innerHTML=`
+<div class="mbg" onclick="if(event.target===this)closeModal()">
+<div class="msh" style="max-width:440px"><div class="mhdl"></div>
+<div class="mttl">💳 ${em?'지출 수정':'지출 등록'}</div>
+<div class="field"><label>날짜 *</label><input id="ce_date" type="date" value="${em?.date||today()}"></div>
+<div class="cur-row">
+  <div class="field"><label>금액 *</label><input id="ce_amt" value="${em?.amount||''}" placeholder="50,000" oninput="numInput(this)" inputmode="numeric"></div>
+  <div class="field cs"><label>통화</label><select id="ce_cur">
+    <option value="KRW" ${(em?.currency||'KRW')==='KRW'?'selected':''}>₩ KRW</option>
+    <option value="CNY" ${em?.currency==='CNY'?'selected':''}>¥ CNY</option>
+    <option value="USD" ${em?.currency==='USD'?'selected':''}>$ USD</option>
+  </select></div>
+</div>
+<div class="field"><label>카테고리</label><select id="ce_cat">
+  ${cats.map(c=>`<option value="${c}" ${(em?.category||'식사')===c?'selected':''}>${c}</option>`).join('')}
+</select></div>
+<div class="field"><label>내용/목적 *</label><input id="ce_content" value="${em?.content||''}" placeholder="점심 식사, 택시 이동 등"></div>
+<div class="field"><label>동석자</label>
+  <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap" id="ce_attendee_tags">
+    ${attendeeList.map(a=>`<span style="display:inline-flex;align-items:center;gap:4px;background:var(--gl);color:var(--g2);padding:4px 10px;border-radius:20px;font-size:13px">${a}<button onclick="removeAttendee('${a.replace(/'/g,"\'")}')" style="background:none;border:none;cursor:pointer;color:var(--g2);padding:0;font-size:14px;line-height:1">×</button></span>`).join('')}
+  </div>
+  <div style="display:flex;gap:6px">
+    <input id="ce_attendee_input" placeholder="이름 입력 후 추가" style="flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit"
+      onkeydown="if(event.key==='Enter'){event.preventDefault();addAttendee();}">
+    <button onclick="addAttendee()" style="padding:8px 12px;background:var(--g);color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit">추가</button>
+  </div>
+</div>
+<div class="field"><label>연결 Matter (선택)</label>
+  <select id="ce_matter" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit">
+    <option value="">— 연결 안함 —</option>
+    ${matterOpts}
+  </select>
+</div>
+<button class="savebtn" onclick="saveCardExpense('${eid||''}')">저장</button>
+<button class="cancelbtn" onclick="closeModal()">취소</button>
+${em?`<div style="text-align:right;margin-top:8px"><button onclick="deleteCardExpense('${eid}')" style="background:none;border:1px solid var(--border);color:var(--text3);font-size:12px;cursor:pointer;padding:5px 12px;border-radius:8px;font-family:inherit">🗑️ 삭제</button></div>`:''}
+</div></div>`;
+  window._ceAttendees=[...attendeeList];
+}
+
+function addAttendee(){
+  const inp=document.getElementById('ce_attendee_input');
+  const name=(inp?.value||'').trim();
+  if(!name)return;
+  if(!window._ceAttendees)window._ceAttendees=[];
+  if(window._ceAttendees.includes(name))return;
+  window._ceAttendees.push(name);
+  inp.value='';
+  refreshAttendeeTags();
+}
+
+function removeAttendee(name){
+  window._ceAttendees=(window._ceAttendees||[]).filter(a=>a!==name);
+  refreshAttendeeTags();
+}
+
+function refreshAttendeeTags(){
+  const el=document.getElementById('ce_attendee_tags');
+  if(!el)return;
+  el.innerHTML=(window._ceAttendees||[]).map(a=>
+    `<span style="display:inline-flex;align-items:center;gap:4px;background:var(--gl);color:var(--g2);padding:4px 10px;border-radius:20px;font-size:13px">${a}<button onclick="removeAttendee('${a.replace(/'/g,"\'")}') " style="background:none;border:none;cursor:pointer;color:var(--g2);padding:0;font-size:14px;line-height:1">×</button></span>`
+  ).join('');
+}
+
+function saveCardExpense(eid){
+  const date=document.getElementById('ce_date')?.value||today();
+  const amt=getRaw('ce_amt');
+  const content=(document.getElementById('ce_content')?.value||'').trim();
+  if(!amt||!content)return alert('금액과 내용을 입력하세요');
+  const exp={
+    id:eid||gid(),
+    date,
+    amount:amt,
+    currency:document.getElementById('ce_cur')?.value||'KRW',
+    category:document.getElementById('ce_cat')?.value||'기타',
+    content,
+    attendees:[...(window._ceAttendees||[])],
+    matterId:document.getElementById('ce_matter')?.value||null,
+  };
+  if(!D.cardExpenses)D.cardExpenses=[];
+  if(eid){D.cardExpenses=D.cardExpenses.map(x=>x.id===eid?exp:x);}
+  else{D.cardExpenses.unshift(exp);}
+  cloudSave('cardExpense',exp);
+  closeModal();
+  renderContent();
+}
+
+function deleteCardExpense(eid){
+  if(!confirm('이 지출을 삭제하시겠습니까?'))return;
+  D.cardExpenses=(D.cardExpenses||[]).filter(x=>x.id!==eid);
+  cloudSave('cardExpense',{id:eid},'del');
+  closeModal();
+  renderContent();
+}
+
+function exportCardExcel(){
+  const now=new Date();
+  let from='',to='';
+  if(_cardPreset==='week'){const ws=new Date(now);ws.setDate(now.getDate()-((now.getDay()+1)%7));from=ws.getFullYear()+'-'+String(ws.getMonth()+1).padStart(2,'0')+'-'+String(ws.getDate()).padStart(2,'0');to=today();}
+  else if(_cardPreset==='month'){from=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-01';to=today();}
+  else{from=document.getElementById('card_from')?.value||'';to=document.getElementById('card_to')?.value||'';}
+  let items=[...(D.cardExpenses||[])].sort((a,b)=>b.date.localeCompare(a.date));
+  if(from)items=items.filter(e=>e.date>=from);
+  if(to)items=items.filter(e=>e.date<=to);
+  const header='날짜,금액,통화,카테고리,내용,동석자,연결 Matter';
+  const rows=items.map(e=>{
+    const m=D.matters.find(x=>x.id===e.matterId);
+    return [e.date,e.amount,e.currency||'KRW',e.category||'',`"${(e.content||'').replace(/"/g,'""')}"`,`"${(e.attendees||[]).join(', ')}"`,`"${m?m.name:''}"`].join(',');
+  });
+  const csv=String.fromCharCode(0xFEFF)+header+'\n'+rows.join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`법인카드_${from||'전체'}_${to||''}.csv`;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
 }
 
 function savePayment(mid){
