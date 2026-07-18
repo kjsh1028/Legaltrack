@@ -3012,5 +3012,17 @@
       "note": "청산 세무 자문",
       "paidDate": null
     }
+  ],
+  "cardExpenses": [
+    {
+      "id": "mrq95jupn86ko",
+      "date": "2026-07-18",
+      "amount": 338900,
+      "currency": "KRW",
+      "category": "식사",
+      "content": "중국 목원 그룹, 코트라",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    }
   ]
 }
