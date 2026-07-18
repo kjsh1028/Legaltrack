@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071702';
+const APP_VERSION='2026071801';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1376,9 +1376,14 @@ function renderTimeResults(){
     :rows.map(e=>{
       const m=D.matters.find(x=>x.id===e.matterId)||{name:'?',type:'time-b'};
       const mt=MTYPE[m.type||'time-b'];
+      const desc=e.description||e.desc||'';
+      const shortDesc=desc.length>18?desc.slice(0,18)+'…':desc;
       return `<div class="qr-item" onclick="_selectedEntryId='${e.id}';curLayer='entry_detail';renderContent()">
         <span class="qri-date">${fmtDF(e.date)}</span>
-        <span class="qri-name">${m.name}</span>
+        <span class="qri-name" style="display:flex;flex-direction:column;gap:1px">
+          <span>${m.name}</span>
+          ${shortDesc?`<span style="font-size:11px;color:var(--text3);font-weight:400">${shortDesc}</span>`:''}
+        </span>
         <span class="qri-time" style="color:${mt.color}">${hhmm(e.minutes)}</span>
         <span class="qri-arr">›</span>
       </div>`;
