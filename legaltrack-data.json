@@ -1211,6 +1211,14 @@
   ],
   "entries": [
     {
+      "id": "mrqd317shwgvu",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-18",
+      "minutes": 300,
+      "description": "목원 그룹 한국 방문단과 코트라 옴브즈만 팀장 정영수 미팅. 투자 구조 논의",
+      "billable": false
+    },
+    {
       "id": "mroahniuxki5r",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-16",
