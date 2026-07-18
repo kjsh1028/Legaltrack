@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071701';
+const APP_VERSION='2026071702';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -3365,14 +3365,19 @@ function exportCardExcel(){
   else{from=document.getElementById('card_from')?.value||'';to=document.getElementById('card_to')?.value||'';}
   let items=[...(D.cardExpenses||[])].sort((a,b)=>b.date.localeCompare(a.date));
   if(from)items=items.filter(e=>e.date>=from);if(to)items=items.filter(e=>e.date<=to);
-  const esc=s=>'"'+(s||'').replace(/"/g,'""')+'"';
-  const header='날짜,금액,통화,카테고리,내용,동석자,연결 Matter';
-  const rows=items.map(e=>{const m=D.matters.find(x=>x.id===e.matterId);return[e.date,e.amount,e.currency||'KRW',e.category||'',esc(e.content||''),esc((e.attendees||[]).join(', ')),esc(m?m.name:'')].join(',');});
-  const bom=String.fromCharCode(0xFEFF);
-  const csv=bom+header+'\n'+rows.join('\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download='법인카드_'+( from||'전체')+'_'+(to||'')+'.csv';
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  const header=['날짜','금액','통화','카테고리','내용','동석자','연결 Matter'];
+  const data=[header,...items.map(e=>{
+    const m=D.matters.find(x=>x.id===e.matterId);
+    return[e.date,e.amount,e.currency||'KRW',e.category||'',e.content||'',(e.attendees||[]).join(', '),m?m.name:''];
+  })];
+  const ws=XLSX.utils.aoa_to_sheet(data);
+  // 헤더 굵게
+  header.forEach((_,c)=>{const cell=ws[XLSX.utils.encode_cell({r:0,c})];if(cell)cell.s={font:{bold:true}};});
+  // 열 너비 설정
+  ws['!cols']=[{wch:12},{wch:12},{wch:8},{wch:10},{wch:30},{wch:20},{wch:20}];
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'법인카드');
+  XLSX.writeFile(wb,'법인카드_'+(from||'전체')+'_'+(to||'')+'.xlsx');
 }
 
 function savePayment(mid){
