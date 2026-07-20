@@ -1211,6 +1211,14 @@
   ],
   "entries": [
     {
+      "id": "mrsnl69v1hp9v",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-20",
+      "minutes": 120,
+      "description": "김현철 아이온 자산운영 대표 미팅",
+      "billable": false
+    },
+    {
       "id": "mrsnkl3ze58j4",
       "matterId": "mq33mk2e2x560",
       "date": "2026-07-20",
