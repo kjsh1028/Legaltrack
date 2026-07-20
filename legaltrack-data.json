@@ -1211,6 +1211,14 @@
   ],
   "entries": [
     {
+      "id": "mrsta3yytzrqw",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-20",
+      "minutes": 18,
+      "description": "조사보고서 초안 검토",
+      "billable": true
+    },
+    {
       "id": "mrsnm8mpfcyo1",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-20",
