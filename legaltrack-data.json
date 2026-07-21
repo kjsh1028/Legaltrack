@@ -951,9 +951,9 @@
     },
     {
       "id": "mrd1gkqdcxkap",
-      "code": "의정부역 주상복합 개발사업 키움",
-      "name": "의정부역 주상복합 개발사업",
-      "client": "키움 이상만",
+      "code": "키움 의정부역 주상복합 개발사업",
+      "name": "키움 의정부역 주상복합 개발사업",
+      "client": "키움증권",
       "type": "fixed-f",
       "status": "prospect",
       "retainer_amount": null,
