@@ -1285,6 +1285,14 @@
   ],
   "entries": [
     {
+      "id": "mru0zg463uw73",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-21",
+      "minutes": 60,
+      "description": "중국팀 마케팅 전략 논의",
+      "billable": false
+    },
+    {
       "id": "mru0yyn8xnjip",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-21",
