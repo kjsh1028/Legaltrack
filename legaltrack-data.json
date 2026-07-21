@@ -1248,6 +1248,14 @@
   ],
   "entries": [
     {
+      "id": "mrtyvhflzaexb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-21",
+      "minutes": 30,
+      "description": "친왕 그룹 자문계약 조건 협의",
+      "billable": false
+    },
+    {
       "id": "mrsta3yytzrqw",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-07-20",
