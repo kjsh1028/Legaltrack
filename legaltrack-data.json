@@ -3223,6 +3223,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mrumfidom617v",
+      "title": "키움 자료 검토",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-07-23",
+      "matterId": "mrd1gkqdcxkap",
+      "note": "자료 검토하기",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
