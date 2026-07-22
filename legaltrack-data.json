@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mrvo90kmtdwsg",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-22",
+      "minutes": 90,
+      "description": "키움증권 이상만 팀장 미팅",
+      "billable": false
+    },
+    {
       "id": "mrvdjcksf2nmn",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-22",
