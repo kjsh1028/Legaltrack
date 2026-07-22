@@ -992,7 +992,7 @@
       "name": "西安诺瓦星云科技-법인설립",
       "client": "西安诺瓦星云科技",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 50000,
       "retainer_cur": "CNY",
       "rate": null,
@@ -1021,7 +1021,8 @@
       "driveLinkLabel": "",
       "memo": "박재현 변호사 소개",
       "clientId": null,
-      "contactId": "mrerwo2qpndpu"
+      "contactId": "mrerwo2qpndpu",
+      "closed_date": "2026-07-22"
     },
     {
       "id": "mrfs3ni2hu73t",
@@ -1321,6 +1322,14 @@
     }
   ],
   "entries": [
+    {
+      "id": "mrvdgjxkjsewo",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-22",
+      "minutes": 78,
+      "description": "Cosco 실사 수임 관련 내부회의",
+      "billable": false
+    },
     {
       "id": "mrvdfo398tn7h",
       "matterId": "mreru4m1yw0u4",
