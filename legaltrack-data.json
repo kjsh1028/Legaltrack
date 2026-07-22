@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mrvdh4ys9cvjb",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-22",
+      "minutes": 90,
+      "description": "고객 미팅과 사전 어래인지",
+      "billable": true
+    },
+    {
       "id": "mrvdgjxkjsewo",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-22",
