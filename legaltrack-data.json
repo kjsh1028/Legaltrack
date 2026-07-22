@@ -1322,6 +1322,14 @@
   ],
   "entries": [
     {
+      "id": "mrvdfo398tn7h",
+      "matterId": "mreru4m1yw0u4",
+      "date": "2026-07-22",
+      "minutes": 18,
+      "description": "자문계약서 검토 및 질의 검토",
+      "billable": true
+    },
+    {
       "id": "mruiaso5pwtdx",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-21",
