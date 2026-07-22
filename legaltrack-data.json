@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mrvdiy84bjyjy",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-22",
+      "minutes": 180,
+      "description": "러셀 인베스트먼트 김유석 대표 미팅 식사",
+      "billable": false
+    },
+    {
       "id": "mrvdiafx329nr",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-22",
