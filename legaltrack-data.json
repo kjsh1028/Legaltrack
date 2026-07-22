@@ -3315,6 +3315,16 @@
   ],
   "cardExpenses": [
     {
+      "id": "mrvteuordsyqg",
+      "date": "2026-07-22",
+      "amount": 15600,
+      "currency": "KRW",
+      "category": "교통",
+      "content": "삼성-코트라",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mrvlde37yyt60",
       "date": "2026-07-22",
       "amount": 130500,
