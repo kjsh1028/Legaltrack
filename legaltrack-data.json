@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mrvdiafx329nr",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-22",
+      "minutes": 120,
+      "description": "이태경 스트라이커캐피탈 대표 미팅",
+      "billable": false
+    },
+    {
       "id": "mrvdh4ys9cvjb",
       "matterId": "mqelrjr4iee53",
       "date": "2026-07-22",
