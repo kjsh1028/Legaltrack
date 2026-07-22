@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mrvdjcksf2nmn",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-22",
+      "minutes": 150,
+      "description": "코트라 옴부즈만 방문 미팅",
+      "billable": false
+    },
+    {
       "id": "mrvdiy84bjyjy",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-22",
