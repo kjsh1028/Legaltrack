@@ -3315,6 +3315,16 @@
   ],
   "cardExpenses": [
     {
+      "id": "mrvw4a44tu072",
+      "date": "2026-07-22",
+      "amount": 62000,
+      "currency": "KRW",
+      "category": "식사",
+      "content": "저녁 식사",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mrvteuordsyqg",
       "date": "2026-07-22",
       "amount": 15600,
