@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mrxa4tmyycav5",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-23",
+      "minutes": 60,
+      "description": "미래에셋캐피탈 이충환 상무 미팅",
+      "billable": false
+    },
+    {
       "id": "mrx20zgqejyke",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-23",
