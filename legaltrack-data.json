@@ -1212,7 +1212,7 @@
     {
       "id": "mrt547lcdjmkg",
       "code": "[임시]COSCO SHIPPING FERRY/GEN/실사",
-      "name": "中远海运客运 실사",
+      "name": "中远海运客运 COSCO 실사",
       "client": "中远海运客运",
       "type": "time-b",
       "status": "prospect",
