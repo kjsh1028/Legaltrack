@@ -3397,6 +3397,16 @@
   ],
   "cardExpenses": [
     {
+      "id": "mryg6s7bp2gwo",
+      "date": "2026-07-24",
+      "amount": 137700,
+      "currency": "KRW",
+      "category": "식사",
+      "content": "법무 지원팀 커피",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mryg54nvib5c4",
       "date": "2026-07-24",
       "amount": 551250,
