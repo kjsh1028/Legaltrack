@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "mryihzbfnkj7u",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-24",
+      "minutes": 60,
+      "description": "Cosco 수임 제안서 검토",
+      "billable": false
+    },
+    {
       "id": "mryge5yny3joi",
       "matterId": "mq33mk2e2x560",
       "date": "2026-07-24",
