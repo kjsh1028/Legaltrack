@@ -3397,6 +3397,16 @@
   ],
   "cardExpenses": [
     {
+      "id": "mryg54nvib5c4",
+      "date": "2026-07-24",
+      "amount": 551250,
+      "currency": "KRW",
+      "category": "식사",
+      "content": "율촌 법무 지원팀 회식",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mrx69ms6ru9ov",
       "date": "2026-07-23",
       "amount": 24400,
