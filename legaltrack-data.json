@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "ms151fmvaz620",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-24",
+      "minutes": 150,
+      "description": "쿠우쿠우 대표이사 상무 미틴",
+      "billable": false
+    },
+    {
       "id": "mrzzkl19a8k91",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-25",
