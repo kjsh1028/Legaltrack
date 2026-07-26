@@ -1323,6 +1323,14 @@
   ],
   "entries": [
     {
+      "id": "ms1pgcu5bmoyy",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-07-26",
+      "minutes": 30,
+      "description": "질의에 대한 답변 검토 및 내부 소통",
+      "billable": true
+    },
+    {
       "id": "ms1pfqa27z1pi",
       "matterId": "mrk20ngsyg541",
       "date": "2026-07-26",
