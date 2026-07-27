@@ -3468,6 +3468,7 @@
       "amount": 50000,
       "currency": "KRW",
       "category": "식사",
+      "merchant": "홍영재장수청국장",
       "content": "점심식사",
       "attendees": [],
       "matterId": "mq20ac8bqbt35"
