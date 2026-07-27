@@ -1360,6 +1360,14 @@
   ],
   "entries": [
     {
+      "id": "ms32fau4472m3",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-07-27",
+      "minutes": 24,
+      "description": "율촌 메모 내용 법적 쟁점 검토",
+      "billable": true
+    },
+    {
       "id": "ms1pgcu5bmoyy",
       "matterId": "mq205p2ptqpyp",
       "date": "2026-07-26",
