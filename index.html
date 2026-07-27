@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026071801';
+const APP_VERSION='2026072701';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -3274,6 +3274,7 @@ function renderCardPage(){
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
         <span style="font-size:11px;color:var(--text3)">${e.date}</span>
         <span style="font-size:11px;background:#e0f2fe;color:#0369a1;padding:2px 7px;border-radius:8px">${e.category||'기타'}</span>
+        ${e.merchant?`<span style="font-size:11px;color:var(--text2);font-weight:600">${e.merchant}</span>`:''}
         ${m?`<span style="font-size:11px;color:var(--text3)">${m.name}</span>`:''}
         ${attendees?`<span style="font-size:11px;color:var(--text3)">👥 ${attendees}</span>`:''}
       </div>
@@ -3310,6 +3311,7 @@ function openCardModal(eid){
   </select></div>
 </div>
 <div class="field"><label>카테고리</label><select id="ce_cat">${cats.map(c=>`<option value="${c}" ${(em?.category||'식사')===c?'selected':''}>${c}</option>`).join('')}</select></div>
+<div class="field"><label>가맹점</label><input id="ce_merchant" value="${em?.merchant||''}" placeholder="식당명, 마트, 주유소 등"></div>
 <div class="field"><label>내용/목적 *</label><input id="ce_content" value="${em?.content||''}" placeholder="점심 식사, 택시 이동 등"></div>
 <div class="field"><label>동석자</label>
   <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap" id="ce_attendee_tags">
@@ -3353,7 +3355,7 @@ function saveCardExpense(eid){
   const amt=getRaw('ce_amt');
   const content=(document.getElementById('ce_content')?.value||'').trim();
   if(!amt||!content)return alert('금액과 내용을 입력하세요');
-  const exp={id:eid||gid(),date,amount:amt,currency:document.getElementById('ce_cur')?.value||'KRW',category:document.getElementById('ce_cat')?.value||'기타',content,attendees:[...(window._ceAttendees||[])],matterId:document.getElementById('ce_matter')?.value||null};
+  const exp={id:eid||gid(),date,amount:amt,currency:document.getElementById('ce_cur')?.value||'KRW',category:document.getElementById('ce_cat')?.value||'기타',merchant:(document.getElementById('ce_merchant')?.value||'').trim(),content,attendees:[...(window._ceAttendees||[])],matterId:document.getElementById('ce_matter')?.value||null};
   if(!D.cardExpenses)D.cardExpenses=[];
   if(eid){D.cardExpenses=D.cardExpenses.map(x=>x.id===eid?exp:x);}else{D.cardExpenses.unshift(exp);}
   cloudSave('cardExpense',exp);closeModal();renderContent();
@@ -3370,10 +3372,10 @@ function exportCardExcel(){
   else{from=document.getElementById('card_from')?.value||'';to=document.getElementById('card_to')?.value||'';}
   let items=[...(D.cardExpenses||[])].sort((a,b)=>b.date.localeCompare(a.date));
   if(from)items=items.filter(e=>e.date>=from);if(to)items=items.filter(e=>e.date<=to);
-  const header=['날짜','금액','통화','카테고리','내용','동석자','연결 Matter'];
+  const header=['날짜','금액','통화','카테고리','가맹점','내용','동석자','연결 Matter'];
   const data=[header,...items.map(e=>{
     const m=D.matters.find(x=>x.id===e.matterId);
-    return[e.date,e.amount,e.currency||'KRW',e.category||'',e.content||'',(e.attendees||[]).join(', '),m?m.name:''];
+    return[e.date,e.amount,e.currency||'KRW',e.category||'',e.merchant||'',e.content||'',(e.attendees||[]).join(', '),m?m.name:''];
   })];
   const ws=XLSX.utils.aoa_to_sheet(data);
   // 헤더 굵게
