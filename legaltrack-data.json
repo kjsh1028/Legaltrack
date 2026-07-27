@@ -3470,7 +3470,9 @@
       "category": "식사",
       "merchant": "홍영재장수청국장",
       "content": "점심식사",
-      "attendees": [],
+      "attendees": [
+        "한양대"
+      ],
       "matterId": "mq20ac8bqbt35"
     },
     {
