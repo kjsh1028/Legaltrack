@@ -3442,8 +3442,8 @@
       "note": "자료 검토하기",
       "link": "",
       "linkLabel": "",
-      "done": false,
-      "doneAt": null
+      "done": true,
+      "doneAt": "2026-07-28"
     },
     {
       "id": "mrvh90pbac3me",
