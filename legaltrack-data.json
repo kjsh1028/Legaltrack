@@ -1360,6 +1360,14 @@
   ],
   "entries": [
     {
+      "id": "ms4079ou5h89v",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-28",
+      "minutes": 60,
+      "description": "중국 로펌과 변호사 등에게 이메일과 연락 전화 등",
+      "billable": false
+    },
+    {
       "id": "ms406oebkdkqc",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-28",
