@@ -3693,8 +3693,10 @@
       "currency": "KRW",
       "category": "식사",
       "merchant": "한가대로",
-      "content": "저녁식사",
-      "attendees": [],
+      "content": "코트라 옴부즈만 팀 식사",
+      "attendees": [
+        "정영수 팀장 외 2 명 율촌 변호사 2 명"
+      ],
       "matterId": null
     },
     {
