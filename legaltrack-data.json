@@ -1360,6 +1360,14 @@
   ],
   "entries": [
     {
+      "id": "ms5ofgudejf46",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-29",
+      "minutes": 60,
+      "description": "고객과 법인 설립 관련 미팅 및 관련 업무 진행",
+      "billable": true
+    },
+    {
       "id": "ms5gxp45k8vlm",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-29",
