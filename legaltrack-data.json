@@ -3687,6 +3687,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "ms60g6jlndfct",
+      "date": "2026-07-29",
+      "amount": 516000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "한가대로",
+      "content": "저녁식사",
+      "attendees": [],
+      "matterId": null
+    },
+    {
       "id": "ms2syxz5lltpe",
       "date": "2026-07-27",
       "amount": 50000,
