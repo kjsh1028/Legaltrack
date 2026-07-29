@@ -2278,16 +2278,6 @@
       "rate_on_date": 218,
       "krw_amount": 39240000,
       "note": ""
-    },
-    {
-      "id": "ms2mfpd0crl9a",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-07-27",
-      "amount": 4424,
-      "currency": "USD",
-      "rate_on_date": 1486,
-      "krw_amount": 6574064,
-      "note": ""
     }
   ],
   "clients": [
