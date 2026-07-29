@@ -3628,6 +3628,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "ms60abtz72pir",
+      "title": "밍타이 조세 수임 준비하기",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-07-31",
+      "matterId": "ms60998arotcb",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
