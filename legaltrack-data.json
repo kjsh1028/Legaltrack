@@ -3695,6 +3695,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "ms6y4a5vty7pd",
+      "date": "2026-07-30",
+      "amount": 26000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "강남교자",
+      "content": "점심식사",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "ms60g6jlndfct",
       "date": "2026-07-29",
       "amount": 516000,
