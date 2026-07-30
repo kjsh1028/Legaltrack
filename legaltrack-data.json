@@ -3766,8 +3766,11 @@
       "amount": 62000,
       "currency": "KRW",
       "category": "식사",
-      "content": "저녁 식사",
-      "attendees": [],
+      "merchant": "",
+      "content": "러샐인베스트먼트",
+      "attendees": [
+        "러셀 인베스트먼트 한국 법인장"
+      ],
       "matterId": "mq20ac8bqbt35"
     },
     {
