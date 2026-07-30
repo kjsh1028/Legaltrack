@@ -3756,8 +3756,11 @@
       "amount": 75000,
       "currency": "KRW",
       "category": "식사",
+      "merchant": "홍영재장수청국장",
       "content": "점심식사",
-      "attendees": [],
+      "attendees": [
+        "디스트릭트 대표. 미래에엣패밀리 오피스"
+      ],
       "matterId": "mq20ac8bqbt35"
     },
     {
