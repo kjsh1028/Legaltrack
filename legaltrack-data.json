@@ -3799,8 +3799,11 @@
       "amount": 338900,
       "currency": "KRW",
       "category": "식사",
-      "content": "중국 목원 그룹, 코트라",
-      "attendees": [],
+      "merchant": "",
+      "content": "중국 목원 그룹 미팅",
+      "attendees": [
+        "목원그룹 4 명 코트라 정영수 실장"
+      ],
       "matterId": "mq20ac8bqbt35"
     }
   ]
