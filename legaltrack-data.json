@@ -3715,6 +3715,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "ms7b9gdugsweg",
+      "title": "코트라 방문 일정 잡기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-08-03",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
