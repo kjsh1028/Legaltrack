@@ -3702,7 +3702,9 @@
       "category": "식사",
       "merchant": "강남교자",
       "content": "점심식사",
-      "attendees": [],
+      "attendees": [
+        "바른 류종명 변호사"
+      ],
       "matterId": "mq20ac8bqbt35"
     },
     {
