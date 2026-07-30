@@ -3702,6 +3702,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "ms7b7wdlxtfx0",
+      "title": "서자강 CCPIT 미팅 어래인지",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-08-04",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
