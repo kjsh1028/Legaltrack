@@ -3746,8 +3746,11 @@
       "amount": 24400,
       "currency": "KRW",
       "category": "식사",
+      "merchant": "",
       "content": "커피",
-      "attendees": [],
+      "attendees": [
+        "미래에셋캐피탈 이충환"
+      ],
       "matterId": "mq20ac8bqbt35"
     },
     {
