@@ -1434,6 +1434,14 @@
   ],
   "entries": [
     {
+      "id": "ms7b35xngxswk",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-30",
+      "minutes": 108,
+      "description": "포컴파트너스 미팅",
+      "billable": false
+    },
+    {
       "id": "ms659mt5gzpz4",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-30",
