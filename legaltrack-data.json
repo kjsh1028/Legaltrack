@@ -1471,6 +1471,14 @@
   ],
   "entries": [
     {
+      "id": "ms8hr6goo2j1w",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-07-31",
+      "minutes": 90,
+      "description": "잠재 매수인 검토 및 이후 진행 상황에 대해서 세무법인과회계법인 내부 회의",
+      "billable": true
+    },
+    {
       "id": "ms8h204rh0oaz",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-31",
