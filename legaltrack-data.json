@@ -1545,6 +1545,14 @@
   ],
   "entries": [
     {
+      "id": "ms9ux1wtd4v9r",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-01",
+      "minutes": 60,
+      "description": "글로벌 최저한세 관련해서 본사항 법적 쟁점 검토 계속",
+      "billable": false
+    },
+    {
       "id": "ms9uuefn960b7",
       "matterId": "ms9q2kj9qryyi",
       "date": "2026-08-01",
