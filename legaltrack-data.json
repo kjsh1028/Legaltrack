@@ -1545,6 +1545,14 @@
   ],
   "entries": [
     {
+      "id": "msceeop22kvd2",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-02",
+      "minutes": 96,
+      "description": "KGA 회사 인수건 관련해서 미팅 사전 검토",
+      "billable": false
+    },
+    {
       "id": "mscedhfkmivjl",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-02",
