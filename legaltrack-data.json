@@ -4004,6 +4004,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mscr5wpltmbqi",
+      "date": "2026-08-03",
+      "amount": 41000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "무교낙지",
+      "content": "점심식사",
+      "attendees": [
+        "김계향 대성법무법인"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "ms6y4a5vty7pd",
       "date": "2026-07-30",
       "amount": 26000,
