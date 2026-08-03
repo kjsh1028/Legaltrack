@@ -1545,6 +1545,14 @@
   ],
   "entries": [
     {
+      "id": "msclhxqasdeqx",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-03",
+      "minutes": 30,
+      "description": "주간 회의",
+      "billable": false
+    },
+    {
       "id": "msceeop22kvd2",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-02",
