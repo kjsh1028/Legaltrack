@@ -4057,6 +4057,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mse4ujwwabhr1",
+      "date": "2026-08-04",
+      "amount": 251100,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "경복궁",
+      "content": "점심식사",
+      "attendees": [
+        "알브라이트 김창화 변호사 포함 6 인"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "msd73xsvtoiic",
       "date": "2026-08-03",
       "amount": 272000,
