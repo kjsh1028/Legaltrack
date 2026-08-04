@@ -4057,6 +4057,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "msep28wm987ll",
+      "date": "2026-08-04",
+      "amount": 19990,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "카카오",
+      "content": "택시이동",
+      "attendees": [
+        "삼성역- 신용산역"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mse4ujwwabhr1",
       "date": "2026-08-04",
       "amount": 251100,
