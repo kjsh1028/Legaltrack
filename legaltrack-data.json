@@ -1619,6 +1619,14 @@
   ],
   "entries": [
     {
+      "id": "msgqha3f2fipt",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-08-06",
+      "minutes": 24,
+      "description": "빌링 내용과 관련 서류 검토",
+      "billable": true
+    },
+    {
       "id": "msgqfjjhoty1k",
       "matterId": "mqelrjr4iee53",
       "date": "2026-08-05",
