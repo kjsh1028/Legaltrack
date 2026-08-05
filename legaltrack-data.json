@@ -1619,6 +1619,14 @@
   ],
   "entries": [
     {
+      "id": "msgqj2iprosd1",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-06",
+      "minutes": 90,
+      "description": "LX 이원재 소개 중국 고객 위한 월간 자문 기준 설정 및 고객 소통",
+      "billable": false
+    },
+    {
       "id": "msgqha3f2fipt",
       "matterId": "mq20lebejr8qp",
       "date": "2026-08-06",
