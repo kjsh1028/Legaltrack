@@ -1619,6 +1619,14 @@
   ],
   "entries": [
     {
+      "id": "msgqfjjhoty1k",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-08-05",
+      "minutes": 30,
+      "description": "관련 서류 검토",
+      "billable": true
+    },
+    {
       "id": "msgqeybphix9k",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-06",
