@@ -1619,6 +1619,14 @@
   ],
   "entries": [
     {
+      "id": "msgqeybphix9k",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-06",
+      "minutes": 108,
+      "description": "한샘 전 CFO 미팅",
+      "billable": false
+    },
+    {
       "id": "msgqdrzlyivd3",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-06",
