@@ -1437,7 +1437,7 @@
       "name": "알브라이트 김훈 IPO 의견서",
       "client": "알브라이트",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1466,7 +1466,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "ms7c62zqkanis",
-      "contactId": "ms7c6g39vahfn"
+      "contactId": "ms7c6g39vahfn",
+      "failed_date": "2026-08-06",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "김훈 변호사 소개",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "ms9pckny0mc2l",
