@@ -4208,6 +4208,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "msiggoho0f1r4",
+      "date": "2026-08-07",
+      "amount": 46710,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "차이",
+      "content": "점심식사",
+      "attendees": [
+        "김정민 율촌 변호사"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "msep28wm987ll",
       "date": "2026-08-04",
       "amount": 19990,
