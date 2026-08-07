@@ -4221,6 +4221,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "msivsp0bnk49j",
+      "date": "2026-08-07",
+      "amount": 290000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "중식당 수녹",
+      "content": "저녁식사",
+      "attendees": [
+        "전 특허청장 김완기. 전 한샘 회장 강승수"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "msiggoho0f1r4",
       "date": "2026-08-07",
       "amount": 46710,
