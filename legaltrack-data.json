@@ -1624,6 +1624,14 @@
   ],
   "entries": [
     {
+      "id": "msixpjjn3xxo4",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-07",
+      "minutes": 120,
+      "description": "CDE 인베스트먼트 장형식 대표 미팅",
+      "billable": false
+    },
+    {
       "id": "msixozt69wazb",
       "matterId": "ms9q2kj9qryyi",
       "date": "2026-08-07",
