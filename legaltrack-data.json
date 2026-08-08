@@ -1661,6 +1661,14 @@
   ],
   "entries": [
     {
+      "id": "msjsvzu2f7ebd",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-08",
+      "minutes": 180,
+      "description": "포츈지 배정윤 부사장 미팅 회식",
+      "billable": false
+    },
+    {
       "id": "msjsumhqiaglt",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-08",
