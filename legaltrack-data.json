@@ -4326,6 +4326,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mskcgujp8i9x7",
+      "date": "2026-08-08",
+      "amount": 138000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "이촌 가온",
+      "content": "저녁식사",
+      "attendees": [
+        "포춘 코리아 배정윤 대표. 레전드캐피탈 박준성"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "msivsp0bnk49j",
       "date": "2026-08-07",
       "amount": 290000,
