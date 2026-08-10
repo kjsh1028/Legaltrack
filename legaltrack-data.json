@@ -4293,6 +4293,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-08-09"
+    },
+    {
+      "id": "msmpbua98uclp",
+      "title": "영수증 임대료 등등",
+      "cat": "personal",
+      "priority": "high",
+      "due": "2026-08-31",
+      "matterId": "",
+      "note": "영수증 한달에 3 만원 모으기",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
