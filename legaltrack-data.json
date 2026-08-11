@@ -4413,6 +4413,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "msoopguucf0hl",
+      "date": "2026-08-11",
+      "amount": 150000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "두껍삼 역삼",
+      "content": "저녁식사",
+      "attendees": [
+        "한양대 코트라 대성"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "msn4mmow101gs",
       "date": "2026-08-10",
       "amount": 121000,
