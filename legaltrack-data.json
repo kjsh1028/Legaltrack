@@ -1846,6 +1846,14 @@
   ],
   "entries": [
     {
+      "id": "msr48wfn6ho9a",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-08-13",
+      "minutes": 90,
+      "description": "고객 한국 방문 미팅 및 회의 사전 검토 및 논의",
+      "billable": true
+    },
+    {
       "id": "msr47yzj1hv9w",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-13",
