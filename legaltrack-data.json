@@ -4634,6 +4634,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "msr1uklysv1c1",
+      "date": "2026-08-13",
+      "amount": 16800,
+      "currency": "KRW",
+      "category": "접대",
+      "merchant": "코트라무역진흥",
+      "content": "커피",
+      "attendees": [
+        "코트라 옴부즈만 4 명 율촌변호사  2 명"
+      ],
+      "matterId": null
+    },
+    {
       "id": "msq2kr4zaqfc4",
       "date": "2026-08-12",
       "amount": 241000,
