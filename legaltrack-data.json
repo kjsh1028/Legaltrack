@@ -4575,6 +4575,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "msqr6iiybtkbm",
+      "title": "장선태 사건 검토",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-08-14",
+      "matterId": "msqr5wp2v6opg",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
