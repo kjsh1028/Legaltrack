@@ -1846,6 +1846,14 @@
   ],
   "entries": [
     {
+      "id": "msr4h8hb7yf3t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-12",
+      "minutes": 60,
+      "description": "Hankun 제안서 관련 내부 회의",
+      "billable": false
+    },
+    {
       "id": "msr4ce19upooo",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-13",
