@@ -1846,6 +1846,14 @@
   ],
   "entries": [
     {
+      "id": "msr47yzj1hv9w",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-13",
+      "minutes": 150,
+      "description": "QAI 나노씨엠에스 인수 관련 검토 및 고객 미팅. 율촌 내부 컨플릭트 유재준 변호사와 상의",
+      "billable": false
+    },
+    {
       "id": "msoq71yp8pcub",
       "matterId": "mq20hw066a9x0",
       "date": "2026-08-11",
