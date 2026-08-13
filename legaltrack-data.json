@@ -1846,6 +1846,14 @@
   ],
   "entries": [
     {
+      "id": "msr5i5peja9qt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-12",
+      "minutes": 120,
+      "description": "중국 모텍스 그룹. HYB 미팅 및 회식",
+      "billable": false
+    },
+    {
       "id": "msr4irrhhotci",
       "matterId": "mq33mk2e2x560",
       "date": "2026-08-13",
