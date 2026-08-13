@@ -1846,6 +1846,14 @@
   ],
   "entries": [
     {
+      "id": "msr49b29zw0zj",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-13",
+      "minutes": 180,
+      "description": "장보성 김정민 저녁 회식",
+      "billable": false
+    },
+    {
       "id": "msr48wfn6ho9a",
       "matterId": "ms9q2kj9qryyi",
       "date": "2026-08-13",
