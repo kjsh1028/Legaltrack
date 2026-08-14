@@ -1920,6 +1920,14 @@
   ],
   "entries": [
     {
+      "id": "msspbf06zo15z",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-14",
+      "minutes": 60,
+      "description": "장태수 의료법 위반 사건 파악및 미팅 어래인지",
+      "billable": false
+    },
+    {
       "id": "msspa5exae88y",
       "matterId": "mrk20ngsyg541",
       "date": "2026-08-14",
