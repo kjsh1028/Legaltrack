@@ -4792,6 +4792,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mssnxw9k2sxj7",
+      "title": "정학진 연락",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
