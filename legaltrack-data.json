@@ -1920,6 +1920,14 @@
   ],
   "entries": [
     {
+      "id": "msspa5exae88y",
+      "matterId": "mrk20ngsyg541",
+      "date": "2026-08-14",
+      "minutes": 60,
+      "description": "김계향 미팅. 재직증명서 공증 등 논의",
+      "billable": true
+    },
+    {
       "id": "msr7jqwtxhqwd",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-13",
