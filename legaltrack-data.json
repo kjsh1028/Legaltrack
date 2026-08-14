@@ -1920,6 +1920,14 @@
   ],
   "entries": [
     {
+      "id": "msspntssc52b9",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-08-14",
+      "minutes": 60,
+      "description": "잠재적 매수인 의향서 조항 검토 및 세무법인과 회의",
+      "billable": true
+    },
+    {
       "id": "msspc49jzb5ro",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-14",
