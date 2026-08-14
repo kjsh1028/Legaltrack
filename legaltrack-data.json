@@ -3177,11 +3177,11 @@
     },
     {
       "id": "msseovxguo8nv",
-      "matterId": "mq20ac8bqbt35",
+      "matterId": "msr7d5xpo3l8n",
       "date": "2026-08-14",
       "minutes": 150,
-      "description": "SK microworks. 한앤코 비딩 참여 제안서 준비, 김훈 변호사 전화 회의 내부 회의, 자료 준지",
-      "billable": false
+      "description": "SK microworks. 한앤코 비딩 참여 제안서 준비, 김훈 변호사 전화 회의 내부 회의, 자료 준비. 제안서 발송",
+      "billable": true
     }
   ],
   "payments": [
