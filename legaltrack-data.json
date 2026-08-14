@@ -1920,6 +1920,14 @@
   ],
   "entries": [
     {
+      "id": "msspc49jzb5ro",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-14",
+      "minutes": 180,
+      "description": "레전드 캐피탈 및 모다모다 대표 미팅 회식",
+      "billable": false
+    },
+    {
       "id": "msspbf06zo15z",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-14",
@@ -4817,6 +4825,19 @@
       "due": "",
       "matterId": "mq20ac8bqbt35",
       "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
+    },
+    {
+      "id": "msspg98db3jgh",
+      "title": "하나은행 김은희 미팅 어래인지",
+      "cat": "sales",
+      "priority": "normal",
+      "due": "",
+      "matterId": "",
+      "note": "저는 하나은행 본점 외환거래솔루션팀 김은희 차장입니다.\n\n\n\n외환거래솔루션팀은 외국인직접투자(FDI), 외국인의 증권취득, 부동산 취득, 거주자의 해외직접투자 등 외국환자본거래 업무를 소관하는 팀입니다.",
       "link": "",
       "linkLabel": "",
       "done": false,
