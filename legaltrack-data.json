@@ -1141,7 +1141,7 @@
       "name": "삼성물산 전자 계약 효력 검토",
       "client": "삼성물산",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 7000000,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1170,7 +1170,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mrm504m89kp4d",
-      "contactId": "mrm527otr1v1h"
+      "contactId": "mrm527otr1v1h",
+      "closed_date": "2026-08-18"
     },
     {
       "id": "mrn15h5zkxbma",
