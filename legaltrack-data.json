@@ -4959,6 +4959,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "msylayx6lnrao",
+      "title": "삼성이앤에이 국무령 검토",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-08-20",
+      "matterId": "msykb0m2zwr3m",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
