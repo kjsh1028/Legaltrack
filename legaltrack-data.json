@@ -1967,11 +1967,11 @@
     },
     {
       "id": "msy5x2d2wkqng",
-      "matterId": "mq20ac8bqbt35",
+      "matterId": "msqr5wp2v6opg",
       "date": "2026-08-18",
-      "minutes": 120,
-      "description": "장태수 원장님 이시원 변호사외 율촌 변호사와 대면 미팅 수임 논의",
-      "billable": false
+      "minutes": 150,
+      "description": "장태수 원장님 이시원 변호사외 율촌 변호사와 대면 미팅 수임 조건 논의 : 수임확정",
+      "billable": true
     },
     {
       "id": "msy0vecry64lg",
