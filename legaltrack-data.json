@@ -4950,6 +4950,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "msyk35ifsqnmn",
+      "date": "2026-08-18",
+      "amount": 506600,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "모도우삼성점",
+      "content": "저녁식사",
+      "attendees": [
+        "쥔허 김성휘 변호사. 김정민 주영애"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "msr1uklysv1c1",
       "date": "2026-08-13",
       "amount": 16800,
