@@ -5063,6 +5063,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mt1031wdy57th",
+      "date": "2026-08-20",
+      "amount": 48000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "밀밭 국수",
+      "content": "점심식사",
+      "attendees": [
+        "함지원 폴스타헬스케어. 이동훈 디스트릭트 대표"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mszkvozuqkmm7",
       "date": "2026-08-19",
       "amount": 339000,
