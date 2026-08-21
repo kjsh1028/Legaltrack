@@ -1961,7 +1961,7 @@
       "name": "NH증권 북경법인 이전",
       "client": "NH증권",
       "type": "fixed-f",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
