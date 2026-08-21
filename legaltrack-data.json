@@ -393,7 +393,7 @@
     },
     {
       "id": "mq3q5pjxu49t3",
-      "code": "미정- 목원 자회사 설립",
+      "code": "[임시]MUYUAN FOODS/GEN/한국진출",
       "name": "목원 자회사 설립",
       "client": "목원 그룹",
       "type": "fixed-f",
@@ -421,7 +421,12 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": false
+      "starred": false,
+      "driveLink": "",
+      "driveLinkLabel": "",
+      "memo": "",
+      "clientId": null,
+      "contactId": null
     },
     {
       "id": "mq4lxl561un1a",
