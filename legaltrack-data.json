@@ -2000,6 +2000,14 @@
   ],
   "entries": [
     {
+      "id": "mt2tfd7jlpcs5",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-08-21",
+      "minutes": 24,
+      "description": "의료법 위반과 행정처분 관련된 판례 검토",
+      "billable": true
+    },
+    {
       "id": "mt169qz2vcirx",
       "matterId": "msykb0m2zwr3m",
       "date": "2026-08-20",
