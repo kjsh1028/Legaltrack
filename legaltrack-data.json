@@ -2000,6 +2000,14 @@
   ],
   "entries": [
     {
+      "id": "mt5exmm57m0fd",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-21",
+      "minutes": 150,
+      "description": "QAI 양자컴퓨터 구매 계약서 관련 고객 전화와 수장 사항 검토",
+      "billable": false
+    },
+    {
       "id": "mt2bgmbipo64t",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-21",
