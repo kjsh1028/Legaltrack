@@ -1749,7 +1749,7 @@
       "name": "CHERRY VALLEY HANKUN",
       "client": "Hankun",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": 10000,
       "retainer_cur": "USD",
       "rate": null,
@@ -1778,7 +1778,12 @@
       "driveLinkLabel": "",
       "memo": "Cherry Valley Breeding Technology Co., Ltd. (the “Client”) on the export compliance matters in connection with two of its subsidiaries, Cherry Valley Farms (UK) Ltd (“CVF UK”) and Cherry Valley Farms (Germany) GmbH (“CVF Germany”)",
       "clientId": "msq4q4z6xqyy4",
-      "contactId": "msq4x6wazor89"
+      "contactId": "msq4x6wazor89",
+      "failed_date": "2026-08-24",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "msqr5wp2v6opg",
