@@ -2042,6 +2042,14 @@
   ],
   "entries": [
     {
+      "id": "mt6mwn69j8gjr",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-24",
+      "minutes": 60,
+      "description": "현재 수임 진행 중인 사건들 고객들 연락해서 피드백 확인하기",
+      "billable": false
+    },
+    {
       "id": "mt6lssdg44lvb",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-24",
