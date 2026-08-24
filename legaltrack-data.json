@@ -2042,6 +2042,14 @@
   ],
   "entries": [
     {
+      "id": "mt6v9gw1aq9n8",
+      "matterId": "mq4p0ubk74z8q",
+      "date": "2026-08-24",
+      "minutes": 24,
+      "description": "보험금 지금 확인하는 보험회사 이메일 확인 후 중국 세무법인에게 전달. 소멸시효 중단 검토",
+      "billable": true
+    },
+    {
       "id": "mt6t1jkjcoug9",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-24",
