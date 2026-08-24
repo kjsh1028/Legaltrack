@@ -2000,6 +2000,14 @@
   ],
   "entries": [
     {
+      "id": "mt6lssdg44lvb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-24",
+      "minutes": 150,
+      "description": "제원테크 전 대표 정현철 미팅 회식",
+      "billable": false
+    },
+    {
       "id": "mt6lqt68m2zqx",
       "matterId": "mq33mk2e2x560",
       "date": "2026-08-24",
