@@ -1412,7 +1412,7 @@
       "name": "효성화학/g/필름사업부 에스크로",
       "client": "효성",
       "type": "time-b",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1441,7 +1441,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "ms70bzrt4cc4f",
-      "contactId": null
+      "contactId": null,
+      "closed_date": "2026-08-25"
     },
     {
       "id": "ms7c6lhz4z3r8",
