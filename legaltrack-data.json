@@ -656,7 +656,7 @@
       "name": "汇川联合动力系统 회사설립",
       "client": "汇川联合动力系统",
       "type": "fixed-f",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": 8000,
       "retainer_cur": "USD",
       "rate": null,
@@ -684,7 +684,8 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "memo": ""
     },
     {
       "id": "mqd4pfipevj67",
