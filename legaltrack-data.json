@@ -2069,6 +2069,14 @@
   ],
   "entries": [
     {
+      "id": "mt884z4yer0ew",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-25",
+      "minutes": 60,
+      "description": "기존 제안서 제출안 안건들의 현재 수임 진행 여부 현안 파악",
+      "billable": false
+    },
+    {
       "id": "mt848f9uyvgv4",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-25",
