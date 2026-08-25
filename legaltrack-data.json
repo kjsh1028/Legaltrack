@@ -845,7 +845,7 @@
       "name": "SMD 에스엠디 지분양수",
       "client": "SMD",
       "type": "time-b",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
