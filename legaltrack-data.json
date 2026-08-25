@@ -1955,7 +1955,7 @@
       "client": "삼성이앤아이",
       "type": "fixed-f",
       "status": "active",
-      "retainer_amount": null,
+      "retainer_amount": 5000000,
       "retainer_cur": "KRW",
       "rate": null,
       "rate_cur": "KRW",
