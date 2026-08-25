@@ -1148,7 +1148,7 @@
       "name": "디오 매각 자문",
       "client": "디오",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1177,7 +1177,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mrn14be61nvmb",
-      "contactId": "mrn15d9noepml"
+      "contactId": "mrn15d9noepml",
+      "failed_date": "2026-08-25",
+      "fail_category": "프로젝트 취소",
+      "fail_reason": "김남호 연락해서 본건이 홀드 되었다고 함",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mrt547lcdjmkg",
