@@ -1601,7 +1601,7 @@
       "name": "에이원엘리베이터 계약서 검토",
       "client": "",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1630,7 +1630,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-08-25",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "msjqqpkqqoe0x",
