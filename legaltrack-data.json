@@ -1954,7 +1954,7 @@
       "name": "삼성이앤에이/GEN/중국국무원령 검토",
       "client": "삼성이앤아이",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 5000000,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1983,7 +1983,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "msyk9cl3nwypz",
-      "contactId": "msykaiw8sq3pc"
+      "contactId": "msykaiw8sq3pc",
+      "closed_date": "2026-08-25"
     },
     {
       "id": "mt156e7kdc2ec",
