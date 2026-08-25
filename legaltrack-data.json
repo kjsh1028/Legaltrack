@@ -1638,7 +1638,7 @@
       "name": "이원재 소개 나나",
       "client": "나나",
       "type": "retainer",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1667,7 +1667,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "msjqqgwyr5ppa",
-      "contactId": "msjqqmrv77xzc"
+      "contactId": "msjqqmrv77xzc",
+      "failed_date": "2026-08-25",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "보류",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "msn5mff02gkex",
