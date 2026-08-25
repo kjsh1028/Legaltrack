@@ -541,7 +541,7 @@
       "name": "정림건축 노동분쟁",
       "client": "정밀건축",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 20000000,
       "retainer_cur": "KRW",
       "rate": null,
@@ -570,7 +570,8 @@
       "driveLinkLabel": "",
       "clientId": "mqg8p08x45lt9",
       "contactId": "mqg8nxo26ytip",
-      "memo": ""
+      "memo": "",
+      "closed_date": "2026-08-25"
     },
     {
       "id": "mqa55in5wcbkp",
