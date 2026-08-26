@@ -5453,6 +5453,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mt9muv7ctnegf",
+      "date": "2026-08-26",
+      "amount": 81000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "경복궁",
+      "content": "점심식사",
+      "attendees": [
+        "신한 벤처 전 전무 정학진"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mt76ljpn846ls",
       "date": "2026-08-24",
       "amount": 194000,
