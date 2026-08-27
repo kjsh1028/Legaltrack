@@ -5566,6 +5566,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mtben4hxiwm86",
+      "title": "brooks 추가 질의에 대한 답변",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-08-31",
+      "matterId": "mq205p2ptqpyp",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
