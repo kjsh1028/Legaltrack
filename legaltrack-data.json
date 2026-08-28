@@ -2182,6 +2182,14 @@
   ],
   "entries": [
     {
+      "id": "mtcmlyoy19hgo",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-28",
+      "minutes": 90,
+      "description": "다보정밀 수임 위한 견적 내부 미팅 및 견적서 작성 고객 송부",
+      "billable": false
+    },
+    {
       "id": "mtcml70c75kzz",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-28",
