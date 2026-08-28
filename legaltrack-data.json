@@ -2182,6 +2182,14 @@
   ],
   "entries": [
     {
+      "id": "mtcml70c75kzz",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-28",
+      "minutes": 120,
+      "description": "오톤도 김경묵 대표와 미팅 및 식사",
+      "billable": false
+    },
+    {
       "id": "mtcmkvczqp23t",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-28",
