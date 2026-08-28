@@ -4189,6 +4189,16 @@
   ],
   "contacts": [
     {
+      "id": "msykaiw8sq3pc",
+      "name": "구영완",
+      "clientId": "msyk9cl3nwypz",
+      "title": "",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "삼성이앤아이"
+    },
+    {
       "id": "mqg8nxo26ytip",
       "name": "권오빈",
       "title": "변호사",
@@ -4204,6 +4214,90 @@
       "address": "",
       "tags": [],
       "note": ""
+    },
+    {
+      "id": "mrk23pjiepb6z",
+      "name": "김계향",
+      "title": "변호사",
+      "dept": "",
+      "company": "대성법무법인",
+      "clientId": "mq68okj1cjjmr",
+      "email": "guixiang.jin@dentons.cn",
+      "mobile": "+86 135 8581 7750",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-14",
+      "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mrn15d9noepml",
+      "name": "김남호",
+      "clientId": "mrn14be61nvmb",
+      "title": "",
+      "mobile": "+82 10-9976-0648",
+      "email": "",
+      "wechat": "",
+      "company": "디오"
+    },
+    {
+      "id": "mrm527otr1v1h",
+      "name": "김우남",
+      "clientId": "mrm504m89kp4d",
+      "title": "법무팀",
+      "mobile": "+821035006983",
+      "email": "jaeeon.lee@samsung.com",
+      "wechat": "",
+      "company": "삼성물산"
+    },
+    {
+      "id": "mrfsaacm7hi6w",
+      "name": "김지유",
+      "title": "변호사",
+      "dept": "",
+      "company": "소셜에티켓",
+      "clientId": "mrfs72fq7nvjg",
+      "email": "jiyu_kim@socialetiquette.co.kr",
+      "mobile": "+82 01099259417",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-11",
+      "address": "서울특별시 마포구 월드컵북로 35 5층",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "ms7c6g39vahfn",
+      "name": "김훈",
+      "clientId": "ms7c62zqkanis",
+      "title": "변호사",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "알브라이트"
+    },
+    {
+      "id": "msjqqmrv77xzc",
+      "name": "나나",
+      "clientId": "msjqqgwyr5ppa",
+      "title": "",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "나나"
+    },
+    {
+      "id": "mtbe9ze9xju3d",
+      "name": "박성림",
+      "clientId": "mtbe8iwlkwjzn",
+      "title": "CFO",
+      "mobile": "01027778477",
+      "email": "srpark@dabo21.com",
+      "wechat": "",
+      "company": "다보정밀"
     },
     {
       "id": "mq3d7az27rk27",
@@ -4240,6 +4334,70 @@
       "note": ""
     },
     {
+      "id": "mrt577bl2j785",
+      "name": "徐 敬 霞",
+      "clientId": "mrt53m1tx8ylw",
+      "title": "律师 安杰世泽律师事务所",
+      "mobile": "+86 137 2678 1334",
+      "email": "xujingxia@anjielaw.com",
+      "wechat": "",
+      "company": "中远海运客运"
+    },
+    {
+      "id": "mt1564ea6h98i",
+      "name": "신남",
+      "clientId": "mt1552lbbv0xi",
+      "title": "전략기획부장",
+      "mobile": "+821062474642",
+      "email": "",
+      "wechat": "",
+      "company": "NH증권"
+    },
+    {
+      "id": "mrerwo2qpndpu",
+      "name": "王广梅",
+      "title": "법무팀",
+      "dept": "",
+      "company": "西安诺瓦星云",
+      "clientId": null,
+      "email": "wanggm@novastar.tech",
+      "mobile": "",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-10",
+      "address": "",
+      "tags": [],
+      "note": ""
+    },
+    {
+      "id": "mrmpouq3725k8",
+      "name": "유대봉",
+      "title": "팀장",
+      "dept": "법무팀",
+      "company": "시몬느",
+      "clientId": "mrmpq7vup24av",
+      "email": "mailto:cabin@simone.co.kr",
+      "mobile": "+82-10-8701-3936",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-07-16",
+      "address": "",
+      "tags": [],
+      "note": "동관대표처 설립. 이수연 변호사 고객"
+    },
+    {
+      "id": "mspcczm0kj0aw",
+      "name": "이동규",
+      "clientId": "mspcciqkyixp8",
+      "title": "CFO",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "와이어트"
+    },
+    {
       "id": "mrd1iqrizpu0p",
       "name": "이상만",
       "title": "팀장",
@@ -4255,6 +4413,23 @@
       "address": "",
       "tags": [],
       "note": ""
+    },
+    {
+      "id": "mtcln0ptc9btg",
+      "name": "이은지",
+      "title": "",
+      "dept": "",
+      "company": "",
+      "clientId": null,
+      "email": "",
+      "mobile": "01025467321",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-08-28",
+      "address": "",
+      "tags": [],
+      "note": "북경법인 상속 명의 신탁 해지"
     },
     {
       "id": "mqrjze9pgd7q2",
@@ -4325,6 +4500,16 @@
       "note": ""
     },
     {
+      "id": "mrhevwxxw2k9k",
+      "name": "황동우",
+      "clientId": "mrheu3wmnj3z7",
+      "title": "대표",
+      "mobile": "+82010-2300-0635",
+      "email": "hwang@tsj-holdings.com",
+      "wechat": "",
+      "company": "TSJ 티에스제이 황동우 임세만"
+    },
+    {
       "id": "mq68nojlhjgx4",
       "name": "吴学励",
       "title": "변호사",
@@ -4344,144 +4529,6 @@
       "note": "물품 구입 소송"
     },
     {
-      "id": "mrerwo2qpndpu",
-      "name": "王广梅",
-      "title": "법무팀",
-      "dept": "",
-      "company": "西安诺瓦星云",
-      "clientId": null,
-      "email": "wanggm@novastar.tech",
-      "mobile": "",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-10",
-      "address": "",
-      "tags": [],
-      "note": ""
-    },
-    {
-      "id": "mrfsaacm7hi6w",
-      "name": "김지유",
-      "title": "변호사",
-      "dept": "",
-      "company": "소셜에티켓",
-      "clientId": "mrfs72fq7nvjg",
-      "email": "jiyu_kim@socialetiquette.co.kr",
-      "mobile": "+82 01099259417",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-11",
-      "address": "서울특별시 마포구 월드컵북로 35 5층",
-      "tags": [],
-      "note": ""
-    },
-    {
-      "id": "mrhevwxxw2k9k",
-      "name": "황동우",
-      "clientId": "mrheu3wmnj3z7",
-      "title": "대표",
-      "mobile": "+82010-2300-0635",
-      "email": "hwang@tsj-holdings.com",
-      "wechat": "",
-      "company": "TSJ 티에스제이 황동우 임세만"
-    },
-    {
-      "id": "mrk23pjiepb6z",
-      "name": "김계향",
-      "title": "변호사",
-      "dept": "",
-      "company": "대성법무법인",
-      "clientId": "mq68okj1cjjmr",
-      "email": "guixiang.jin@dentons.cn",
-      "mobile": "+86 135 8581 7750",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-14",
-      "address": "",
-      "tags": [],
-      "note": ""
-    },
-    {
-      "id": "mrm527otr1v1h",
-      "name": "김우남",
-      "clientId": "mrm504m89kp4d",
-      "title": "법무팀",
-      "mobile": "+821035006983",
-      "email": "jaeeon.lee@samsung.com",
-      "wechat": "",
-      "company": "삼성물산"
-    },
-    {
-      "id": "mrmpouq3725k8",
-      "name": "유대봉",
-      "title": "팀장",
-      "dept": "법무팀",
-      "company": "시몬느",
-      "clientId": "mrmpq7vup24av",
-      "email": "mailto:cabin@simone.co.kr",
-      "mobile": "+82-10-8701-3936",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-07-16",
-      "address": "",
-      "tags": [],
-      "note": "동관대표처 설립. 이수연 변호사 고객"
-    },
-    {
-      "id": "mrn15d9noepml",
-      "name": "김남호",
-      "clientId": "mrn14be61nvmb",
-      "title": "",
-      "mobile": "+82 10-9976-0648",
-      "email": "",
-      "wechat": "",
-      "company": "디오"
-    },
-    {
-      "id": "mrt577bl2j785",
-      "name": "徐 敬 霞",
-      "clientId": "mrt53m1tx8ylw",
-      "title": "律师 安杰世泽律师事务所",
-      "mobile": "+86 137 2678 1334",
-      "email": "xujingxia@anjielaw.com",
-      "wechat": "",
-      "company": "中远海运客运"
-    },
-    {
-      "id": "ms7c6g39vahfn",
-      "name": "김훈",
-      "clientId": "ms7c62zqkanis",
-      "title": "변호사",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "알브라이트"
-    },
-    {
-      "id": "msjqqmrv77xzc",
-      "name": "나나",
-      "clientId": "msjqqgwyr5ppa",
-      "title": "",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "나나"
-    },
-    {
-      "id": "mspcczm0kj0aw",
-      "name": "이동규",
-      "clientId": "mspcciqkyixp8",
-      "title": "CFO",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "와이어트"
-    },
-    {
       "id": "msq4x6wazor89",
       "name": "Wenye Shi",
       "clientId": "msq4q4z6xqyy4",
@@ -4490,46 +4537,6 @@
       "email": "wenye.shi@hankunlaw.com",
       "wechat": "",
       "company": "Hankun"
-    },
-    {
-      "id": "msykaiw8sq3pc",
-      "name": "구영완",
-      "clientId": "msyk9cl3nwypz",
-      "title": "",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "삼성이앤아이"
-    },
-    {
-      "id": "mt1564ea6h98i",
-      "name": "신남",
-      "clientId": "mt1552lbbv0xi",
-      "title": "전략기획부장",
-      "mobile": "+821062474642",
-      "email": "",
-      "wechat": "",
-      "company": "NH증권"
-    },
-    {
-      "id": "mtbe9ze9xju3d",
-      "name": "박성림",
-      "clientId": "mtbe8iwlkwjzn",
-      "title": "CFO",
-      "mobile": "01027778477",
-      "email": "srpark@dabo21.com",
-      "wechat": "",
-      "company": "다보정밀"
-    },
-    {
-      "id": "mtcln0ptc9btg",
-      "name": "이지은",
-      "clientId": "",
-      "title": "",
-      "mobile": "01025467321",
-      "email": "",
-      "wechat": "",
-      "company": ""
     }
   ],
   "todos": [
