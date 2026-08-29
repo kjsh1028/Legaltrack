@@ -5779,6 +5779,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mtdrydcnioq8i",
+      "date": "2026-08-29",
+      "amount": 20000,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "대한항공",
+      "content": "죄석 유료 체크인",
+      "attendees": [
+        "정상훈"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mtdrxmv2o08wj",
       "date": "2026-08-29",
       "amount": 398100,
