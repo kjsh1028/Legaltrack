@@ -2182,6 +2182,14 @@
   ],
   "entries": [
     {
+      "id": "mte1qop833lq2",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-29",
+      "minutes": 60,
+      "description": "대상 법무법인 블루 탑 소송 수행 위한 질의 대한 검토 및 답변",
+      "billable": false
+    },
+    {
       "id": "mt7z8uiqjrybg",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-25",
