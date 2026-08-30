@@ -5861,6 +5861,16 @@
   ],
   "expenses": [
     {
+      "id": "mtggsu3bo2sh7",
+      "matterId": "mt156e7kdc2ec",
+      "vendor": "세무법인",
+      "amount": 80000,
+      "currency": "CNY",
+      "krw_amount": 16800000,
+      "note": "법인이전 절차 세무 등",
+      "paidDate": null
+    },
+    {
       "id": "mt3qgk662tanq",
       "matterId": "mt156e7kdc2ec",
       "vendor": "세무법인",
