@@ -2219,6 +2219,14 @@
   ],
   "entries": [
     {
+      "id": "mtfnjcj06ky8a",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-30",
+      "minutes": 30,
+      "description": "다보정밀 견적서 수정해서 고객에게 제공",
+      "billable": false
+    },
+    {
       "id": "mtfnimsbh02lv",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-30",
