@@ -2079,7 +2079,7 @@
       "retainer_cur": "KRW",
       "rate": 20000,
       "rate_cur": "CNY",
-      "cap_amount": 30,
+      "cap_amount": 300000,
       "estimated_amount": null,
       "cap_cur": "CNY",
       "ret_total": null,
