@@ -2219,6 +2219,14 @@
   ],
   "entries": [
     {
+      "id": "mtfnimsbh02lv",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-30",
+      "minutes": 180,
+      "description": "시원이노텍과 DFC 가 넥사다이내믹스 인수하는 프로잭트 수임 위한 미팅 및 법적 검토",
+      "billable": false
+    },
+    {
       "id": "mte1qop833lq2",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-29",
