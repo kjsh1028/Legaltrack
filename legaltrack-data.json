@@ -5871,16 +5871,6 @@
       "paidDate": null
     },
     {
-      "id": "mt3qgk662tanq",
-      "matterId": "mt156e7kdc2ec",
-      "vendor": "세무법인",
-      "amount": 80000,
-      "currency": "CNY",
-      "krw_amount": 16800000,
-      "note": "",
-      "paidDate": null
-    },
-    {
       "id": "mrfs3lloqtaxi",
       "matterId": "",
       "vendor": "Biying 세무법인",
