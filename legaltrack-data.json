@@ -6027,7 +6027,9 @@
       "category": "식사",
       "merchant": "북창순두부",
       "content": "점심식사",
-      "attendees": [],
+      "attendees": [
+        "오톤도 김경묵 대표"
+      ],
       "matterId": "mq20ac8bqbt35"
     },
     {
