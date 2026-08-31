@@ -957,43 +957,6 @@
       "contactId": null
     },
     {
-      "id": "mrd1gkqdcxkap",
-      "code": "키움 의정부역 주상복합+ 화양 그랜드 개발사업",
-      "name": "키움 의정부역 주상복합 개발사업",
-      "client": "키움증권",
-      "type": "fixed-f",
-      "status": "prospect",
-      "retainer_amount": null,
-      "retainer_cur": "KRW",
-      "rate": null,
-      "rate_cur": "KRW",
-      "cap_amount": null,
-      "estimated_amount": null,
-      "cap_cur": "KRW",
-      "ret_total": null,
-      "ret_cur": null,
-      "monthly_hours": null,
-      "overage_rate": null,
-      "ret_start": null,
-      "ret_end": null,
-      "lit_retainer": null,
-      "lit_balance": null,
-      "lit_mode": null,
-      "contingency_amount": null,
-      "contingency_condition": null,
-      "achievement_type": "solo",
-      "collab_team": "",
-      "my_ratio": 100,
-      "billed_amount": null,
-      "billed_cur": "KRW",
-      "starred": true,
-      "driveLink": "",
-      "driveLinkLabel": "",
-      "memo": "",
-      "clientId": "mrd1j5juo3ywl",
-      "contactId": "mrd1iqrizpu0p"
-    },
-    {
       "id": "mreru4m1yw0u4",
       "code": "NOVASTAR/GEN/ESTABLISHMENT",
       "name": "西安诺瓦星云科技-Novastar 법인설립",
@@ -1332,6 +1295,43 @@
       "memo": "",
       "clientId": "mruc3pffc5vpe",
       "contactId": null
+    },
+    {
+      "id": "mrd1gkqdcxkap",
+      "code": "키움 의정부역 주상복합+ 화양 그랜드 개발사업",
+      "name": "키움 의정부역 주상복합 개발사업",
+      "client": "키움증권",
+      "type": "fixed-f",
+      "status": "prospect",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": true,
+      "driveLink": "",
+      "driveLinkLabel": "",
+      "memo": "",
+      "clientId": "mrd1j5juo3ywl",
+      "contactId": "mrd1iqrizpu0p"
     },
     {
       "id": "ms2ve35mulyyn",
@@ -2256,587 +2256,963 @@
   ],
   "entries": [
     {
-      "id": "mtfnjcj06ky8a",
+      "id": "mtglhpmyvgoyh",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-30",
-      "minutes": 30,
-      "description": "다보정밀 견적서 수정해서 고객에게 제공",
+      "date": "2026-08-31",
+      "minutes": 90,
+      "description": "NH 투자증권 중국법인 구조조정 견적서 관련 추가 질의에 대한 준비 및 답변",
       "billable": false
     },
     {
-      "id": "mtfnimsbh02lv",
+      "id": "mtcos3riofft0",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-30",
-      "minutes": 180,
-      "description": "시원이노텍과 DFC 가 넥사다이내믹스 인수하는 프로잭트 수임 위한 미팅 및 법적 검토",
-      "billable": false
-    },
-    {
-      "id": "mte1qop833lq2",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-29",
+      "date": "2026-08-28",
       "minutes": 60,
-      "description": "대상 법무법인 블루 탑 소송 수행 위한 질의 대한 검토 및 답변",
+      "description": "대성법무법인 소개 bluetop 구매대금 소송 건에 대한 질의에 대한 답변",
       "billable": false
     },
     {
-      "id": "mt7z8uiqjrybg",
+      "id": "mtcmn8g4o3jka",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-28",
+      "minutes": 90,
+      "description": "NH 투자 증권 북경법인 구조조정 법률자문 위한 견적서 최종 검토 및 고객 송부하고 전화 소통",
+      "billable": false
+    },
+    {
+      "id": "mtcmlyoy19hgo",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-28",
+      "minutes": 90,
+      "description": "다보정밀 수임 위한 견적 내부 미팅 및 견적서 작성 고객 송부",
+      "billable": false
+    },
+    {
+      "id": "mtcml70c75kzz",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-28",
+      "minutes": 120,
+      "description": "오톤도 김경묵 대표와 미팅 및 식사",
+      "billable": false
+    },
+    {
+      "id": "mtcmkvczqp23t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-28",
+      "minutes": 60,
+      "description": "이은지 고객과 전화. 상황 파악 및 명의신탁 지분 양도 소송 수임 상담",
+      "billable": false
+    },
+    {
+      "id": "mtbg3zzuxyse0",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-27",
+      "minutes": 96,
+      "description": "김재정 조세범처벌법 위반 형사 사건 수임을 위한 검토 및 관련자 전화 회의",
+      "billable": false
+    },
+    {
+      "id": "mtbg2ku9mjodb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-27",
+      "minutes": 48,
+      "description": "brooks 추가 질의와 업무 범위 확대 및 상응한 견적, 왕변호사와 전화 회의",
+      "billable": false
+    },
+    {
+      "id": "mtbg0yzjs6o5u",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-27",
+      "minutes": 90,
+      "description": "포춘지에서 주재하는 미국 전직 의원들 초청 간담회에 율촌 고객들 참석 요청 및 명단 등 사전 논의",
+      "billable": false
+    },
+    {
+      "id": "mtbaz3trpv0gz",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-27",
+      "minutes": 90,
+      "description": "다보정밀 박성림 상무와 통화. 중국 연태다보와 덕수기전 지분 양도 건 전화 회의 및 상황 파악, 견적 요청 및 이에 대한 대응",
+      "billable": false
+    },
+    {
+      "id": "mtavajnw3g33n",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-27",
+      "minutes": 120,
+      "description": "solonasset 김승현 대표와 미팅 점심",
+      "billable": false
+    },
+    {
+      "id": "mtav978huramw",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-27",
+      "minutes": 90,
+      "description": "NH 투자 증권 중국 법인 구조 조정에 대한 제안서 초안 검토",
+      "billable": false
+    },
+    {
+      "id": "mt9p9hnvon1zs",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-08-26",
+      "minutes": 42,
+      "description": "강지원 부장에 대한 경찰 조사 준비 미팅",
+      "billable": true
+    },
+    {
+      "id": "mt9p69lv20glr",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-26",
+      "minutes": 150,
+      "description": "법무법인 지평 김영수 변호사와 미팅 및 저녁 회식",
+      "billable": false
+    },
+    {
+      "id": "mt9p5mjdhesvt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-26",
+      "minutes": 60,
+      "description": "대성법무법인과 중국 기업 상대로 공정거래와 조세 관련 세미나 기획 논의",
+      "billable": false
+    },
+    {
+      "id": "mt9p4y8uhly32",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-26",
+      "minutes": 42,
+      "description": "정림건축의 전성호 법인장과 연락하여 추가 업무 수임에 대한 논의",
+      "billable": false
+    },
+    {
+      "id": "mt9p43clpgmmx",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-26",
+      "minutes": 132,
+      "description": "전 중국 신한은행 지점장, 신한 벤처 상무 정학진과 미팅 점심",
+      "billable": false
+    },
+    {
+      "id": "mt884z4yer0ew",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-25",
+      "minutes": 60,
+      "description": "기존 제안서 제출안 안건들의 현재 수임 진행 여부 현안 파악",
+      "billable": false
+    },
+    {
+      "id": "mt848f9uyvgv4",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-25",
+      "minutes": 60,
+      "description": "하나은행 김은희 차장, 송지영 팀장 미팅",
+      "billable": false
+    },
+    {
+      "id": "mt841i63rlthk",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-25",
       "minutes": 180,
-      "description": "태재재단 조창걸 회장님 미팅",
+      "description": "에이스병원 정재훈 원장과 율촌 강신봉 변호사 미팅 및 회식",
       "billable": false
     },
     {
-      "id": "mt5eymx1vu5sn",
+      "id": "mt840gu2rfl46",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-23",
-      "minutes": 90,
-      "description": "군합 김성휘 변호사 소개한 고객 법인설립 관련 상담. 협력관계 모색",
-      "billable": false
-    },
-    {
-      "id": "mt5exmm57m0fd",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-22",
-      "minutes": 150,
-      "description": "QAI 양자컴퓨터 구매 계약서 관련 고객 전화와 수장 사항 검토",
-      "billable": false
-    },
-    {
-      "id": "mt2bgmbipo64t",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-21",
-      "minutes": 210,
-      "description": "중국국제무역촉지회 서자강 수석대표 미팅 및 식사",
-      "billable": false
-    },
-    {
-      "id": "mt2bff46w54so",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-21",
-      "minutes": 120,
-      "description": "NH 증권 신남부장, 김지영 대리 제안서 요청 메일, 내부 회의 및 견적서 초안 작성",
-      "billable": false
-    },
-    {
-      "id": "mt03mht00i3lv",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-19",
-      "minutes": 210,
-      "description": "전 SK 차이나 이종산 회장과 미팅 및 회식",
-      "billable": false
-    },
-    {
-      "id": "mt03ljhncc3yj",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-08-19",
-      "minutes": 120,
-      "description": "고객 미팅 필요 서류 공증",
-      "billable": true
-    },
-    {
-      "id": "msypjpjh9920l",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-18",
+      "date": "2026-08-25",
       "minutes": 60,
-      "description": "삼성이엔아이 중국 국무령 관련 메모 질의 검토 및 분석",
-      "billable": true
-    },
-    {
-      "id": "mswtrlv6kp731",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-16",
-      "minutes": 150,
-      "description": "강석훈 변호사님 지시 북경변호사협회 일대일로 로펌 등록 검토및 메일 서류 초안 작성",
+      "description": "QAI 양자컴퓨터 구매 계약서의 원문에 대한 고객 보호 위한 수정 보완 의견 검토",
       "billable": false
     },
     {
-      "id": "mstspf18czcsb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-15",
-      "minutes": 144,
-      "description": "김수진 유류분 상속 재산 분할 유언 등 관련 소송 분쟁에 대한 검토 및 고객 전화 회의 율촌 김성우 변호사에게 고객 소개",
-      "billable": false
-    },
-    {
-      "id": "msspntssc52b9",
+      "id": "mt83z4szuiuyt",
       "matterId": "mq20hw066a9x0",
-      "date": "2026-08-14",
-      "minutes": 60,
-      "description": "잠재적 매수인 의향서 조항 검토 및 세무법인과 회의",
-      "billable": true
-    },
-    {
-      "id": "msspc49jzb5ro",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-14",
-      "minutes": 180,
-      "description": "레전드 캐피탈 및 모다모다 대표 미팅 회식",
-      "billable": false
-    },
-    {
-      "id": "msspbf06zo15z",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-14",
-      "minutes": 60,
-      "description": "장태수 의료법 위반 사건 파악및 미팅 어래인지",
-      "billable": false
-    },
-    {
-      "id": "msspa5exae88y",
-      "matterId": "mrk20ngsyg541",
-      "date": "2026-08-14",
-      "minutes": 60,
-      "description": "김계향 미팅. 재직증명서 공증 등 논의",
-      "billable": true
-    },
-    {
-      "id": "msr7jqwtxhqwd",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-13",
-      "minutes": 60,
-      "description": "SK microworks. 한앤코 비딩 참여 제안서 준비 및 컨플릭트 체크 알브라이트 회의",
-      "billable": false
-    },
-    {
-      "id": "msr5i5peja9qt",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-12",
-      "minutes": 120,
-      "description": "중국 모텍스 그룹. HYB 미팅 및 회식",
-      "billable": false
-    },
-    {
-      "id": "msr4irrhhotci",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-13",
-      "minutes": 24,
-      "description": "정림건축 출장 보고서 작성및 법인카드 증빙 준비",
-      "billable": false
-    },
-    {
-      "id": "msr4h8hb7yf3t",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-12",
-      "minutes": 60,
-      "description": "Hankun 제안서 관련 내부 회의",
-      "billable": false
-    },
-    {
-      "id": "msr4ce19upooo",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-13",
-      "minutes": 180,
-      "description": "율촌 변호사와 코트라 옴부즈만 방문 및 회의 회식",
-      "billable": false
-    },
-    {
-      "id": "msr4bqhb5hyg1",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-13",
-      "minutes": 120,
-      "description": "장태수 365 정형외과 의료법 위반 고객 회의 및 내부 율촌 미팅 어래인지. 사안 정리",
-      "billable": false
-    },
-    {
-      "id": "msr49b29zw0zj",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-12",
-      "minutes": 180,
-      "description": "장보성 김정민 저녁 회식",
-      "billable": false
-    },
-    {
-      "id": "msr48wfn6ho9a",
-      "matterId": "ms9q2kj9qryyi",
-      "date": "2026-08-12",
-      "minutes": 90,
-      "description": "고객 한국 방문 미팅 및 회의 사전 검토 및 논의",
-      "billable": true
-    },
-    {
-      "id": "msr47yzj1hv9w",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-12",
-      "minutes": 150,
-      "description": "QAI 나노씨엠에스 인수 관련 검토 및 고객 미팅. 율촌 내부 컨플릭트 유재준 변호사와 상의",
-      "billable": false
-    },
-    {
-      "id": "msoq71yp8pcub",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-08-11",
+      "date": "2026-08-25",
       "minutes": 48,
-      "description": "잠재적 인수 자의 인수 구조 김남호 회계사와 중국 세무법인 논의 인지 정밀 경영진 보고서 검토",
+      "description": "인지정밀 추가 인수자의 조건에 대한 고객과 논의 및 주간 보고서 검토",
       "billable": true
     },
     {
-      "id": "msoq69ebr0jir",
+      "id": "mt6vanvw903po",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-11",
-      "minutes": 42,
-      "description": "Xfusion KGA 인수 구조 관련해서 당사자와 중국 로펌 논의",
+      "date": "2026-08-24",
+      "minutes": 180,
+      "description": "메인스트리트 박순우 대표, 레전드 캐피탈 박준성 미팅 및 회식",
       "billable": false
     },
     {
-      "id": "msoq4gveuvpsk",
+      "id": "mt6v9gw1aq9n8",
+      "matterId": "mq4p0ubk74z8q",
+      "date": "2026-08-24",
+      "minutes": 24,
+      "description": "보험금 지금 확인하는 보험회사 이메일 확인 후 중국 세무법인에게 전달. 소멸시효 중단 검토",
+      "billable": true
+    },
+    {
+      "id": "mt6t1jkjcoug9",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-11",
+      "date": "2026-08-24",
       "minutes": 60,
-      "description": "큐에이아이 의 나노씨엠에스 한수 구조 논의 및 율촌 내부 컨플릭트 관련해서 유재준 변호사와 논의",
+      "description": "제일기획 중국 법인장님 겸 오픈타이드 법인장인 남용식 박사님과 미래에셋 캐피탈 이충환 상무 연결, 미래에셋과 제일기획 중국 마케팅 관련 협의",
       "billable": false
     },
     {
-      "id": "msoq2k9uqdfjx",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-11",
-      "minutes": 102,
-      "description": "대성 법무법인 김 계향 미팅 및 협력 논의",
+      "id": "mt6mwn69j8gjr",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-24",
+      "minutes": 60,
+      "description": "현재 수임 진행 중인 사건들 고객들 연락해서 피드백 확인하기",
       "billable": false
     },
     {
-      "id": "msoq2302yc167",
+      "id": "mt6lssdg44lvb",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-11",
-      "minutes": 210,
-      "description": "한양대 중국 MBA 교수와 kotra 그리고 대상 법무법인 협력 논의 및 회식",
-      "billable": false
-    },
-    {
-      "id": "msn81zv3w3yl7",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-10",
+      "date": "2026-08-24",
       "minutes": 150,
-      "description": "King lead 와 코트라 투자 미팅 및 회식",
+      "description": "제원테크 전 대표 정현철 미팅 회식",
       "billable": false
     },
     {
-      "id": "msn814kh0av87",
+      "id": "mt6lqt68m2zqx",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-24",
+      "minutes": 24,
+      "description": "중국팀 주간회의",
+      "billable": false
+    },
+    {
+      "id": "mt2tgm5p34q1r",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-10",
-      "minutes": 150,
-      "description": "DCK, Efusion,instrol 투자 및 상장 해서 인수 구조 검토 및 고객 회의",
+      "date": "2026-08-21",
+      "minutes": 90,
+      "description": "폴스타헬스케어 함지원 변호사와 미팅, 고객 발굴 논의",
       "billable": false
     },
     {
-      "id": "msn7y2bsj4j15",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-08-10",
-      "minutes": 72,
-      "description": "잠재적 투자자 구조에 대한 내부 검토 및 전화 회의",
+      "id": "mt2tfd7jlpcs5",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-08-21",
+      "minutes": 24,
+      "description": "의료법 위반과 행정처분 관련된 판례 검토",
       "billable": true
     },
     {
-      "id": "msjsvzu2f7ebd",
+      "id": "mt169qz2vcirx",
+      "matterId": "msykb0m2zwr3m",
+      "date": "2026-08-20",
+      "minutes": 60,
+      "description": "메모 초안 검토",
+      "billable": true
+    },
+    {
+      "id": "mt166qj7zxoh2",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-08",
-      "minutes": 180,
-      "description": "포츈지 배정윤 부사장 미팅 회식",
+      "date": "2026-08-20",
+      "minutes": 90,
+      "description": "NH증권 신남 전략부장 전화 회의 북경법인 이전 관련 사전 회의 및 견적 준비",
       "billable": false
     },
     {
-      "id": "msjsumhqiaglt",
+      "id": "mt164d36nuosg",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-08",
-      "minutes": 180,
-      "description": "전 코레일 수석감사 권세호 미팅 회식",
+      "date": "2026-08-20",
+      "minutes": 138,
+      "description": "폴스타헬스케어 함지원 대표, 디스트릭트 이동훈 대표와 미팅 및 회식",
       "billable": false
     },
     {
-      "id": "msha9ihret5qv",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-06",
-      "minutes": 180,
-      "description": "넥스트코리아 세미나 참석 박준성 이기하 대표 등 참석자 미팅",
+      "id": "mt1638i4xnihf",
+      "matterId": "mspce1rjoapu2",
+      "date": "2026-08-20",
+      "minutes": 90,
+      "description": "임형주 엄상준 변호사와 고객 미팅하고, 고객 질의 내용 검토, 제조업체 조사 방안 및 정부 지원 프로그램 조사",
+      "billable": true
+    },
+    {
+      "id": "mszhetno1wcex",
+      "matterId": "mq3q5pjxu49t3",
+      "date": "2026-08-19",
+      "minutes": 60,
+      "description": "법인 설립 관련 고객 영상 회의",
       "billable": false
     },
     {
-      "id": "msgqj2iprosd1",
+      "id": "msy5xqf0vgnkk",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-18",
+      "minutes": 240,
+      "description": "군합 김성휘 변호사 박재현 변호사 미팅 및 저녁 회식",
+      "billable": false
+    },
+    {
+      "id": "msy5x2d2wkqng",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-08-18",
+      "minutes": 150,
+      "description": "장태수 원장님 이시원 변호사외 율촌 변호사와 대면 미팅 수임 조건 논의 : 수임확정",
+      "billable": true
+    },
+    {
+      "id": "msy0vecry64lg",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-18",
+      "minutes": 90,
+      "description": "정학진 신한캐피털 전무 외 잠재적 고객 연락 및 미팅 어래인지",
+      "billable": false
+    },
+    {
+      "id": "msseovxguo8nv",
+      "matterId": "msr7d5xpo3l8n",
+      "date": "2026-08-14",
+      "minutes": 150,
+      "description": "SK microworks. 한앤코 비딩 참여 제안서 준비, 김훈 변호사 전화 회의 내부 회의, 자료 준비. 제안서 발송",
+      "billable": true
+    },
+    {
+      "id": "msixq92mb2blj",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-07",
+      "minutes": 210,
+      "description": "전 특허청장 김완기, 전 한샘회장 강승수 미팅 및 식사",
+      "billable": false
+    },
+    {
+      "id": "msixpjjn3xxo4",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-07",
+      "minutes": 120,
+      "description": "CDE 인베스트먼트 장형식 대표 미팅",
+      "billable": false
+    },
+    {
+      "id": "msixozt69wazb",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-08-07",
+      "minutes": 90,
+      "description": "고객 새로 바뀐 업무팀과 화상회의 및 대성과 내부 회의",
+      "billable": true
+    },
+    {
+      "id": "msh4fac58dy7i",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-08-06",
       "minutes": 120,
-      "description": "LX 이원재 소개 중국 고객 위한 월간 자문 기준 설정 및 제안서 제출과 소통",
+      "description": "미래에셋 캐피탈 이충환 상무와 임동성 변호사 식사 및 미팅, 이후 미래에셋과 협력 강화 논의",
       "billable": false
     },
     {
-      "id": "msgqha3f2fipt",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-08-05",
-      "minutes": 24,
-      "description": "빌링 내용과 관련 서류 검토",
-      "billable": true
-    },
-    {
-      "id": "msgqfjjhoty1k",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-08-05",
-      "minutes": 30,
-      "description": "관련 서류 검토",
-      "billable": true
-    },
-    {
-      "id": "msgqeybphix9k",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-05",
-      "minutes": 108,
-      "description": "한샘 전 CFO 미팅",
-      "billable": false
-    },
-    {
-      "id": "msgqdrzlyivd3",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-05",
-      "minutes": 36,
-      "description": "신동찬 변호사님 요청 포스코 업무 수임 가능한지 중국 관련 내용 검토",
-      "billable": false
-    },
-    {
-      "id": "msgqcu8zclxiy",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-05",
-      "minutes": 138,
-      "description": "문승욱 장관님 미팅 상해 방문 일정 조율 이도안 상해 상무관 연락 일정 조율",
-      "billable": false
-    },
-    {
-      "id": "msclj47n9a1h5",
-      "matterId": "ms9q2kj9qryyi",
-      "date": "2026-08-03",
-      "minutes": 60,
-      "description": "김계형 변호사 미팅 집핸 재산 변경 상황 대응 논의",
-      "billable": true
-    },
-    {
-      "id": "msclhxqasdeqx",
+      "id": "msh4d7w31o85b",
       "matterId": "mq33mk2e2x560",
-      "date": "2026-08-03",
-      "minutes": 30,
-      "description": "주간 회의",
-      "billable": false
-    },
-    {
-      "id": "msceeop22kvd2",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-02",
-      "minutes": 96,
-      "description": "KGA 회사 인수건 관련해서 미팅 사전 검토",
-      "billable": false
-    },
-    {
-      "id": "mscedhfkmivjl",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-02",
-      "minutes": 180,
-      "description": "황 대규 베트남 변호사• 蠱熊法務法人 변호사 미팅 및 식사",
-      "billable": false
-    },
-    {
-      "id": "ms9ux1wtd4v9r",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-01",
-      "minutes": 60,
-      "description": "글로벌 최저한세 관련해서 본사항 법적 쟁점 검토 계속",
-      "billable": false
-    },
-    {
-      "id": "ms9uuefn960b7",
-      "matterId": "ms9q2kj9qryyi",
-      "date": "2026-08-01",
-      "minutes": 72,
-      "description": "재산 조회와 강제집행과 관련해서 새로운 변동사항에 대한 검토 김 계향 와 대책 논의",
-      "billable": true
-    },
-    {
-      "id": "ms8ht49lnnn4l",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-07-31",
-      "minutes": 24,
-      "description": "법인 설립 속도를 빨리 하기 위한 방법 검토 논의",
-      "billable": true
-    },
-    {
-      "id": "ms8hr6goo2j1w",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-07-31",
+      "date": "2026-08-06",
       "minutes": 90,
-      "description": "잠재 매수인 검토 및 이후 진행 상황에 대해서 세무법인과회계법인 내부 회의",
+      "description": "법무부 상해 시범자유무역지구 중국로펌 협력 관련 질의에 대한 검토와 회신",
+      "billable": false
+    },
+    {
+      "id": "msf8az9mj5gqm",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-04",
+      "minutes": 180,
+      "description": "태평양 김현아 변호사 대성 김계향 변호사 미팅 및 식사 대접",
+      "billable": false
+    },
+    {
+      "id": "msf8a8g2kklv6",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-04",
+      "minutes": 102,
+      "description": "한국토지신탁 윤현성 미팅 한국토지신탁에서 김태연 변호사에게 이미 제안서 요청",
+      "billable": false
+    },
+    {
+      "id": "msf8948ib0u5q",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-04",
+      "minutes": 120,
+      "description": "중국 알브라이트 김창화 변호사 외 3인 율촌 방문 미팅 및 식사",
+      "billable": false
+    },
+    {
+      "id": "mscxao1dy74ik",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-03",
+      "minutes": 168,
+      "description": "DS 투자 강승수 대표, 레젠드 캐피탈 박준성 전무, 아르떼 뮤지엄 이동훈 대표, 이승범 율촌 변호사 미팅 및 회식",
+      "billable": false
+    },
+    {
+      "id": "mscx9kdonspr3",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-03",
+      "minutes": 180,
+      "description": "대성 김계향 변호사　aquiola research 대표 미팅 및 수임 논의. 초보적 법적 검토",
+      "billable": false
+    },
+    {
+      "id": "ms5ofgudejf46",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-29",
+      "minutes": 60,
+      "description": "고객과 법인 설립 관련 미팅 및 관련 업무 진행",
       "billable": true
     },
     {
-      "id": "ms8h204rh0oaz",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-31",
-      "minutes": 150,
-      "description": "밍타이 광양 알루미늄 내부 검토 및 고객 회의 준비 와 고객회의",
-      "billable": false
-    },
-    {
-      "id": "ms7hw6fjvdtez",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-30",
-      "minutes": 36,
-      "description": "알브라이트 김훈 변호사 의견서 수임 논의",
-      "billable": false
-    },
-    {
-      "id": "ms7baueha5hpr",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-30",
-      "minutes": 78,
-      "description": "중국 로펌 알브라이트 군합 등 연락 미팅 어래인지",
-      "billable": false
-    },
-    {
-      "id": "ms7b35xngxswk",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-30",
-      "minutes": 108,
-      "description": "포컴파트너스 미팅",
-      "billable": false
-    },
-    {
-      "id": "ms659mt5gzpz4",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-30",
-      "minutes": 180,
-      "description": "밍타이 그룹 수임 위한 사전 검토 및 내부 회의 미팅 어레인지",
-      "billable": false
-    },
-    {
-      "id": "ms5p1dtewezc5",
+      "id": "ms5gxp45k8vlm",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-29",
-      "minutes": 240,
-      "description": "코트라 옴부즈만 팀들 미팅 및 저녁",
+      "minutes": 108,
+      "description": "키움증권 이상만팀장과 박재현 변호사 미팅 및 사전 준비. 협력 모델 및 구체적 프로젝트 논의",
       "billable": false
     },
     {
-      "id": "ms44qlst38y2r",
-      "matterId": "mrk20ngsyg541",
-      "date": "2026-07-28",
-      "minutes": 30,
-      "description": "김 계량 변호사 외국인 등록 신청 관련 내용 검토 및 가이드",
-      "billable": true
-    },
-    {
-      "id": "ms427lg4xy03g",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-28",
-      "minutes": 90,
-      "description": "화양 그랜드 파크 키움 미팅",
-      "billable": false
-    },
-    {
-      "id": "ms426fp9sw9bl",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-28",
-      "minutes": 48,
-      "description": "한국토지신탁 윤현성 통화 가상화폐 플랫폼 자격 심사 논의 및 수임 조건 논의",
-      "billable": false
-    },
-    {
-      "id": "ms32g73fv3kly",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-27",
-      "minutes": 120,
-      "description": "키움등 잠재 고객 연락 및 미팅 어래인지. 고객 통화 논의 등등",
-      "billable": false
-    },
-    {
-      "id": "ms32fau4472m3",
+      "id": "ms407s0qsjraq",
       "matterId": "mq205p2ptqpyp",
-      "date": "2026-07-27",
+      "date": "2026-07-28",
       "minutes": 24,
-      "description": "율촌 메모 내용 법적 쟁점 검토",
+      "description": "영문 답변에 대한 검토",
       "billable": true
     },
     {
-      "id": "ms1pgcu5bmoyy",
-      "matterId": "mq205p2ptqpyp",
-      "date": "2026-07-26",
-      "minutes": 30,
-      "description": "질의에 대한 답변 검토 및 내부 소통",
-      "billable": true
-    },
-    {
-      "id": "ms1pfqa27z1pi",
-      "matterId": "mrk20ngsyg541",
-      "date": "2026-07-26",
+      "id": "ms4079ou5h89v",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-28",
       "minutes": 60,
-      "description": "설립 절차와 외국인 등록 관련해서 검토 및 김계향 변호사와 소통",
-      "billable": true
+      "description": "중국 로펌과 변호사 등에게 이메일과 연락 전화 등. 홍보자료 준비",
+      "billable": false
     },
     {
-      "id": "ms151fmvaz620",
+      "id": "ms406oebkdkqc",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-24",
-      "minutes": 150,
-      "description": "쿠우쿠우 대표이사 상무 미틴",
+      "date": "2026-07-28",
+      "minutes": 120,
+      "description": "대성 난닝 변호사 실종선고 관련 질의에 검토, 업무 범위와 수임 조건 논의 등",
       "billable": false
     },
     {
-      "id": "mrzzkl19a8k91",
+      "id": "ms2m9ik9hsyj1",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-24",
-      "minutes": 60,
-      "description": "중국 로펌들 연락",
-      "billable": false
-    },
-    {
-      "id": "mryihzbfnkj7u",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-24",
-      "minutes": 60,
-      "description": "Cosco 수임 제안서 검토",
-      "billable": false
-    },
-    {
-      "id": "mryge5yny3joi",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-24",
-      "minutes": 90,
-      "description": "법무 지원팀 김진구 김종연 포함 총 11 명 회식",
-      "billable": false
-    },
-    {
-      "id": "mry5d5m4m9cs9",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-23",
-      "minutes": 60,
-      "description": "율촌 창립 총회 참석",
-      "billable": false
-    },
-    {
-      "id": "mrxa4tmyycav5",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-23",
-      "minutes": 60,
-      "description": "미래에셋캐피탈 이충환 상무 미팅",
-      "billable": false
-    },
-    {
-      "id": "mrx20zgqejyke",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-23",
-      "minutes": 138,
-      "description": "아르떼 뮤지움 이동훈 대표 미래에셋 패밀리 오피스 김명진 대표 미팅",
-      "billable": false
-    },
-    {
-      "id": "mrx204bsjrxi9",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-23",
+      "date": "2026-07-27",
       "minutes": 180,
-      "description": "가이아 김경옥 대표 키움 이상만 구조금융 팀장 미팅 및 현장 방문",
+      "description": "한양대 중국 경영대 김우형 교수와 대한상공회의소 중국 세미나 개최 및 마케팅 협력 논의",
       "billable": false
     },
     {
-      "id": "mrvo90kmtdwsg",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-22",
+      "id": "mrerzoe9q7npl",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-10",
       "minutes": 90,
-      "description": "키움증권 이상만 팀장 미팅",
+      "description": "서희경 변호사 시스템 사용 교육",
+      "billable": false
+    },
+    {
+      "id": "mreryyddwlx3r",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-10",
+      "minutes": 60,
+      "description": "西安诺瓦星云科技股份有限公司 회사 법인 설립 관련 회사 줌 미팅 회의",
+      "billable": false
+    },
+    {
+      "id": "mracmcswnccta",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-07",
+      "minutes": 60,
+      "description": "이미연 차장과 업무 협조 논의",
+      "billable": false
+    },
+    {
+      "id": "mraclol0dlfqy",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-07",
+      "minutes": 60,
+      "description": "문승욱 장관님과 상해 출장 일정 논의",
+      "billable": false
+    },
+    {
+      "id": "mracl4cfeqy2q",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-07",
+      "minutes": 72,
+      "description": "고객과 화상 회의 및 내부 회의",
+      "billable": true
+    },
+    {
+      "id": "mqkb74wji6mvz",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-18",
+      "minutes": 60,
+      "description": "이태은 변호사와 고객과 화상회의, 현재 쟁점과 대응방안 논의",
+      "billable": true
+    },
+    {
+      "id": "mqkb5z7e58601",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-06-18",
+      "minutes": 150,
+      "description": "친왕 그룹 이 회장과 미팅하고 저녁 식사",
+      "billable": false
+    },
+    {
+      "id": "mqawsm1rox4kp",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-12",
+      "minutes": 90,
+      "description": "DB 하이텍 김상옥 재무총감 회장님 보고 자료 작성",
+      "billable": false
+    },
+    {
+      "id": "mqawr2r3wdrkl",
+      "matterId": "mq20ej2g25wzu",
+      "date": "2026-06-12",
+      "minutes": 90,
+      "description": "법률 검토 및 법률 자문서 작성",
+      "billable": false
+    },
+    {
+      "id": "mqawqbhqourk0",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-12",
+      "minutes": 84,
+      "description": "대성법무법인과 회의 및 비자 및 은행계좌 절차 자료 정리",
+      "billable": true
+    },
+    {
+      "id": "mqawpeovvcf28",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-12",
+      "minutes": 30,
+      "description": "율촌 내부 미팅 준비 자료 및 쟁점 법률 검토",
+      "billable": true
+    },
+    {
+      "id": "mq4mezbriaoud",
+      "matterId": "mq4lxl561un1a",
+      "date": "2026-06-08",
+      "minutes": 12,
+      "description": "김계향 변호사와 사건 수임 논의",
+      "billable": true
+    },
+    {
+      "id": "mq4m6g94pi4q8",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "잠재적 인수자 소개 및 회사 파악",
+      "billable": true
+    },
+    {
+      "id": "mq4lwelvdp2v2",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-08",
+      "minutes": 60,
+      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
+      "billable": true
+    },
+    {
+      "id": "mq211mf9034lf",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-05",
+      "minutes": 24,
+      "description": "청도법원 입안 일정 확정 및 고객소통",
+      "billable": true
+    },
+    {
+      "id": "mq20rkf6984ya",
+      "matterId": "mq20qil2xsxww",
+      "date": "2026-06-03",
+      "minutes": 60,
+      "description": "상해법인청산 관련 세무법인 지시 및 주간보고서 작성",
+      "billable": true
+    },
+    {
+      "id": "mq20navxoh9kk",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-01",
+      "minutes": 30,
+      "description": "중국팀 주간회의",
+      "billable": true
+    },
+    {
+      "id": "mq20it3dxqb8y",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-04",
+      "minutes": 108,
+      "description": "인지정밀 본사에 정부협상 경과 보고서 작성",
+      "billable": true
+    },
+    {
+      "id": "mq20bhos2c28h",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-04",
+      "minutes": 60,
+      "description": "대성법무법인 김계향 변호사 미팅, 대성 대표처 설립지원 및 공동마케팅 계획",
+      "billable": false
+    },
+    {
+      "id": "mq2068taonwut",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-06-04",
+      "minutes": 60,
+      "description": "자문제안서 작성 및 고객 소통",
+      "billable": true
+    },
+    {
+      "id": "mq1w6co5ffbjs",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-05",
+      "minutes": 60,
+      "description": "일정관리표와 관련 문서 초안 작성",
+      "billable": true
+    },
+    {
+      "id": "mq38bfqlhxla7",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-06-01",
+      "minutes": 30,
+      "description": "중국팀 주간회의",
+      "billable": true
+    },
+    {
+      "id": "mq59cx61m9lfi",
+      "matterId": "mq1w5upv8k38z",
+      "date": "2026-06-08",
+      "minutes": 36,
+      "description": "법인 설립 관련 자료 수정 검토",
+      "billable": true
+    },
+    {
+      "id": "mq4r1pva3h88e",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-06-08",
+      "minutes": 42,
+      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
+      "billable": true
+    },
+    {
+      "id": "mq81bwezhp2hp",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-10",
+      "minutes": 60,
+      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
+      "billable": true
+    },
+    {
+      "id": "mq81aw9mti47t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-10",
+      "minutes": 240,
+      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
+      "billable": false
+    },
+    {
+      "id": "mq63t3f2oz3nb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
+      "billable": true
+    },
+    {
+      "id": "mq63rb4od5scn",
+      "matterId": "mq20urwkdcwfj",
+      "date": "2026-06-09",
+      "minutes": 42,
+      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
+      "billable": true
+    },
+    {
+      "id": "mq691w02k757w",
+      "matterId": "mq20ej2g25wzu",
+      "date": "2026-06-09",
+      "minutes": 30,
+      "description": "우 변호사와 전화 회의를 하고 고객 상황에 대해 논의. 수임 노력함",
+      "billable": false
+    },
+    {
+      "id": "mq9jb605s6if2",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-11",
+      "minutes": 60,
+      "description": "중국 로퍼가 협의 가능성 논의 검토 및 정리",
+      "billable": true
+    },
+    {
+      "id": "mq95w45m46a6w",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-06-11",
+      "minutes": 120,
+      "description": "DB 하이텍 김상옥 재무총감 식사",
+      "billable": false
+    },
+    {
+      "id": "mqj2c9k41s41p",
+      "matterId": "mq20ej2g25wzu",
+      "date": "2026-06-17",
+      "minutes": 60,
+      "description": "대성 법무법인 이메일 내용에 대한 답변 작성 및 이메일",
+      "billable": false
+    },
+    {
+      "id": "mqj2b11p6uei2",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-18",
+      "minutes": 60,
+      "description": "정림건축과 내부 미팅",
+      "billable": true
+    },
+    {
+      "id": "mqdid88nqqrw5",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-06-14",
+      "minutes": 60,
+      "description": "월요일 율촌 내부 미팅 사전 준비 및 쟁점 분석",
+      "billable": false
+    },
+    {
+      "id": "mr5l5o5kk9lka",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-03",
+      "minutes": 180,
+      "description": "전 한샘 임원들 미팅",
+      "billable": false
+    },
+    {
+      "id": "mr5l55psg1fxc",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-03",
+      "minutes": 180,
+      "description": "전이데일리 비지와치 대표 조용만 뉴스핌 본부장 미팅",
+      "billable": false
+    },
+    {
+      "id": "mr48hqnc2jkha",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-02",
+      "minutes": 150,
+      "description": "재간법인 w 필 오케스트라 단장등 미팅",
+      "billable": false
+    },
+    {
+      "id": "mr483n3nvpzjg",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-02",
+      "minutes": 60,
+      "description": "고객과 미팅 전반적 질의에 대한 답변",
+      "billable": true
+    },
+    {
+      "id": "mr482wz7a2mz1",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-02",
+      "minutes": 78,
+      "description": "박재현 변호사와 중국팀 운영 관련 회의",
+      "billable": false
+    },
+    {
+      "id": "mr1a49tlveut1",
+      "matterId": "mqrjvi5a6jktt",
+      "date": "2026-07-01",
+      "minutes": 210,
+      "description": "이스라엘 클래식 크 와 리셀러 계약서 검토 및 협상 참여",
+      "billable": true
+    },
+    {
+      "id": "mr1a1vrl2e6wp",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-01",
+      "minutes": 300,
+      "description": "청도 정보와 한국 정부, 그리고 중국 기업들 한중 교류회 참석 및 중국 기업들 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrcwy19slmmsl",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-09",
+      "minutes": 150,
+      "description": "키움증권 부동산 본부장 이상민 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrcq7xgekmxmd",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-08",
+      "minutes": 30,
+      "description": "메모 검토 밑 출장 일정 조율",
+      "billable": true
+    },
+    {
+      "id": "mrcq744zys7jw",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-08",
+      "minutes": 120,
+      "description": "중국팀 변호사님들 면담",
+      "billable": false
+    },
+    {
+      "id": "mrcq6jr55s4q3",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-08",
+      "minutes": 150,
+      "description": "피노바 파트너스 김상욱 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrebmnb0psro0",
+      "matterId": "mq4p0ubk74z8q",
+      "date": "2026-07-10",
+      "minutes": 48,
+      "description": "수권서 검토 와 세부법인과 소통 베트남 일정과 소통",
+      "billable": true
+    },
+    {
+      "id": "mre81by9omp4a",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-09",
+      "minutes": 30,
+      "description": "중국팀 변호사님 내부 면담",
+      "billable": true
+    },
+    {
+      "id": "mre7zz28pi9rb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-10",
+      "minutes": 60,
+      "description": "글로벌 데이터 권규식 대표 노동문제 수임 논의",
+      "billable": false
+    },
+    {
+      "id": "mre7zezhf0jrt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-09",
+      "minutes": 60,
+      "description": "X costomer 상장회수 인수건 수임 논의",
+      "billable": false
+    },
+    {
+      "id": "mre7wj3s563rb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-09",
+      "minutes": 120,
+      "description": "김앤장 김형동 고문 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrhdwbzpk7wtl",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-12",
+      "minutes": 360,
+      "description": "관련 당사자 면담 위에 중국 출장",
+      "billable": true
+    },
+    {
+      "id": "mrhdvu48ogtko",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-12",
+      "minutes": 30,
+      "description": "대성 김계향 변호사와 대성 대표처 설립 논의",
+      "billable": true
+    },
+    {
+      "id": "mrmx8krs8xe81",
+      "matterId": "mq4p0ubk74z8q",
+      "date": "2026-07-16",
+      "minutes": 30,
+      "description": "세무법인 진행 상황 파악후 보고 이메일 작성",
+      "billable": false
+    },
+    {
+      "id": "mrmx7gyj4e72c",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-15",
+      "minutes": 120,
+      "description": "上海每日黑巧有限公司  심새나 글로벌 책임자 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrloqp56irdo5",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-15",
+      "minutes": 210,
+      "description": "율촌 내부 교육",
+      "billable": false
+    },
+    {
+      "id": "mrlc9dgayczwe",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-14",
+      "minutes": 90,
+      "description": "지평 변호사들 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrjzkskwozhnz",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-13",
+      "minutes": 30,
+      "description": "대성법무법인 한국 대표처 설립 고객 상담",
+      "billable": false
+    },
+    {
+      "id": "mrjzjtozs3jfg",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-14",
+      "minutes": 60,
+      "description": "케이지어이 인수 관련 고객 수임 상담",
+      "billable": false
+    },
+    {
+      "id": "mrjziant28nlh",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-14",
+      "minutes": 240,
+      "description": "츌장후 한국 복귀",
+      "billable": true
+    },
+    {
+      "id": "mrizhvt2t8v5z",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-13",
+      "minutes": 30,
+      "description": "대성 난닝 실종선고 관련 조사 및 협의",
+      "billable": true
+    },
+    {
+      "id": "mrizftk0f6io2",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-07-13",
+      "minutes": 360,
+      "description": "정림 건축 관련자들 면담 및 문답서 확인",
+      "billable": false
+    },
+    {
+      "id": "mrqd3wq0m2v1k",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-18",
+      "minutes": 150,
+      "description": "베트남 호치민 총영사 정정태 미팅",
+      "billable": false
+    },
+    {
+      "id": "mrqd317shwgvu",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-18",
+      "minutes": 300,
+      "description": "목원 그룹 한국 방문단과 코트라 옴브즈만 팀장 정영수 미팅. 투자 구조 논의",
+      "billable": false
+    },
+    {
+      "id": "mroahniuxki5r",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-16",
+      "minutes": 120,
+      "description": "킹앤우드 이석호 변호사 미팅",
+      "billable": false
+    },
+    {
+      "id": "mroafp7dimx6j",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-16",
+      "minutes": 180,
+      "description": "메릴린치 기업금융 본부장 황승태. 미래에셋 패밀리오피스 기명진 팀장. 키운 부동산 금융 팀장 이상민 미팅",
       "billable": false
     },
     {
@@ -2968,998 +3344,650 @@
       "billable": false
     },
     {
-      "id": "mrqd3wq0m2v1k",
+      "id": "mrx20zgqejyke",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-18",
-      "minutes": 150,
-      "description": "베트남 호치민 총영사 정정태 미팅",
+      "date": "2026-07-23",
+      "minutes": 138,
+      "description": "아르떼 뮤지움 이동훈 대표 미래에셋 패밀리 오피스 김명진 대표 미팅",
       "billable": false
     },
     {
-      "id": "mrqd317shwgvu",
+      "id": "mrx204bsjrxi9",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-18",
-      "minutes": 300,
-      "description": "목원 그룹 한국 방문단과 코트라 옴브즈만 팀장 정영수 미팅. 투자 구조 논의",
-      "billable": false
-    },
-    {
-      "id": "mroahniuxki5r",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-16",
-      "minutes": 120,
-      "description": "킹앤우드 이석호 변호사 미팅",
-      "billable": false
-    },
-    {
-      "id": "mroafp7dimx6j",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-16",
+      "date": "2026-07-23",
       "minutes": 180,
-      "description": "메릴린치 기업금융 본부장 황승태. 미래에셋 패밀리오피스 기명진 팀장. 키운 부동산 금융 팀장 이상민 미팅",
+      "description": "가이아 김경옥 대표 키움 이상만 구조금융 팀장 미팅 및 현장 방문",
       "billable": false
     },
     {
-      "id": "mrmx8krs8xe81",
-      "matterId": "mq4p0ubk74z8q",
-      "date": "2026-07-16",
-      "minutes": 30,
-      "description": "세무법인 진행 상황 파악후 보고 이메일 작성",
-      "billable": false
-    },
-    {
-      "id": "mrmx7gyj4e72c",
+      "id": "mrvo90kmtdwsg",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-15",
-      "minutes": 120,
-      "description": "上海每日黑巧有限公司  심새나 글로벌 책임자 미팅",
-      "billable": false
-    },
-    {
-      "id": "mrloqp56irdo5",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-15",
-      "minutes": 210,
-      "description": "율촌 내부 교육",
-      "billable": false
-    },
-    {
-      "id": "mrlc9dgayczwe",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-14",
+      "date": "2026-07-22",
       "minutes": 90,
-      "description": "지평 변호사들 미팅",
+      "description": "키움증권 이상만 팀장 미팅",
       "billable": false
     },
     {
-      "id": "mrjzkskwozhnz",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-13",
-      "minutes": 30,
-      "description": "대성법무법인 한국 대표처 설립 고객 상담",
-      "billable": false
-    },
-    {
-      "id": "mrjzjtozs3jfg",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-14",
-      "minutes": 60,
-      "description": "케이지어이 인수 관련 고객 수임 상담",
-      "billable": false
-    },
-    {
-      "id": "mrjziant28nlh",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-07-14",
-      "minutes": 240,
-      "description": "츌장후 한국 복귀",
-      "billable": true
-    },
-    {
-      "id": "mrizhvt2t8v5z",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-13",
-      "minutes": 30,
-      "description": "대성 난닝 실종선고 관련 조사 및 협의",
-      "billable": true
-    },
-    {
-      "id": "mrizftk0f6io2",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-07-13",
-      "minutes": 360,
-      "description": "정림 건축 관련자들 면담 및 문답서 확인",
-      "billable": false
-    },
-    {
-      "id": "mrhdwbzpk7wtl",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-07-12",
-      "minutes": 360,
-      "description": "관련 당사자 면담 위에 중국 출장",
-      "billable": true
-    },
-    {
-      "id": "mrhdvu48ogtko",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-12",
-      "minutes": 30,
-      "description": "대성 김계향 변호사와 대성 대표처 설립 논의",
-      "billable": true
-    },
-    {
-      "id": "mrebmnb0psro0",
-      "matterId": "mq4p0ubk74z8q",
-      "date": "2026-07-10",
-      "minutes": 48,
-      "description": "수권서 검토 와 세부법인과 소통 베트남 일정과 소통",
-      "billable": true
-    },
-    {
-      "id": "mre81by9omp4a",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-09",
-      "minutes": 30,
-      "description": "중국팀 변호사님 내부 면담",
-      "billable": true
-    },
-    {
-      "id": "mre7zz28pi9rb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-10",
-      "minutes": 60,
-      "description": "글로벌 데이터 권규식 대표 노동문제 수임 논의",
-      "billable": false
-    },
-    {
-      "id": "mre7zezhf0jrt",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-09",
-      "minutes": 60,
-      "description": "X costomer 상장회수 인수건 수임 논의",
-      "billable": false
-    },
-    {
-      "id": "mre7wj3s563rb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-09",
-      "minutes": 120,
-      "description": "김앤장 김형동 고문 미팅",
-      "billable": false
-    },
-    {
-      "id": "mrcwy19slmmsl",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-09",
-      "minutes": 150,
-      "description": "키움증권 부동산 본부장 이상민 미팅",
-      "billable": false
-    },
-    {
-      "id": "mrcq7xgekmxmd",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-07-08",
-      "minutes": 30,
-      "description": "메모 검토 밑 출장 일정 조율",
-      "billable": true
-    },
-    {
-      "id": "mrcq744zys7jw",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-08",
-      "minutes": 120,
-      "description": "중국팀 변호사님들 면담",
-      "billable": false
-    },
-    {
-      "id": "mrcq6jr55s4q3",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-08",
-      "minutes": 150,
-      "description": "피노바 파트너스 김상욱 미팅",
-      "billable": false
-    },
-    {
-      "id": "mr5l5o5kk9lka",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-03",
-      "minutes": 180,
-      "description": "전 한샘 임원들 미팅",
-      "billable": false
-    },
-    {
-      "id": "mr5l55psg1fxc",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-03",
-      "minutes": 180,
-      "description": "전이데일리 비지와치 대표 조용만 뉴스핌 본부장 미팅",
-      "billable": false
-    },
-    {
-      "id": "mr48hqnc2jkha",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-02",
-      "minutes": 150,
-      "description": "재간법인 w 필 오케스트라 단장등 미팅",
-      "billable": false
-    },
-    {
-      "id": "mr483n3nvpzjg",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-07-02",
-      "minutes": 60,
-      "description": "고객과 미팅 전반적 질의에 대한 답변",
-      "billable": true
-    },
-    {
-      "id": "mr482wz7a2mz1",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-02",
-      "minutes": 78,
-      "description": "박재현 변호사와 중국팀 운영 관련 회의",
-      "billable": false
-    },
-    {
-      "id": "mr1a49tlveut1",
-      "matterId": "mqrjvi5a6jktt",
-      "date": "2026-07-01",
-      "minutes": 210,
-      "description": "이스라엘 클래식 크 와 리셀러 계약서 검토 및 협상 참여",
-      "billable": true
-    },
-    {
-      "id": "mr1a1vrl2e6wp",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-01",
-      "minutes": 300,
-      "description": "청도 정보와 한국 정부, 그리고 중국 기업들 한중 교류회 참석 및 중국 기업들 미팅",
-      "billable": false
-    },
-    {
-      "id": "mqj2c9k41s41p",
-      "matterId": "mq20ej2g25wzu",
-      "date": "2026-06-17",
-      "minutes": 60,
-      "description": "대성 법무법인 이메일 내용에 대한 답변 작성 및 이메일",
-      "billable": false
-    },
-    {
-      "id": "mqdid88nqqrw5",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-14",
-      "minutes": 60,
-      "description": "월요일 율촌 내부 미팅 사전 준비 및 쟁점 분석",
-      "billable": false
-    },
-    {
-      "id": "mq9jb605s6if2",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-11",
-      "minutes": 60,
-      "description": "중국 로퍼가 협의 가능성 논의 검토 및 정리",
-      "billable": true
-    },
-    {
-      "id": "mq95w45m46a6w",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-11",
-      "minutes": 120,
-      "description": "DB 하이텍 김상옥 재무총감 식사",
-      "billable": false
-    },
-    {
-      "id": "mq81bwezhp2hp",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-10",
-      "minutes": 60,
-      "description": "인지 본사와 자문단의 경과 보고 및 이후 전략 방향에 대한 화상회의",
-      "billable": true
-    },
-    {
-      "id": "mq81aw9mti47t",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-10",
-      "minutes": 240,
-      "description": "Global data 주최한 글로벌 바이오 포 롬에 참석",
-      "billable": false
-    },
-    {
-      "id": "mq63t3f2oz3nb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-09",
-      "minutes": 30,
-      "description": "DB 하이텍 김상옥 재무총감 소통 미팅 어래인지 김계향 변호사 참석 확인. 청도- 한국 교류회 참석 일정 어래인지",
-      "billable": true
-    },
-    {
-      "id": "mq63rb4od5scn",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-09",
-      "minutes": 42,
-      "description": "법원 미팅 및 이후 진행 방향에 대한 메일 작성해서 고객에 계신다",
-      "billable": true
-    },
-    {
-      "id": "mq59cx61m9lfi",
-      "matterId": "mq1w5upv8k38z",
-      "date": "2026-06-08",
-      "minutes": 36,
-      "description": "법인 설립 관련 자료 수정 검토",
-      "billable": true
-    },
-    {
-      "id": "mq4r1pva3h88e",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-06-08",
-      "minutes": 42,
-      "description": "세무법인과 정산 후 소수 주주에게 지급 해야 할 금액을 논의",
-      "billable": true
-    },
-    {
-      "id": "mq211mf9034lf",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-05",
-      "minutes": 24,
-      "description": "청도법원 입안 일정 확정 및 고객소통",
-      "billable": true
-    },
-    {
-      "id": "mq20rkf6984ya",
-      "matterId": "mq20qil2xsxww",
-      "date": "2026-06-03",
-      "minutes": 60,
-      "description": "상해법인청산 관련 세무법인 지시 및 주간보고서 작성",
-      "billable": true
-    },
-    {
-      "id": "mq20navxoh9kk",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-01",
-      "minutes": 30,
-      "description": "중국팀 주간회의",
-      "billable": true
-    },
-    {
-      "id": "mq20it3dxqb8y",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-04",
-      "minutes": 108,
-      "description": "인지정밀 본사에 정부협상 경과 보고서 작성",
-      "billable": true
-    },
-    {
-      "id": "mq20bhos2c28h",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-04",
-      "minutes": 60,
-      "description": "대성법무법인 김계향 변호사 미팅, 대성 대표처 설립지원 및 공동마케팅 계획",
-      "billable": false
-    },
-    {
-      "id": "mq2068taonwut",
+      "id": "ms1pgcu5bmoyy",
       "matterId": "mq205p2ptqpyp",
-      "date": "2026-06-04",
-      "minutes": 60,
-      "description": "자문제안서 작성 및 고객 소통",
-      "billable": true
-    },
-    {
-      "id": "mq1w6co5ffbjs",
-      "matterId": "mq1w5upv8k38z",
-      "date": "2026-06-05",
-      "minutes": 60,
-      "description": "일정관리표와 관련 문서 초안 작성",
-      "billable": true
-    },
-    {
-      "id": "mq38bfqlhxla7",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-06-01",
+      "date": "2026-07-26",
       "minutes": 30,
-      "description": "중국팀 주간회의",
+      "description": "질의에 대한 답변 검토 및 내부 소통",
       "billable": true
     },
     {
-      "id": "mq4m6g94pi4q8",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-08",
-      "minutes": 36,
-      "description": "잠재적 인수자 소개 및 회사 파악",
-      "billable": true
-    },
-    {
-      "id": "mq4lwelvdp2v2",
-      "matterId": "mq20urwkdcwfj",
-      "date": "2026-06-08",
+      "id": "ms1pfqa27z1pi",
+      "matterId": "mrk20ngsyg541",
+      "date": "2026-07-26",
       "minutes": 60,
-      "description": "청도법원 참석한 천 변호사와 위에 라오스 전화미팅. 이후 방향 중국법원에 소송하는 것으로 결정",
+      "description": "설립 절차와 외국인 등록 관련해서 검토 및 김계향 변호사와 소통",
       "billable": true
     },
     {
-      "id": "mq4mezbriaoud",
-      "matterId": "mq4lxl561un1a",
-      "date": "2026-06-08",
-      "minutes": 12,
-      "description": "김계향 변호사와 사건 수임 논의",
-      "billable": true
-    },
-    {
-      "id": "mq691w02k757w",
-      "matterId": "mq20ej2g25wzu",
-      "date": "2026-06-09",
-      "minutes": 30,
-      "description": "우 변호사와 전화 회의를 하고 고객 상황에 대해 논의. 수임 노력함",
-      "billable": false
-    },
-    {
-      "id": "mqawsm1rox4kp",
+      "id": "ms151fmvaz620",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-06-12",
-      "minutes": 90,
-      "description": "DB 하이텍 김상옥 재무총감 회장님 보고 자료 작성",
-      "billable": false
-    },
-    {
-      "id": "mqawr2r3wdrkl",
-      "matterId": "mq20ej2g25wzu",
-      "date": "2026-06-12",
-      "minutes": 90,
-      "description": "법률 검토 및 법률 자문서 작성",
-      "billable": false
-    },
-    {
-      "id": "mqawqbhqourk0",
-      "matterId": "mq1w5upv8k38z",
-      "date": "2026-06-12",
-      "minutes": 84,
-      "description": "대성법무법인과 회의 및 비자 및 은행계좌 절차 자료 정리",
-      "billable": true
-    },
-    {
-      "id": "mqawpeovvcf28",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-12",
-      "minutes": 30,
-      "description": "율촌 내부 미팅 준비 자료 및 쟁점 법률 검토",
-      "billable": true
-    },
-    {
-      "id": "mqkb74wji6mvz",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-18",
-      "minutes": 60,
-      "description": "이태은 변호사와 고객과 화상회의, 현재 쟁점과 대응방안 논의",
-      "billable": true
-    },
-    {
-      "id": "mqkb5z7e58601",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-06-18",
+      "date": "2026-07-24",
       "minutes": 150,
-      "description": "친왕 그룹 이 회장과 미팅하고 저녁 식사",
+      "description": "쿠우쿠우 대표이사 상무 미틴",
       "billable": false
     },
     {
-      "id": "mqj2b11p6uei2",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-06-18",
-      "minutes": 60,
-      "description": "정림건축과 내부 미팅",
-      "billable": true
-    },
-    {
-      "id": "mracmcswnccta",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-07-07",
-      "minutes": 60,
-      "description": "이미연 차장과 업무 협조 논의",
-      "billable": false
-    },
-    {
-      "id": "mraclol0dlfqy",
+      "id": "mrzzkl19a8k91",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-07",
+      "date": "2026-07-24",
       "minutes": 60,
-      "description": "문승욱 장관님과 상해 출장 일정 논의",
+      "description": "중국 로펌들 연락",
       "billable": false
     },
     {
-      "id": "mracl4cfeqy2q",
-      "matterId": "mq7sygz2qvulp",
-      "date": "2026-07-07",
-      "minutes": 72,
-      "description": "고객과 화상 회의 및 내부 회의",
-      "billable": true
+      "id": "mryihzbfnkj7u",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-24",
+      "minutes": 60,
+      "description": "Cosco 수임 제안서 검토",
+      "billable": false
     },
     {
-      "id": "mrerzoe9q7npl",
+      "id": "mryge5yny3joi",
       "matterId": "mq33mk2e2x560",
-      "date": "2026-07-10",
+      "date": "2026-07-24",
       "minutes": 90,
-      "description": "서희경 변호사 시스템 사용 교육",
+      "description": "법무 지원팀 김진구 김종연 포함 총 11 명 회식",
       "billable": false
     },
     {
-      "id": "mreryyddwlx3r",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-10",
+      "id": "mry5d5m4m9cs9",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-07-23",
       "minutes": 60,
-      "description": "西安诺瓦星云科技股份有限公司 회사 법인 설립 관련 회사 줌 미팅 회의",
+      "description": "율촌 창립 총회 참석",
       "billable": false
     },
     {
-      "id": "ms2m9ik9hsyj1",
+      "id": "mrxa4tmyycav5",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-23",
+      "minutes": 60,
+      "description": "미래에셋캐피탈 이충환 상무 미팅",
+      "billable": false
+    },
+    {
+      "id": "ms32g73fv3kly",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-27",
-      "minutes": 180,
-      "description": "한양대 중국 경영대 김우형 교수와 대한상공회의소 중국 세미나 개최 및 마케팅 협력 논의",
+      "minutes": 120,
+      "description": "키움등 잠재 고객 연락 및 미팅 어래인지. 고객 통화 논의 등등",
       "billable": false
     },
     {
-      "id": "ms407s0qsjraq",
+      "id": "ms32fau4472m3",
       "matterId": "mq205p2ptqpyp",
-      "date": "2026-07-28",
+      "date": "2026-07-27",
       "minutes": 24,
-      "description": "영문 답변에 대한 검토",
+      "description": "율촌 메모 내용 법적 쟁점 검토",
       "billable": true
     },
     {
-      "id": "ms4079ou5h89v",
+      "id": "ms44qlst38y2r",
+      "matterId": "mrk20ngsyg541",
+      "date": "2026-07-28",
+      "minutes": 30,
+      "description": "김 계량 변호사 외국인 등록 신청 관련 내용 검토 및 가이드",
+      "billable": true
+    },
+    {
+      "id": "ms427lg4xy03g",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-28",
-      "minutes": 60,
-      "description": "중국 로펌과 변호사 등에게 이메일과 연락 전화 등. 홍보자료 준비",
+      "minutes": 90,
+      "description": "화양 그랜드 파크 키움 미팅",
       "billable": false
     },
     {
-      "id": "ms406oebkdkqc",
+      "id": "ms426fp9sw9bl",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-07-28",
-      "minutes": 120,
-      "description": "대성 난닝 변호사 실종선고 관련 질의에 검토, 업무 범위와 수임 조건 논의 등",
+      "minutes": 48,
+      "description": "한국토지신탁 윤현성 통화 가상화폐 플랫폼 자격 심사 논의 및 수임 조건 논의",
       "billable": false
     },
     {
-      "id": "ms5ofgudejf46",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-07-29",
-      "minutes": 60,
-      "description": "고객과 법인 설립 관련 미팅 및 관련 업무 진행",
-      "billable": true
-    },
-    {
-      "id": "ms5gxp45k8vlm",
+      "id": "ms659mt5gzpz4",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-07-29",
-      "minutes": 108,
-      "description": "키움증권 이상만팀장과 박재현 변호사 미팅 및 사전 준비. 협력 모델 및 구체적 프로젝트 논의",
-      "billable": false
-    },
-    {
-      "id": "mscxao1dy74ik",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-03",
-      "minutes": 168,
-      "description": "DS 투자 강승수 대표, 레젠드 캐피탈 박준성 전무, 아르떼 뮤지엄 이동훈 대표, 이승범 율촌 변호사 미팅 및 회식",
-      "billable": false
-    },
-    {
-      "id": "mscx9kdonspr3",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-03",
+      "date": "2026-07-30",
       "minutes": 180,
-      "description": "대성 김계향 변호사　aquiola research 대표 미팅 및 수임 논의. 초보적 법적 검토",
+      "description": "밍타이 그룹 수임 위한 사전 검토 및 내부 회의 미팅 어레인지",
       "billable": false
     },
     {
-      "id": "msf8az9mj5gqm",
+      "id": "ms5p1dtewezc5",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-04",
-      "minutes": 180,
-      "description": "태평양 김현아 변호사 대성 김계향 변호사 미팅 및 식사 대접",
-      "billable": false
-    },
-    {
-      "id": "msf8a8g2kklv6",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-04",
-      "minutes": 102,
-      "description": "한국토지신탁 윤현성 미팅 한국토지신탁에서 김태연 변호사에게 이미 제안서 요청",
-      "billable": false
-    },
-    {
-      "id": "msf8948ib0u5q",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-04",
-      "minutes": 120,
-      "description": "중국 알브라이트 김창화 변호사 외 3인 율촌 방문 미팅 및 식사",
-      "billable": false
-    },
-    {
-      "id": "msh4fac58dy7i",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-06",
-      "minutes": 120,
-      "description": "미래에셋 캐피탈 이충환 상무와 임동성 변호사 식사 및 미팅, 이후 미래에셋과 협력 강화 논의",
-      "billable": false
-    },
-    {
-      "id": "msh4d7w31o85b",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-06",
-      "minutes": 90,
-      "description": "법무부 상해 시범자유무역지구 중국로펌 협력 관련 질의에 대한 검토와 회신",
-      "billable": false
-    },
-    {
-      "id": "msixq92mb2blj",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-07",
-      "minutes": 210,
-      "description": "전 특허청장 김완기, 전 한샘회장 강승수 미팅 및 식사",
-      "billable": false
-    },
-    {
-      "id": "msixpjjn3xxo4",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-07",
-      "minutes": 120,
-      "description": "CDE 인베스트먼트 장형식 대표 미팅",
-      "billable": false
-    },
-    {
-      "id": "msixozt69wazb",
-      "matterId": "ms9q2kj9qryyi",
-      "date": "2026-08-07",
-      "minutes": 90,
-      "description": "고객 새로 바뀐 업무팀과 화상회의 및 대성과 내부 회의",
-      "billable": true
-    },
-    {
-      "id": "msseovxguo8nv",
-      "matterId": "msr7d5xpo3l8n",
-      "date": "2026-08-14",
-      "minutes": 150,
-      "description": "SK microworks. 한앤코 비딩 참여 제안서 준비, 김훈 변호사 전화 회의 내부 회의, 자료 준비. 제안서 발송",
-      "billable": true
-    },
-    {
-      "id": "msy0vecry64lg",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-18",
-      "minutes": 90,
-      "description": "정학진 신한캐피털 전무 외 잠재적 고객 연락 및 미팅 어래인지",
-      "billable": false
-    },
-    {
-      "id": "msy5xqf0vgnkk",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-18",
+      "date": "2026-07-29",
       "minutes": 240,
-      "description": "군합 김성휘 변호사 박재현 변호사 미팅 및 저녁 회식",
+      "description": "코트라 옴부즈만 팀들 미팅 및 저녁",
       "billable": false
     },
     {
-      "id": "msy5x2d2wkqng",
-      "matterId": "msqr5wp2v6opg",
-      "date": "2026-08-18",
-      "minutes": 150,
-      "description": "장태수 원장님 이시원 변호사외 율촌 변호사와 대면 미팅 수임 조건 논의 : 수임확정",
-      "billable": true
+      "id": "ms7hw6fjvdtez",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-30",
+      "minutes": 36,
+      "description": "알브라이트 김훈 변호사 의견서 수임 논의",
+      "billable": false
     },
     {
-      "id": "mszhetno1wcex",
-      "matterId": "mq3q5pjxu49t3",
-      "date": "2026-08-19",
+      "id": "ms7baueha5hpr",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-30",
+      "minutes": 78,
+      "description": "중국 로펌 알브라이트 군합 등 연락 미팅 어래인지",
+      "billable": false
+    },
+    {
+      "id": "ms7b35xngxswk",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-30",
+      "minutes": 108,
+      "description": "포컴파트너스 미팅",
+      "billable": false
+    },
+    {
+      "id": "msclj47n9a1h5",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-08-03",
       "minutes": 60,
-      "description": "법인 설립 관련 고객 영상 회의",
-      "billable": false
-    },
-    {
-      "id": "mt169qz2vcirx",
-      "matterId": "msykb0m2zwr3m",
-      "date": "2026-08-20",
-      "minutes": 60,
-      "description": "메모 초안 검토",
+      "description": "김계형 변호사 미팅 집핸 재산 변경 상황 대응 논의",
       "billable": true
     },
     {
-      "id": "mt166qj7zxoh2",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-20",
-      "minutes": 90,
-      "description": "NH증권 신남 전략부장 전화 회의 북경법인 이전 관련 사전 회의 및 견적 준비",
-      "billable": false
-    },
-    {
-      "id": "mt164d36nuosg",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-20",
-      "minutes": 138,
-      "description": "폴스타헬스케어 함지원 대표, 디스트릭트 이동훈 대표와 미팅 및 회식",
-      "billable": false
-    },
-    {
-      "id": "mt1638i4xnihf",
-      "matterId": "mspce1rjoapu2",
-      "date": "2026-08-20",
-      "minutes": 90,
-      "description": "임형주 엄상준 변호사와 고객 미팅하고, 고객 질의 내용 검토, 제조업체 조사 방안 및 정부 지원 프로그램 조사",
-      "billable": true
-    },
-    {
-      "id": "mt2tgm5p34q1r",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-21",
-      "minutes": 90,
-      "description": "폴스타헬스케어 함지원 변호사와 미팅, 고객 발굴 논의",
-      "billable": false
-    },
-    {
-      "id": "mt2tfd7jlpcs5",
-      "matterId": "msqr5wp2v6opg",
-      "date": "2026-08-21",
-      "minutes": 24,
-      "description": "의료법 위반과 행정처분 관련된 판례 검토",
-      "billable": true
-    },
-    {
-      "id": "mt6lssdg44lvb",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-24",
-      "minutes": 150,
-      "description": "제원테크 전 대표 정현철 미팅 회식",
-      "billable": false
-    },
-    {
-      "id": "mt6lqt68m2zqx",
+      "id": "msclhxqasdeqx",
       "matterId": "mq33mk2e2x560",
-      "date": "2026-08-24",
-      "minutes": 24,
-      "description": "중국팀 주간회의",
+      "date": "2026-08-03",
+      "minutes": 30,
+      "description": "주간 회의",
       "billable": false
     },
     {
-      "id": "mt6mwn69j8gjr",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-24",
-      "minutes": 60,
-      "description": "현재 수임 진행 중인 사건들 고객들 연락해서 피드백 확인하기",
-      "billable": false
-    },
-    {
-      "id": "mt6vanvw903po",
+      "id": "msceeop22kvd2",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-24",
-      "minutes": 180,
-      "description": "메인스트리트 박순우 대표, 레전드 캐피탈 박준성 미팅 및 회식",
-      "billable": false
-    },
-    {
-      "id": "mt6v9gw1aq9n8",
-      "matterId": "mq4p0ubk74z8q",
-      "date": "2026-08-24",
-      "minutes": 24,
-      "description": "보험금 지금 확인하는 보험회사 이메일 확인 후 중국 세무법인에게 전달. 소멸시효 중단 검토",
-      "billable": true
-    },
-    {
-      "id": "mt6t1jkjcoug9",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-24",
-      "minutes": 60,
-      "description": "제일기획 중국 법인장님 겸 오픈타이드 법인장인 남용식 박사님과 미래에셋 캐피탈 이충환 상무 연결, 미래에셋과 제일기획 중국 마케팅 관련 협의",
-      "billable": false
-    },
-    {
-      "id": "mt884z4yer0ew",
-      "matterId": "mq33mk2e2x560",
-      "date": "2026-08-25",
-      "minutes": 60,
-      "description": "기존 제안서 제출안 안건들의 현재 수임 진행 여부 현안 파악",
-      "billable": false
-    },
-    {
-      "id": "mt848f9uyvgv4",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-25",
-      "minutes": 60,
-      "description": "하나은행 김은희 차장, 송지영 팀장 미팅",
-      "billable": false
-    },
-    {
-      "id": "mt841i63rlthk",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-25",
-      "minutes": 180,
-      "description": "에이스병원 정재훈 원장과 율촌 강신봉 변호사 미팅 및 회식",
-      "billable": false
-    },
-    {
-      "id": "mt840gu2rfl46",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-25",
-      "minutes": 60,
-      "description": "QAI 양자컴퓨터 구매 계약서의 원문에 대한 고객 보호 위한 수정 보완 의견 검토",
-      "billable": false
-    },
-    {
-      "id": "mt83z4szuiuyt",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-08-25",
-      "minutes": 48,
-      "description": "인지정밀 추가 인수자의 조건에 대한 고객과 논의 및 주간 보고서 검토",
-      "billable": true
-    },
-    {
-      "id": "mt9p9hnvon1zs",
-      "matterId": "msqr5wp2v6opg",
-      "date": "2026-08-26",
-      "minutes": 42,
-      "description": "강지원 부장에 대한 경찰 조사 준비 미팅",
-      "billable": true
-    },
-    {
-      "id": "mt9p69lv20glr",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-26",
-      "minutes": 150,
-      "description": "법무법인 지평 김영수 변호사와 미팅 및 저녁 회식",
-      "billable": false
-    },
-    {
-      "id": "mt9p5mjdhesvt",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-26",
-      "minutes": 60,
-      "description": "대성법무법인과 중국 기업 상대로 공정거래와 조세 관련 세미나 기획 논의",
-      "billable": false
-    },
-    {
-      "id": "mt9p4y8uhly32",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-26",
-      "minutes": 42,
-      "description": "정림건축의 전성호 법인장과 연락하여 추가 업무 수임에 대한 논의",
-      "billable": false
-    },
-    {
-      "id": "mt9p43clpgmmx",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-26",
-      "minutes": 132,
-      "description": "전 중국 신한은행 지점장, 신한 벤처 상무 정학진과 미팅 점심",
-      "billable": false
-    },
-    {
-      "id": "mtavajnw3g33n",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-27",
-      "minutes": 120,
-      "description": "solonasset 김승현 대표와 미팅 점심",
-      "billable": false
-    },
-    {
-      "id": "mtav978huramw",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-27",
-      "minutes": 90,
-      "description": "NH 투자 증권 중국 법인 구조 조정에 대한 제안서 초안 검토",
-      "billable": false
-    },
-    {
-      "id": "mtbg3zzuxyse0",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-27",
+      "date": "2026-08-02",
       "minutes": 96,
-      "description": "김재정 조세범처벌법 위반 형사 사건 수임을 위한 검토 및 관련자 전화 회의",
+      "description": "KGA 회사 인수건 관련해서 미팅 사전 검토",
       "billable": false
     },
     {
-      "id": "mtbg2ku9mjodb",
+      "id": "mscedhfkmivjl",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-27",
-      "minutes": 48,
-      "description": "brooks 추가 질의와 업무 범위 확대 및 상응한 견적, 왕변호사와 전화 회의",
+      "date": "2026-08-02",
+      "minutes": 180,
+      "description": "황 대규 베트남 변호사• 蠱熊法務法人 변호사 미팅 및 식사",
       "billable": false
     },
     {
-      "id": "mtbg0yzjs6o5u",
+      "id": "ms9ux1wtd4v9r",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-27",
-      "minutes": 90,
-      "description": "포춘지에서 주재하는 미국 전직 의원들 초청 간담회에 율촌 고객들 참석 요청 및 명단 등 사전 논의",
-      "billable": false
-    },
-    {
-      "id": "mtbaz3trpv0gz",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-27",
-      "minutes": 90,
-      "description": "다보정밀 박성림 상무와 통화. 중국 연태다보와 덕수기전 지분 양도 건 전화 회의 및 상황 파악, 견적 요청 및 이에 대한 대응",
-      "billable": false
-    },
-    {
-      "id": "mtcos3riofft0",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-28",
+      "date": "2026-08-01",
       "minutes": 60,
-      "description": "대성법무법인 소개 bluetop 구매대금 소송 건에 대한 질의에 대한 답변",
+      "description": "글로벌 최저한세 관련해서 본사항 법적 쟁점 검토 계속",
       "billable": false
     },
     {
-      "id": "mtcmn8g4o3jka",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-28",
+      "id": "ms9uuefn960b7",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-08-01",
+      "minutes": 72,
+      "description": "재산 조회와 강제집행과 관련해서 새로운 변동사항에 대한 검토 김 계향 와 대책 논의",
+      "billable": true
+    },
+    {
+      "id": "ms8ht49lnnn4l",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-31",
+      "minutes": 24,
+      "description": "법인 설립 속도를 빨리 하기 위한 방법 검토 논의",
+      "billable": true
+    },
+    {
+      "id": "ms8hr6goo2j1w",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-07-31",
       "minutes": 90,
-      "description": "NH 투자 증권 북경법인 구조조정 법률자문 위한 견적서 최종 검토 및 고객 송부하고 전화 소통",
+      "description": "잠재 매수인 검토 및 이후 진행 상황에 대해서 세무법인과회계법인 내부 회의",
+      "billable": true
+    },
+    {
+      "id": "ms8h204rh0oaz",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-07-31",
+      "minutes": 150,
+      "description": "밍타이 광양 알루미늄 내부 검토 및 고객 회의 준비 와 고객회의",
       "billable": false
     },
     {
-      "id": "mtcmlyoy19hgo",
+      "id": "msgqj2iprosd1",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-28",
-      "minutes": 90,
-      "description": "다보정밀 수임 위한 견적 내부 미팅 및 견적서 작성 고객 송부",
-      "billable": false
-    },
-    {
-      "id": "mtcml70c75kzz",
-      "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-28",
+      "date": "2026-08-06",
       "minutes": 120,
-      "description": "오톤도 김경묵 대표와 미팅 및 식사",
+      "description": "LX 이원재 소개 중국 고객 위한 월간 자문 기준 설정 및 제안서 제출과 소통",
       "billable": false
     },
     {
-      "id": "mtcmkvczqp23t",
+      "id": "msgqha3f2fipt",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-08-05",
+      "minutes": 24,
+      "description": "빌링 내용과 관련 서류 검토",
+      "billable": true
+    },
+    {
+      "id": "msgqfjjhoty1k",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-08-05",
+      "minutes": 30,
+      "description": "관련 서류 검토",
+      "billable": true
+    },
+    {
+      "id": "msgqeybphix9k",
       "matterId": "mq20ac8bqbt35",
-      "date": "2026-08-28",
+      "date": "2026-08-05",
+      "minutes": 108,
+      "description": "한샘 전 CFO 미팅",
+      "billable": false
+    },
+    {
+      "id": "msgqdrzlyivd3",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-05",
+      "minutes": 36,
+      "description": "신동찬 변호사님 요청 포스코 업무 수임 가능한지 중국 관련 내용 검토",
+      "billable": false
+    },
+    {
+      "id": "msgqcu8zclxiy",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-05",
+      "minutes": 138,
+      "description": "문승욱 장관님 미팅 상해 방문 일정 조율 이도안 상해 상무관 연락 일정 조율",
+      "billable": false
+    },
+    {
+      "id": "msha9ihret5qv",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-06",
+      "minutes": 180,
+      "description": "넥스트코리아 세미나 참석 박준성 이기하 대표 등 참석자 미팅",
+      "billable": false
+    },
+    {
+      "id": "msoq71yp8pcub",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-08-11",
+      "minutes": 48,
+      "description": "잠재적 인수 자의 인수 구조 김남호 회계사와 중국 세무법인 논의 인지 정밀 경영진 보고서 검토",
+      "billable": true
+    },
+    {
+      "id": "msoq69ebr0jir",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-11",
+      "minutes": 42,
+      "description": "Xfusion KGA 인수 구조 관련해서 당사자와 중국 로펌 논의",
+      "billable": false
+    },
+    {
+      "id": "msoq4gveuvpsk",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-11",
       "minutes": 60,
-      "description": "이은지 고객과 전화. 상황 파악 및 명의신탁 지분 양도 소송 수임 상담",
+      "description": "큐에이아이 의 나노씨엠에스 한수 구조 논의 및 율촌 내부 컨플릭트 관련해서 유재준 변호사와 논의",
+      "billable": false
+    },
+    {
+      "id": "msoq2k9uqdfjx",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-11",
+      "minutes": 102,
+      "description": "대성 법무법인 김 계향 미팅 및 협력 논의",
+      "billable": false
+    },
+    {
+      "id": "msoq2302yc167",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-11",
+      "minutes": 210,
+      "description": "한양대 중국 MBA 교수와 kotra 그리고 대상 법무법인 협력 논의 및 회식",
+      "billable": false
+    },
+    {
+      "id": "msn81zv3w3yl7",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-10",
+      "minutes": 150,
+      "description": "King lead 와 코트라 투자 미팅 및 회식",
+      "billable": false
+    },
+    {
+      "id": "msn814kh0av87",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-10",
+      "minutes": 150,
+      "description": "DCK, Efusion,instrol 투자 및 상장 해서 인수 구조 검토 및 고객 회의",
+      "billable": false
+    },
+    {
+      "id": "msn7y2bsj4j15",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-08-10",
+      "minutes": 72,
+      "description": "잠재적 투자자 구조에 대한 내부 검토 및 전화 회의",
+      "billable": true
+    },
+    {
+      "id": "msjsvzu2f7ebd",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-08",
+      "minutes": 180,
+      "description": "포츈지 배정윤 부사장 미팅 회식",
+      "billable": false
+    },
+    {
+      "id": "msjsumhqiaglt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-08",
+      "minutes": 180,
+      "description": "전 코레일 수석감사 권세호 미팅 회식",
+      "billable": false
+    },
+    {
+      "id": "msr7jqwtxhqwd",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-13",
+      "minutes": 60,
+      "description": "SK microworks. 한앤코 비딩 참여 제안서 준비 및 컨플릭트 체크 알브라이트 회의",
+      "billable": false
+    },
+    {
+      "id": "msr5i5peja9qt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-12",
+      "minutes": 120,
+      "description": "중국 모텍스 그룹. HYB 미팅 및 회식",
+      "billable": false
+    },
+    {
+      "id": "msr4irrhhotci",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-13",
+      "minutes": 24,
+      "description": "정림건축 출장 보고서 작성및 법인카드 증빙 준비",
+      "billable": false
+    },
+    {
+      "id": "msr4h8hb7yf3t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-12",
+      "minutes": 60,
+      "description": "Hankun 제안서 관련 내부 회의",
+      "billable": false
+    },
+    {
+      "id": "msr4ce19upooo",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-13",
+      "minutes": 180,
+      "description": "율촌 변호사와 코트라 옴부즈만 방문 및 회의 회식",
+      "billable": false
+    },
+    {
+      "id": "msr4bqhb5hyg1",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-13",
+      "minutes": 120,
+      "description": "장태수 365 정형외과 의료법 위반 고객 회의 및 내부 율촌 미팅 어래인지. 사안 정리",
+      "billable": false
+    },
+    {
+      "id": "msr49b29zw0zj",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-12",
+      "minutes": 180,
+      "description": "장보성 김정민 저녁 회식",
+      "billable": false
+    },
+    {
+      "id": "msr48wfn6ho9a",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-08-12",
+      "minutes": 90,
+      "description": "고객 한국 방문 미팅 및 회의 사전 검토 및 논의",
+      "billable": true
+    },
+    {
+      "id": "msr47yzj1hv9w",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-12",
+      "minutes": 150,
+      "description": "QAI 나노씨엠에스 인수 관련 검토 및 고객 미팅. 율촌 내부 컨플릭트 유재준 변호사와 상의",
+      "billable": false
+    },
+    {
+      "id": "msspntssc52b9",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-08-14",
+      "minutes": 60,
+      "description": "잠재적 매수인 의향서 조항 검토 및 세무법인과 회의",
+      "billable": true
+    },
+    {
+      "id": "msspc49jzb5ro",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-14",
+      "minutes": 180,
+      "description": "레전드 캐피탈 및 모다모다 대표 미팅 회식",
+      "billable": false
+    },
+    {
+      "id": "msspbf06zo15z",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-14",
+      "minutes": 60,
+      "description": "장태수 의료법 위반 사건 파악및 미팅 어래인지",
+      "billable": false
+    },
+    {
+      "id": "msspa5exae88y",
+      "matterId": "mrk20ngsyg541",
+      "date": "2026-08-14",
+      "minutes": 60,
+      "description": "김계향 미팅. 재직증명서 공증 등 논의",
+      "billable": true
+    },
+    {
+      "id": "mswtrlv6kp731",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-16",
+      "minutes": 150,
+      "description": "강석훈 변호사님 지시 북경변호사협회 일대일로 로펌 등록 검토및 메일 서류 초안 작성",
+      "billable": false
+    },
+    {
+      "id": "mstspf18czcsb",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-15",
+      "minutes": 144,
+      "description": "김수진 유류분 상속 재산 분할 유언 등 관련 소송 분쟁에 대한 검토 및 고객 전화 회의 율촌 김성우 변호사에게 고객 소개",
+      "billable": false
+    },
+    {
+      "id": "msypjpjh9920l",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-08-18",
+      "minutes": 60,
+      "description": "삼성이엔아이 중국 국무령 관련 메모 질의 검토 및 분석",
+      "billable": true
+    },
+    {
+      "id": "mt03mht00i3lv",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-19",
+      "minutes": 210,
+      "description": "전 SK 차이나 이종산 회장과 미팅 및 회식",
+      "billable": false
+    },
+    {
+      "id": "mt03ljhncc3yj",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-08-19",
+      "minutes": 120,
+      "description": "고객 미팅 필요 서류 공증",
+      "billable": true
+    },
+    {
+      "id": "mt2bgmbipo64t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-21",
+      "minutes": 210,
+      "description": "중국국제무역촉지회 서자강 수석대표 미팅 및 식사",
+      "billable": false
+    },
+    {
+      "id": "mt2bff46w54so",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-21",
+      "minutes": 120,
+      "description": "NH 증권 신남부장, 김지영 대리 제안서 요청 메일, 내부 회의 및 견적서 초안 작성",
+      "billable": false
+    },
+    {
+      "id": "mt5eymx1vu5sn",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-23",
+      "minutes": 90,
+      "description": "군합 김성휘 변호사 소개한 고객 법인설립 관련 상담. 협력관계 모색",
+      "billable": false
+    },
+    {
+      "id": "mt5exmm57m0fd",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-22",
+      "minutes": 150,
+      "description": "QAI 양자컴퓨터 구매 계약서 관련 고객 전화와 수장 사항 검토",
+      "billable": false
+    },
+    {
+      "id": "mt7z8uiqjrybg",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-25",
+      "minutes": 180,
+      "description": "태재재단 조창걸 회장님 미팅",
+      "billable": false
+    },
+    {
+      "id": "mtfnjcj06ky8a",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-30",
+      "minutes": 30,
+      "description": "다보정밀 견적서 수정해서 고객에게 제공",
+      "billable": false
+    },
+    {
+      "id": "mtfnimsbh02lv",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-30",
+      "minutes": 180,
+      "description": "시원이노텍과 DFC 가 넥사다이내믹스 인수하는 프로잭트 수임 위한 미팅 및 법적 검토",
+      "billable": false
+    },
+    {
+      "id": "mte1qop833lq2",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-08-29",
+      "minutes": 60,
+      "description": "대상 법무법인 블루 탑 소송 수행 위한 질의 대한 검토 및 답변",
       "billable": false
     }
   ],
   "payments": [
     {
-      "id": "msjlmj6jq0v5b",
-      "matterId": "mreru4m1yw0u4",
-      "date": "2026-08-08",
-      "amount": 20000,
-      "currency": "KRW",
-      "rate_on_date": null,
-      "krw_amount": 20000,
+      "id": "ms5gqnlhkqy91",
+      "matterId": "mqelrjr4iee53",
+      "date": "2026-07-29",
+      "amount": 4424,
+      "currency": "USD",
+      "rate_on_date": 1460,
+      "krw_amount": 6459040,
+      "note": "금액"
+    },
+    {
+      "id": "mq2gm94hsvzaf",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": "일부 잔금"
+    },
+    {
+      "id": "mq2glry4736rd",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-06-06",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 226,
+      "krw_amount": 11300000,
+      "note": ""
+    },
+    {
+      "id": "mq69n9n8mn1mq",
+      "matterId": "mq20lebejr8qp",
+      "date": "2026-01-09",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": "착수금"
+    },
+    {
+      "id": "mqbzdem94omuw",
+      "matterId": "mqbzc2fexwrdg",
+      "date": "2026-06-15",
+      "amount": 3000,
+      "currency": "USD",
+      "rate_on_date": 1517,
+      "krw_amount": 4551000,
       "note": "1 차 착수금"
     },
     {
-      "id": "ms2mfpd0crl9a",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-07-27",
-      "amount": 4424,
+      "id": "mqhkdfj8qndbl",
+      "matterId": "mqbzc2fexwrdg",
+      "date": "2026-06-17",
+      "amount": 3000,
       "currency": "USD",
-      "rate_on_date": 1486,
-      "krw_amount": 6574064,
-      "note": ""
-    },
-    {
-      "id": "mrmve8r9dtccj",
-      "matterId": "mq682ysy3qq32",
-      "date": "2026-07-31",
-      "amount": 225300,
-      "currency": "CNY",
-      "rate_on_date": 218,
-      "krw_amount": 49115400,
-      "note": ""
-    },
-    {
-      "id": "mrlg7ev79ov3g",
-      "matterId": "mq682ysy3qq32",
-      "date": "2026-07-31",
-      "amount": 180000,
-      "currency": "CNY",
-      "rate_on_date": 218,
-      "krw_amount": 39240000,
-      "note": ""
+      "rate_on_date": 1508,
+      "krw_amount": 4524000,
+      "note": "1차 착수금"
     },
     {
       "id": "mr2nrmbk0t401",
@@ -3992,64 +4020,44 @@
       "note": ""
     },
     {
-      "id": "mqhkdfj8qndbl",
-      "matterId": "mqbzc2fexwrdg",
-      "date": "2026-06-17",
-      "amount": 3000,
-      "currency": "USD",
-      "rate_on_date": 1508,
-      "krw_amount": 4524000,
-      "note": "1차 착수금"
-    },
-    {
-      "id": "mq2gm94hsvzaf",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
-      "amount": 50000,
+      "id": "mrmve8r9dtccj",
+      "matterId": "mq682ysy3qq32",
+      "date": "2026-07-31",
+      "amount": 225300,
       "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
-      "note": "일부 잔금"
-    },
-    {
-      "id": "mq69n9n8mn1mq",
-      "matterId": "mq20lebejr8qp",
-      "date": "2026-01-09",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 200,
-      "krw_amount": 10000000,
-      "note": "착수금"
-    },
-    {
-      "id": "mq2glry4736rd",
-      "matterId": "mq20hw066a9x0",
-      "date": "2026-06-06",
-      "amount": 50000,
-      "currency": "CNY",
-      "rate_on_date": 226,
-      "krw_amount": 11300000,
+      "rate_on_date": 218,
+      "krw_amount": 49115400,
       "note": ""
     },
     {
-      "id": "mqbzdem94omuw",
-      "matterId": "mqbzc2fexwrdg",
-      "date": "2026-06-15",
-      "amount": 3000,
-      "currency": "USD",
-      "rate_on_date": 1517,
-      "krw_amount": 4551000,
-      "note": "1 차 착수금"
+      "id": "mrlg7ev79ov3g",
+      "matterId": "mq682ysy3qq32",
+      "date": "2026-07-31",
+      "amount": 180000,
+      "currency": "CNY",
+      "rate_on_date": 218,
+      "krw_amount": 39240000,
+      "note": ""
     },
     {
-      "id": "ms5gqnlhkqy91",
+      "id": "ms2mfpd0crl9a",
       "matterId": "mqelrjr4iee53",
-      "date": "2026-07-29",
+      "date": "2026-07-27",
       "amount": 4424,
       "currency": "USD",
-      "rate_on_date": 1460,
-      "krw_amount": 6459040,
-      "note": "금액"
+      "rate_on_date": 1486,
+      "krw_amount": 6574064,
+      "note": ""
+    },
+    {
+      "id": "msjlmj6jq0v5b",
+      "matterId": "mreru4m1yw0u4",
+      "date": "2026-08-08",
+      "amount": 20000,
+      "currency": "KRW",
+      "rate_on_date": null,
+      "krw_amount": 20000,
+      "note": "1 차 착수금"
     }
   ],
   "clients": [
@@ -4090,40 +4098,6 @@
       "website": "",
       "address": "",
       "note": "",
-      "meetings": []
-    },
-    {
-      "id": "mrm504m89kp4d",
-      "name": "삼성물산",
-      "country": "한국",
-      "industry": "부동산",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mrfs72fq7nvjg",
-      "name": "소셜에티켓",
-      "fullname": "소셜에티켓",
-      "industry": "의류 제조 유통",
-      "country": "한국",
-      "status": "active",
-      "phone": "",
-      "website": "",
-      "address": "",
-      "note": "",
-      "meetings": []
-    },
-    {
-      "id": "mrmpq7vup24av",
-      "name": "시몬느",
-      "fullname": "",
-      "industry": "",
-      "country": "",
-      "status": "active",
-      "phone": "",
-      "website": "http://www.simone.co.kr/",
-      "address": "279, Gyeongsu-daero (Gocheon-dong), Uiwang-si, Gyeonggi-do, Korea",
-      "note": "이수연 고객",
       "meetings": []
     },
     {
@@ -4205,12 +4179,46 @@
       "meetings": []
     },
     {
+      "id": "mrfs72fq7nvjg",
+      "name": "소셜에티켓",
+      "fullname": "소셜에티켓",
+      "industry": "의류 제조 유통",
+      "country": "한국",
+      "status": "active",
+      "phone": "",
+      "website": "",
+      "address": "",
+      "note": "",
+      "meetings": []
+    },
+    {
       "id": "mrheu3wmnj3z7",
       "name": "TSJ 티에스제이 황동우 임세만",
       "country": "한국",
       "industry": "IT",
       "note": "임세만 소개",
       "contacts": []
+    },
+    {
+      "id": "mrm504m89kp4d",
+      "name": "삼성물산",
+      "country": "한국",
+      "industry": "부동산",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "mrmpq7vup24av",
+      "name": "시몬느",
+      "fullname": "",
+      "industry": "",
+      "country": "",
+      "status": "active",
+      "phone": "",
+      "website": "http://www.simone.co.kr/",
+      "address": "279, Gyeongsu-daero (Gocheon-dong), Uiwang-si, Gyeonggi-do, Korea",
+      "note": "이수연 고객",
+      "meetings": []
     },
     {
       "id": "mrn14be61nvmb",
@@ -4343,6 +4351,16 @@
   ],
   "contacts": [
     {
+      "id": "msykaiw8sq3pc",
+      "name": "구영완",
+      "clientId": "msyk9cl3nwypz",
+      "title": "",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "삼성이앤아이"
+    },
+    {
       "id": "mqg8nxo26ytip",
       "name": "권오빈",
       "title": "변호사",
@@ -4377,6 +4395,16 @@
       "note": ""
     },
     {
+      "id": "mrn15d9noepml",
+      "name": "김남호",
+      "clientId": "mrn14be61nvmb",
+      "title": "",
+      "mobile": "+82 10-9976-0648",
+      "email": "",
+      "wechat": "",
+      "company": "디오"
+    },
+    {
       "id": "mrm527otr1v1h",
       "name": "김우남",
       "clientId": "mrm504m89kp4d",
@@ -4402,6 +4430,36 @@
       "address": "서울특별시 마포구 월드컵북로 35 5층",
       "tags": [],
       "note": ""
+    },
+    {
+      "id": "ms7c6g39vahfn",
+      "name": "김훈",
+      "clientId": "ms7c62zqkanis",
+      "title": "변호사",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "알브라이트"
+    },
+    {
+      "id": "msjqqmrv77xzc",
+      "name": "나나",
+      "clientId": "msjqqgwyr5ppa",
+      "title": "",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "나나"
+    },
+    {
+      "id": "mtbe9ze9xju3d",
+      "name": "박성림",
+      "clientId": "mtbe8iwlkwjzn",
+      "title": "CFO",
+      "mobile": "01027778477",
+      "email": "srpark@dabo21.com",
+      "wechat": "",
+      "company": "다보정밀"
     },
     {
       "id": "mq3d7az27rk27",
@@ -4438,6 +4496,26 @@
       "note": ""
     },
     {
+      "id": "mrt577bl2j785",
+      "name": "徐 敬 霞",
+      "clientId": "mrt53m1tx8ylw",
+      "title": "律师 安杰世泽律师事务所",
+      "mobile": "+86 137 2678 1334",
+      "email": "xujingxia@anjielaw.com",
+      "wechat": "",
+      "company": "中远海运客运"
+    },
+    {
+      "id": "mt1564ea6h98i",
+      "name": "신남",
+      "clientId": "mt1552lbbv0xi",
+      "title": "전략기획부장",
+      "mobile": "+821062474642",
+      "email": "",
+      "wechat": "",
+      "company": "NH증권"
+    },
+    {
       "id": "mrerwo2qpndpu",
       "name": "王广梅",
       "title": "법무팀",
@@ -4472,6 +4550,16 @@
       "note": "동관대표처 설립. 이수연 변호사 고객"
     },
     {
+      "id": "mspcczm0kj0aw",
+      "name": "이동규",
+      "clientId": "mspcciqkyixp8",
+      "title": "CFO",
+      "mobile": "",
+      "email": "",
+      "wechat": "",
+      "company": "와이어트"
+    },
+    {
       "id": "mrd1iqrizpu0p",
       "name": "이상만",
       "title": "팀장",
@@ -4487,6 +4575,23 @@
       "address": "",
       "tags": [],
       "note": ""
+    },
+    {
+      "id": "mtcln0ptc9btg",
+      "name": "이은지",
+      "title": "",
+      "dept": "",
+      "company": "",
+      "clientId": null,
+      "email": "",
+      "mobile": "01025467321",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-08-28",
+      "address": "",
+      "tags": [],
+      "note": "북경법인 상속 명의 신탁 해지"
     },
     {
       "id": "mqrjze9pgd7q2",
@@ -4586,56 +4691,6 @@
       "note": "물품 구입 소송"
     },
     {
-      "id": "mrn15d9noepml",
-      "name": "김남호",
-      "clientId": "mrn14be61nvmb",
-      "title": "",
-      "mobile": "+82 10-9976-0648",
-      "email": "",
-      "wechat": "",
-      "company": "디오"
-    },
-    {
-      "id": "mrt577bl2j785",
-      "name": "徐 敬 霞",
-      "clientId": "mrt53m1tx8ylw",
-      "title": "律师 安杰世泽律师事务所",
-      "mobile": "+86 137 2678 1334",
-      "email": "xujingxia@anjielaw.com",
-      "wechat": "",
-      "company": "中远海运客运"
-    },
-    {
-      "id": "ms7c6g39vahfn",
-      "name": "김훈",
-      "clientId": "ms7c62zqkanis",
-      "title": "변호사",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "알브라이트"
-    },
-    {
-      "id": "msjqqmrv77xzc",
-      "name": "나나",
-      "clientId": "msjqqgwyr5ppa",
-      "title": "",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "나나"
-    },
-    {
-      "id": "mspcczm0kj0aw",
-      "name": "이동규",
-      "clientId": "mspcciqkyixp8",
-      "title": "CFO",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "와이어트"
-    },
-    {
       "id": "msq4x6wazor89",
       "name": "Wenye Shi",
       "clientId": "msq4q4z6xqyy4",
@@ -4644,53 +4699,6 @@
       "email": "wenye.shi@hankunlaw.com",
       "wechat": "",
       "company": "Hankun"
-    },
-    {
-      "id": "msykaiw8sq3pc",
-      "name": "구영완",
-      "clientId": "msyk9cl3nwypz",
-      "title": "",
-      "mobile": "",
-      "email": "",
-      "wechat": "",
-      "company": "삼성이앤아이"
-    },
-    {
-      "id": "mt1564ea6h98i",
-      "name": "신남",
-      "clientId": "mt1552lbbv0xi",
-      "title": "전략기획부장",
-      "mobile": "+821062474642",
-      "email": "",
-      "wechat": "",
-      "company": "NH증권"
-    },
-    {
-      "id": "mtbe9ze9xju3d",
-      "name": "박성림",
-      "clientId": "mtbe8iwlkwjzn",
-      "title": "CFO",
-      "mobile": "01027778477",
-      "email": "srpark@dabo21.com",
-      "wechat": "",
-      "company": "다보정밀"
-    },
-    {
-      "id": "mtcln0ptc9btg",
-      "name": "이은지",
-      "title": "",
-      "dept": "",
-      "company": "",
-      "clientId": null,
-      "email": "",
-      "mobile": "01025467321",
-      "tel": "",
-      "wechat": "",
-      "kakao": "",
-      "met_date": "2026-08-28",
-      "address": "",
-      "tags": [],
-      "note": "북경법인 상속 명의 신탁 해지"
     },
     {
       "id": "mtfmkw05kzrch",
@@ -4832,6 +4840,19 @@
       "doneAt": "2026-06-08"
     },
     {
+      "id": "mq4m4ji8k99qf",
+      "title": "중국 유학생 성추행 사건 파악하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq4lxl561un1a",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": true,
+      "doneAt": "2026-06-10"
+    },
+    {
       "id": "mq4mpoqexg8jg",
       "title": "파트라 청도 법원 출장 보고서 쓰기",
       "cat": "yulchon",
@@ -4947,19 +4968,6 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-06-09"
-    },
-    {
-      "id": "mq4m4ji8k99qf",
-      "title": "중국 유학생 성추행 사건 파악하기",
-      "cat": "yulchon",
-      "priority": "normal",
-      "due": "",
-      "matterId": "mq4lxl561un1a",
-      "note": "",
-      "link": "",
-      "linkLabel": "",
-      "done": true,
-      "doneAt": "2026-06-10"
     },
     {
       "id": "mq6lakwdossyr",
@@ -5755,19 +5763,6 @@
       "doneAt": null
     },
     {
-      "id": "mt3rjgstgdjai",
-      "title": "Brooks 업무범위와 비용 조정",
-      "cat": "yulchon",
-      "priority": "high",
-      "due": "2026-08-31",
-      "matterId": "mq205p2ptqpyp",
-      "note": "",
-      "link": "",
-      "linkLabel": "",
-      "done": false,
-      "doneAt": null
-    },
-    {
       "id": "mt3rowcr2bh25",
       "title": "황동우 임세만 팔로우업",
       "cat": "yulchon",
@@ -5846,6 +5841,19 @@
       "doneAt": null
     },
     {
+      "id": "mt3rjgstgdjai",
+      "title": "Brooks 업무범위와 비용 조정",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-08-31",
+      "matterId": "mq205p2ptqpyp",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
+    },
+    {
       "id": "mtcq9dgi28fbn",
       "title": "인지 매도 자문 계약서",
       "cat": "yulchon",
@@ -5861,22 +5869,22 @@
   ],
   "expenses": [
     {
-      "id": "mtggsu3bo2sh7",
-      "matterId": "mt156e7kdc2ec",
+      "id": "mq6ddvo7bsubl",
+      "matterId": "mq20lebejr8qp",
       "vendor": "세무법인",
-      "amount": 80000,
+      "amount": 50000,
       "currency": "CNY",
-      "krw_amount": 16800000,
-      "note": "법인이전 절차 세무 등",
+      "krw_amount": 11450000,
+      "note": "청산 세무 자문",
       "paidDate": null
     },
     {
-      "id": "mrfs3lloqtaxi",
+      "id": "mqax65lcoerz4",
       "matterId": "",
-      "vendor": "Biying 세무법인",
-      "amount": 16000,
-      "currency": "CNY",
-      "krw_amount": 3552000,
+      "vendor": "대성",
+      "amount": 1,
+      "currency": "KRW",
+      "krw_amount": 1,
       "note": "",
       "paidDate": null
     },
@@ -5891,382 +5899,60 @@
       "paidDate": null
     },
     {
-      "id": "mqax65lcoerz4",
+      "id": "mrfs3lloqtaxi",
       "matterId": "",
-      "vendor": "대성",
-      "amount": 1,
-      "currency": "KRW",
-      "krw_amount": 1,
+      "vendor": "Biying 세무법인",
+      "amount": 16000,
+      "currency": "CNY",
+      "krw_amount": 3552000,
       "note": "",
       "paidDate": null
     },
     {
-      "id": "mq6ddvo7bsubl",
-      "matterId": "mq20lebejr8qp",
+      "id": "mt3qgk662tanq",
+      "matterId": "mt156e7kdc2ec",
       "vendor": "세무법인",
-      "amount": 50000,
+      "amount": 80000,
       "currency": "CNY",
-      "krw_amount": 11450000,
-      "note": "청산 세무 자문",
+      "krw_amount": 16800000,
+      "note": "",
+      "paidDate": null
+    },
+    {
+      "id": "mtggsu3bo2sh7",
+      "matterId": "mt156e7kdc2ec",
+      "vendor": "세무법인",
+      "amount": 80000,
+      "currency": "CNY",
+      "krw_amount": 16800000,
+      "note": "법인이전 절차 세무 등",
       "paidDate": null
     }
   ],
   "cardExpenses": [
     {
-      "id": "mtdrydcnioq8i",
-      "date": "2026-08-29",
-      "amount": 20000,
-      "currency": "KRW",
-      "category": "교통",
-      "merchant": "대한항공",
-      "content": "죄석 유료 체크인",
-      "attendees": [
-        "정상훈"
-      ],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "mtdrxmv2o08wj",
-      "date": "2026-08-29",
-      "amount": 398100,
-      "currency": "KRW",
-      "category": "교통",
-      "merchant": "대한항공",
-      "content": "10월 3일 김포에서 상해 홍쿄 편도 비행기",
-      "attendees": [
-        "정상훈"
-      ],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "mtcetiflslfrh",
-      "date": "2026-08-28",
-      "amount": 43900,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "북창순두부",
-      "content": "점심식사",
-      "attendees": [],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mtb3d0ohsp1e7",
-      "date": "2026-08-27",
-      "amount": 38000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "지호 삼계탕",
-      "content": "점심식사",
-      "attendees": [
-        "솔론에셋 김승현"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mt9zwwitlxafk",
-      "date": "2026-08-26",
-      "amount": 84000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "식껍",
-      "content": "저녁식사",
-      "attendees": [
-        "지평 김영수 변호사"
-      ],
-      "matterId": null
-    },
-    {
-      "id": "mt9muv7ctnegf",
-      "date": "2026-08-26",
-      "amount": 81000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "경복궁",
-      "content": "점심식사",
-      "attendees": [
-        "신한 벤처 전 전무 정학진"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mt76ljpn846ls",
-      "date": "2026-08-24",
-      "amount": 194000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "열해",
-      "content": "저녁식사",
-      "attendees": [
-        "메인스트리트 박순우 레전드캐피탈 박준성"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mt6ubdxl0i928",
-      "date": "2026-08-24",
-      "amount": 50000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "홍영재 청국장",
-      "content": "점심식사",
-      "attendees": [
-        "제원테크 정현철"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mt1031wdy57th",
-      "date": "2026-08-20",
-      "amount": 48000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "밀밭 국수",
-      "content": "점심식사",
-      "attendees": [
-        "함지원 폴스타헬스케어. 이동훈 디스트릭트 대표"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mszkvozuqkmm7",
-      "date": "2026-08-19",
-      "amount": 339000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "갓포아키 삼성점",
-      "content": "점심식사",
-      "attendees": [
-        "#CF3 업무지원팀 식사"
-      ],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "msyk35ifsqnmn",
-      "date": "2026-08-18",
-      "amount": 506600,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "모도우삼성점",
-      "content": "저녁식사",
-      "attendees": [
-        "쥔허 김성휘 변호사. 김정민 주영애"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "msr1uklysv1c1",
-      "date": "2026-08-13",
-      "amount": 16800,
-      "currency": "KRW",
-      "category": "접대",
-      "merchant": "코트라무역진흥",
-      "content": "커피",
-      "attendees": [
-        "코트라 옴부즈만 4 명 율촌변호사  2 명"
-      ],
-      "matterId": null
-    },
-    {
-      "id": "msq2kr4zaqfc4",
+      "id": "msplxkl6xagb7",
       "date": "2026-08-12",
-      "amount": 241000,
+      "amount": 90000,
       "currency": "KRW",
       "category": "식사",
-      "merchant": "목포명가",
-      "content": "저녁식사",
-      "attendees": [
-        "율촌 김정민 장보성"
-      ],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "msoopguucf0hl",
-      "date": "2026-08-11",
-      "amount": 150000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "두껍삼 역삼",
-      "content": "저녁식사",
-      "attendees": [
-        "한양대 코트라 대성"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "msn4mmow101gs",
-      "date": "2026-08-10",
-      "amount": 121000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "마포네숫불 돼지갈비",
-      "content": "저녁식사",
-      "attendees": [
-        "코트라 정영수 실장 중국 잠재 투자자 장종 등 총 4 인",
-        "Suzhou king lead environmental company"
-      ],
-      "matterId": null
-    },
-    {
-      "id": "mskcgujp8i9x7",
-      "date": "2026-08-08",
-      "amount": 138000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "이촌 가온",
-      "content": "저녁식사",
-      "attendees": [
-        "포춘 코리아 배정윤 대표. 레전드캐피탈 박준성"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "msivsp0bnk49j",
-      "date": "2026-08-07",
-      "amount": 290000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "중식당 수녹",
-      "content": "저녁식사",
-      "attendees": [
-        "전 특허청장 김완기. 전 한샘 회장 강승수"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "msiggoho0f1r4",
-      "date": "2026-08-07",
-      "amount": 46710,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "차이",
+      "merchant": "중앙해장",
       "content": "점심식사",
       "attendees": [
-        "김정민 율촌 변호사"
-      ],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "msep28wm987ll",
-      "date": "2026-08-04",
-      "amount": 19990,
-      "currency": "KRW",
-      "category": "교통",
-      "merchant": "카카오",
-      "content": "택시이동",
-      "attendees": [
-        "삼성역- 신용산역"
+        "HYB 대표 및 두원장 등"
       ],
       "matterId": "mq20ac8bqbt35"
     },
     {
-      "id": "mse4ujwwabhr1",
-      "date": "2026-08-04",
-      "amount": 251100,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "경복궁",
-      "content": "점심식사",
-      "attendees": [
-        "알브라이트 김창화 변호사 포함 6 인"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "msd73xsvtoiic",
-      "date": "2026-08-03",
-      "amount": 272000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "가담",
-      "content": "저녁식사",
-      "attendees": [
-        "DS 강승수 레전드태피탈 박준성 드스트릭트 이동훈 율촌 이승범"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mscr5wpltmbqi",
-      "date": "2026-08-03",
-      "amount": 41000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "무교낙지",
-      "content": "점심식사",
-      "attendees": [
-        "김계향 대성법무법인"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "ms6y4a5vty7pd",
-      "date": "2026-07-30",
-      "amount": 26000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "강남교자",
-      "content": "점심식사",
-      "attendees": [
-        "바른 류종명 변호사"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "ms60g6jlndfct",
-      "date": "2026-07-29",
-      "amount": 516000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "한가대로",
-      "content": "코트라 옴부즈만 팀 식사",
-      "attendees": [
-        "정영수 팀장 외 2 명 율촌 변호사 2 명"
-      ],
-      "matterId": null
-    },
-    {
-      "id": "ms2syxz5lltpe",
-      "date": "2026-07-27",
-      "amount": 50000,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "홍영재장수청국장",
-      "content": "점심식사",
-      "attendees": [
-        "한양대"
-      ],
-      "matterId": "mq20ac8bqbt35"
-    },
-    {
-      "id": "mryg6s7bp2gwo",
-      "date": "2026-07-24",
-      "amount": 137700,
-      "currency": "KRW",
-      "category": "식사",
-      "content": "법무 지원팀 커피",
-      "attendees": [],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "mryg54nvib5c4",
-      "date": "2026-07-24",
-      "amount": 551250,
-      "currency": "KRW",
-      "category": "식사",
-      "merchant": "페이홍러우",
-      "content": "율촌 법무 지원팀 회식",
-      "attendees": [],
-      "matterId": "mq33mk2e2x560"
-    },
-    {
-      "id": "mrx69ms6ru9ov",
-      "date": "2026-07-23",
-      "amount": 24400,
+      "id": "mrq95jupn86ko",
+      "date": "2026-07-18",
+      "amount": 338900,
       "currency": "KRW",
       "category": "식사",
       "merchant": "",
-      "content": "커피",
+      "content": "중국 목원 그룹 미팅",
       "attendees": [
-        "미래에셋캐피탈 이충환"
+        "목원그룹 4 명 코트라 정영수 실장"
       ],
       "matterId": "mq20ac8bqbt35"
     },
@@ -6320,30 +6006,362 @@
       "matterId": "mq20ac8bqbt35"
     },
     {
-      "id": "mrq95jupn86ko",
-      "date": "2026-07-18",
-      "amount": 338900,
+      "id": "mryg6s7bp2gwo",
+      "date": "2026-07-24",
+      "amount": 137700,
+      "currency": "KRW",
+      "category": "식사",
+      "content": "법무 지원팀 커피",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
+      "id": "mryg54nvib5c4",
+      "date": "2026-07-24",
+      "amount": 551250,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "페이홍러우",
+      "content": "율촌 법무 지원팀 회식",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
+      "id": "mrx69ms6ru9ov",
+      "date": "2026-07-23",
+      "amount": 24400,
       "currency": "KRW",
       "category": "식사",
       "merchant": "",
-      "content": "중국 목원 그룹 미팅",
+      "content": "커피",
       "attendees": [
-        "목원그룹 4 명 코트라 정영수 실장"
+        "미래에셋캐피탈 이충환"
       ],
       "matterId": "mq20ac8bqbt35"
     },
     {
-      "id": "msplxkl6xagb7",
-      "date": "2026-08-12",
-      "amount": 90000,
+      "id": "ms2syxz5lltpe",
+      "date": "2026-07-27",
+      "amount": 50000,
       "currency": "KRW",
       "category": "식사",
-      "merchant": "중앙해장",
+      "merchant": "홍영재장수청국장",
       "content": "점심식사",
       "attendees": [
-        "HYB 대표 및 두원장 등"
+        "한양대"
       ],
       "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "ms6y4a5vty7pd",
+      "date": "2026-07-30",
+      "amount": 26000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "강남교자",
+      "content": "점심식사",
+      "attendees": [
+        "바른 류종명 변호사"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "ms60g6jlndfct",
+      "date": "2026-07-29",
+      "amount": 516000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "한가대로",
+      "content": "코트라 옴부즈만 팀 식사",
+      "attendees": [
+        "정영수 팀장 외 2 명 율촌 변호사 2 명"
+      ],
+      "matterId": null
+    },
+    {
+      "id": "mscr5wpltmbqi",
+      "date": "2026-08-03",
+      "amount": 41000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "무교낙지",
+      "content": "점심식사",
+      "attendees": [
+        "김계향 대성법무법인"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "msep28wm987ll",
+      "date": "2026-08-04",
+      "amount": 19990,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "카카오",
+      "content": "택시이동",
+      "attendees": [
+        "삼성역- 신용산역"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mse4ujwwabhr1",
+      "date": "2026-08-04",
+      "amount": 251100,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "경복궁",
+      "content": "점심식사",
+      "attendees": [
+        "알브라이트 김창화 변호사 포함 6 인"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "msd73xsvtoiic",
+      "date": "2026-08-03",
+      "amount": 272000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "가담",
+      "content": "저녁식사",
+      "attendees": [
+        "DS 강승수 레전드태피탈 박준성 드스트릭트 이동훈 율촌 이승범"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "msivsp0bnk49j",
+      "date": "2026-08-07",
+      "amount": 290000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "중식당 수녹",
+      "content": "저녁식사",
+      "attendees": [
+        "전 특허청장 김완기. 전 한샘 회장 강승수"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "msiggoho0f1r4",
+      "date": "2026-08-07",
+      "amount": 46710,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "차이",
+      "content": "점심식사",
+      "attendees": [
+        "김정민 율촌 변호사"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
+      "id": "msoopguucf0hl",
+      "date": "2026-08-11",
+      "amount": 150000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "두껍삼 역삼",
+      "content": "저녁식사",
+      "attendees": [
+        "한양대 코트라 대성"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "msn4mmow101gs",
+      "date": "2026-08-10",
+      "amount": 121000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "마포네숫불 돼지갈비",
+      "content": "저녁식사",
+      "attendees": [
+        "코트라 정영수 실장 중국 잠재 투자자 장종 등 총 4 인",
+        "Suzhou king lead environmental company"
+      ],
+      "matterId": null
+    },
+    {
+      "id": "mskcgujp8i9x7",
+      "date": "2026-08-08",
+      "amount": 138000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "이촌 가온",
+      "content": "저녁식사",
+      "attendees": [
+        "포춘 코리아 배정윤 대표. 레전드캐피탈 박준성"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "msr1uklysv1c1",
+      "date": "2026-08-13",
+      "amount": 16800,
+      "currency": "KRW",
+      "category": "접대",
+      "merchant": "코트라무역진흥",
+      "content": "커피",
+      "attendees": [
+        "코트라 옴부즈만 4 명 율촌변호사  2 명"
+      ],
+      "matterId": null
+    },
+    {
+      "id": "msq2kr4zaqfc4",
+      "date": "2026-08-12",
+      "amount": 241000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "목포명가",
+      "content": "저녁식사",
+      "attendees": [
+        "율촌 김정민 장보성"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
+      "id": "msyk35ifsqnmn",
+      "date": "2026-08-18",
+      "amount": 506600,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "모도우삼성점",
+      "content": "저녁식사",
+      "attendees": [
+        "쥔허 김성휘 변호사. 김정민 주영애"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mszkvozuqkmm7",
+      "date": "2026-08-19",
+      "amount": 339000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "갓포아키 삼성점",
+      "content": "점심식사",
+      "attendees": [
+        "#CF3 업무지원팀 식사"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
+      "id": "mt1031wdy57th",
+      "date": "2026-08-20",
+      "amount": 48000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "밀밭 국수",
+      "content": "점심식사",
+      "attendees": [
+        "함지원 폴스타헬스케어. 이동훈 디스트릭트 대표"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mt76ljpn846ls",
+      "date": "2026-08-24",
+      "amount": 194000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "열해",
+      "content": "저녁식사",
+      "attendees": [
+        "메인스트리트 박순우 레전드캐피탈 박준성"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mt6ubdxl0i928",
+      "date": "2026-08-24",
+      "amount": 50000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "홍영재 청국장",
+      "content": "점심식사",
+      "attendees": [
+        "제원테크 정현철"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mt9muv7ctnegf",
+      "date": "2026-08-26",
+      "amount": 81000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "경복궁",
+      "content": "점심식사",
+      "attendees": [
+        "신한 벤처 전 전무 정학진"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mt9zwwitlxafk",
+      "date": "2026-08-26",
+      "amount": 84000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "식껍",
+      "content": "저녁식사",
+      "attendees": [
+        "지평 김영수 변호사"
+      ],
+      "matterId": null
+    },
+    {
+      "id": "mtb3d0ohsp1e7",
+      "date": "2026-08-27",
+      "amount": 38000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "지호 삼계탕",
+      "content": "점심식사",
+      "attendees": [
+        "솔론에셋 김승현"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mtcetiflslfrh",
+      "date": "2026-08-28",
+      "amount": 43900,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "북창순두부",
+      "content": "점심식사",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
+      "id": "mtdrydcnioq8i",
+      "date": "2026-08-29",
+      "amount": 20000,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "대한항공",
+      "content": "죄석 유료 체크인",
+      "attendees": [
+        "정상훈"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
+      "id": "mtdrxmv2o08wj",
+      "date": "2026-08-29",
+      "amount": 398100,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "대한항공",
+      "content": "10월 3일 김포에서 상해 홍쿄 편도 비행기",
+      "attendees": [
+        "정상훈"
+      ],
+      "matterId": "mq33mk2e2x560"
     }
   ]
 }
