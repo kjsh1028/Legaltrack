@@ -1270,7 +1270,7 @@
       "name": "키움 부동산 의정부/화양동",
       "client": "키움증권",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1299,7 +1299,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mruc3pffc5vpe",
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-08-31",
+      "fail_category": "기타",
+      "fail_reason": "박재현 변호사가 답이 없음",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mrd1gkqdcxkap",
