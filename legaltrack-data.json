@@ -5981,6 +5981,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mth2z5djtxmvu",
+      "date": "2026-08-31",
+      "amount": 81000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "안동 콩국시",
+      "content": "저녁식사",
+      "attendees": [
+        "김영수 CJ 전 상무"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mtdrydcnioq8i",
       "date": "2026-08-29",
       "amount": 20000,
