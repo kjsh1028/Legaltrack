@@ -2269,7 +2269,7 @@
       "name": "하이퍼커넥트 MATCH 그룹 지분 인수",
       "client": "알브라이트",
       "type": "fixed-f",
-      "status": "active",
+      "status": "prospect",
       "retainer_amount": 250000,
       "retainer_cur": "CNY",
       "rate": null,
