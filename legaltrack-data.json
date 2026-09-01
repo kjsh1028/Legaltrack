@@ -2084,7 +2084,7 @@
       "name": "다보정밀-연태 다보 지분 이전",
       "client": "다보정밀",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "active",
       "retainer_amount": 45000000,
       "retainer_cur": "KRW",
       "rate": null,
