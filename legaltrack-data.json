@@ -2303,6 +2303,14 @@
   ],
   "entries": [
     {
+      "id": "mtikbccxjsllv",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-01",
+      "minutes": 60,
+      "description": "대만 업체로부터 반도체 칩 구매계약 관련하여 수임위한 고객 전화 및 검토",
+      "billable": false
+    },
+    {
       "id": "mtik9lcjk313p",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-01",
