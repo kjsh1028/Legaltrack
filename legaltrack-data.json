@@ -5965,6 +5965,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mtik1184q5s42",
+      "title": "정중호 반도체 칩 구매계약 확인하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "",
+      "matterId": "mq20ac8bqbt35",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
