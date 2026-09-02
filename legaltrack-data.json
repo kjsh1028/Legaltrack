@@ -2340,6 +2340,14 @@
   ],
   "entries": [
     {
+      "id": "mtk3z5frhnmdt",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-02",
+      "minutes": 60,
+      "description": "NH  투자증권 제출한 견적서 관련 고객 피드백 받고, 추가 수정안 작성 및 제안",
+      "billable": false
+    },
+    {
       "id": "mtk3xzd1nuf3t",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-02",
