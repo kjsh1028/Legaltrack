@@ -2340,6 +2340,14 @@
   ],
   "entries": [
     {
+      "id": "mtk40drwkmm09",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-02",
+      "minutes": 60,
+      "description": "지인 소개한 반도체 칩 영문 구매 계약서 수임 위한 고객 회의 및 실적 조사",
+      "billable": false
+    },
+    {
       "id": "mtk3z5frhnmdt",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-02",
