@@ -2340,6 +2340,14 @@
   ],
   "entries": [
     {
+      "id": "mtk3xzd1nuf3t",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-02",
+      "minutes": 90,
+      "description": "수임한 다보정밀 미팅을 위한 사전 법적 검토 및 고객 이메일 질의에 대한 답변",
+      "billable": false
+    },
+    {
       "id": "mtk3wnkr8p2w1",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-02",
