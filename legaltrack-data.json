@@ -2340,6 +2340,14 @@
   ],
   "entries": [
     {
+      "id": "mtleq0sypegoh",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-03",
+      "minutes": 120,
+      "description": "정글메이커 송승훈 대표 미팅 및 회식",
+      "billable": false
+    },
+    {
       "id": "mtlepkgqhgg1b",
       "matterId": "mtfmlfny7ac8g",
       "date": "2026-09-03",
