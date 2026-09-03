@@ -2340,6 +2340,14 @@
   ],
   "entries": [
     {
+      "id": "mtleol8cufclv",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-03",
+      "minutes": 90,
+      "description": "다보정밀 kick off. 미팅 준비. 고객 질의에 대한 조사 및 답변",
+      "billable": false
+    },
+    {
       "id": "mtlenkdz8g9k8",
       "matterId": "mtbeaqaa7rmnm",
       "date": "2026-09-03",
