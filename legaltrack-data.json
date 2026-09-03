@@ -6190,6 +6190,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mtm169krmmzzx",
+      "title": "전종인 백재훈 식사",
+      "cat": "sales",
+      "priority": "high",
+      "due": "2026-09-07",
+      "matterId": "",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
