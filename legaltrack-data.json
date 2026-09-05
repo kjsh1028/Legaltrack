@@ -2158,7 +2158,7 @@
       "name": "이지은 북경 명의신탁 소송",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2187,7 +2187,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": "mtcln0ptc9btg"
+      "contactId": "mtcln0ptc9btg",
+      "failed_date": "2026-09-05",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mtfmlfny7ac8g",
