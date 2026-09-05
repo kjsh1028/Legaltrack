@@ -6319,6 +6319,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mtnsuzstiydcx",
+      "title": "윤세리 우창록 인사",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-09-09",
+      "matterId": "mq33mk2e2x560",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
