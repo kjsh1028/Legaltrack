@@ -2377,6 +2377,14 @@
   ],
   "entries": [
     {
+      "id": "mtnpf18phfcsm",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-05",
+      "minutes": 60,
+      "description": "군합 의견서 수임 위한 내부 검토 및 고객 소통",
+      "billable": false
+    },
+    {
       "id": "mtnpdzr8vaqio",
       "matterId": "mtfmlfny7ac8g",
       "date": "2026-09-05",
