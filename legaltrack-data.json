@@ -2382,6 +2382,14 @@
   ],
   "entries": [
     {
+      "id": "mtnswp6ynrs7v",
+      "matterId": "mtmdrkuxu0xs2",
+      "date": "2026-09-05",
+      "minutes": 60,
+      "description": "질의 사항에 대한 검토 및 법적 관련 법령 판례 등 검토 초안 작성",
+      "billable": true
+    },
+    {
       "id": "mtnqemkuv2v7h",
       "matterId": "msqr5wp2v6opg",
       "date": "2026-09-05",
