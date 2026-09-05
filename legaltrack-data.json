@@ -2382,6 +2382,14 @@
   ],
   "entries": [
     {
+      "id": "mtnqemkuv2v7h",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-09-05",
+      "minutes": 24,
+      "description": "변호인 의견서 초안 검토",
+      "billable": true
+    },
+    {
       "id": "mtnqd652d43g0",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-04",
