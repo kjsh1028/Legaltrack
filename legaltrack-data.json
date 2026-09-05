@@ -2343,7 +2343,7 @@
       "name": "군합 CITIC 동부산물 수출 의견서",
       "client": "군합",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "active",
       "retainer_amount": 9000,
       "retainer_cur": "USD",
       "rate": null,
