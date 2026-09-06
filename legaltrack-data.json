@@ -2387,6 +2387,14 @@
   ],
   "entries": [
     {
+      "id": "mtqedbrdx63op",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-09-07",
+      "minutes": 120,
+      "description": "계약서 초안 작성을 위한 구조 정리 및 초안서 작성",
+      "billable": true
+    },
+    {
       "id": "mtqecpsd0k8he",
       "matterId": "mtmdrkuxu0xs2",
       "date": "2026-09-06",
