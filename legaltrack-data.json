@@ -2387,6 +2387,14 @@
   ],
   "entries": [
     {
+      "id": "mtsllhi19a2wf",
+      "matterId": "mtfmlfny7ac8g",
+      "date": "2026-09-08",
+      "minutes": 30,
+      "description": "2 차 전환사채 계약서 내용 검토",
+      "billable": true
+    },
+    {
       "id": "mtslkfp6q66ta",
       "matterId": "mt156e7kdc2ec",
       "date": "2026-09-08",
