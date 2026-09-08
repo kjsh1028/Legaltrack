@@ -6483,6 +6483,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mtshriaj4x946",
+      "date": "2026-09-08",
+      "amount": 67500,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "시마스시",
+      "content": "접대",
+      "attendees": [
+        "대한제분 신동훈 부사장"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mtl1gu3c522jv",
       "date": "2026-09-03",
       "amount": 83000,
