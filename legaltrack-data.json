@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mtuopsycgk0xn",
+      "matterId": "mq7sygz2qvulp",
+      "date": "2026-09-10",
+      "minutes": 42,
+      "description": "노동합의해지 최종안 작성하여 고객에게 송부",
+      "billable": true
+    },
+    {
       "id": "mtu2pjr99cgot",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-09",
