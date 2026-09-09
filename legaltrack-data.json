@@ -2461,6 +2461,14 @@
   ],
   "entries": [
     {
+      "id": "mttgk8cwfdy6c",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-09",
+      "minutes": 60,
+      "description": "brooks 업무 범위 조정 왕 변호사와 협의",
+      "billable": false
+    },
+    {
       "id": "mtm51841xkk86",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-04",
