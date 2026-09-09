@@ -2461,6 +2461,14 @@
   ],
   "entries": [
     {
+      "id": "mtttke2icuqem",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-09-09",
+      "minutes": 90,
+      "description": "변경된 구조에 대한 법적 리스크 검토 및 은행계좌 설립관련 검토, 고객 소통. 계약서 초안 수정",
+      "billable": true
+    },
+    {
       "id": "mttti6oxk5cgh",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-09-09",
