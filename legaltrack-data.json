@@ -2386,8 +2386,8 @@
     },
     {
       "id": "mttdeom1rdn1r",
-      "code": "T&C 로펌 M&A",
-      "name": "T&C 로펌 M&A",
+      "code": "T&C 天册 로펌 M&A",
+      "name": "T&C 天册 로펌 M&A",
       "client": "T&C 로펌",
       "type": "time-b",
       "status": "prospect",
@@ -2419,7 +2419,7 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mttdem7dugvmb",
-      "contactId": null
+      "contactId": "mttewdlww8qf1"
     },
     {
       "id": "mtten8l5dokbz",
