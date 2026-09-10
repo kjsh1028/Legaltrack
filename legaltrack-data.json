@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mtuzqcnhgryfc",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-09-10",
+      "minutes": 90,
+      "description": "추가 업무 범위 확대 및 계약조건 확정. 실사준비 등 내부 준비회의",
+      "billable": true
+    },
+    {
       "id": "mtuzp5nc24jhi",
       "matterId": "mq20hw066a9x0",
       "date": "2026-09-10",
