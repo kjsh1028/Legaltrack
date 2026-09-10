@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mtuzokub4yzhq",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-09-10",
+      "minutes": 240,
+      "description": "추가질의에 대한 검토 및 관련 계약서 작성",
+      "billable": true
+    },
+    {
       "id": "mtuopsycgk0xn",
       "matterId": "mq7sygz2qvulp",
       "date": "2026-09-10",
