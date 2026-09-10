@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mtuzp5nc24jhi",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-09-10",
+      "minutes": 60,
+      "description": "매각자문계약서 최종안 완성 및 고객 송부",
+      "billable": true
+    },
+    {
       "id": "mtuzokub4yzhq",
       "matterId": "mtbeaqaa7rmnm",
       "date": "2026-09-10",
