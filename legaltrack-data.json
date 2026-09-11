@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mtw8razwoomlz",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-09-11",
+      "minutes": 30,
+      "description": "업무 중 공상 사고 직원 처리와 관련된 법적 검토 및 조언",
+      "billable": true
+    },
+    {
       "id": "mtw8qb43akkkc",
       "matterId": "mtfmlfny7ac8g",
       "date": "2026-09-10",
