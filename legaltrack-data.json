@@ -6735,6 +6735,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mtwe6ecloshpr",
+      "title": "Chery 수임계약 논의",
+      "cat": "yulchon",
+      "priority": "high",
+      "due": "2026-09-14",
+      "matterId": "mtjt9v23wq2bt",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
