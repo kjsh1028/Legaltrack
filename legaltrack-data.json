@@ -4672,14 +4672,6 @@
       "minutes": 120,
       "description": "대성 법무법인 金훈 변호사 요청 하이퍼 커넥터 인수 실사 제안서 작성",
       "billable": false
-    },
-    {
-      "id": "mtw8n0li58xtp",
-      "matterId": "mq205p2ptqpyp",
-      "date": "2026-09-11",
-      "minutes": 180,
-      "description": "덕수산업 계약서 초안 완성 다보정밀 계약서 초안 작성 진행",
-      "billable": true
     }
   ],
   "payments": [
