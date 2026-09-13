@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mtz30gm56mpff",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-09-13",
+      "minutes": 120,
+      "description": "실사 준비 자료 확보 및 내부 검토 일정 관리 등 계획",
+      "billable": true
+    },
+    {
       "id": "mtyafjbrr7oyv",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-12",
