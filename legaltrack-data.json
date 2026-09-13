@@ -6851,6 +6851,19 @@
       "linkLabel": "",
       "done": false,
       "doneAt": null
+    },
+    {
+      "id": "mtzs7kxmqhksx",
+      "title": "이상만 키움 연락하기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-09-15",
+      "matterId": "mrd1gkqdcxkap",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
