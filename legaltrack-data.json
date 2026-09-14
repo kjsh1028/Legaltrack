@@ -6954,6 +6954,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mu151h3y0yzcy",
+      "date": "2026-09-14",
+      "amount": 136000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "도호 중식",
+      "content": "저녁식사",
+      "attendees": [
+        "김우형 한양대 교수 정중호 변호사"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mu0s28j4fpz64",
       "date": "2026-09-14",
       "amount": 75000,
