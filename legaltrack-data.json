@@ -2464,7 +2464,7 @@
       "name": "델타엑스 월간 고문 자문",
       "client": "",
       "type": "retainer",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2493,7 +2493,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-09-15",
+      "fail_category": "연락 두절",
+      "fail_reason": "답이 없음",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mu2g1o6d5bot6",
