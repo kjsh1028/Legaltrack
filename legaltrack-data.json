@@ -4794,9 +4794,9 @@
       "matterId": "mreru4m1yw0u4",
       "date": "2026-08-08",
       "amount": 20000,
-      "currency": "KRW",
-      "rate_on_date": null,
-      "krw_amount": 20000,
+      "currency": "CNY",
+      "rate_on_date": 210,
+      "krw_amount": 4200000,
       "note": "1 차 착수금"
     },
     {
