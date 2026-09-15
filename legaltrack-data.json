@@ -2015,7 +2015,7 @@
       "name": "NH증권 북경법인 이전",
       "client": "NH증권",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": 200000,
       "retainer_cur": "CNY",
       "rate": null,
@@ -2044,7 +2044,12 @@
       "driveLinkLabel": "",
       "memo": "최동찬 변호사 소개",
       "clientId": "mt1552lbbv0xi",
-      "contactId": "mt1564ea6h98i"
+      "contactId": "mt1564ea6h98i",
+      "failed_date": "2026-09-15",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "잘 모르겠음",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mt6mm60lsv36n",
