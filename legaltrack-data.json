@@ -4780,6 +4780,16 @@
   ],
   "payments": [
     {
+      "id": "mu27aw3ndj8dw",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-09-15",
+      "amount": 45000,
+      "currency": "CNY",
+      "rate_on_date": 210,
+      "krw_amount": 9450000,
+      "note": "착수금"
+    },
+    {
       "id": "msjlmj6jq0v5b",
       "matterId": "mreru4m1yw0u4",
       "date": "2026-08-08",
