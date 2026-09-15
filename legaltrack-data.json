@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mu29w00yapxst",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-09-15",
+      "minutes": 90,
+      "description": "변경된 구조 논의. 프로젝트 중단 여부 결정 논의",
+      "billable": true
+    },
+    {
       "id": "mu29v1qp12chm",
       "matterId": "msqr5wp2v6opg",
       "date": "2026-09-15",
