@@ -4780,6 +4780,16 @@
   ],
   "payments": [
     {
+      "id": "mu27d6jl54iew",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-09-15",
+      "amount": 100000000,
+      "currency": "KRW",
+      "rate_on_date": null,
+      "krw_amount": 100000000,
+      "note": "착수금"
+    },
+    {
       "id": "mu27aw3ndj8dw",
       "matterId": "ms9q2kj9qryyi",
       "date": "2026-09-15",
