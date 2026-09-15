@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mu29v1qp12chm",
+      "matterId": "msqr5wp2v6opg",
+      "date": "2026-09-15",
+      "minutes": 60,
+      "description": "이대근 방사선 실장 프랩 인터뷰",
+      "billable": true
+    },
+    {
       "id": "mu251twy62n5l",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-15",
