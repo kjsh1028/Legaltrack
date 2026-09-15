@@ -6936,6 +6936,16 @@
   ],
   "expenses": [
     {
+      "id": "mu2855kn6ah6c",
+      "matterId": "ms9pckny0mc2l",
+      "vendor": "대성법무법인",
+      "amount": 225000,
+      "currency": "CNY",
+      "krw_amount": 47250000,
+      "note": "협력비",
+      "paidDate": null
+    },
+    {
       "id": "mtggsu3bo2sh7",
       "matterId": "mt156e7kdc2ec",
       "vendor": "세무법인",
