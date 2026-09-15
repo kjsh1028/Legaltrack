@@ -2498,6 +2498,14 @@
   ],
   "entries": [
     {
+      "id": "mu29x408y763r",
+      "matterId": "mtmdrkuxu0xs2",
+      "date": "2026-09-15",
+      "minutes": 60,
+      "description": "추기 요청 사항 법적 근거 및 절차 검토",
+      "billable": true
+    },
+    {
       "id": "mu29w00yapxst",
       "matterId": "mtbeaqaa7rmnm",
       "date": "2026-09-15",
