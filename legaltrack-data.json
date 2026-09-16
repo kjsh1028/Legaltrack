@@ -1708,7 +1708,7 @@
       "name": "KING LEAD 아연 재활용",
       "client": "",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1737,7 +1737,12 @@
       "driveLinkLabel": "",
       "memo": "장영수 소개 중국인",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-09-16",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "연기",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mspce1rjoapu2",
