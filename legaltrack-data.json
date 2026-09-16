@@ -512,7 +512,7 @@
       "retainer_cur": "KRW",
       "rate": null,
       "rate_cur": "KRW",
-      "cap_amount": 180000,
+      "cap_amount": 600000,
       "estimated_amount": 180000,
       "cap_cur": "CNY",
       "ret_total": null,
@@ -533,7 +533,10 @@
       "billed_cur": "KRW",
       "starred": false,
       "driveLink": "",
-      "driveLinkLabel": ""
+      "driveLinkLabel": "",
+      "memo": "",
+      "clientId": null,
+      "contactId": null
     },
     {
       "id": "mq7sygz2qvulp",
