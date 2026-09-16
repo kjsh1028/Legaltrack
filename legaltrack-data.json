@@ -1903,7 +1903,7 @@
       "name": "SK MICROWORKS HAHN&CO",
       "client": "알브라이트",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1932,7 +1932,12 @@
       "driveLinkLabel": "",
       "memo": "侨银城市管理股份有限公司  매수인",
       "clientId": "ms7c62zqkanis",
-      "contactId": "ms7c6g39vahfn"
+      "contactId": "ms7c6g39vahfn",
+      "failed_date": "2026-09-16",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "알브라이트 김훈 연락 없음",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mss2z1ar630qa",
