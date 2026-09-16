@@ -1378,7 +1378,7 @@
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
-      "starred": true,
+      "starred": false,
       "driveLink": "",
       "driveLinkLabel": "",
       "memo": "",
