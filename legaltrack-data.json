@@ -2395,7 +2395,7 @@
       "name": "T&C 天册 로펌 M&A",
       "client": "T&C 로펌",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2424,7 +2424,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mttdem7dugvmb",
-      "contactId": "mttewdlww8qf1"
+      "contactId": "mttewdlww8qf1",
+      "failed_date": "2026-09-16",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "연기",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mtten8l5dokbz",
