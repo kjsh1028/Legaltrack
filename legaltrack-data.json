@@ -2563,6 +2563,14 @@
   ],
   "entries": [
     {
+      "id": "mu56gzmyu4xnr",
+      "matterId": "mtib66otlrzg7",
+      "date": "2026-09-17",
+      "minutes": 150,
+      "description": "자문계약서 작성 송부. RFI 초안 작성 송부. 월요일 한국 회의 일정 조율",
+      "billable": true
+    },
+    {
       "id": "mu56fpi7taogf",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-17",
