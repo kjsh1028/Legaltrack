@@ -2600,6 +2600,14 @@
   ],
   "entries": [
     {
+      "id": "mu6ppox1u7fa5",
+      "matterId": "mtib66otlrzg7",
+      "date": "2026-09-18",
+      "minutes": 240,
+      "description": "실사자료 검토, LDD 자료 작성, 추가 제출요구 서류 작성, 인터뷰 자료 초안 작성, 실사보고서 초안 작성",
+      "billable": true
+    },
+    {
       "id": "mu6poiealhahd",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-18",
