@@ -2637,6 +2637,14 @@
   ],
   "entries": [
     {
+      "id": "muawbdm8gnmo3",
+      "matterId": "mu6foltjskv7v",
+      "date": "2026-09-21",
+      "minutes": 78,
+      "description": "내부 사전 미팅 및 고객 회의",
+      "billable": true
+    },
+    {
       "id": "muaw7s1ga4zsl",
       "matterId": "mq33mk2e2x560",
       "date": "2026-09-21",
