@@ -5325,6 +5325,38 @@
   ],
   "clients": [
     {
+      "id": "mu2g1jovtrhtk",
+      "name": "(北京扑满网络科技有限公司)",
+      "country": "중국",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "mtmdr001l6u9i",
+      "name": "군합",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "mt6mlkh7d4xk3",
+      "name": "기업은행",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "msjqqgwyr5ppa",
+      "name": "나나",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mq3d54ixt9qj2",
       "name": "남성정밀",
       "fullname": "남성정밀 주식회사",
@@ -5338,6 +5370,14 @@
       "meetings": []
     },
     {
+      "id": "mtbe8iwlkwjzn",
+      "name": "다보정밀",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mq68okj1cjjmr",
       "name": "대성법무법인",
       "fullname": "대성법무법인",
@@ -5349,6 +5389,14 @@
       "address": "",
       "note": "",
       "meetings": []
+    },
+    {
+      "id": "mrn14be61nvmb",
+      "name": "디오",
+      "country": "한국",
+      "industry": "치과 임플란트",
+      "note": "김남호 소개",
+      "contacts": []
     },
     {
       "id": "mq3qar2fp3ho2",
@@ -5368,6 +5416,14 @@
       "name": "삼성물산",
       "country": "한국",
       "industry": "부동산",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "msyk9cl3nwypz",
+      "name": "삼성이앤아이",
+      "country": "",
+      "industry": "",
       "note": "",
       "contacts": []
     },
@@ -5398,6 +5454,38 @@
       "meetings": []
     },
     {
+      "id": "mtfmkkb9ei6no",
+      "name": "시원이노텍",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "ms7c62zqkanis",
+      "name": "알브라이트",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "mtggoxbhrl3tk",
+      "name": "오페즈인베스트먼트",
+      "country": "한국",
+      "industry": "투자",
+      "note": "이창형 회사",
+      "contacts": []
+    },
+    {
+      "id": "mspcciqkyixp8",
+      "name": "와이어트",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mq2grmdjpn7p8",
       "name": "인지정밀",
       "fullname": "인지 디스플레이",
@@ -5411,6 +5499,14 @@
       "meetings": []
     },
     {
+      "id": "msqr5tmjthqmp",
+      "name": "장선태",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mqg8p08x45lt9",
       "name": "정밀건축",
       "fullname": "정밀건축",
@@ -5422,6 +5518,14 @@
       "address": "서울특별시 중구 세종대로 12길 12",
       "note": "",
       "meetings": []
+    },
+    {
+      "id": "mrt53m1tx8ylw",
+      "name": "中远海运客运",
+      "country": "중국",
+      "industry": "물류",
+      "note": "",
+      "contacts": []
     },
     {
       "id": "mqelsjk3ydxje",
@@ -5450,6 +5554,14 @@
       "meetings": []
     },
     {
+      "id": "mruc3pffc5vpe",
+      "name": "키움증권",
+      "country": "한국",
+      "industry": "금융",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mq3fbf82qahr6",
       "name": "파트라",
       "fullname": "파트라 주식회사",
@@ -5461,6 +5573,46 @@
       "address": "",
       "note": "",
       "meetings": []
+    },
+    {
+      "id": "mru0svblzso85",
+      "name": "한화오션",
+      "country": "한국",
+      "industry": "제조",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "ms70bzrt4cc4f",
+      "name": "효성",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "mtjt6ztrv3quq",
+      "name": "chery 자동차",
+      "country": "중국",
+      "industry": "자동차",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "msq4q4z6xqyy4",
+      "name": "Hankun",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
+      "id": "mt1552lbbv0xi",
+      "name": "NH증권",
+      "country": "한국",
+      "industry": "금융",
+      "note": "북경법인 이전",
+      "contacts": []
     },
     {
       "id": "mqrjxnxxt2xqh",
@@ -5476,158 +5628,6 @@
       "meetings": []
     },
     {
-      "id": "mrheu3wmnj3z7",
-      "name": "TSJ 티에스제이 황동우 임세만",
-      "country": "한국",
-      "industry": "IT",
-      "note": "임세만 소개",
-      "contacts": []
-    },
-    {
-      "id": "mrn14be61nvmb",
-      "name": "디오",
-      "country": "한국",
-      "industry": "치과 임플란트",
-      "note": "김남호 소개",
-      "contacts": []
-    },
-    {
-      "id": "mrt53m1tx8ylw",
-      "name": "中远海运客运",
-      "country": "중국",
-      "industry": "물류",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mru0svblzso85",
-      "name": "한화오션",
-      "country": "한국",
-      "industry": "제조",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mruc3pffc5vpe",
-      "name": "키움증권",
-      "country": "한국",
-      "industry": "금융",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "ms70bzrt4cc4f",
-      "name": "효성",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "ms7c62zqkanis",
-      "name": "알브라이트",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "msjqqgwyr5ppa",
-      "name": "나나",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mspcciqkyixp8",
-      "name": "와이어트",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "msq4q4z6xqyy4",
-      "name": "Hankun",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "msqr5tmjthqmp",
-      "name": "장선태",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "msyk9cl3nwypz",
-      "name": "삼성이앤아이",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mt1552lbbv0xi",
-      "name": "NH증권",
-      "country": "한국",
-      "industry": "금융",
-      "note": "북경법인 이전",
-      "contacts": []
-    },
-    {
-      "id": "mt6mlkh7d4xk3",
-      "name": "기업은행",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mtbe8iwlkwjzn",
-      "name": "다보정밀",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mtfmkkb9ei6no",
-      "name": "시원이노텍",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mtggoxbhrl3tk",
-      "name": "오페즈인베스트먼트",
-      "country": "한국",
-      "industry": "투자",
-      "note": "이창형 회사",
-      "contacts": []
-    },
-    {
-      "id": "mtjt6ztrv3quq",
-      "name": "chery 자동차",
-      "country": "중국",
-      "industry": "자동차",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mtmdr001l6u9i",
-      "name": "군합",
-      "country": "",
-      "industry": "",
-      "note": "",
-      "contacts": []
-    },
-    {
       "id": "mttdem7dugvmb",
       "name": "T&C 로펌",
       "country": "",
@@ -5636,11 +5636,11 @@
       "contacts": []
     },
     {
-      "id": "mu2g1jovtrhtk",
-      "name": "(北京扑满网络科技有限公司)",
-      "country": "중국",
-      "industry": "",
-      "note": "",
+      "id": "mrheu3wmnj3z7",
+      "name": "TSJ 티에스제이 황동우 임세만",
+      "country": "한국",
+      "industry": "IT",
+      "note": "임세만 소개",
       "contacts": []
     }
   ],
@@ -7408,6 +7408,19 @@
     }
   ],
   "cardExpenses": [
+    {
+      "id": "mub8r4jkotu75",
+      "date": "2026-09-21",
+      "amount": 238000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "상해루",
+      "content": "저녁",
+      "attendees": [
+        "이기하 sazse parners 대표 애이든랩 강철용 대표"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
     {
       "id": "mu151h3y0yzcy",
       "date": "2026-09-14",
