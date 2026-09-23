@@ -2637,6 +2637,14 @@
   ],
   "entries": [
     {
+      "id": "mue47uer9nbse",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-23",
+      "minutes": 60,
+      "description": "대진합 중경 청산 업무 수임을 위한 고객 소통 및 내부 검토",
+      "billable": false
+    },
+    {
       "id": "mue47d1bbt604",
       "matterId": "mq20hw066a9x0",
       "date": "2026-09-23",
