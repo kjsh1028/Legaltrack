@@ -7650,6 +7650,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mujpb4q20ae1n",
+      "date": "2026-09-27",
+      "amount": 234000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "봉피앙",
+      "content": "저녁",
+      "attendees": [
+        "대성 김계향"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mub8r4jkotu75",
       "date": "2026-09-21",
       "amount": 238000,
