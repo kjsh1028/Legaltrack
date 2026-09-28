@@ -7539,8 +7539,8 @@
       "note": "",
       "link": "",
       "linkLabel": "",
-      "done": false,
-      "doneAt": null
+      "done": true,
+      "doneAt": "2026-09-28"
     },
     {
       "id": "mtwe6ecloshpr",
@@ -7606,6 +7606,19 @@
       "linkLabel": "",
       "done": true,
       "doneAt": "2026-09-15"
+    },
+    {
+      "id": "muky5mfozt683",
+      "title": "박성림 청산 관련 자료 주기",
+      "cat": "yulchon",
+      "priority": "normal",
+      "due": "2026-09-29",
+      "matterId": "mtbeaqaa7rmnm",
+      "note": "",
+      "link": "",
+      "linkLabel": "",
+      "done": false,
+      "doneAt": null
     }
   ],
   "expenses": [
