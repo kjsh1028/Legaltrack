@@ -5621,16 +5621,6 @@
       "rate_on_date": 1517,
       "krw_amount": 4551000,
       "note": "1 차 착수금"
-    },
-    {
-      "id": "ms5gqnlhkqy91",
-      "matterId": "mqelrjr4iee53",
-      "date": "2026-07-29",
-      "amount": 4424,
-      "currency": "USD",
-      "rate_on_date": 1460,
-      "krw_amount": 6459040,
-      "note": "금액"
     }
   ],
   "clients": [
