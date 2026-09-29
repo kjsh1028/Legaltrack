@@ -710,13 +710,13 @@
       "overage_rate": null,
       "ret_start": null,
       "ret_end": null,
-      "lit_retainer": null,
+      "lit_retainer": 50000000,
       "lit_balance": null,
       "lit_mode": "fixed",
       "contingency_amount": null,
       "contingency_condition": "",
       "achievement_type": "korea-collab",
-      "collab_team": "",
+      "collab_team": "이시원 소송",
       "my_ratio": 100,
       "billed_amount": null,
       "billed_cur": "KRW",
@@ -724,7 +724,8 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "memo": ""
     },
     {
       "id": "mqelrjr4iee53",
