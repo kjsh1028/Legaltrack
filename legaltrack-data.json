@@ -733,7 +733,7 @@
       "client": "秦望环保",
       "type": "fixed-f",
       "status": "active",
-      "retainer_amount": null,
+      "retainer_amount": 6261900,
       "retainer_cur": "KRW",
       "rate": null,
       "rate_cur": "KRW",
