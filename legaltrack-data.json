@@ -7747,6 +7747,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mumkehtw3vx6n",
+      "date": "2026-09-29",
+      "amount": 157630,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "홍천 뚜레",
+      "content": "저녁",
+      "attendees": [
+        "DS 강승수 대표. 레전드 캐피탈 박준성 모다모다 배형진"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mujpb4q20ae1n",
       "date": "2026-09-27",
       "amount": 234000,
