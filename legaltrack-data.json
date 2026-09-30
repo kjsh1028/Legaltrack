@@ -2786,6 +2786,14 @@
   ],
   "entries": [
     {
+      "id": "munl2qljui9fz",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-30",
+      "minutes": 90,
+      "description": "병원 의료 사고 수임을 위한 사건 검토 및 고객 소통",
+      "billable": false
+    },
+    {
       "id": "mumqwr9dno4m2",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-09-29",
