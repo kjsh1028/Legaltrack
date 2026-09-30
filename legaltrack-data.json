@@ -1043,7 +1043,7 @@
       "name": "소셜에티켓 중국법인설립",
       "client": "소셜에티켓 김지유",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": 8200000,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1072,7 +1072,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-09-30",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mrhew26y55pop",
