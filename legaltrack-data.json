@@ -2567,7 +2567,7 @@
       "name": "[임시]이행운/gen/자문 lucky lee",
       "client": "",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 3000000,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2596,7 +2596,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "closed_date": "2026-09-30"
     },
     {
       "id": "mu9p1xpsqzkif",
@@ -2785,6 +2786,14 @@
     }
   ],
   "entries": [
+    {
+      "id": "munl55b9rjy8m",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-09-30",
+      "minutes": 180,
+      "description": "대한제분 신동훈 부사장 동현 김남호 회계사 함지원 변호사 mk 전자 윤현성 미팅 및 회식.",
+      "billable": false
+    },
     {
       "id": "munl3og1iesdo",
       "matterId": "mulctuqairvss",
