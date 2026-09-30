@@ -1366,7 +1366,7 @@
       "name": "키움 천안 원성동 E편한세상",
       "client": "키움증권",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1395,7 +1395,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mrd1j5juo3ywl",
-      "contactId": "mrd1iqrizpu0p"
+      "contactId": "mrd1iqrizpu0p",
+      "failed_date": "2026-09-30",
+      "fail_category": "기타",
+      "fail_reason": "박재현 변호사 연락 없음",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "ms60998arotcb",
