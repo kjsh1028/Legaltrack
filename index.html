@@ -6,7 +6,7 @@
 <meta name="app-version" content="2026061001">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LegalTrack">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026072701';
+const APP_VERSION='2026093001';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -893,20 +893,42 @@ function renderContent(){
   const pa=document.getElementById('pageActions');
   if(pa){const hideLayers=['matters_list','active_list','dash_money','dash_clients','dash_time','card'];pa.style.display=hideLayers.includes(curLayer)?'none':'flex';}
   // Cross-tab layer routing
-  if(curLayer==='client_detail'||curLayer==='contact_detail'){
-    c.innerHTML=renderClientsPage();
-  } else if(curLayer==='matter_detail'&&curTab!==0&&curTab!==2){
-    c.innerHTML=renderMatterDetailLayer();
-  } else if(curTab===0)c.innerHTML=renderDash();
-  else if(curTab===1)c.innerHTML=renderMattersPage();
-  else if(curTab===2)c.innerHTML=renderQueryPage();
-  else if(curTab===3)c.innerHTML=renderAchievement();
-  else if(curTab===4)c.innerHTML=renderFailed();
-  else if(curTab===5)c.innerHTML=renderReport();
-  else if(curTab===6)c.innerHTML=renderTodos();
-  else c.innerHTML=renderDash();
+  c.innerHTML=contentHTML();
   // Add swipe-back on content
   setupSwipeBack(c);
+}
+function contentHTML(){
+  if(curLayer==='client_detail'||curLayer==='contact_detail') return renderClientsPage();
+  if(curLayer==='matter_detail'&&curTab!==0&&curTab!==2) return renderMatterDetailLayer();
+  if(curTab===0)return renderDash();
+  if(curTab===1)return renderMattersPage();
+  if(curTab===2)return renderQueryPage();
+  if(curTab===3)return renderAchievement();
+  if(curTab===4)return renderFailed();
+  if(curTab===5)return renderReport();
+  if(curTab===6)return renderTodos();
+  return renderDash();
+}
+/* 검색창 입력 시 입력창은 그대로 두고 결과만 갱신 (한글 입력·키보드 유지) */
+function liveSearch(){
+  const c=document.getElementById('content');if(!c)return;
+  const tmp=document.createElement('div');
+  try{tmp.innerHTML=contentHTML();}catch(e){console.error(e);return;}
+  if(!_morphKeepFocus(c,tmp))renderContent();
+}
+function _morphKeepFocus(live,next){
+  const a=document.activeElement;
+  const lc=[...live.childNodes],nc=[...next.childNodes];
+  if(lc.length!==nc.length)return false;
+  for(let i=0;i<lc.length;i++){
+    const l=lc[i],n=nc[i];
+    if(l===a)continue;
+    if(l.nodeType===1&&a&&l.contains(a)){
+      if(n.nodeType!==1||l.tagName!==n.tagName)return false;
+      if(!_morphKeepFocus(l,n))return false;
+    }else live.replaceChild(n,l);
+  }
+  return true;
 }
 
 let _swipeStartX=0;
@@ -1317,7 +1339,7 @@ function renderMattersQuery(){
   return`<div class="query-results">
   <div style="display:flex;gap:8px;margin-bottom:8px">
     <input id="mq_q" placeholder="이름·의뢰인·코드 검색..." value="${q}"
-      oninput="_mqSearch=this.value;renderContent()"
+      oninput="_mqSearch=this.value;liveSearch()"
       style="flex:1;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff">
     <button onclick="openMatterModal()" style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">＋</button>
   </div>
@@ -1511,7 +1533,7 @@ function renderMoneyResults(){
   </div>
   <!-- Search -->
   <input id="money_q" placeholder="이름·의뢰인 검색..." value=""
-    oninput="renderContent()"
+    oninput="liveSearch()"
     style="width:100%;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff;margin-bottom:8px;-webkit-appearance:none">
   <!-- Results -->
   <div class="qr-list">
@@ -2384,7 +2406,7 @@ function renderAchievement(){
   <!-- 검색 + 내보내기 -->
   <div style="display:flex;gap:8px;margin-bottom:12px">
     <input id="ach_q" placeholder="이름·의뢰인 검색..." value="${q}"
-      oninput="renderContent()"
+      oninput="liveSearch()"
       style="flex:1;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff;-webkit-appearance:none">
     <button onclick="exportIncentiveXLSX()"
       style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0">
