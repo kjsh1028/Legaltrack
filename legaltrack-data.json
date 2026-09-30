@@ -2748,8 +2748,8 @@
     },
     {
       "id": "mulctuqairvss",
-      "code": "QAI/GEN/양자서버구매계약",
-      "name": "QAI/GEN/양자서버구매계약",
+      "code": "큐에이아이/GEN/양자서버구매계약",
+      "name": "큐에이아이/GEN/양자서버구매계약",
       "client": "",
       "type": "fixed-f",
       "status": "active",
