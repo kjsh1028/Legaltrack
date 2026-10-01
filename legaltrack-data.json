@@ -7837,6 +7837,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mup0o0ro3i1fz",
+      "date": "2026-10-01",
+      "amount": 321000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "경복궁",
+      "content": "점심",
+      "attendees": [
+        "백제현 김정민 김도희 진이신 전종인 식사"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mumkehtw3vx6n",
       "date": "2026-09-29",
       "amount": 157630,
