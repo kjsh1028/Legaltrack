@@ -2800,6 +2800,14 @@
   ],
   "entries": [
     {
+      "id": "mupcl63sf1shy",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-10-01",
+      "minutes": 120,
+      "description": "Brooks 실사 팀 내부 회의 및 회식 김 정민 변호사와 내부 논의",
+      "billable": false
+    },
+    {
       "id": "mupck2ayueb6g",
       "matterId": "mq20hw066a9x0",
       "date": "2026-10-01",
