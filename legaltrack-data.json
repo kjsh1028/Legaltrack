@@ -2800,6 +2800,14 @@
   ],
   "entries": [
     {
+      "id": "mupck2ayueb6g",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-10-01",
+      "minutes": 24,
+      "description": "매도 자문 계약서 수정한 작성 및 고객에게 전달",
+      "billable": true
+    },
+    {
       "id": "mupcjlehldsms",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-01",
