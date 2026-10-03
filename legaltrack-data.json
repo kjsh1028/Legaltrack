@@ -2800,6 +2800,14 @@
   ],
   "entries": [
     {
+      "id": "musavdmipxra4",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-10-03",
+      "minutes": 300,
+      "description": "상해 복귀",
+      "billable": false
+    },
+    {
       "id": "murrsixnhijkh",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-03",
