@@ -7953,6 +7953,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "murxxnk2l6oqd",
+      "date": "2026-10-03",
+      "amount": 53200,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "카카오 택시",
+      "content": "공항 이동. 용산- 김포",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mup0o0ro3i1fz",
       "date": "2026-10-01",
       "amount": 321000,
