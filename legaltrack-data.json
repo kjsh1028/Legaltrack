@@ -2707,7 +2707,7 @@
       "name": "정현철 MVITRO 레이저 당뇨",
       "client": "",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2736,7 +2736,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-10-08",
+      "fail_category": "연락 두절",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "muja0uzbpstyk",
