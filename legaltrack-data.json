@@ -2363,7 +2363,7 @@
       "name": "[임시]Chery/gen/고문계약",
       "client": "chery 자동차",
       "type": "retainer",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2392,7 +2392,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mtjt6ztrv3quq",
-      "contactId": "mtjt94xd4ngvq"
+      "contactId": "mtjt94xd4ngvq",
+      "failed_date": "2026-10-08",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mtmdrkuxu0xs2",
