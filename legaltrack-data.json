@@ -2655,7 +2655,7 @@
       "name": "김훈 PERFORMANCE IMPROVEMENT PLAN",
       "client": "Allbright",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2684,7 +2684,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mue4byeq6whka",
-      "contactId": "mue4brkfj8re1"
+      "contactId": "mue4brkfj8re1",
+      "failed_date": "2026-10-08",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mue5cuelzgmtz",
