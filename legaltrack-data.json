@@ -2749,7 +2749,7 @@
       "name": "대성 중국인 양육권 가사",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2778,7 +2778,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-10-08",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mulctuqairvss",
