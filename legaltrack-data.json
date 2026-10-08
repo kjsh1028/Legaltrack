@@ -2875,6 +2875,43 @@
       "memo": "",
       "clientId": null,
       "contactId": null
+    },
+    {
+      "id": "muz7v1nm1us1o",
+      "code": "대성 대일광업 옥광산 소송",
+      "name": "대성 대일광업 옥광산 소송",
+      "client": "",
+      "type": "litigation",
+      "status": "prospect",
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": "fixed",
+      "contingency_amount": null,
+      "contingency_condition": "",
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": "https://drive.google.com/drive/folders/1r7B8nhfVpMABCDWy26mxqKNKfCFJ1A2J",
+      "driveLinkLabel": "",
+      "memo": "대성 김계형 소개",
+      "clientId": null,
+      "contactId": null
     }
   ],
   "entries": [
@@ -6005,6 +6042,14 @@
       "contacts": []
     },
     {
+      "id": "mue4b1zn04w5o",
+      "name": "김훈",
+      "country": "중국",
+      "industry": "로펌",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "msjqqgwyr5ppa",
       "name": "나나",
       "country": "",
@@ -6247,6 +6292,14 @@
       "contacts": []
     },
     {
+      "id": "mue4byeq6whka",
+      "name": "Allbright",
+      "country": "중국",
+      "industry": "로펌",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mtjt6ztrv3quq",
       "name": "chery 자동차",
       "country": "중국",
@@ -6297,22 +6350,6 @@
       "country": "한국",
       "industry": "IT",
       "note": "임세만 소개",
-      "contacts": []
-    },
-    {
-      "id": "mue4b1zn04w5o",
-      "name": "김훈",
-      "country": "중국",
-      "industry": "로펌",
-      "note": "",
-      "contacts": []
-    },
-    {
-      "id": "mue4byeq6whka",
-      "name": "Allbright",
-      "country": "중국",
-      "industry": "로펌",
-      "note": "",
       "contacts": []
     }
   ],
