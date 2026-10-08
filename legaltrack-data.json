@@ -851,7 +851,7 @@
       "name": "SMD 에스엠디 지분양수",
       "client": "SMD",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -880,7 +880,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-10-08",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mrcmzcsmwqn3d",
