@@ -1767,7 +1767,7 @@
       "name": "와이어트 어노브 닥터포헤어 가품 유통",
       "client": "와이어트",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1796,7 +1796,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mspcciqkyixp8",
-      "contactId": "mspcczm0kj0aw"
+      "contactId": "mspcczm0kj0aw",
+      "failed_date": "2026-10-08",
+      "fail_category": "연락 두절",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "msq4qi1m0tt7j",
