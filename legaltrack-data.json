@@ -2163,7 +2163,7 @@
       "name": "김재정 조세범처벌법위반",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2192,7 +2192,12 @@
       "driveLinkLabel": "",
       "memo": "정중호 소개",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-10-08",
+      "fail_category": "의뢰인 내부 결정",
+      "fail_reason": "정중호 소개",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mtcln5kbr6hgc",
