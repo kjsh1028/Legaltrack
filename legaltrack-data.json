@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mv22y2hx5ekpm",
+      "matterId": "mtib66otlrzg7",
+      "date": "2026-10-09",
+      "minutes": 90,
+      "description": "실사 보고서 초안 각 자료들 원문 대조 및 내부 검토. 주니어 변호사들 업무 지시 지침 작성.",
+      "billable": true
+    },
+    {
       "id": "mv22lt1xsuerk",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-09",
