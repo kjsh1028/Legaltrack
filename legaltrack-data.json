@@ -8240,6 +8240,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mv4v9r2gq36dy",
+      "date": "2026-10-12",
+      "amount": 340,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "상해묵상거 식당",
+      "content": "점심",
+      "attendees": [
+        "서홍매"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "murxxnk2l6oqd",
       "date": "2026-10-03",
       "amount": 53200,
