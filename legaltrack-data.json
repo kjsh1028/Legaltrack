@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mv631c1cq86i0",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-10-13",
+      "minutes": 180,
+      "description": "알브라이트 방문 김훈 변호사 미팅. 같이 진행하는 프로젝트 및 추가 협력 논의 및 식사",
+      "billable": false
+    },
+    {
       "id": "mv5ztmgiawvf4",
       "matterId": "mqelrjr4iee53",
       "date": "2026-10-13",
