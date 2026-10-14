@@ -8320,6 +8320,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mv7qhmofzi4dm",
+      "date": "2026-10-14",
+      "amount": 501,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "Huiting 식당",
+      "content": "점심",
+      "attendees": [
+        "신판수 상해 it 협회장 신동욱"
+      ],
+      "matterId": null
+    },
+    {
       "id": "mv4v9r2gq36dy",
       "date": "2026-10-12",
       "amount": 340,
