@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mv7idhofnnpeu",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-10-14",
+      "minutes": 30,
+      "description": "자문계약서 작성 및 고객 송부",
+      "billable": true
+    },
+    {
       "id": "mv7ickot9pu63",
       "matterId": "mulctuqairvss",
       "date": "2026-10-14",
