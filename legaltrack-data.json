@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mv96y64elopt9",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-10-15",
+      "minutes": 90,
+      "description": "HNL 고객 PT 준비 및 고객 프리젠테이션",
+      "billable": false
+    },
+    {
       "id": "mv8zrgnpuwag0",
       "matterId": "mq33mk2e2x560",
       "date": "2026-10-15",
