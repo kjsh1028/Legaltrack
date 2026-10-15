@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mv9cai8ekac0c",
+      "matterId": "mulctuqairvss",
+      "date": "2026-10-15",
+      "minutes": 120,
+      "description": "계약서 초안 작성",
+      "billable": true
+    },
+    {
       "id": "mv98s9zt2gh27",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-15",
