@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mvamahgk530fz",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-10-16",
+      "minutes": 120,
+      "description": "관련 계약서 수정",
+      "billable": true
+    },
+    {
       "id": "mvam9y0pxeelk",
       "matterId": "mq3q5pjxu49t3",
       "date": "2026-10-16",
