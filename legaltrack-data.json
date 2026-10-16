@@ -2951,6 +2951,14 @@
   ],
   "entries": [
     {
+      "id": "mvambld1jqqem",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-10-16",
+      "minutes": 90,
+      "description": "추가 자료 수집과 수집된 자료 분석, 메모 초안 반영 작성",
+      "billable": true
+    },
+    {
       "id": "mvamahgk530fz",
       "matterId": "mtbeaqaa7rmnm",
       "date": "2026-10-16",
