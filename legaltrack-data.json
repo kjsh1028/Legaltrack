@@ -8464,6 +8464,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mveg5nmp0wba7",
+      "date": "2026-10-19",
+      "amount": 1429,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "Fengyunhui",
+      "content": "점심시교ㅏ",
+      "attendees": [
+        "문숭욱 고문님 부부 김계향 변호사"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mv7qhmofzi4dm",
       "date": "2026-10-14",
       "amount": 501,
