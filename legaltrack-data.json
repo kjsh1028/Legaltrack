@@ -8464,6 +8464,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvejzj4hrlkkc",
+      "date": "2026-10-19",
+      "amount": 2033,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "Yantianxia 식당",
+      "content": "저녁식사",
+      "attendees": [
+        "문승욱 내외"
+      ],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mveg5nmp0wba7",
       "date": "2026-10-19",
       "amount": 1429,
