@@ -2988,6 +2988,14 @@
   ],
   "entries": [
     {
+      "id": "mvfcrk8v5efyf",
+      "matterId": "mq3q5pjxu49t3",
+      "date": "2026-10-19",
+      "minutes": 42,
+      "description": "고객 송부한 자료 검토 및 고객 질의에 대한 검토에 대한 답변 이메일",
+      "billable": true
+    },
+    {
       "id": "mvfcqv5vkljys",
       "matterId": "mtbeaqaa7rmnm",
       "date": "2026-10-19",
