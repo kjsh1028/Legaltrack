@@ -2988,6 +2988,14 @@
   ],
   "entries": [
     {
+      "id": "mvfznl60szwas",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-10-20",
+      "minutes": 120,
+      "description": "Sk 하이닉스 경영진 미팅",
+      "billable": false
+    },
+    {
       "id": "mvfzn1n7en3uo",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-20",
