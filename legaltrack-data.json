@@ -3025,6 +3025,14 @@
   ],
   "entries": [
     {
+      "id": "mvjb92iuprxc2",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-10-22",
+      "minutes": 60,
+      "description": "23 일 본사 화상 회의 준비 사안 검토 및 준비",
+      "billable": true
+    },
+    {
       "id": "mvjb83vcxzqar",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-22",
