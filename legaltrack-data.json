@@ -3025,6 +3025,14 @@
   ],
   "entries": [
     {
+      "id": "mvk9p1vtpti2d",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-10-23",
+      "minutes": 60,
+      "description": "미국 본사와 중국 지사 변호사들과 전화회의 미팅. 대책 및 전략 논의",
+      "billable": true
+    },
+    {
       "id": "mvjfp7e2gor9j",
       "matterId": "mttdeom1rdn1r",
       "date": "2026-10-22",
