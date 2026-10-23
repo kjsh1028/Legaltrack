@@ -3025,6 +3025,14 @@
   ],
   "entries": [
     {
+      "id": "mvkfvylblsczt",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-10-23",
+      "minutes": 120,
+      "description": "법률실사 메모 작성",
+      "billable": true
+    },
+    {
       "id": "mvkfuzwm2ojpw",
       "matterId": "mtfmlfny7ac8g",
       "date": "2026-10-23",
