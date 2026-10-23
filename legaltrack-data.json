@@ -3025,6 +3025,14 @@
   ],
   "entries": [
     {
+      "id": "mvl12ptx8jxe8",
+      "matterId": "mq20hw066a9x0",
+      "date": "2026-10-23",
+      "minutes": 30,
+      "description": "최종 계약서 수정후 고객 전달",
+      "billable": true
+    },
+    {
       "id": "mvkfvylblsczt",
       "matterId": "mttdeom1rdn1r",
       "date": "2026-10-23",
