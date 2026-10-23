@@ -3025,6 +3025,14 @@
   ],
   "entries": [
     {
+      "id": "mvkfuaj2kqt20",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-10-23",
+      "minutes": 120,
+      "description": "박성림 상무 초안에 대한 피드백 반영하여 계약서 다시 수정",
+      "billable": true
+    },
+    {
       "id": "mvkft65vmhu15",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-23",
