@@ -3062,6 +3062,14 @@
   ],
   "entries": [
     {
+      "id": "mvm8rjplgytza",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-10-24",
+      "minutes": 60,
+      "description": "계약서 수정 및 고객 송부",
+      "billable": true
+    },
+    {
       "id": "mvm8r2uzpowsg",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-24",
