@@ -3062,6 +3062,14 @@
   ],
   "entries": [
     {
+      "id": "mvm8swzr23jxt",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-10-24",
+      "minutes": 60,
+      "description": "메모 최종안 검토",
+      "billable": true
+    },
+    {
       "id": "mvm8sik88jqpl",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-24",
