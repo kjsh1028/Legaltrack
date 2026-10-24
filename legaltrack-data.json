@@ -3062,6 +3062,14 @@
   ],
   "entries": [
     {
+      "id": "mvm8r2uzpowsg",
+      "matterId": "mq20ac8bqbt35",
+      "date": "2026-10-24",
+      "minutes": 120,
+      "description": "킹앤우드 이석호 변호사 미팅",
+      "billable": false
+    },
+    {
       "id": "mvm8qp8zriawc",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-24",
