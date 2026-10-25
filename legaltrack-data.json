@@ -3003,7 +3003,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "일반자문"
+      ]
     },
     {
       "id": "muz7v1nm1us1o",
