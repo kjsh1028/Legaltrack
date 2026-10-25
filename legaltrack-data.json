@@ -8823,6 +8823,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvn3rmxjz3z8o",
+      "date": "2026-10-25",
+      "amount": 464700,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "대한항공",
+      "content": "한국 입국",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mvejzj4hrlkkc",
       "date": "2026-10-19",
       "amount": 2033,
