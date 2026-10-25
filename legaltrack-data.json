@@ -2539,7 +2539,10 @@
       "fail_category": "의뢰인 내부 결정",
       "fail_reason": "연기",
       "fail_competitor": "",
-      "fail_memo": ""
+      "fail_memo": "",
+      "areas": [
+        "M&A"
+      ]
     },
     {
       "id": "mtten8l5dokbz",
