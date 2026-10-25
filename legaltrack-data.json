@@ -799,7 +799,10 @@
       "driveLinkLabel": "",
       "clientId": "mqelsjk3ydxje",
       "contactId": "mqeltn5w3qigk",
-      "memo": ""
+      "memo": "",
+      "areas": [
+        "법인설립"
+      ]
     },
     {
       "id": "mqrjvi5a6jktt",
