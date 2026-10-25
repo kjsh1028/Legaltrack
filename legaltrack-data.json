@@ -2595,7 +2595,10 @@
       "driveLinkLabel": "",
       "memo": "김남호 소개",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "청산"
+      ]
     },
     {
       "id": "mttz1jvs2c43v",
