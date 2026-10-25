@@ -8823,6 +8823,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvn4qezfyymzc",
+      "date": "2026-10-25",
+      "amount": 744,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "Longfenghui",
+      "content": "점심",
+      "attendees": [
+        "심정민 변호사"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mvn44si3cvlsj",
       "date": "2026-10-25",
       "amount": 278100,
