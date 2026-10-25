@@ -1045,7 +1045,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mrd1j5juo3ywl",
-      "contactId": "mrd1iqrizpu0p"
+      "contactId": "mrd1iqrizpu0p",
+      "areas": [
+        "부동산"
+      ]
     },
     {
       "id": "mreru4m1yw0u4",
