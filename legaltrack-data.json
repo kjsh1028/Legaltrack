@@ -522,7 +522,13 @@
       "billed_cur": "KRW",
       "starred": false,
       "driveLink": "",
-      "driveLinkLabel": ""
+      "driveLinkLabel": "",
+      "areas": [
+        "소송"
+      ],
+      "memo": "",
+      "clientId": null,
+      "contactId": null
     },
     {
       "id": "mq682ysy3qq32",
