@@ -2211,7 +2211,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mtbe8iwlkwjzn",
-      "contactId": "mtbe9ze9xju3d"
+      "contactId": "mtbe9ze9xju3d",
+      "areas": [
+        "M&A"
+      ]
     },
     {
       "id": "mtbec604hth3i",
