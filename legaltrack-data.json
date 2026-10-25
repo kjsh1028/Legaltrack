@@ -3123,7 +3123,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mvhwaqvr6vuda",
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "일반자문"
+      ]
     },
     {
       "id": "mvm8jaeacxkla",
