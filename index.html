@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026102503">
+<meta name="app-version" content="2026102504">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026102503';
+const APP_VERSION='2026102504';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -590,7 +590,7 @@ const MTYPE={
 };
 const MSTATUS={'prospect':{label:'수임 진행중',tagCls:'orange'},'active':{label:'수임 완료',tagCls:'g'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
 const ATYPE={'solo':{label:'단독 수임',desc:'100%'},'china-collab':{label:'중국 관련 협업',desc:'전체 100%'},'korea-collab':{label:'순수 한국 건 협업',desc:'내 비율'},'team-originate':{label:'타팀 발굴 공동',desc:'내 비율'},'team-referral':{label:'타팀 수임→우리 실행',desc:'실제 빌링'},'kjm-jya':{label:'김정민/주영애 수임',desc:'100%'},'biz':{label:'Biz Building',desc:'해당없음'},'office':{label:'Office 내부',desc:'해당없음'}};
-const PRACTICE_AREAS=['M&A','투자금융','법인설립','청산','소송','중재집행','노동','계약자문','일반자문','규제','고문','부동산','형사','가사'];
+const PRACTICE_AREAS=['M&A','투자금융','법인설립','청산','소송','중재집행','노동','계약자문','일반자문','규제','상표·저작권','고문','부동산','형사','가사'];
 function mAreas(m){return Array.isArray(m.areas)?m.areas:[];}
 function areaTagsHTML(m,cls){return mAreas(m).map(a=>`<span class="${cls||'tag'} b">${a}</span>`).join(' ');}
 const FAIL_REASONS=['보수 조건 불일치','다른 로펌 선택','예산 부족','프로젝트 취소','의뢰인 내부 결정','경쟁입찰 패배','연락 두절','기타'];
