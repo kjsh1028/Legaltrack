@@ -2757,7 +2757,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mq68okj1cjjmr",
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "노동"
+      ]
     },
     {
       "id": "mue4c0uvhvvf7",
