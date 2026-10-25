@@ -1601,7 +1601,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mq68okj1cjjmr",
-      "contactId": "mrk23pjiepb6z"
+      "contactId": "mrk23pjiepb6z",
+      "areas": [
+        "소송"
+      ]
     },
     {
       "id": "ms9q2kj9qryyi",
