@@ -2835,7 +2835,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "계약자문"
+      ]
     },
     {
       "id": "muuu9it7pfuuw",
