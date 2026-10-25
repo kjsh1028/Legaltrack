@@ -1,4 +1,4 @@
-const CACHE_NAME = 'legaltrack-v2026102504';
+const CACHE_NAME = 'legaltrack-v2026102505';
 const ALWAYS_NETWORK = ['/Legaltrack/', '/Legaltrack/index.html', '/Legaltrack/sw.js'];
 
 self.addEventListener('install', e => {

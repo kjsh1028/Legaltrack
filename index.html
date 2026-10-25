@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026102502">
+<meta name="app-version" content="2026102503">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026102502';
+const APP_VERSION='2026102503';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -776,6 +776,8 @@ async function init(){
   setTimeout(checkForUpdate,3000);
 }
 
+// iOS 홈화면 앱은 백그라운드에서 돌아올 때 새로 로드되지 않으므로, 앱으로 돌아올 때마다 업데이트 확인
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')checkForUpdate();});
 async function checkForUpdate(){
   try{
     const r=await fetch('https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/index.html?_='+Date.now());
