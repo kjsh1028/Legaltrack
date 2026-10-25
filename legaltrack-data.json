@@ -3043,7 +3043,10 @@
       "driveLinkLabel": "",
       "memo": "대성 김계형 소개",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "소송"
+      ]
     },
     {
       "id": "mvezc54m738z9",
