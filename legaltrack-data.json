@@ -2494,7 +2494,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mtmdr001l6u9i",
-      "contactId": "mtmdrag96ai7k"
+      "contactId": "mtmdrag96ai7k",
+      "areas": [
+        "일반자문"
+      ]
     },
     {
       "id": "mttdeom1rdn1r",
