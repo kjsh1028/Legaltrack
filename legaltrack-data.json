@@ -3163,7 +3163,10 @@
       "driveLinkLabel": "",
       "memo": "김훈 소개",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "M&A"
+      ]
     }
   ],
   "entries": [
