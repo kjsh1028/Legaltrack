@@ -1200,7 +1200,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mq68okj1cjjmr",
-      "contactId": "mrk23pjiepb6z"
+      "contactId": "mrk23pjiepb6z",
+      "areas": [
+        "법인설립"
+      ]
     },
     {
       "id": "mrm53addjumaq",
