@@ -2187,7 +2187,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mt6mlkh7d4xk3",
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "소송"
+      ]
     },
     {
       "id": "mtbeaqaa7rmnm",
