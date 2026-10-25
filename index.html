@@ -590,6 +590,9 @@ const MTYPE={
 };
 const MSTATUS={'prospect':{label:'수임 진행중',tagCls:'orange'},'active':{label:'수임 완료',tagCls:'g'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
 const ATYPE={'solo':{label:'단독 수임',desc:'100%'},'china-collab':{label:'중국 관련 협업',desc:'전체 100%'},'korea-collab':{label:'순수 한국 건 협업',desc:'내 비율'},'team-originate':{label:'타팀 발굴 공동',desc:'내 비율'},'team-referral':{label:'타팀 수임→우리 실행',desc:'실제 빌링'},'kjm-jya':{label:'김정민/주영애 수임',desc:'100%'},'biz':{label:'Biz Building',desc:'해당없음'},'office':{label:'Office 내부',desc:'해당없음'}};
+const PRACTICE_AREAS=['M&A','법인설립','청산','소송','중재집행','노동','계약자문','규제','고문','부동산','형사','가사'];
+function mAreas(m){return Array.isArray(m.areas)?m.areas:[];}
+function areaTagsHTML(m,cls){return mAreas(m).map(a=>`<span class="${cls||'tag'} b">${a}</span>`).join(' ');}
 const FAIL_REASONS=['보수 조건 불일치','다른 로펌 선택','예산 부족','프로젝트 취소','의뢰인 내부 결정','경쟁입찰 패배','연락 두절','기타'];
 function getRetainerBase(m){
   if(m.type==='time-b')return{amount:m.cap_amount||m.estimated_amount||0,currency:m.cap_cur||'KRW'};
@@ -755,7 +758,7 @@ async function ghSave(){
 /* ── Layer state ── */
 let curLayer=null;
 let _curQueryTab='time', _timePreset='month';
-let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all', _mqSearch='';
+let _queryMode=null, _moneyType='retainer', _tqMatter='all', _mqStatus='all', _mqType='all', _mqArea='all', _mqSearch='';
 let _timePresetQ='month', _timeFrom='', _timeTo='';
 let _prevLayer=null, _prevTab=0, _prevMatterId=null; // 이전 레이어 추적
 let _clientTab='clients'; // 'clients' | 'contacts'
@@ -1074,6 +1077,7 @@ function renderMatterDetailLayer(){
     <div class="detail-meta">
       <span class="dtag ${mt.tagCls==='g'?'g':mt.tagCls==='p'?'p':mt.tagCls==='b'?'b':mt.tagCls==='r'||mt.tagCls==='red'?'r':'o'}">${mt.ico} ${mt.label}</span>
       <span class="dtag gray">${mst.label}</span>
+      ${areaTagsHTML(m,'dtag')}
       ${m.starred?'<span class="dtag o">⭐ 중요</span>':''}
     </div>
   </div>
@@ -1314,6 +1318,9 @@ function renderMattersQuery(){
   let items=statusF==='failed'?D.matters.filter(m=>m.status==='failed'):D.matters.filter(m=>m.status!=='failed');
   if(statusF!=='all'&&statusF!=='failed')items=items.filter(m=>m.status===statusF);
   if(typeF!=='all')items=items.filter(m=>m.type===typeF);
+  const areaF=_mqArea||'all';
+  if(areaF==='none')items=items.filter(m=>!mAreas(m).length);
+  else if(areaF!=='all')items=items.filter(m=>mAreas(m).includes(areaF));
   if(q)items=items.filter(m=>m.name.toLowerCase().includes(q)||(m.client||'').toLowerCase().includes(q)||(m.code||'').toLowerCase().includes(q));
   items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const statusSel=`<select data-mqstatus="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
@@ -1332,6 +1339,7 @@ function renderMattersQuery(){
       <div style="flex:1;min-width:0">
         <div class="qri-name">${m.name}</div>
         <div style="font-size:11px;color:var(--text3)">${mst.label}${m.client?' · '+m.client:''}</div>
+        ${mAreas(m).length?`<div style="margin-top:3px;display:flex;gap:3px;flex-wrap:wrap">${areaTagsHTML(m)}</div>`:''}
       </div>
       ${rb.amount?`<span class="qri-time" style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</span>`:''}
       <span class="qri-arr">›</span>
@@ -1343,7 +1351,8 @@ function renderMattersQuery(){
       style="flex:1;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;background:#fff">
     <button onclick="openMatterModal()" style="padding:9px 14px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">＋</button>
   </div>
-  <div style="display:flex;gap:6px;margin-bottom:10px">${statusSel}${typeSel}</div>
+  <div style="display:flex;gap:6px;margin-bottom:8px">${statusSel}${typeSel}</div>
+  <div style="display:flex;gap:5px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;margin-bottom:8px">${[['all','전체'],...PRACTICE_AREAS.map(a=>[a,a]),['none','미분류']].map(([v,l],i)=>`<button onclick="_mqArea=${v==='all'||v==='none'?`'${v}'`:`PRACTICE_AREAS[${i-1}]`};renderContent()" style="flex:none;padding:6px 11px;font-size:12px;font-weight:600;border-radius:16px;border:1.5px solid ${areaF===v?'var(--b)':'var(--border)'};background:${areaF===v?'var(--bl)':'#fff'};color:${areaF===v?'var(--b)':'var(--text2)'};cursor:pointer;font-family:inherit;white-space:nowrap">${l}</button>`).join('')}</div>
   <div style="font-size:12px;color:var(--text3);margin-bottom:8px">${items.length}건</div>
   <div class="qr-list">${items.length===0?'<div class="empty-state">항목 없음</div>':rows}</div>
 </div>`;}
@@ -2741,6 +2750,10 @@ function openMatterModal(editId){
   <div style="display:flex;gap:5px;flex-wrap:wrap">${[['prospect','🔵 진행중','orange'],['active','✅ 완료','g'],['closed','🔒 클로징','teal'],['internal','🏢 비빌링','gray']].map(([k,lbl,cls])=>`<button class="tt-b ${(em?.status||'active')===k?'on '+cls:''}" style="flex:1;padding:7px;min-width:70px" id="mst_${k}" onclick="setMSt('${k}','${cls}')"><div class="tt-lbl" style="font-size:11px">${lbl}</div></button>`).join('')}</div>
   <input type="hidden" id="mstatus" value="${em?.status||'active'}">
 </div>
+<div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">사건 성격 <span style="font-weight:400;color:var(--text3);font-size:11px">(여러 개 선택 가능)</span></div>
+  <div style="display:flex;gap:5px;flex-wrap:wrap">${PRACTICE_AREAS.map((a,i)=>`<button type="button" class="tt-b ${mAreas(em||{}).includes(a)?'on b':''}" style="padding:7px 10px" id="mar_${i}" onclick="toggleMArea(${i})"><div class="tt-lbl" style="font-size:12px">${a}</div></button>`).join('')}</div>
+  <input type="hidden" id="mareas" value="${mAreas(em||{}).join('|')}">
+</div>
 <div class="field"><label>Matter 코드 *</label><input id="mc" value="${em?.code||''}" placeholder="ABC-2025-01" oninput="this.value=this.value.toUpperCase()"></div>
 <div class="field"><label>Matter 명 *</label><input id="mn" value="${em?.name||''}" placeholder="ABC사 M&A 자문"></div>
 <div class="field"><label>고객사 (의뢰인)</label>
@@ -2895,6 +2908,7 @@ function setMType(k,cls){
   const af=document.getElementById('achF');if(af)af.style.display=['biz-b','office-i'].includes(k)?'none':'';
 }
 function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
+function toggleMArea(i){const h=document.getElementById('mareas');const a=PRACTICE_AREAS[i];let cur=h.value?h.value.split('|'):[];cur=cur.includes(a)?cur.filter(x=>x!==a):[...cur,a];cur=PRACTICE_AREAS.filter(x=>cur.includes(x));h.value=cur.join('|');const b=document.getElementById('mar_'+i);if(b)b.className='tt-b'+(cur.includes(a)?' on b':'');}
 function onAT(sel){const bf=document.getElementById('billedF');if(bf)bf.style.display=sel.value==='team-referral'?'':'none';}
 // ── 검색 콤보 헬퍼 ──
 function makeDropdownItem(label, sub, onclick, isAdd=false){
@@ -3071,6 +3085,7 @@ function saveMatter(eid){
     client:(document.getElementById('m_clientSearch')?.value||document.getElementById('mcl')?.value||'').trim(),
     type:mtype,
     status:g('mstatus')?.value||'active',
+    areas:(g('mareas')?.value||'').split('|').filter(Boolean),
     // Fixed Fee
     retainer_amount:mtype==='fixed-f'?getRaw('mra')||null:null,
     retainer_cur:mtype==='fixed-f'?g('mrc')?.value||'KRW':
