@@ -1491,7 +1491,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "소송"
+      ]
     },
     {
       "id": "ms70cqy5xnyhw",
