@@ -2412,7 +2412,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "ms7c62zqkanis",
-      "contactId": "ms7c6g39vahfn"
+      "contactId": "ms7c6g39vahfn",
+      "areas": [
+        "M&A"
+      ]
     },
     {
       "id": "mtjt9v23wq2bt",
