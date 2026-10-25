@@ -76,7 +76,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "M&A"
+      ]
     },
     {
       "id": "mq20ac8bqbt35",
