@@ -643,7 +643,11 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "노동"
+      ],
+      "memo": ""
     },
     {
       "id": "mqax6d789izor",
