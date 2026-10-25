@@ -36,7 +36,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "법인설립"
+      ]
     },
     {
       "id": "mq205p2ptqpyp",
