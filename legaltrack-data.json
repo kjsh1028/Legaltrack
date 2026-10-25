@@ -3083,7 +3083,10 @@
       "driveLinkLabel": "",
       "memo": "박준성 소개. 구기성 고문 박지웅 변호사",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "일반자문"
+      ]
     },
     {
       "id": "mvhwb19knfwwv",
