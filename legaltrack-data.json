@@ -1983,7 +1983,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mqrjxnxxt2xqh",
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "M&A"
+      ]
     },
     {
       "id": "msr7d5xpo3l8n",
