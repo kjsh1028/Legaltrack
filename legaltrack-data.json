@@ -446,7 +446,10 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "법인설립"
+      ]
     },
     {
       "id": "mq4lxl561un1a",
