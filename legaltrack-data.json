@@ -2963,7 +2963,10 @@
       "driveLinkLabel": "",
       "memo": "이명재 변호사 소개",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "법인설립"
+      ]
     },
     {
       "id": "muwbko677hgf0",
