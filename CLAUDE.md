@@ -8,5 +8,6 @@
 
 ## 파일 구성
 - `index.html` — 앱 본체 (HTML/CSS/JS 한 파일)
+- `index.html`을 바꾸면 **반드시** `index.html` 안의 `APP_VERSION`(및 `<meta name="app-version">`)을 올린다. 앱은 이 번호를 GitHub의 최신 파일과 비교해 "새 버전" 배너를 띄우므로, 안 올리면 아이폰 등에서 업데이트가 반영되지 않는다.
 - `sw.js` — 서비스 워커 (오프라인 캐시). `index.html`을 바꾸면 `sw.js`의 `CACHE_NAME` 날짜 버전(예: legaltrack-vYYYYMMDDNN)도 올려서 기존 사용자에게 새 버전이 반영되게 한다.
 - `legaltrack-data.json` — 데이터 파일
