@@ -565,7 +565,11 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "areas": [
+        "M&A",
+        "법인설립"
+      ]
     },
     {
       "id": "mq7sygz2qvulp",
