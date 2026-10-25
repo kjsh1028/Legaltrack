@@ -759,7 +759,10 @@
       "driveLinkLabel": "",
       "clientId": null,
       "contactId": null,
-      "memo": ""
+      "memo": "",
+      "areas": [
+        "형사"
+      ]
     },
     {
       "id": "mqelrjr4iee53",
