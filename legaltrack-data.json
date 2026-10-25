@@ -8823,6 +8823,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvn44si3cvlsj",
+      "date": "2026-10-25",
+      "amount": 278100,
+      "currency": "KRW",
+      "category": "교통",
+      "merchant": "대한항골",
+      "content": "한국 입국",
+      "attendees": [],
+      "matterId": "mq33mk2e2x560"
+    },
+    {
       "id": "mvn3rmxjz3z8o",
       "date": "2026-10-25",
       "amount": 464700,
