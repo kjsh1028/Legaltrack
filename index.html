@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026102505">
+<meta name="app-version" content="2026102601">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026102505';
+const APP_VERSION='2026102601';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -588,7 +588,7 @@ const MTYPE={
   'biz-b':{label:'Biz Building',ico:'🤝',cls:'biz-b',tagCls:'gold',color:'var(--gold)'},
   'office-i':{label:'Office 내부',ico:'🏢',cls:'office-i',tagCls:'gray',color:'var(--gray)'}
 };
-const MSTATUS={'prospect':{label:'수임 진행중',tagCls:'orange'},'active':{label:'수임 완료',tagCls:'g'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
+const MSTATUS={'prospect':{label:'수임준비',tagCls:'orange'},'active':{label:'진행중',tagCls:'g'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
 const ATYPE={'solo':{label:'단독 수임',desc:'100%'},'china-collab':{label:'중국 관련 협업',desc:'전체 100%'},'korea-collab':{label:'순수 한국 건 협업',desc:'내 비율'},'team-originate':{label:'타팀 발굴 공동',desc:'내 비율'},'team-referral':{label:'타팀 수임→우리 실행',desc:'실제 빌링'},'kjm-jya':{label:'김정민/주영애 수임',desc:'100%'},'biz':{label:'Biz Building',desc:'해당없음'},'office':{label:'Office 내부',desc:'해당없음'}};
 const PRACTICE_AREAS=['M&A','투자금융','법인설립','청산','소송','중재집행','노동','계약자문','일반자문','규제','조세','상표·저작권','고문','부동산','형사','가사'];
 function mAreas(m){return Array.isArray(m.areas)?m.areas:[];}
@@ -877,8 +877,8 @@ function renderContent(){
   // Page title
   const titles={0:'대시보드',1:'Matters',2:'조회',3:'업적',4:'실패분석',5:'리포트',6:'할일'};
   const pt=document.getElementById('pageTitle');
-  const titleStr=curLayer==='matters_list'?'진행중 Matters':
-    curLayer==='active_list'?'수임 완료':
+  const titleStr=curLayer==='matters_list'?'수임준비':
+    curLayer==='active_list'?'진행중':
     curLayer==='matter_detail'?'Matter 상세':
     curLayer==='entry_detail'?'기록 상세':
     curLayer==='client_detail'?'고객사 상세':
@@ -972,8 +972,8 @@ function renderDash(){
   const now=new Date();
 
   const cards=[
-    {l:'수임 진행중', v:prospectM.length+'건', c:'kpi-o', fn:"curLayer='matters_list';renderContent()"},
-    {l:'수임 완료', v:activeM.filter(m=>m.status==='active').length+'건', c:'kpi-g', fn:"curLayer='active_list';renderContent()"},
+    {l:'수임준비', v:prospectM.length+'건', c:'kpi-o', fn:"curLayer='matters_list';renderContent()"},
+    {l:'진행중', v:activeM.filter(m=>m.status==='active').length+'건', c:'kpi-g', fn:"curLayer='active_list';renderContent()"},
     {l:'업적', v:fmt(retKRW), c:'kpi-gold', fn:"_queryMode='money';_moneyType='retainer';curLayer='dash_money';renderContent()", sub:fmt(payKRW), sub2:contKRW>0?fmt(contKRW):null},
     {l:'고객 관리', v:clientCount+'개', c:'kpi-b', fn:"_queryMode='clients';_clientTab='clients';curLayer='dash_clients';renderContent()"},
     {l:'할 일', v:(()=>{const n=(D.todos||[]).filter(t=>!t.done).length;return n+'건';})(), c:'kpi-p', fn:'goTab(6);renderContent()'},
@@ -1011,7 +1011,7 @@ ${cards.map(k=>k.sub!==undefined?`<div class="kpi-item ${k.c}${k.fn?' kpi-tap':'
 </div>
 </div>`;}
 
-/* Layer: Matter 목록 (진행중/완료) */
+/* Layer: Matter 목록 (수임준비/진행중) */
 function renderMattersList(statusKey){
   if(curLayer==='matter_detail') return renderMatterDetailLayer();
   const q=(document.getElementById('ml_q')?.value||'').toLowerCase();
@@ -1214,7 +1214,7 @@ function renderMatterDetailLayer(){
     <button class="act-btn" onclick="toggleStar('${m.id}',event)">${m.starred?'★ 해제':'☆ 중요'}</button>
   </div>
   ${m.status==='prospect'?`<div class="action-row" style="margin-top:6px">
-    <button class="act-btn act-primary" onclick="convertToActive('${m.id}')">✓ 수임완료</button>
+    <button class="act-btn act-primary" onclick="convertToActive('${m.id}')">✓ 수임 확정 → 진행중</button>
     <button class="act-btn act-red" onclick="curLayer=null;openFailModal('${m.id}')">✗ 실패</button>
   </div>`:''}
   ${m.status==='active'?`<div class="action-row" style="margin-top:6px">
@@ -1256,7 +1256,7 @@ function renderMattersPage(){
     active:all.filter(m=>m.status==='active'),
     closed:all.filter(m=>m.status==='closed'),
   };
-  const statusLabels={prospect:'🔵 수임 진행중',active:'✅ 수임 완료',closed:'🔒 클로징',internal:'🏢 비빌링'};
+  const statusLabels={prospect:'🔵 수임준비',active:'✅ 진행중',closed:'🔒 클로징',internal:'🏢 비빌링'};
   const statusColors={prospect:'var(--o)',active:'var(--g)',closed:'var(--t)',internal:'var(--gray)'};
   return`<div class="list-wrap">
   ${Object.entries(byStatus).filter(([,items])=>items.length>0).map(([key,items])=>`
@@ -1327,7 +1327,7 @@ function renderMattersQuery(){
   items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const statusSel=`<select data-mqstatus="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 상태</option>
-    ${[['prospect','수임 진행중'],['active','수임 완료'],['closed','클로징'],['internal','비빌링'],['failed','수임 실패']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
+    ${[['prospect','수임준비'],['active','진행중'],['closed','클로징'],['internal','비빌링'],['failed','수임 실패']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
   </select>`;
   const typeSel=`<select data-mqtype="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 유형</option>
@@ -2002,7 +2002,7 @@ function delPayment(id){
 function closeDeal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='closed';m.closed_date=today();cloudSave('matter',m);closeModal();renderAll();}
 function reopenDeal(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('클로징을 취소하고 진행중으로 변경합니까?'))return;m.status='active';m.closed_date=null;cloudSave('matter',m);renderAll();},100);}
 function convertToActive(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='active';cloudSave('matter',m);closeModal();renderAll();}
-function reactivate(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('수임 진행중으로 다시 변경합니까?'))return;m.status='prospect';['failed_date','fail_category','fail_reason','fail_competitor','fail_memo'].forEach(k=>m[k]=null);cloudSave('matter',m);curTab=1;renderAll();},100);}
+function reactivate(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('수임준비로 다시 변경합니까?'))return;m.status='prospect';['failed_date','fail_category','fail_reason','fail_competitor','fail_memo'].forEach(k=>m[k]=null);cloudSave('matter',m);curTab=1;renderAll();},100);}
 
 
 /* ── Dashboard ── */
@@ -2749,8 +2749,8 @@ function openMatterModal(editId){
   <input type="hidden" id="mtype" value="${em?.type||'time-b'}">
 </div>
 <div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">수임 상태 *</div>
-  <div style="display:flex;gap:5px;flex-wrap:wrap">${[['prospect','🔵 진행중','orange'],['active','✅ 완료','g'],['closed','🔒 클로징','teal'],['internal','🏢 비빌링','gray']].map(([k,lbl,cls])=>`<button class="tt-b ${(em?.status||'active')===k?'on '+cls:''}" style="flex:1;padding:7px;min-width:70px" id="mst_${k}" onclick="setMSt('${k}','${cls}')"><div class="tt-lbl" style="font-size:11px">${lbl}</div></button>`).join('')}</div>
-  <input type="hidden" id="mstatus" value="${em?.status||'active'}">
+  <div style="display:flex;gap:5px;flex-wrap:wrap">${[['prospect','🔵 수임준비','orange'],['active','✅ 진행중','g'],['closed','🔒 클로징','teal'],['internal','🏢 비빌링','gray']].map(([k,lbl,cls])=>`<button class="tt-b ${(em?(em.status||'active'):'prospect')===k?'on '+cls:''}" style="flex:1;padding:7px;min-width:70px" id="mst_${k}" onclick="setMSt('${k}','${cls}')"><div class="tt-lbl" style="font-size:11px">${lbl}</div></button>`).join('')}</div>
+  <input type="hidden" id="mstatus" value="${em?(em.status||'active'):'prospect'}">
 </div>
 <div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">사건 성격 <span style="font-weight:400;color:var(--text3);font-size:11px">(여러 개 선택 가능)</span></div>
   <div style="display:flex;gap:5px;flex-wrap:wrap">${PRACTICE_AREAS.map((a,i)=>`<button type="button" class="tt-b ${mAreas(em||{}).includes(a)?'on b':''}" style="padding:7px 10px" id="mar_${i}" onclick="toggleMArea(${i})"><div class="tt-lbl" style="font-size:12px">${a}</div></button>`).join('')}</div>
