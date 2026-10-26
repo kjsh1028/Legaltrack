@@ -3171,6 +3171,46 @@
       "areas": [
         "M&A"
       ]
+    },
+    {
+      "id": "mvpgpiy59g53f",
+      "code": "잉커(盈科) 중국기업 한국 자회사 법률의견서",
+      "name": "잉커(盈科) 중국기업 한국 자회사 법률의견서",
+      "client": "",
+      "type": "time-b",
+      "status": "active",
+      "areas": [
+        "일반자문"
+      ],
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": "https://drive.google.com/drive/folders/10UhxlIz80EWuUqG9ONPErXl83bMM9Blc",
+      "driveLinkLabel": "",
+      "memo": "박재현 소개",
+      "clientId": null,
+      "contactId": null
     }
   ],
   "entries": [
