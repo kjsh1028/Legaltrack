@@ -8984,6 +8984,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvp7s4dc05gry",
+      "date": "2026-10-26",
+      "amount": 593,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "핸신포차",
+      "content": "저녁식사",
+      "attendees": [
+        "상하이 저널 오명 사장. 황동욱 원장. 채욱 시앤드림 대표"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mvn4qezfyymzc",
       "date": "2026-10-25",
       "amount": 744,
