@@ -3374,6 +3374,14 @@
   ],
   "entries": [
     {
+      "id": "mvtj5paq2ai23",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-10-29",
+      "minutes": 30,
+      "description": "고객과 내일 대상 회사 미팅 전에 주요 쟁점들에 대한 전화 회의",
+      "billable": true
+    },
+    {
       "id": "mvtj55a49lkzh",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-10-29",
