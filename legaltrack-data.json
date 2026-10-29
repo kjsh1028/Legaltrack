@@ -3374,6 +3374,14 @@
   ],
   "entries": [
     {
+      "id": "mvsweyfx4b28t",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-10-29",
+      "minutes": 240,
+      "description": "한국 복귀",
+      "billable": false
+    },
+    {
       "id": "mvswen7yxahdf",
       "matterId": "mq205p2ptqpyp",
       "date": "2026-10-29",
