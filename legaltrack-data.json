@@ -9335,6 +9335,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvu7yg5seqmyd",
+      "date": "2026-10-30",
+      "amount": 22100,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "카카오 택시",
+      "content": "고객 미팅",
+      "attendees": [],
+      "matterId": "mttdeom1rdn1r"
+    },
+    {
       "id": "mvp7s4dc05gry",
       "date": "2026-10-26",
       "amount": 593,
