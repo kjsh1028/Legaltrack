@@ -3374,6 +3374,14 @@
   ],
   "entries": [
     {
+      "id": "mvu7hhqfyypoi",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-10-30",
+      "minutes": 360,
+      "description": "고객과 쓰리세븐 공장 방문 현장 실사",
+      "billable": true
+    },
+    {
       "id": "mvtj5paq2ai23",
       "matterId": "mttdeom1rdn1r",
       "date": "2026-10-29",
