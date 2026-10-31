@@ -9367,6 +9367,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvvpt9ct779td",
+      "date": "2026-10-31",
+      "amount": 2111,
+      "currency": "CNY",
+      "category": "교통",
+      "merchant": "동방항공",
+      "content": "고객 미팅 북경 출장",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mvvpkawcmp0pk",
       "date": "2026-10-31",
       "amount": 41800,
