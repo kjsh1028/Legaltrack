@@ -9391,6 +9391,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mvw9mi71pog1n",
+      "date": "2026-10-31",
+      "amount": 159000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "목포명가",
+      "content": "저녁",
+      "attendees": [
+        "Sk 바이오팜 장진강. 오톤도 곽상훈 CFO"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mvvpt9ct779td",
       "date": "2026-10-31",
       "amount": 2111,
