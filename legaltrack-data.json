@@ -9831,6 +9831,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mw337drwonyrs",
+      "date": "2026-11-05",
+      "amount": 360000,
+      "currency": "KRW",
+      "category": "식사",
+      "merchant": "마쯔가제",
+      "content": "점심식사",
+      "attendees": [
+        "메타사이클 회장 리동. 샘. 양종. 김정민 고객접대"
+      ],
+      "matterId": "mqelrjr4iee53"
+    },
+    {
       "id": "mw24gohmcr65w",
       "date": "2026-11-04",
       "amount": 302500,
