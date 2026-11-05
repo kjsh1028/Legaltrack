@@ -3657,6 +3657,14 @@
   ],
   "entries": [
     {
+      "id": "mw39ev9xsj2gk",
+      "matterId": "ms9q2kj9qryyi",
+      "date": "2026-11-05",
+      "minutes": 48,
+      "description": "고객이 제출함 문서 및 내용 검토 및 파악",
+      "billable": true
+    },
+    {
       "id": "mw1fj74po0p2v",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-11-04",
