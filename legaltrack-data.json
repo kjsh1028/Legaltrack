@@ -3735,6 +3735,14 @@
   ],
   "entries": [
     {
+      "id": "mw49jareadlnc",
+      "matterId": "mq33mk2e2x560",
+      "date": "2026-11-06",
+      "minutes": 240,
+      "description": "중국 복귀",
+      "billable": false
+    },
+    {
       "id": "mw49irb1mxyxp",
       "matterId": "mttdeom1rdn1r",
       "date": "2026-11-06",
