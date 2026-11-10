@@ -10255,6 +10255,20 @@
   ],
   "cardExpenses": [
     {
+      "id": "mwar0tq0oows6",
+      "date": "2026-11-10",
+      "amount": 4792,
+      "currency": "CNY",
+      "category": "식사",
+      "merchant": "Jingcaixuan",
+      "content": "저녁",
+      "attendees": [
+        "삼성 김병완. Silvercrest rehan. GBA li zong Li manager. Alex.",
+        "레전드 캐피탈 박준성"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mwa047mbfihn1",
       "date": "2026-11-10",
       "amount": 476,
