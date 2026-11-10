@@ -10199,6 +10199,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "mwa047mbfihn1",
+      "date": "2026-11-10",
+      "amount": 476,
+      "currency": "CNY",
+      "category": "교통",
+      "merchant": "Didi",
+      "content": "택시이동 북경공항 호텔",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mw337drwonyrs",
       "date": "2026-11-05",
       "amount": 360000,
