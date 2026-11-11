@@ -10293,6 +10293,17 @@
   ],
   "cardExpenses": [
     {
+      "id": "mwbjac2w8xlac",
+      "date": "2026-11-11",
+      "amount": 1100,
+      "currency": "CNY",
+      "category": "교통",
+      "merchant": "북경 nuojin",
+      "content": "호텔",
+      "attendees": [],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mwar0tq0oows6",
       "date": "2026-11-10",
       "amount": 4792,
