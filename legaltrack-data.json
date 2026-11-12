@@ -10293,6 +10293,19 @@
   ],
   "cardExpenses": [
     {
+      "id": "mwd01u53dnsa5",
+      "date": "2026-11-12",
+      "amount": 1622,
+      "currency": "CNY",
+      "category": "교통",
+      "merchant": "싱가폴 항공",
+      "content": "비행기표",
+      "attendees": [
+        "정상훈 북경에서 싱해 비행기"
+      ],
+      "matterId": "mq20ac8bqbt35"
+    },
+    {
       "id": "mwbjac2w8xlac",
       "date": "2026-11-11",
       "amount": 1100,
