@@ -4007,6 +4007,14 @@
   ],
   "entries": [
     {
+      "id": "mwdmu9valmfef",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-11-12",
+      "minutes": 120,
+      "description": "계약서 수정 초안, 하나은행 에스크로 계약서 초안 회의",
+      "billable": true
+    },
+    {
       "id": "mwdmtdol3pkrn",
       "matterId": "mvqm3ug475u2b",
       "date": "2026-11-12",
