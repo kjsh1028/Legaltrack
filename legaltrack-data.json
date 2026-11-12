@@ -4007,6 +4007,14 @@
   ],
   "entries": [
     {
+      "id": "mwdmv6znhc9c0",
+      "matterId": "mwdmqshp0qx1b",
+      "date": "2026-11-12",
+      "minutes": 180,
+      "description": "IQM 서버 설비 영문 구매 계약서 검토 및 수정",
+      "billable": true
+    },
+    {
       "id": "mwdmu9valmfef",
       "matterId": "mtbeaqaa7rmnm",
       "date": "2026-11-12",
