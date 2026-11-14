@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026102601">
+<meta name="app-version" content="2026111401">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026102601';
+const APP_VERSION='2026111401';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1442,7 +1442,8 @@ function renderTimeResults(){
     <div class="tqs b"><div class="tqs-l">청구 가능</div><div class="tqs-v">${hhmm(billM)}</div></div>
     <div class="tqs gray"><div class="tqs-l">기록 수</div><div class="tqs-v">${rows.length}건</div></div>
   </div>
-  <div style="display:flex;justify-content:flex-end;margin-bottom:8px">
+  <div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:8px">
+    <button onclick="openEntryModal(${selMatter!=='all'?`'${selMatter}'`:''})" class="export-btn" style="background:var(--g);color:#fff;border-color:var(--g);font-weight:700">＋ 시간 입력</button>
     <button onclick="exportTimeXLSX('${from}','${to}')" class="export-btn">📊 Excel 저장</button>
   </div>
   <div class="qr-list">${rowsHTML}</div>
