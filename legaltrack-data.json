@@ -4007,6 +4007,14 @@
   ],
   "entries": [
     {
+      "id": "mwh6r2vi38h37",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-11-14",
+      "minutes": 90,
+      "description": "계약서 수정. 고객 송부",
+      "billable": true
+    },
+    {
       "id": "mwh6pmum4og1y",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-11-14",
