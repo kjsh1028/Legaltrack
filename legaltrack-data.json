@@ -4127,6 +4127,14 @@
   ],
   "entries": [
     {
+      "id": "mwji6b79108pq",
+      "matterId": "mttdeom1rdn1r",
+      "date": "2026-11-17",
+      "minutes": 90,
+      "description": "매도인 답변에 대한 분석 및 검토 메모 작성",
+      "billable": true
+    },
+    {
       "id": "mwjg8l67ngwfx",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-11-16",
