@@ -3910,7 +3910,7 @@
       "name": "A 해외소득 귀속·2025년분 수정신고 리스크 의견 (AllBright 김훈",
       "client": "알브라이트",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "areas": [
         "조세"
       ],
@@ -3942,7 +3942,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "ms7c62zqkanis",
-      "contactId": null
+      "contactId": null,
+      "hold_from": "prospect"
     },
     {
       "id": "mwbiwn7js3ued",
