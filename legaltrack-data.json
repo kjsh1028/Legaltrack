@@ -3505,7 +3505,7 @@
       "name": "LUMINA MASK(루미나마스크) 지분인수 한국 법률실사 (군합 김성휘 소개)",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "areas": [
         "M&A"
       ],
@@ -3537,7 +3537,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-11-17",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mw1oosnctj5k0",
