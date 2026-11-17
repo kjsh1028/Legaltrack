@@ -4130,7 +4130,7 @@
       "name": "Brooks/gen/Establishment",
       "client": "",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "active",
       "areas": [
         "일반자문"
       ],
