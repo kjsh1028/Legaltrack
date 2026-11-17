@@ -10642,6 +10642,16 @@
   ],
   "expenses": [
     {
+      "id": "mwjy5s8hiphmn",
+      "matterId": "mw8z20t0csajl",
+      "vendor": "대성법무법인",
+      "amount": 50000000,
+      "currency": "KRW",
+      "krw_amount": 50000000,
+      "note": "",
+      "paidDate": null
+    },
+    {
       "id": "mu2855kn6ah6c",
       "matterId": "ms9pckny0mc2l",
       "vendor": "대성법무법인",
