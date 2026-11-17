@@ -2484,7 +2484,7 @@
       "name": "CITIC Metal/gen/구리부산물수출",
       "client": "군합",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 5000,
       "retainer_cur": "USD",
       "rate": null,
