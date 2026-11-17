@@ -774,7 +774,7 @@
       "name": "秦望 재활용  법인설립",
       "client": "秦望环保",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 6261900,
       "retainer_cur": "KRW",
       "rate": null,
@@ -806,7 +806,8 @@
       "memo": "",
       "areas": [
         "법인설립"
-      ]
+      ],
+      "closed_date": "2026-11-17"
     },
     {
       "id": "mqrjvi5a6jktt",
