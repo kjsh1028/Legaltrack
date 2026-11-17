@@ -8368,6 +8368,16 @@
   ],
   "payments": [
     {
+      "id": "mwjywrds1l0iz",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-11-17",
+      "amount": 40000000,
+      "currency": "KRW",
+      "rate_on_date": null,
+      "krw_amount": 40000000,
+      "note": ""
+    },
+    {
       "id": "mwjyw09nj1641",
       "matterId": "mtmdrkuxu0xs2",
       "date": "2026-11-17",
