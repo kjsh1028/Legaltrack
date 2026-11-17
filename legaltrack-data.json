@@ -3796,7 +3796,7 @@
       "name": "한국투자신탁운용 상해대표처 말소·한국투자밸류자산운용 상해대표처 신설 (이화석 파트너→이명재)",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "areas": [],
       "retainer_amount": null,
       "retainer_cur": "KRW",
@@ -3826,7 +3826,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "hold_from": "prospect"
     },
     {
       "id": "mw92ocppsdc2f",
