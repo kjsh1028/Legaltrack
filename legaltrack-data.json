@@ -3225,7 +3225,7 @@
       "name": "포스코/gen/Sibuglemet Trading-중국집행대응",
       "client": "",
       "type": "time-b",
-      "status": "active",
+      "status": "closed",
       "areas": [],
       "retainer_amount": null,
       "retainer_cur": "KRW",
@@ -3255,7 +3255,8 @@
       "driveLinkLabel": "",
       "memo": "신동찬 소개",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "closed_date": "2026-11-17"
     },
     {
       "id": "mvqhsd9mdqnlp",
