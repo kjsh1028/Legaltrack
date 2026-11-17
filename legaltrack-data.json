@@ -3136,7 +3136,7 @@
       "id": "mvm8jaeacxkla",
       "code": "CIMC 부산 티앤씨 인수",
       "name": "CIMC 부산 티앤씨 인수",
-      "client": "",
+      "client": "알브라이트",
       "type": "time-b",
       "status": "prospect",
       "retainer_amount": null,
@@ -3166,7 +3166,7 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "memo": "김훈 소개",
-      "clientId": null,
+      "clientId": "ms7c62zqkanis",
       "contactId": null,
       "areas": [
         "M&A",
