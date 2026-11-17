@@ -1463,7 +1463,7 @@
       "name": "밍타이 조세 소송",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1495,7 +1495,8 @@
       "contactId": null,
       "areas": [
         "소송"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "ms70cqy5xnyhw",
