@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026111401">
+<meta name="app-version" content="2026111701">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -353,7 +353,7 @@ html,body{height:100%;background:var(--bg);
 .tt-b{padding:10px 6px;border-radius:10px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:inherit;text-align:center;transition:all .12s}
 .tt-b.on.g{background:var(--gl);border-color:var(--g);color:var(--g2)}.tt-b.on.p{background:var(--pl);border-color:var(--p);color:var(--p)}
 .tt-b.on.b{background:var(--bl);border-color:var(--b);color:var(--b)}.tt-b.on.r,.tt-b.on.red{background:var(--rl);border-color:var(--r);color:var(--r)}
-.tt-b.on.gold,.tt-b.on.o{background:var(--ol);border-color:var(--o);color:var(--o)}.tt-b.on.gray{background:var(--grayl);border-color:var(--gray);color:var(--gray)}
+.tt-b.on.gold,.tt-b.on.o,.tt-b.on.orange{background:var(--ol);border-color:var(--o);color:var(--o)}.tt-b.on.gray{background:var(--grayl);border-color:var(--gray);color:var(--gray)}
 .tt-b.on.teal{background:var(--tl);border-color:var(--t);color:var(--t)}
 .tt-ico{font-size:18px;display:block;margin-bottom:3px}.tt-lbl{font-size:11px;font-weight:700}.tt-sub{font-size:9px;color:var(--text3);margin-top:1px}
 .cur-row{display:flex;gap:5px;align-items:flex-end}
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026111401';
+const APP_VERSION='2026111701';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -588,7 +588,7 @@ const MTYPE={
   'biz-b':{label:'Biz Building',ico:'🤝',cls:'biz-b',tagCls:'gold',color:'var(--gold)'},
   'office-i':{label:'Office 내부',ico:'🏢',cls:'office-i',tagCls:'gray',color:'var(--gray)'}
 };
-const MSTATUS={'prospect':{label:'수임준비',tagCls:'orange'},'active':{label:'진행중',tagCls:'g'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
+const MSTATUS={'prospect':{label:'수임준비',tagCls:'orange'},'active':{label:'진행중',tagCls:'g'},'hold':{label:'보류',tagCls:'p'},'closed':{label:'딜 클로징',tagCls:'teal'},'failed':{label:'수임 실패',tagCls:'red'},'internal':{label:'비빌링',tagCls:'gray'}};
 const ATYPE={'solo':{label:'단독 수임',desc:'100%'},'china-collab':{label:'중국 관련 협업',desc:'전체 100%'},'korea-collab':{label:'순수 한국 건 협업',desc:'내 비율'},'team-originate':{label:'타팀 발굴 공동',desc:'내 비율'},'team-referral':{label:'타팀 수임→우리 실행',desc:'실제 빌링'},'kjm-jya':{label:'김정민/주영애 수임',desc:'100%'},'biz':{label:'Biz Building',desc:'해당없음'},'office':{label:'Office 내부',desc:'해당없음'}};
 const PRACTICE_AREAS=['M&A','투자금융','법인설립','청산','소송','중재집행','노동','계약자문','일반자문','규제','조세','상표·저작권','고문','부동산','형사','가사'];
 function mAreas(m){return Array.isArray(m.areas)?m.areas:[];}
@@ -952,7 +952,7 @@ function setupSwipeBack(el){
 ════════════════════════════════════════════ */
 function renderDash(){
   const s=statsNow();
-  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
+  const activeM=D.matters.filter(m=>['active','hold','closed'].includes(m.status));
   const prospectM=D.matters.filter(m=>m.status==='prospect');
   const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
   const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
@@ -1017,7 +1017,7 @@ function renderMattersList(statusKey){
   const q=(document.getElementById('ml_q')?.value||'').toLowerCase();
   const subTabs=statusKey==='active'?`
   <div style="display:flex;gap:6px;margin-bottom:10px">
-    ${[['active','진행중'],['closed','🔒 클로징']].map(([k,l])=>
+    ${[['active','진행중'],['hold','⏸ 보류'],['closed','🔒 클로징']].map(([k,l])=>
       `<button onclick="_activeSubFilter='${k}';renderContent()"
         style="padding:7px 16px;border-radius:20px;border:1.5px solid ${_activeSubFilter===k?'var(--g)':'var(--border)'};background:${_activeSubFilter===k?'var(--gl)':'#fff'};color:${_activeSubFilter===k?'var(--g2)':'var(--text3)'};font-size:13px;font-weight:${_activeSubFilter===k?'700':'500'};cursor:pointer;font-family:inherit">${l}</button>`
     ).join('')}
@@ -1038,7 +1038,7 @@ function renderMLItems(statusKey,q){
   if(statusKey==='active') activeItems=D.matters.filter(m=>m.status===_activeSubFilter);
   const statusMap={
     prospect:D.matters.filter(m=>m.status==='prospect'),
-    active:activeItems||D.matters.filter(m=>['active','closed'].includes(m.status)),
+    active:activeItems||D.matters.filter(m=>['active','hold','closed'].includes(m.status)),
   };
   const allItems=statusMap[statusKey]||[];
   const sq=(q||'').toLowerCase();
@@ -1219,6 +1219,11 @@ function renderMatterDetailLayer(){
   </div>`:''}
   ${m.status==='active'?`<div class="action-row" style="margin-top:6px">
     <button class="act-btn act-teal" onclick="closeDeal('${m.id}')">🔒 클로징</button>
+    <button class="act-btn" onclick="setMatterStatus('${m.id}','hold')">⏸ 보류</button>
+  </div>`:''}
+  ${m.status==='hold'?`<div class="action-row" style="margin-top:6px">
+    <button class="act-btn act-primary" onclick="setMatterStatus('${m.id}','active')">▶ 진행 재개</button>
+    <button class="act-btn act-teal" onclick="closeDeal('${m.id}')">🔒 클로징</button>
   </div>`:''}
 </div>`;}
 
@@ -1254,10 +1259,11 @@ function renderMattersPage(){
     internal:all.filter(m=>m.status==='internal'),
     prospect:all.filter(m=>m.status==='prospect'),
     active:all.filter(m=>m.status==='active'),
+    hold:all.filter(m=>m.status==='hold'),
     closed:all.filter(m=>m.status==='closed'),
   };
-  const statusLabels={prospect:'🔵 수임준비',active:'✅ 진행중',closed:'🔒 클로징',internal:'🏢 비빌링'};
-  const statusColors={prospect:'var(--o)',active:'var(--g)',closed:'var(--t)',internal:'var(--gray)'};
+  const statusLabels={prospect:'🔵 수임준비',active:'✅ 진행중',hold:'⏸ 보류',closed:'🔒 클로징',internal:'🏢 비빌링'};
+  const statusColors={prospect:'var(--o)',active:'var(--g)',hold:'var(--p)',closed:'var(--t)',internal:'var(--gray)'};
   return`<div class="list-wrap">
   ${Object.entries(byStatus).filter(([,items])=>items.length>0).map(([key,items])=>`
     <div class="group-hdr" style="color:${statusColors[key]}">${statusLabels[key]} <span style="color:var(--text3);font-weight:400;font-size:12px">${items.length}건</span></div>
@@ -1327,7 +1333,7 @@ function renderMattersQuery(){
   items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const statusSel=`<select data-mqstatus="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 상태</option>
-    ${[['prospect','수임준비'],['active','진행중'],['closed','클로징'],['internal','비빌링'],['failed','수임 실패']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
+    ${[['prospect','수임준비'],['active','진행중'],['hold','보류'],['closed','클로징'],['internal','비빌링'],['failed','수임 실패']].map(([v,l])=>`<option value="${v}"${statusF===v?' selected':''}>${l}</option>`).join('')}
   </select>`;
   const typeSel=`<select data-mqtype="1" style="flex:1;padding:9px 10px;font-size:13px;border:1px solid var(--border);border-radius:8px;background:#fff;font-family:inherit;-webkit-appearance:none">
     <option value="all">전체 유형</option>
@@ -1491,7 +1497,7 @@ function renderMoneyResults(){
   let items=[], total=0, totalLabel='', totalColor='var(--gold)';
 
   if(_moneyType==='retainer'){
-    items=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+    items=D.matters.filter(m=>['active','hold','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
     if(moneyQ)items=items.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ));
     total=items.reduce((a,m)=>a+retainerKRW(m),0);totalLabel='수임액 합계';
   }else if(_moneyType==='payment'){
@@ -1509,7 +1515,7 @@ function renderMoneyResults(){
     total=(D.expenses||[]).reduce((a,e)=>a+(e.krw_amount||toKRW(e.amount||0,e.currency||'KRW')),0);
     totalLabel='외부비용 합계';totalColor='var(--r)';
   }else{ // netprofit
-    items=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+    items=D.matters.filter(m=>['active','hold','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
     if(moneyQ)items=items.filter(m=>m.name.toLowerCase().includes(moneyQ)||(m.client||'').toLowerCase().includes(moneyQ));
     const totalRet=items.reduce((a,m)=>a+retainerKRW(m),0);
     const totalExp=(D.expenses||[]).filter(e=>items.some(m=>m.id===e.matterId)).reduce((a,e)=>a+(e.krw_amount||toKRW(e.amount||0,e.currency||'KRW')),0);
@@ -1946,7 +1952,7 @@ function saveMeeting(clientId){
 function exportMoneyQ(){
   const type=_moneyType;
   let matters=[];
-  if(type==='retainer')matters=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+  if(type==='retainer')matters=D.matters.filter(m=>['active','hold','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
   else if(type==='payment')matters=D.matters.filter(m=>paymentKRW(m)>0);
   else matters=D.matters.filter(m=>m.contingency_amount&&parseFloat(m.contingency_amount)>0&&!['failed','internal'].includes(m.status));
   const hdr=['코드','Matter명','유형','상태','의뢰인','금액(원래화폐)','통화','KRW','성공보수조건'];
@@ -2000,6 +2006,7 @@ function delPayment(id){
   renderContent();
 }
 
+function setMatterStatus(mid,st){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status=st;cloudSave('matter',m);closeModal();renderAll();}
 function closeDeal(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='closed';m.closed_date=today();cloudSave('matter',m);closeModal();renderAll();}
 function reopenDeal(mid){closeModal();setTimeout(()=>{const m=D.matters.find(x=>x.id===mid);if(!m)return;if(!confirm('클로징을 취소하고 진행중으로 변경합니까?'))return;m.status='active';m.closed_date=null;cloudSave('matter',m);renderAll();},100);}
 function convertToActive(mid){const m=D.matters.find(x=>x.id===mid);if(!m)return;m.status='active';cloudSave('matter',m);closeModal();renderAll();}
@@ -2385,7 +2392,7 @@ function toggleStar(mid,e){if(e)e.stopPropagation();const m=D.matters.find(x=>x.
 
 function renderAchievement(){
   const q=(document.getElementById('ach_q')?.value||'').toLowerCase();
-  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
+  const activeM=D.matters.filter(m=>['active','hold','closed'].includes(m.status));
   const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
   const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
   const contKRW=D.matters.filter(m=>m.contingency_amount&&!['failed','internal'].includes(m.status))
@@ -2500,7 +2507,7 @@ function renderFailed(){
   </div>`;}
 function renderReport(){
   const now=new Date();const yr=now.getFullYear();
-  const activeM=D.matters.filter(m=>['active','closed'].includes(m.status));
+  const activeM=D.matters.filter(m=>['active','hold','closed'].includes(m.status));
   const retKRW=activeM.reduce((a,m)=>a+retainerKRW(m),0);
   const payKRW=activeM.reduce((a,m)=>a+paymentKRW(m),0);
   const s=statsNow();
@@ -2750,7 +2757,7 @@ function openMatterModal(editId){
   <input type="hidden" id="mtype" value="${em?.type||'time-b'}">
 </div>
 <div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">수임 상태 *</div>
-  <div style="display:flex;gap:5px;flex-wrap:wrap">${[['prospect','🔵 수임준비','orange'],['active','✅ 진행중','g'],['closed','🔒 클로징','teal'],['internal','🏢 비빌링','gray']].map(([k,lbl,cls])=>`<button class="tt-b ${(em?(em.status||'active'):'prospect')===k?'on '+cls:''}" style="flex:1;padding:7px;min-width:70px" id="mst_${k}" onclick="setMSt('${k}','${cls}')"><div class="tt-lbl" style="font-size:11px">${lbl}</div></button>`).join('')}</div>
+  <div style="display:flex;gap:5px;flex-wrap:wrap">${[['prospect','🔵 수임준비','orange'],['active','✅ 진행중','g'],['hold','⏸ 보류','p'],['closed','🔒 클로징','teal'],['internal','🏢 비빌링','gray']].map(([k,lbl,cls])=>`<button class="tt-b ${(em?(em.status||'active'):'prospect')===k?'on '+cls:''}" style="flex:1;padding:7px;min-width:70px" id="mst_${k}" onclick="setMSt('${k}','${cls}')"><div class="tt-lbl" style="font-size:11px">${lbl}</div></button>`).join('')}</div>
   <input type="hidden" id="mstatus" value="${em?(em.status||'active'):'prospect'}">
 </div>
 <div style="margin-bottom:11px"><div class="cttl" style="margin-bottom:6px">사건 성격 <span style="font-weight:400;color:var(--text3);font-size:11px">(여러 개 선택 가능)</span></div>
@@ -2910,7 +2917,7 @@ function setMType(k,cls){
   const cf=document.getElementById('contingencyF');if(cf)cf.style.display=['time-b','fixed-f','retainer'].includes(k)?'':'none';
   const af=document.getElementById('achF');if(af)af.style.display=['biz-b','office-i'].includes(k)?'none':'';
 }
-function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
+function setMSt(k,cls){document.getElementById('mstatus').value=k;[['prospect','orange'],['active','g'],['hold','p'],['closed','teal'],['internal','gray']].forEach(([sk,sc])=>{const btn=document.getElementById('mst_'+sk);if(btn)btn.className='tt-b'+(k===sk?' on '+sc:'');});}
 function toggleMArea(i){const h=document.getElementById('mareas');const a=PRACTICE_AREAS[i];let cur=h.value?h.value.split('|'):[];cur=cur.includes(a)?cur.filter(x=>x!==a):[...cur,a];cur=PRACTICE_AREAS.filter(x=>cur.includes(x));h.value=cur.join('|');const b=document.getElementById('mar_'+i);if(b)b.className='tt-b'+(cur.includes(a)?' on b':'');}
 function onAT(sel){const bf=document.getElementById('billedF');if(bf)bf.style.display=sel.value==='team-referral'?'':'none';}
 // ── 검색 콤보 헬퍼 ──
@@ -3482,12 +3489,12 @@ function openExportModalF(mid,from,to){const opts='<option value="all">전체 Ma
 function doExport(mode){
   const from=document.getElementById('xf')?.value||'',to=document.getElementById('xt')?.value||'',mid=document.getElementById('xm')?.value||'all';
   if(mode==='achievement'){
-    const activeM=D.matters.filter(m=>['active','closed'].includes(m.status)&&(mid==='all'||m.id===mid));
+    const activeM=D.matters.filter(m=>['active','hold','closed'].includes(m.status)&&(mid==='all'||m.id===mid));
     const hdr=['코드','Matter명','유형','상태','의뢰인','업적유형','협력팀','내비율','수임금액(원래화폐)','수임통화','수임KRW(오늘환율)','수임액업적KRW','입금건수','입금(원래화폐-통화별)','입금KRW(입금일환율)','입금액업적KRW','미입금KRW','Cap/예상금액','Cap통화'];
     const rows=activeM.map(m=>{const rb=getRetainerBase(m);const pays=(D.payments||[]).filter(p=>p.matterId===m.id);const payByCur={};pays.forEach(p=>{payByCur[p.currency||'KRW']=(payByCur[p.currency||'KRW']||0)+parseFloat(p.amount||0);});const payDetail=Object.entries(payByCur).map(([c,a])=>fmtM(a,c)).join(' + ');const payKRW=pays.reduce((a,p)=>a+(p.krw_amount||0),0);const ret=retainerKRW(m);const pay=paymentKRW(m);const mt=MTYPE[m.type||'time-b'];const mst=MSTATUS[m.status||'active'];const at=ATYPE[m.achievement_type||'solo'];return[m.code,m.name,mt.label,mst.label,m.client||'',at.label,m.collab_team||'',m.my_ratio||100,rb.amount||'',rb.currency||'KRW',toKRW(rb.amount||0,rb.currency),ret,pays.length,payDetail||'없음',payKRW,pay,Math.max(0,ret-pay),m.type==='time-b'?(m.cap_amount||m.estimated_amount||''):'',m.cap_cur||''];});
     const retT=activeM.reduce((a,m)=>a+retainerKRW(m),0),payT=activeM.reduce((a,m)=>a+paymentKRW(m),0);
     const retByCurT=groupByCur(activeM,m=>getRetainerBase(m).amount,m=>getRetainerBase(m).currency);
-    const payByCurT={};(D.payments||[]).filter(p=>{const m=D.matters.find(x=>x.id===p.matterId);return m&&['active','closed'].includes(m.status)&&(mid==='all'||m.id===mid);}).forEach(p=>{payByCurT[p.currency||'KRW']=(payByCurT[p.currency||'KRW']||0)+parseFloat(p.amount||0);});
+    const payByCurT={};(D.payments||[]).filter(p=>{const m=D.matters.find(x=>x.id===p.matterId);return m&&['active','hold','closed'].includes(m.status)&&(mid==='all'||m.id===mid);}).forEach(p=>{payByCurT[p.currency||'KRW']=(payByCurT[p.currency||'KRW']||0)+parseFloat(p.amount||0);});
     rows.push(['합계','','','','','','','','','',activeM.reduce((a,m)=>a+toKRW(getRetainerBase(m).amount||0,getRetainerBase(m).currency),0),retT,'',Object.entries(payByCurT).map(([c,a])=>fmtM(a,c)).join('+'),activeM.reduce((a,m)=>a+(D.payments||[]).filter(p=>p.matterId===m.id).reduce((s,p)=>s+(p.krw_amount||0),0),0),payT,Math.max(0,retT-payT),'','']);
     exportCSV([hdr,...rows],`LegalTrack_업적리포트_${today()}.csv`);return;
   }
@@ -3547,7 +3554,7 @@ function exportIncentiveXLSX(){
   const yr=new Date().getFullYear();
 
   // ── 시트1: 수임·입금 현황 ──
-  const activeM=D.matters.filter(m=>['active','closed','prospect'].includes(m.status));
+  const activeM=D.matters.filter(m=>['active','hold','closed','prospect'].includes(m.status));
   const hdr1=['코드','Matter명','유형','상태','의뢰인','수임금액','수임통화','수임KRW','입금KRW','미입금KRW','입금진행률'];
   const rows1=activeM.map(m=>{
     const rb=getRetainerBase(m);
@@ -3601,7 +3608,7 @@ function exportIncentiveXLSX(){
   const blob=new Blob([wbout],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const url=URL.createObjectURL(blob);
   showDownloadModal(url,fname,'📊 인센티브 리포트',[
-    '시트1: 수임·입금 현황 ('+D.matters.filter(m=>["active","closed","prospect"].includes(m.status)).length+'건)',
+    '시트1: 수임·입금 현황 ('+D.matters.filter(m=>["active","hold","closed","prospect"].includes(m.status)).length+'건)',
     '시트2: 성공보수 현황',
     '시트3: 시간 기록 전체'
   ]);
@@ -3613,7 +3620,7 @@ function exportMoneyXLSX(){
   let matters=[];
   let sheetName='';
   if(_moneyType==='retainer'){
-    matters=D.matters.filter(m=>['active','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
+    matters=D.matters.filter(m=>['active','hold','closed','prospect'].includes(m.status)&&retainerKRW(m)>0);
     sheetName='수임액';
   } else if(_moneyType==='payment'){
     matters=D.matters.filter(m=>paymentKRW(m)>0);
