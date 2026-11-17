@@ -2363,7 +2363,7 @@
       "name": "인트로바이오파마 오페즈 이창형",
       "client": "오페즈인베스트먼트",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2395,7 +2395,8 @@
       "contactId": "mtggp85x49j5b",
       "areas": [
         "투자금융"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "mtib66otlrzg7",
