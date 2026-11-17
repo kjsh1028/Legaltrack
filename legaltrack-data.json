@@ -2733,7 +2733,7 @@
       "name": "대성 VOLTAIRA 노동법 자문",
       "client": "대성법무법인",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": 60000,
       "retainer_cur": "CNY",
       "rate": null,
@@ -2765,7 +2765,8 @@
       "contactId": null,
       "areas": [
         "노동"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "mue4c0uvhvvf7",
