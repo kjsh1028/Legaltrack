@@ -3985,7 +3985,7 @@
       "name": "큐에이아이/GEN/연간자문계약",
       "client": "",
       "type": "retainer",
-      "status": "prospect",
+      "status": "active",
       "areas": [
         "고문"
       ],
@@ -4015,7 +4015,7 @@
       "starred": false,
       "driveLink": "",
       "driveLinkLabel": "",
-      "memo": "",
+      "memo": "계약서 12 개",
       "clientId": null,
       "contactId": null
     },
