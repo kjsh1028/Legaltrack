@@ -3111,7 +3111,7 @@
       "name": "킹앤우드 영업비밀 형사사건 의견",
       "client": "킹앤우드",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -3143,7 +3143,8 @@
       "contactId": null,
       "areas": [
         "일반자문"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "mvm8jaeacxkla",
