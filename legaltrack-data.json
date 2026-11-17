@@ -3018,7 +3018,7 @@
       "name": "대성 대일광업 옥광산 소송",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -3050,7 +3050,12 @@
       "contactId": null,
       "areas": [
         "소송"
-      ]
+      ],
+      "failed_date": "2026-11-17",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mvezc54m738z9",
