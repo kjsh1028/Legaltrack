@@ -3718,7 +3718,7 @@
       "name": "엠비트로(MVITRO) 매각·투자유치 자문 (정현철 소개)",
       "client": "",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "hold",
       "areas": [
         "M&A"
       ],
@@ -3750,7 +3750,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "hold_from": "prospect"
     },
     {
       "id": "mw4l7k2t10o8m",
