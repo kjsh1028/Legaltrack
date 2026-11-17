@@ -3354,7 +3354,7 @@
       "name": "ENTASYS DESIGN 연간 내부 실사",
       "client": "대성법무법인",
       "type": "time-b",
-      "status": "prospect",
+      "status": "failed",
       "areas": [
         "일반자문"
       ],
@@ -3386,7 +3386,12 @@
       "driveLinkLabel": "",
       "memo": "김계향 소개",
       "clientId": "mq68okj1cjjmr",
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-11-17",
+      "fail_category": "보수 조건 불일치",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mw0fsryo3hgqp",
