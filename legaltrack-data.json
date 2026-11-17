@@ -2984,7 +2984,7 @@
       "name": "임형주 F&R PATNERS IP",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -3017,7 +3017,8 @@
       "areas": [
         "일반자문",
         "상표·저작권"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "muz7v1nm1us1o",
