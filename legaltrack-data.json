@@ -3540,7 +3540,7 @@
       "name": "대성 中信银行 닝보분행 한국법인 역외대출 한국법 의견서",
       "client": "대성법무법인",
       "type": "fixed-f",
-      "status": "prospect",
+      "status": "failed",
       "areas": [
         "일반자문"
       ],
@@ -3572,7 +3572,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": "mq68okj1cjjmr",
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-11-17",
+      "fail_category": "보수 조건 불일치",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mw1qjtr33e2kq",
