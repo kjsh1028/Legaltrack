@@ -3604,7 +3604,7 @@
       "name": "잉커(盈科) 중국기업 한국 자회사 법률의견서",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "areas": [
         "일반자문"
       ],
@@ -3636,7 +3636,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "hold_from": "prospect"
     },
     {
       "id": "mw2ao8wva88gj",
