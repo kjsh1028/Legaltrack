@@ -1956,7 +1956,7 @@
       "name": "QAI 나노씨엠에스 인수",
       "client": "QAI 양자컴퓨터",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -1988,7 +1988,8 @@
       "contactId": null,
       "areas": [
         "M&A"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "msr7d5xpo3l8n",
