@@ -2942,7 +2942,7 @@
       "name": "HNL 롯데케미칼 현대오일뱅크 중국 법인 설립",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2974,7 +2974,8 @@
       "contactId": null,
       "areas": [
         "법인설립"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "muwbko677hgf0",
