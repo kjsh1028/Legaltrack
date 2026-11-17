@@ -8370,6 +8370,16 @@
   ],
   "payments": [
     {
+      "id": "mwjz06ybkvceh",
+      "matterId": "mreru4m1yw0u4",
+      "date": "2026-11-17",
+      "amount": 50000,
+      "currency": "CNY",
+      "rate_on_date": 200,
+      "krw_amount": 10000000,
+      "note": ""
+    },
+    {
       "id": "mwjyxyknyr5xf",
       "matterId": "mqelrjr4iee53",
       "date": "2026-11-17",
