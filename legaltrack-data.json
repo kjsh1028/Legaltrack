@@ -2160,7 +2160,7 @@
       "name": "기업은행 중국기업 대상 800억 소송건",
       "client": "기업은행",
       "type": "litigation",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -2192,7 +2192,8 @@
       "contactId": null,
       "areas": [
         "소송"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "mtbeaqaa7rmnm",
