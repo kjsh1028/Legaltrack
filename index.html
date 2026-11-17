@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026111701">
+<meta name="app-version" content="2026111702">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026111701';
+const APP_VERSION='2026111702';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -1323,7 +1323,8 @@ function renderMattersQuery(){
   const statusF=_mqStatus||'all';
   const typeF=_mqType||'all';
   const q=(document.getElementById('mq_q')?.value||'').toLowerCase();
-  let items=statusF==='failed'?D.matters.filter(m=>m.status==='failed'):D.matters.filter(m=>m.status!=='failed');
+  // 검색어가 있고 '전체 상태'면 수임 실패 사건도 함께 찾는다
+  let items=statusF==='failed'?D.matters.filter(m=>m.status==='failed'):(statusF==='all'&&q)?[...D.matters]:D.matters.filter(m=>m.status!=='failed');
   if(statusF!=='all'&&statusF!=='failed')items=items.filter(m=>m.status===statusF);
   if(typeF!=='all')items=items.filter(m=>m.type===typeF);
   const areaF=_mqArea||'all';
@@ -1346,7 +1347,7 @@ function renderMattersQuery(){
     return`<div class="qr-item" onclick="_selectedMatterId='${m.id}';_prevLayer=curLayer;curLayer='matter_detail';renderContent()">
       <div style="flex:1;min-width:0">
         <div class="qri-name">${m.name}</div>
-        <div style="font-size:11px;color:var(--text3)">${mst.label}${m.client?' · '+m.client:''}</div>
+        <div style="font-size:11px;color:var(--text3)"><span${m.status==='failed'?' style="color:var(--r);font-weight:600"':''}>${mst.label}</span>${m.client?' · '+m.client:''}</div>
         ${mAreas(m).length?`<div style="margin-top:3px;display:flex;gap:3px;flex-wrap:wrap">${areaTagsHTML(m)}</div>`:''}
       </div>
       ${rb.amount?`<span class="qri-time" style="color:${mt.color}">${fmtM(rb.amount,rb.currency)}</span>`:''}
