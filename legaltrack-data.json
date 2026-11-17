@@ -8368,6 +8368,16 @@
   ],
   "payments": [
     {
+      "id": "mwjyw09nj1641",
+      "matterId": "mtmdrkuxu0xs2",
+      "date": "2026-11-17",
+      "amount": 5000000,
+      "currency": "KRW",
+      "rate_on_date": null,
+      "krw_amount": 5000000,
+      "note": ""
+    },
+    {
       "id": "mwjyrgiyauerf",
       "matterId": "mw2ao8wva88gj",
       "date": "2026-11-20",
@@ -8835,6 +8845,14 @@
       "contacts": []
     },
     {
+      "id": "mvhwaqvr6vuda",
+      "name": "킹앤우드",
+      "country": "",
+      "industry": "",
+      "note": "",
+      "contacts": []
+    },
+    {
       "id": "mq3fbf82qahr6",
       "name": "파트라",
       "fullname": "파트라 주식회사",
@@ -8922,14 +8940,6 @@
       "country": "한국",
       "industry": "IT",
       "note": "임세만 소개",
-      "contacts": []
-    },
-    {
-      "id": "mvhwaqvr6vuda",
-      "name": "킹앤우드",
-      "country": "",
-      "industry": "",
-      "note": "",
       "contacts": []
     }
   ],
