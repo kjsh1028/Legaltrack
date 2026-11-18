@@ -4245,6 +4245,14 @@
   ],
   "entries": [
     {
+      "id": "mwlfijophsbv2",
+      "matterId": "mwjd0p3geh4wa",
+      "date": "2026-11-18",
+      "minutes": 90,
+      "description": "고객과 화상 회의",
+      "billable": false
+    },
+    {
       "id": "mwk9ei9781hob",
       "matterId": "mtten8l5dokbz",
       "date": "2026-11-17",
