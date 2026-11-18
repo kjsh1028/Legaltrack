@@ -4255,7 +4255,7 @@
       "id": "mwls4tqnoj40f",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-11-18",
-      "minutes": 108,
+      "minutes": 138,
       "description": "Denning jin 중재건 관련 질의 답변 수임 조건 논의",
       "billable": false
     },
@@ -4271,8 +4271,8 @@
       "id": "mwls28ab5symv",
       "matterId": "mw92ocppsdc2f",
       "date": "2026-11-18",
-      "minutes": 150,
-      "description": "콜옵션 계약 주총 등 고객 질의에 대한 검토 및 내부 논의 답변",
+      "minutes": 210,
+      "description": "콜옵션 계약 주총 등 고객 질의에 대한 검토 및 내부 논의 답변. 비밀보호 계약 초안 작성후 고객 송부",
       "billable": true
     },
     {
@@ -8463,7 +8463,7 @@
       "id": "mwlfijophsbv2",
       "matterId": "mwjd0p3geh4wa",
       "date": "2026-11-18",
-      "minutes": 120,
+      "minutes": 150,
       "description": "고객과 화상 회의 및 수임 계약 조건 논의",
       "billable": false
     },
