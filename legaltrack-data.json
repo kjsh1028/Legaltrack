@@ -3400,7 +3400,7 @@
       "name": "Tanac whoyoung 대금회수 CCPIT",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "areas": [
         "소송"
       ],
@@ -3432,7 +3432,12 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "failed_date": "2026-11-18",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mw0nng8h5qp7y",
