@@ -8463,6 +8463,16 @@
   ],
   "payments": [
     {
+      "id": "mwlf9b09jg5jz",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-11-18",
+      "amount": 39700,
+      "currency": "USD",
+      "rate_on_date": 1335,
+      "krw_amount": 52999500,
+      "note": ""
+    },
+    {
       "id": "ms5gqnlhkqy91",
       "matterId": "mqelrjr4iee53",
       "date": "2026-07-29",
