@@ -4245,6 +4245,14 @@
   ],
   "entries": [
     {
+      "id": "mwls3chrr6elx",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-11-18",
+      "minutes": 90,
+      "description": "고객 세금에 대한 질의에 대해 내부 검토 및 택스 팀과 논의",
+      "billable": true
+    },
+    {
       "id": "mwls28ab5symv",
       "matterId": "mw92ocppsdc2f",
       "date": "2026-11-18",
