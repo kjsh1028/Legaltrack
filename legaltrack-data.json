@@ -3071,7 +3071,7 @@
       "name": "TRIP.COM 국회 대응 자문",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -3103,7 +3103,8 @@
       "contactId": null,
       "areas": [
         "일반자문"
-      ]
+      ],
+      "hold_from": "prospect"
     },
     {
       "id": "mvhwb19knfwwv",
