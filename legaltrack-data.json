@@ -3774,7 +3774,7 @@
       "name": "BEG 차량 시험주행 데이터 수집·중국 국외이전 자문 (박재현 전달)",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "areas": [
         "일반자문"
       ],
@@ -3806,7 +3806,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "hold_from": "prospect"
     },
     {
       "id": "mw8z20t0csajl",
