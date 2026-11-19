@@ -536,7 +536,7 @@
       "name": "부옥물산 JV설립(기업결합신고)",
       "client": "世辉 律师事务所/대성",
       "type": "time-b",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": null,
       "retainer_cur": "KRW",
       "rate": null,
@@ -569,7 +569,8 @@
       "areas": [
         "M&A",
         "법인설립"
-      ]
+      ],
+      "closed_date": "2026-11-19"
     },
     {
       "id": "mq7sygz2qvulp",
