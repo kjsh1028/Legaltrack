@@ -3976,7 +3976,7 @@
       "name": "아마레코리아 관계회사 미지급금 출자전환 (동현 김남호)",
       "client": "",
       "type": "time-b",
-      "status": "prospect",
+      "status": "hold",
       "areas": [],
       "retainer_amount": null,
       "retainer_cur": "KRW",
@@ -4006,7 +4006,8 @@
       "driveLinkLabel": "",
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "hold_from": "prospect"
     },
     {
       "id": "mwdmqshp0qx1b",
