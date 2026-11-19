@@ -1057,7 +1057,7 @@
       "name": "西安诺瓦星云科技-Novastar 법인설립",
       "client": "西安诺瓦星云科技",
       "type": "fixed-f",
-      "status": "active",
+      "status": "closed",
       "retainer_amount": 50000,
       "retainer_cur": "CNY",
       "rate": null,
@@ -1087,7 +1087,7 @@
       "memo": "박재현 변호사 소개",
       "clientId": null,
       "contactId": "mrerwo2qpndpu",
-      "closed_date": "2026-07-22"
+      "closed_date": "2026-11-19"
     },
     {
       "id": "mrfs3ni2hu73t",
