@@ -4130,9 +4130,9 @@
     },
     {
       "id": "mwjd0p3geh4wa",
-      "code": "중국인 모자 제주공항 군용기 촬영 일반이적 (대성 김계향 소개)",
-      "name": "양지호/gen/일반이적 코드 개설",
-      "client": "",
+      "code": "양지호/GEN/일반이적 코드 개설",
+      "name": "중국인 모자 제주공항 군용기 촬영 일반이적 (대성 김계향 소개)",
+      "client": "대성법무법인",
       "type": "litigation",
       "status": "prospect",
       "areas": [
@@ -4165,7 +4165,7 @@
       "driveLink": "",
       "driveLinkLabel": "",
       "memo": "",
-      "clientId": null,
+      "clientId": "mq68okj1cjjmr",
       "contactId": null,
       "hold_from": null
     },
