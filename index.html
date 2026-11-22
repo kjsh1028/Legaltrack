@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026111703">
+<meta name="app-version" content="2026112201">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,8 +538,8 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026111703';
-let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:''};
+const APP_VERSION='2026112201';
+let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:'',driveSyncUrl:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
 let dashExpand={prospect:false,active:false,closed:false};
@@ -640,7 +640,27 @@ async function syncCloud(){
     localLoad();
     showSync('err','연결 실패: '+e.message.slice(0,50));
   }}
+/* ── 구글 드라이브 폴더 자동 정리 (Apps Script 웹 앱 호출) ── */
+let _driveQ=[];
+function queueDriveSync(m){
+  if(!CFG.driveSyncUrl||!m||!m.driveLink||!m.status)return;
+  const g=/folders\/([\w-]+)/.exec(m.driveLink)||/[?&]id=([\w-]+)/.exec(m.driveLink);
+  if(!g)return;
+  _driveQ=_driveQ.filter(x=>x.f!==g[1]);_driveQ.push({f:g[1],s:m.status});
+}
+async function flushDriveSync(){
+  if(!CFG.driveSyncUrl||!_driveQ.length)return;
+  const q=_driveQ;_driveQ=[];
+  const sep=CFG.driveSyncUrl.includes('?')?'&':'?';
+  try{
+    const r=await fetch(CFG.driveSyncUrl+sep+'items='+encodeURIComponent(q.map(x=>x.f+':'+x.s).join(',')));
+    const j=await r.json();
+    if(j.moved&&j.moved.length)showSync('ok','📁 드라이브 폴더 이동: '+j.moved.join(', '));
+    else if(j.error)showSync('err','드라이브 정리 실패: '+j.error);
+  }catch(e){console.warn('drive sync',e);}
+}
 async function cloudSave(type,obj,action='upsert'){
+  if(type==='matter'&&action!=='del')queueDriveSync(obj);
   localSave();
   if(CFG.ghToken){ghSave();return;}
   // client/contact are local-only for Supabase (no table) - just localSave above is enough
@@ -750,6 +770,7 @@ async function ghSave(){
     const r=await ghFetch('/contents/legaltrack-data.json',{method:'PUT',body:JSON.stringify(body)});
     D._ghSha=r.content.sha;
     showSync('ok','✓ 저장 완료');
+    flushDriveSync();
   }catch(e){
     console.error('ghSave error:',e.message);
     showSync('err','GitHub 저장 실패: '+e.message.slice(0,40));
@@ -3735,6 +3756,9 @@ function openSettings(){
 <div class="gbox">✅ 중국에서도 작동합니다! GitHub Token을 입력하면 모든 기기에서 동기화됩니다.</div>
 <div class="field"><label>GitHub Token</label><input id="ghToken" value="${CFG.ghToken||''}" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>
 <div class="hint" style="margin-bottom:12px">github.com → Settings → Developer settings → Personal access tokens → Tokens (classic)</div>
+<div class="cttl" style="margin-bottom:7px">📁 구글 드라이브 폴더 자동 정리</div>
+<div class="ibox">사건 상태를 바꾸면 드라이브 사건 폴더를 그 상태 폴더로 바로 옮깁니다. Apps Script의 showAppLink 실행 결과로 나온 주소를 붙여 넣으세요.</div>
+<div class="field"><label>드라이브 동기화 주소</label><input id="cfgDriveSync" value="${CFG.driveSyncUrl||''}" placeholder="https://script.google.com/macros/s/.../exec?key=..."></div>
 <div class="cttl" style="margin-bottom:7px">☁️ Supabase 동기화 (한국/해외)</div>
 <div class="ibox">연결하면 모든 기기에서 자동 동기화</div>
 <div class="field"><label>Project URL</label><input id="sbUrl" value="${CFG.supaUrl||''}" placeholder="https://xxxx.supabase.co"></div>
@@ -3782,6 +3806,7 @@ function saveSettings(){
   CFG.cnyKrw=parseFloat(document.getElementById('cfgCny').value)||190;
   CFG.ghToken=(document.getElementById('ghToken')?.value||'').trim();
   CFG.anthropicKey=(document.getElementById('cfgAnthropicKey')?.value||'').trim();
+  CFG.driveSyncUrl=(document.getElementById('cfgDriveSync')?.value||'').trim();
   CFG.supaUrl=(document.getElementById('sbUrl').value||'').trim().replace(/\/$/,'');
   CFG.supaKey=(document.getElementById('sbKey').value||'').trim();saveCFG();closeModal();
   if(CFG.ghToken){ghLoad().then(()=>renderAll());}
