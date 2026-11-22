@@ -6,7 +6,7 @@
  * 위치에 있으면 맞는 상태 폴더로 옮긴다.
  *
  * 처음 한 번: setup 함수를 실행 → 권한 허용
- *   (15분마다 자동 실행되도록 등록하고 바로 한 번 동기화함)
+ *   (매일 새벽 3시(상해 시간)에 자동 실행되도록 등록하고 바로 한 번 동기화함)
  * 중지하려면: removeTriggers 함수 실행
  *
  * 안전장치
@@ -31,7 +31,8 @@ const STATUS_FOLDERS = {
 
 function setup() {
   removeTriggers();
-  ScriptApp.newTrigger('syncLegalTrackFolders').timeBased().everyMinutes(15).create();
+  ScriptApp.newTrigger('syncLegalTrackFolders').timeBased()
+    .everyDays(1).atHour(3).inTimezone('Asia/Shanghai').create();
   syncLegalTrackFolders();
 }
 
