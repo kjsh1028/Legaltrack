@@ -20,7 +20,7 @@
  *  - 옮긴 내역은 「율촌 사건」 폴더의 '_LegalTrack 동기화 기록' 시트에 남는다.
  */
 
-const DATA_URL = 'https://api.github.com/repos/kjsh1028/Legaltrack/contents/legaltrack-data.json?ref=main';
+const DATA_URL = 'https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/legaltrack-data.json';
 const ROOT_FOLDER_ID = '1R8OuQyYo2OkfWQlF7t7GnnHTjKHIR_5l'; // 율촌 사건
 
 // LegalTrack 상태 → 드라이브 상태 폴더
@@ -86,10 +86,7 @@ function doGet(e) {
 
 /* ── 2) 하루 1회 전체 점검 ── */
 function syncLegalTrackFolders() {
-  const res = UrlFetchApp.fetch(DATA_URL, {
-    headers: { Accept: 'application/vnd.github.raw+json', 'User-Agent': 'legaltrack-drive-sync' },
-    muteHttpExceptions: true,
-  });
+  const res = UrlFetchApp.fetch(DATA_URL + '?t=' + Date.now(), { muteHttpExceptions: true });
   if (res.getResponseCode() !== 200) {
     log_([['오류', '', '', 'GitHub 데이터 읽기 실패: HTTP ' + res.getResponseCode()]]);
     return;
