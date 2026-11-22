@@ -4139,7 +4139,7 @@
       "name": "중국인 모자 제주공항 군용기 촬영 일반이적 (대성 김계향 소개)",
       "client": "대성법무법인",
       "type": "litigation",
-      "status": "prospect",
+      "status": "failed",
       "areas": [
         "형사"
       ],
@@ -4172,7 +4172,12 @@
       "memo": "",
       "clientId": "mq68okj1cjjmr",
       "contactId": null,
-      "hold_from": null
+      "hold_from": null,
+      "failed_date": "2026-11-22",
+      "fail_category": "다른 로펌 선택",
+      "fail_reason": "세종 선택",
+      "fail_competitor": "",
+      "fail_memo": ""
     },
     {
       "id": "mwjxyp3ahwz3z",
