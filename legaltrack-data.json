@@ -2577,7 +2577,7 @@
       "name": "[임시]진합/gen/중국법인 청산",
       "client": "",
       "type": "fixed-f",
-      "status": "hold",
+      "status": "prospect",
       "retainer_amount": 1000000,
       "retainer_cur": "CNY",
       "rate": null,
