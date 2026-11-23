@@ -4345,6 +4345,14 @@
   ],
   "entries": [
     {
+      "id": "mwsn1vsi0pf9g",
+      "matterId": "mq205p2ptqpyp",
+      "date": "2026-11-23",
+      "minutes": 120,
+      "description": "liang 의 세금 답변에 대한 추가 질의에 대해 내부 검토 및 답변 이메일 송부",
+      "billable": true
+    },
+    {
       "id": "mwsn0x87uabpu",
       "matterId": "mq33mk2e2x560",
       "date": "2026-11-23",
