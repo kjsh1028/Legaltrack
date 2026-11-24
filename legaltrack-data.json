@@ -4226,7 +4226,7 @@
       "name": "PURE BIOSUPPLY v. WSG 회생절차가 중재 3건에 미치는 영향 자문 (Jin Partners)",
       "client": "",
       "type": "litigation",
-      "status": "prospect",
+      "status": "active",
       "hold_from": null,
       "areas": [
         "소송"
@@ -4425,6 +4425,14 @@
     }
   ],
   "entries": [
+    {
+      "id": "mwu7pydfytcqw",
+      "matterId": "mwu54b0u1ovo6",
+      "date": "2026-11-24",
+      "minutes": 120,
+      "description": "수임 확정 의견서 초안 작성",
+      "billable": true
+    },
     {
       "id": "mwtyn4rufxb0k",
       "matterId": "mq20ac8bqbt35",
