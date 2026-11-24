@@ -158,7 +158,7 @@
     },
     {
       "id": "mq20hw066a9x0",
-      "code": "인지그룹/CHINA/수저우법인 청산",
+      "code": "인지그룹/CHINA/수저우법인 매각자문",
       "name": "인지정밀-오강 법인 철수",
       "client": "인지정밀",
       "type": "fixed-f",
@@ -194,7 +194,8 @@
       ],
       "memo": "",
       "clientId": null,
-      "contactId": null
+      "contactId": null,
+      "hold_from": null
     },
     {
       "id": "mq20lebejr8qp",
