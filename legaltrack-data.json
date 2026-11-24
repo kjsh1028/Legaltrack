@@ -4422,6 +4422,46 @@
       "memo": "2026-11-24 군합 김성휘 위챗으로 蜜雪集团 法务中心 의뢰서(11-23) 전달, 견적 요청. 1단계(방안 논증·미등록 영업 리스크 의견) + 2단계(인수 실행/정보공개서 등록) 분리 견적. 보수 유형·금액 미정(임시 Fixed Fee). 최종 고객(蜜雪) 직접 계약 여부 확인 필요",
       "clientId": "mtmdr001l6u9i",
       "contactId": "mtmdrag96ai7k"
+    },
+    {
+      "id": "mwukcwu2u1sc8",
+      "code": "메타사이클/GEN/자회사설립",
+      "name": "메타사이클 국내 자회사 설립 (Sam 왕레이)",
+      "client": "리원지에 사장",
+      "type": "fixed-f",
+      "status": "active",
+      "areas": [
+        "법인설립"
+      ],
+      "retainer_amount": null,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": null,
+      "driveLinkLabel": null,
+      "memo": "2026-11-24 Sam 왕레이 위챗으로 자회사 경영범위 전달. 메타사이클㈜(DaBen 100% 외투기업) 국내 운영 자회사 설립. 보수 금액은 김진구 팀장 견적 후 확정. 드라이브 폴더는 秦望环保 프로젝트 하위(자동 이동 방지 위해 driveLink 미입력): https://drive.google.com/drive/folders/1Gfoa2AY07CKD9GiQhTlwUv2NrbQKjg3Z",
+      "clientId": "mqelsjk3ydxje",
+      "contactId": "mwukcwtsv3x55"
     }
   ],
   "entries": [
@@ -9926,6 +9966,23 @@
       "address": "",
       "tags": [],
       "note": "가산 데이터센터 법률의견서 요청(2026-11-24)"
+    },
+    {
+      "id": "mwukcwtsv3x55",
+      "name": "리원지에",
+      "title": "사장(대표이사)",
+      "dept": "",
+      "company": "메타사이클 주식회사",
+      "clientId": "mqelsjk3ydxje",
+      "email": "",
+      "mobile": "",
+      "tel": "",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "",
+      "address": "",
+      "tags": [],
+      "note": "李运杰 LI YUNJIE. 메타사이클㈜ 대표이사, DaBen Innovation Limited 단독 이사. 2026-11-24 국내 자회사 설립 건 고객"
     }
   ],
   "todos": [
