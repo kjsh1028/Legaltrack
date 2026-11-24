@@ -4342,6 +4342,46 @@
       "memo": "드라이브 폴더 기준으로 등록(2026-11-22). 보수 유형·금액·업적 유형은 확인 후 보완",
       "clientId": null,
       "contactId": null
+    },
+    {
+      "id": "mwu54b0u1ovo6",
+      "code": "키움증권/GEN/가산데이터센터SOC의견서",
+      "name": "키움증권 가산 데이터센터 SOC 해당성 법률의견서 (구조화금융2팀 윤영빈)",
+      "client": "키움증권",
+      "type": "fixed-f",
+      "status": "prospect",
+      "areas": [
+        "투자금융"
+      ],
+      "retainer_amount": 3000000,
+      "retainer_cur": "KRW",
+      "rate": null,
+      "rate_cur": "KRW",
+      "cap_amount": null,
+      "estimated_amount": null,
+      "cap_cur": "KRW",
+      "ret_total": null,
+      "ret_cur": null,
+      "monthly_hours": null,
+      "overage_rate": null,
+      "ret_start": null,
+      "ret_end": null,
+      "lit_retainer": null,
+      "lit_balance": null,
+      "lit_mode": null,
+      "contingency_amount": null,
+      "contingency_condition": null,
+      "achievement_type": "solo",
+      "collab_team": "",
+      "my_ratio": 100,
+      "billed_amount": null,
+      "billed_cur": "KRW",
+      "starred": false,
+      "driveLink": "https://drive.google.com/drive/folders/1I03NNAuKwejS7pp_d6tyEHCOLvrxZifm",
+      "driveLinkLabel": "사건 폴더",
+      "memo": "청라 의견서(2026-11-06)와 거의 동일. 2026-11-24 윤영빈 과장 요청. 확인 필요: 키움 참여 구조, 사용승인서·건축물대장, 보수 계약 상대방, VAT 별도 여부",
+      "clientId": "mrd1j5juo3ywl",
+      "contactId": "mwu54b0k779jz"
     }
   ],
   "entries": [
@@ -9789,6 +9829,23 @@
       "email": "",
       "wechat": "",
       "company": "김훈"
+    },
+    {
+      "id": "mwu54b0k779jz",
+      "name": "윤영빈",
+      "title": "과장",
+      "dept": "구조화금융2팀",
+      "company": "키움증권",
+      "clientId": "mrd1j5juo3ywl",
+      "email": "yyb931021@kiwoom.com",
+      "mobile": "+82-10-2239-0784",
+      "tel": "02-3787-3980",
+      "wechat": "",
+      "kakao": "",
+      "met_date": "2026-11-24",
+      "address": "",
+      "tags": [],
+      "note": "가산 데이터센터 법률의견서 요청(2026-11-24)"
     }
   ],
   "todos": [
