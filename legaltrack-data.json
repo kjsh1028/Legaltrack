@@ -4466,6 +4466,14 @@
   ],
   "entries": [
     {
+      "id": "mwus72k8vsmzr",
+      "matterId": "mw92ocppsdc2f",
+      "date": "2026-11-24",
+      "minutes": 60,
+      "description": "상대방 수정한 비밀 보호 유지 조항에 대한 검토 및 고객 이메일",
+      "billable": true
+    },
+    {
       "id": "mwssa7j9dl9va",
       "matterId": "mw92ocppsdc2f",
       "date": "2026-11-23",
