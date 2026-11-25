@@ -4466,6 +4466,14 @@
   ],
   "entries": [
     {
+      "id": "mwvu0tdm2x4ao",
+      "matterId": "mwu54b0u1ovo6",
+      "date": "2026-11-25",
+      "minutes": 120,
+      "description": "메모 초안 작성",
+      "billable": true
+    },
+    {
       "id": "mwvu0adatt2g1",
       "matterId": "mwk65w0lbycl4",
       "date": "2026-11-25",
