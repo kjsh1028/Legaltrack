@@ -4466,6 +4466,14 @@
   ],
   "entries": [
     {
+      "id": "mwvu32n8gxedx",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-11-25",
+      "minutes": 30,
+      "description": "계약금 입금 클로징 팔로우",
+      "billable": true
+    },
+    {
       "id": "mwvu1yjpou2od",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-11-25",
