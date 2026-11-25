@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="app-version" content="2026112502">
+<meta name="app-version" content="2026112503">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -538,7 +538,7 @@ if('serviceWorker' in navigator){
 
 
 const CFG_KEY='lt_cfg_v7',LOCAL_KEY='lt_data_v7';
-const APP_VERSION='2026112502';
+const APP_VERSION='2026112503';
 let CFG={supaUrl:'',supaKey:'',usdKrw:1380,cnyKrw:190,ghToken:'',ghRepo:'kjsh1028/Legaltrack',ghBranch:'main',anthropicKey:'',driveSyncUrl:''};
 let D={matters:[],entries:[],payments:[],clients:[],contacts:[],todos:[],expenses:[],cardExpenses:[]};
 let curTab=0,timerObj=null,timerIv=null;
@@ -594,9 +594,9 @@ const PRACTICE_AREAS=['M&A','투자금융','법인설립','청산','소송','중
 function mAreas(m){return Array.isArray(m.areas)?m.areas:[];}
 function areaTagsHTML(m,cls){return mAreas(m).map(a=>`<span class="${cls||'tag'} b">${a}</span>`).join(' ');}
 function isEngaged(m){return ['active','closed'].includes(m.status)||(m.status==='hold'&&m.hold_from!=='prospect');}
-// 시간 기록 3분류: 율촌 내부(Biz Building·Office 내부·비빌링 Matter) / 청구 가능 / 청구 불가
-const ENTRY_CAT={bill:{label:'청구 가능',color:'var(--g)'},nobill:{label:'청구 불가',color:'var(--o)'},internal:{label:'율촌 내부',color:'var(--gray)'}};
-function entryCatKey(e){const m=D.matters.find(x=>x.id===e.matterId)||{};if(['biz-b','office-i'].includes(m.type)||m.status==='internal')return'internal';return e.billable?'bill':'nobill';}
+// 시간 기록 3분류: 청구 가능(빨강) / 청구 불가(회색, 마케팅=Biz Building 포함) / 율촌 내부(초록, Office 내부)
+const ENTRY_CAT={bill:{label:'청구 가능',color:'var(--r)'},nobill:{label:'청구 불가',color:'var(--gray)'},internal:{label:'율촌 내부',color:'var(--g)'}};
+function entryCatKey(e){const m=D.matters.find(x=>x.id===e.matterId)||{};if(m.type==='office-i')return'internal';if(m.type==='biz-b')return'nobill';return e.billable?'bill':'nobill';}
 function entryCat(e){return ENTRY_CAT[entryCatKey(e)];}
 const FAIL_REASONS=['보수 조건 불일치','다른 로펌 선택','예산 부족','프로젝트 취소','의뢰인 내부 결정','경쟁입찰 패배','연락 두절','기타'];
 function getRetainerBase(m){
