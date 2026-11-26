@@ -4628,6 +4628,14 @@
   ],
   "entries": [
     {
+      "id": "mwxagyd9r0pyb",
+      "matterId": "mtbeaqaa7rmnm",
+      "date": "2026-11-26",
+      "minutes": 30,
+      "description": "양도금액과 자산가격 차이가 나는 경우 발생할 수 있는 법적 외환 실무적 리스크 검토 고객 전달",
+      "billable": true
+    },
+    {
       "id": "mwxafsy7j6tl7",
       "matterId": "mwukcwu2u1sc8",
       "date": "2026-11-26",
