@@ -4628,6 +4628,14 @@
   ],
   "entries": [
     {
+      "id": "mwx13o1ju7ebv",
+      "matterId": "mwu54b0u1ovo6",
+      "date": "2026-11-26",
+      "minutes": 180,
+      "description": "의견서 초안 작성",
+      "billable": true
+    },
+    {
       "id": "mwx11r8hpigdz",
       "matterId": "mq20ac8bqbt35",
       "date": "2026-11-26",
