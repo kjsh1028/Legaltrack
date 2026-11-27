@@ -4668,6 +4668,14 @@
   ],
   "entries": [
     {
+      "id": "mwyi4kewhbfi3",
+      "matterId": "mwu54b0u1ovo6",
+      "date": "2026-11-27",
+      "minutes": 120,
+      "description": "의견서 최종본 검토 및 고객 송부",
+      "billable": true
+    },
+    {
       "id": "mwyi44kzggj87",
       "matterId": "mw92ocppsdc2f",
       "date": "2026-11-27",
