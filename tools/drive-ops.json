@@ -1,3 +1,5 @@
 {
-  "ops": []
+  "ops": [
+    {"id": "test-20261128", "op": "mkdir", "parent": "1R8OuQyYo2OkfWQlF7t7GnnHTjKHIR_5l", "name": "20_진행중", "note": "설치 확인용: 이미 있는 폴더라 아무것도 바꾸지 않고 '건너뜀'만 기록됨"}
+  ]
 }
