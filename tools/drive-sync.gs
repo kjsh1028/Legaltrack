@@ -5,6 +5,9 @@
  *    웹 앱 주소를 불러 해당 사건 폴더를 바로 맞는 상태 폴더로 옮긴다.
  * 2) 하루 1회 점검: 매일 새벽 3시(상해 시간)에 전체 사건을 다시 대조한다
  *    (앱 밖에서 바뀐 것까지 맞춤).
+ * 3) 드라이브 정리 작업함: 매일 새벽 3시 40분(상해 시간)에 GitHub의 tools/drive-ops.json을 읽어,
+ *    아직 안 한 작업(폴더 만들기·옮기기·이름 바꾸기·휴지통)을 실행한다. 바로 반영하려면 runDriveOps를 직접 실행.
+ *    휴지통은 30일 안에 되살릴 수 있고, 영구 삭제는 하지 않는다. (2)의 '이름은 바꾸지 않음' 원칙은 자동 정리에만 해당)
  *
  * 설치 순서
  *  ① setup 실행 → 권한 허용 (하루 1회 예약 등록 + 비밀 키 생성 + 1회 전체 정리)
@@ -39,13 +42,16 @@ function setup() {
   removeTriggers();
   ScriptApp.newTrigger('syncLegalTrackFolders').timeBased()
     .everyDays(1).atHour(3).inTimezone('Asia/Shanghai').create();
+  ScriptApp.newTrigger('runDriveOps').timeBased()
+    .everyDays(1).atHour(3).nearMinute(40).inTimezone('Asia/Shanghai').create();
   getKey_();
   syncLegalTrackFolders();
+  runDriveOps();
 }
 
 function removeTriggers() {
   ScriptApp.getProjectTriggers()
-    .filter(t => t.getHandlerFunction() === 'syncLegalTrackFolders')
+    .filter(t => t.getHandlerFunction() === 'syncLegalTrackFolders' || t.getHandlerFunction() === 'runDriveOps')
     .forEach(t => ScriptApp.deleteTrigger(t));
 }
 
@@ -156,4 +162,82 @@ function log_(rows) {
   const sh = ss.getSheets()[0];
   const now = Utilities.formatDate(new Date(), 'Asia/Shanghai', 'yyyy-MM-dd HH:mm');
   rows.forEach(r => sh.appendRow([now].concat(r)));
+}
+
+
+/* ── 3) 드라이브 정리 작업함 (tools/drive-ops.json) ──
+ * 형식: {"ops":[
+ *   {"id":"고유번호", "op":"mkdir",  "parent":"폴더ID", "name":"새 폴더 이름"},
+ *   {"id":"고유번호", "op":"move",   "target":"파일/폴더ID", "to":"폴더ID", "name":"(선택) 새 이름"},
+ *   {"id":"고유번호", "op":"rename", "target":"파일/폴더ID", "name":"새 이름"},
+ *   {"id":"고유번호", "op":"trash",  "target":"파일/폴더ID"} ]}
+ * 한 번 실행한 id는 다시 실행하지 않는다. 결과는 '_LegalTrack 동기화 기록' 시트에 남는다.
+ * 안전장치: 본인 소유 항목만 다루고, 지우기는 휴지통 보내기만 한다.
+ */
+const OPS_URL = 'https://raw.githubusercontent.com/kjsh1028/Legaltrack/main/tools/drive-ops.json';
+
+function runDriveOps() {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(1000)) return;
+  try {
+    const res = UrlFetchApp.fetch(OPS_URL + '?t=' + Date.now(), { muteHttpExceptions: true });
+    if (res.getResponseCode() !== 200) { log_([['오류', '', 'drive-ops.json', 'HTTP ' + res.getResponseCode()]]); return; }
+    const ops = (JSON.parse(res.getContentText('UTF-8')).ops) || [];
+    const props = PropertiesService.getScriptProperties();
+    const done = JSON.parse(props.getProperty('DONE_OPS') || '[]');
+    const me = Session.getEffectiveUser().getEmail();
+    const rows = [];
+    ops.forEach(o => {
+      if (!o || !o.id || done.indexOf(o.id) >= 0) return;
+      try {
+        rows.push(doOp_(o, me));
+      } catch (e) {
+        rows.push(['오류', o.id + ' ' + o.op, e.message]);
+      }
+      done.push(o.id);
+    });
+    if (rows.length) {
+      props.setProperty('DONE_OPS', JSON.stringify(done.slice(-500)));
+      rows.forEach(r => Logger.log(r.join(' | ')));
+      // 기록 시트 열: 결과 | 사건 | 폴더 | 내용  (작업함은 사건 칸을 비운다)
+      log_(rows.map(r => [r[0], '', r[1], r[2]]));
+    } else {
+      Logger.log('새 작업 없음');
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function item_(id) {
+  try { return DriveApp.getFolderById(id); } catch (e) { return DriveApp.getFileById(id); }
+}
+
+function doOp_(o, me) {
+  if (o.op === 'mkdir') {
+    const parent = DriveApp.getFolderById(o.parent);
+    const it = parent.getFoldersByName(o.name);
+    if (it.hasNext()) return ['건너뜀', o.id + ' ' + o.name, '이미 있음 (' + it.next().getId() + ')'];
+    const f = parent.createFolder(o.name);
+    return ['폴더 만듦', o.id + ' ' + o.name, parent.getName() + ' 안 (' + f.getId() + ')'];
+  }
+  const t = item_(o.target);
+  const owner = t.getOwner();
+  if (owner && owner.getEmail() !== me) return ['건너뜀', o.id + ' ' + t.getName(), '본인 소유가 아님'];
+  const before = t.getName();
+  if (o.op === 'move') {
+    const dest = DriveApp.getFolderById(o.to);
+    t.moveTo(dest);
+    if (o.name && o.name !== before) t.setName(o.name);
+    return ['이동', o.id + ' ' + before, '→ ' + dest.getName() + (o.name && o.name !== before ? ' / 이름: ' + o.name : '')];
+  }
+  if (o.op === 'rename') {
+    t.setName(o.name);
+    return ['이름 변경', o.id + ' ' + before, '→ ' + o.name];
+  }
+  if (o.op === 'trash') {
+    t.setTrashed(true);
+    return ['휴지통', o.id + ' ' + before, '30일 안에 되살릴 수 있음'];
+  }
+  return ['건너뜀', o.id, '알 수 없는 작업: ' + o.op];
 }
